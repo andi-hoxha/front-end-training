@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "baseUrl": ".",
+        "paths": {
+            "@go-prime/ui/*": ["@go-prime/ui/*"],
+            "*": ["src/*"]
+        }
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
