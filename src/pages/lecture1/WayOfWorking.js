@@ -9,8 +9,12 @@ const styles = ({ typography }) => ({
   root: {},
 })
 
-import boardInstructions from 'assets/images/board_instruction.png'
-import boardInstructions2 from 'assets/images/board_instruction_part_2.png'
+import boardInstructions from 'assets/images/lecture1/board_instruction.png'
+import boardInstructions2 from 'assets/images/lecture1/board_instruction_part_2.png'
+import firstTask from 'assets/images/lecture1/first_task.png'
+import editTask from 'assets/images/lecture1/edit_task.png'
+import fetchNewBranch from 'assets/images/lecture1/fetch_new_branch.png'
+import firstPush from 'assets/images/lecture1/first_push.png'
 
 class Lecture1 extends React.Component {
   render() {
@@ -67,36 +71,48 @@ class Lecture1 extends React.Component {
           Exercise 1:
         </Typography>
         <Typography>
-          Step 1: Create your first task with the title "Exercise 1" and description and add it at doing:
+          Step 1: Create your first task with the title "Exercise 1" and add it at doing:
+        </Typography>
+        <Typography variant={'p'}>
+          <img src={firstTask}></img>
         </Typography>
         <Typography>
-          Description: “In order to learn on how to exercise the way of working, I will change the “README.md” file to contain my name on it”
+          Step 2: Click the title of the task to go to its details page
+        </Typography>
+        <Typography variant={'p'}>
+          <img src={editTask}></img>
         </Typography>
         <Typography>
-          Step 2: Create a branch for this task from the GitLab Task details screen
-          <ol>
-            <li>Click the title of the task to go to its details page</li>
-            <li>Click the create branch button (At more options from the “Create merge request”)</li>
-          </ol>
+          Step 3: Add the description: “In order to learn on how to exercise the way of working, I will change the “README.md” file to contain my name on it”
         </Typography>
         <Typography>
-          Step 3: Go to Source Tree, and fetch all the remote branches
+          Step 4: Create a pull (merge) request at GitLab
         </Typography>
         <Typography>
-          Step 4: Double-click to jump to the new branch
+          Step 5: Go to Source Tree, and fetch all the remote branches
         </Typography>
         <Typography>
-          Step 5: Perform the task, using VS Code -> Add your name at the READE.md file
+          Step 6: Double-click to jump to the new branch
+        </Typography>
+        <Typography variant={'p'}>
+          <img src={fetchNewBranch}></img>
         </Typography>
         <Typography>
-          Step 6: On Source Tree, commit and push the changes!
+          Step 7: Perform the task, using VS Code -> Add your name at the READE.md file
         </Typography>
         <Typography>
-          Step 7: Create a pull (merge) request at GitLab
+          Step 8: On Source Tree, commit and push the changes!
+        </Typography>
+        <Typography variant={'p'}>
+          <img src={firstPush}></img>
         </Typography>
         <Typography>
-          Step 8: Finished!
+          Step 9: Wait for us to approve your merge request. Don't close it yourself. You are Done!
         </Typography>
+
+
+
+
       </Fragment>
     )
   }

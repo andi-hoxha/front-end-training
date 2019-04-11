@@ -11,10 +11,13 @@ const styles = ({ typography }) => ({
   root: {},
 })
 
-import fork from 'assets/images/fork_instruction.png'
-import cloneInstruction from 'assets/images/clone_instruction.png'
-import cloneSourceTree from 'assets/images/clone_new_source_tree.png'
-import visualCodeImport from 'assets/images/vs_code_import.png'
+import fork from 'assets/images/lecture1/fork_instruction.png'
+import cloneInstruction from 'assets/images/lecture1/clone_instruction.png'
+import cloneSourceTree from 'assets/images/lecture1/clone_new_source_tree.png'
+import visualCodeImport from 'assets/images/lecture1/vs_code_import.png'
+import addMember from 'assets/images/lecture1/add_member.png'
+import newRemote from 'assets/images/lecture1/new_remote.png'
+import remoteMaster from 'assets/images/lecture1/remote_master.png'
 
 class ProjectSetup extends React.Component {
   render() {
@@ -37,6 +40,10 @@ class ProjectSetup extends React.Component {
               <img src={fork}></img>
             </Typography>
             <li><label>Select your account name as the namespace/group to fork the project</label></li>
+            <li><label>Add Agon Lohaj and Leutrim Neziri as Maintainers</label></li>
+            <Typography variant={'p'}>
+              <img src={addMember}></img>
+            </Typography>
           </ol>
         </Typography>
 
@@ -63,6 +70,27 @@ class ProjectSetup extends React.Component {
             <li>Click Clone</li>
           </ol>
         </Typography>
+        
+        <Typography variant={'p'}>
+          Now lets track the remote changes that we will publish. These are the new lectures that you will get at the next session
+        </Typography>
+
+        <Typography variant={'p'}>
+          <ol>
+            <li>From the "Repository" menu click "Add Remote"</li>
+            <li>Name the remote to "Training"</li>
+            <li>The URL/path will be the URL of the training repository located here: <SimpleLink href="https://gitlab.com/agonlohaj/prime-front-end-training">https://gitlab.com/agonlohaj/prime-front-end-training</SimpleLink></li>
+            <li>Name the remote to "Training"</li>
+            <Typography variant={'p'}>
+              <img src={newRemote}></img>
+            </Typography>
+            <li>When we do the next session, use the "Pull" functionality from Source Tree to get the next lecture into your "Forked" repository</li>
+            <Typography variant={'p'}>
+              <img src={remoteMaster}></img>
+            </Typography>
+          </ol>
+        </Typography>
+
         <Typography variant={'p'}>
           Now that you have the code locally, go ahead and open VS Code and import the project. Follow this image to do that:
         </Typography>

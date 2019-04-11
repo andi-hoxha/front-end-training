@@ -2,12 +2,15 @@
  * Created by LeutrimNeziri on 09/04/2019.
  */
 import withStyles from "@go-prime/ui/withStyles";
+import agileMethodology from 'assets/images/lecture1/agile_methodology.jpg';
+import scrumImage from 'assets/images/lecture1/scrum.png';
 import Divider from "presentations/Divider";
 import Typography from "presentations/Typography";
 import React, { Fragment } from "react";
 const styles = ({ typography }) => ({
   root: {},
 })
+
 
 class AgileMethodology extends React.Component {
   render() {
@@ -32,6 +35,9 @@ class AgileMethodology extends React.Component {
             <li>Customer collaboration over contract negotiation</li>
             <li>Responding to change over following a plan</li>
           </ol>
+        </Typography>
+        <Typography variant={'p'}>
+          <img src={agileMethodology}></img>
         </Typography>
         <Typography variant={'p'}>
           Here are some key points on how an agile model works:
@@ -107,6 +113,9 @@ class AgileMethodology extends React.Component {
           </ol>
         </Typography>
 
+        <Typography variant={'p'}>
+          <img src={scrumImage}></img>
+        </Typography>
         <Typography>
           The general idea behind SCRUM, is that at the end of every Sprint a new product deliverable is created. That means the features under development were developed, tested and merged to the repository and are ready to be published at the end of the sprint. In general, the ideal use case for a developer is to:
           <ol>

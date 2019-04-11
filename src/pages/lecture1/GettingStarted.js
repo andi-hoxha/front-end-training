@@ -106,16 +106,16 @@ class GettingStarted extends React.Component {
           It is very easy to work with, integrate and distribute.  Read more about how awesome it is over here:<SimpleLink href="https://www.mongodb.com/">https://www.mongodb.com/.</SimpleLink>Go ahead and download it while your at it! For this training, we are going to store data in there, leverage the mongo querying and aggregation functions to yield cool results, but most importantly have fun with it while doing it!
         </Typography>
 
+        <Typography variant={'p'}>
+          It stores data in a BSON format, that is a binary encoding of JSON-like document. And JSON stands for JavaScript Object Notation. Just have a look at how nice of a data representation a JSON has:
+        </Typography>
+        
         <Code>
           {code}
         </Code>
 
         <Typography variant={'p'}>
-          It stores data in a BSON format, that is a binary encoding of JSON-like document. And JSON stands for JavaScript Object Notation. Just have a look at how nice of a data representation a JSON has:
-        </Typography>
-
-        <Typography variant={'p'}>
-          For more information, visit: <SimpleLink href="https://www.json.org/">https://www.json.org/.</SimpleLink>However don’t worry, you are going to be using a lot of JSON when programming with JavaScript, get really familiar with it, and then moving on to Mongo will be easy peasy!
+          However don’t worry, you are going to be using a lot of JSON when programming with JavaScript, get really familiar with it, and then moving on to Mongo will be easy peasy! For more information, visit: <SimpleLink href="https://www.json.org/">https://www.json.org/.</SimpleLink>
         </Typography>
 
         <Typography id={npm.id} variant={'title'}>
