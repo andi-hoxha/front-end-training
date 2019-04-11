@@ -12,7 +12,7 @@ import LogoTextIcon from 'presentations/icons/LogoTextIcon'
 
 const styles = ({size, zIndex, palette, typography}) => ({
   root: {
-    maxWidth: 350,
+    maxWidth: 320,
     width: '100%',
     overflowY: 'auto',
     overflowX: 'hidden',
