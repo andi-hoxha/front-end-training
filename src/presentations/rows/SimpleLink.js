@@ -4,13 +4,9 @@
 import React from 'react'
 import withStyles from '@go-prime/ui/withStyles'
 import classNames from 'classnames'
-import {Link} from 'react-router-dom'
 
 const styles = ({palette, size, transitions}) => ({
   root: {
-    display: 'flex',
-    alignItems: 'center',
-    flexFlow: 'row nowrap',
     padding: [0, size.spacing / 2],
     fontSize: size.titleFontSize,
     transition: transitions.common,

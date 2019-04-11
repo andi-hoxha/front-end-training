@@ -6,17 +6,17 @@ import withStyles from "@go-prime/ui/withStyles"
 import Content from 'anatomy/Content'
 import routes from 'Routes'
 import { PAGES } from 'Constants'
-import Home from 'pages/sections/Home'
-import Lecture1 from 'pages/sections/lecture1/Lecture1'
-import Glossary from "pages/sections/Glossary";
-import Lecture2 from "pages/sections/lecture2/Lecture2";
-import Resources from "pages/sections/Resources";
+import Home from 'pages/Home'
+import Lecture1 from 'pages/lecture1/Lecture1'
+import Glossary from "pages/Glossary";
+import Lecture2 from "pages/lecture2/Lecture2";
+import Resources from "pages/Resources";
 
 const styles = ({typography}) => ({
   root: {}
 })
 
-class Lecture extends React.Component {
+class Factory extends React.Component {
 
   constructor (props) {
     super(props)
@@ -93,4 +93,4 @@ class Lecture extends React.Component {
   }
 }
 
-export default withStyles(styles)(Lecture)
+export default withStyles(styles)(Factory)

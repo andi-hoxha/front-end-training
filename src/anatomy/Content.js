@@ -18,9 +18,6 @@ const styles = ({palette, size, typography}) => ({
       margin: [size.spacing, 0],
       width: '100%'
     },
-    label: {
-      display: 'flex'
-    }
   },
   appWrapper: {
     display: 'flex',

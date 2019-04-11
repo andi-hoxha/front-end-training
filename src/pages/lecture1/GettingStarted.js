@@ -4,7 +4,7 @@
 import Code from "@go-prime/ui/Code/index";
 import withStyles from "@go-prime/ui/withStyles";
 import Divider from "presentations/Divider";
-import SimpleLink from "presentations/rows/nav/SimpleLink";
+import SimpleLink from "presentations/rows/SimpleLink";
 import Typography from "presentations/Typography";
 import React, { Fragment } from "react";
 const styles = ({ typography }) => ({

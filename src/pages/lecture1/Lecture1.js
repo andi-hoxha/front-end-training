@@ -3,12 +3,12 @@
  */
 import withStyles from "@go-prime/ui/withStyles";
 import { PAGES } from 'Constants';
-import React from "react";
-import AgileMethodology from "./AgileMethodology";
-import GettingStarted from "./GettingStarted";
-import Intro from "./Intro";
-import ProjectSetup from "./ProjectSetup";
-import WayOfWorking from "./WayOfWorking";
+import React, { Fragment } from "react";
+import AgileMethodology from "pages/lecture1/AgileMethodology";
+import GettingStarted from "pages/lecture1/GettingStarted";
+import Intro from "pages/lecture1/Intro";
+import ProjectSetup from "pages/lecture1/ProjectSetup";
+import WayOfWorking from "pages/lecture1/WayOfWorking";
 const styles = ({ typography }) => ({
   root: {},
 })

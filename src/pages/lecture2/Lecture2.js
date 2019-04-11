@@ -3,7 +3,7 @@
  */
 import withStyles from "@go-prime/ui/withStyles";
 import React from "react";
-import Intro from "pages/sections/lecture2/Intro";
+import Intro from "pages/lecture2/Intro";
 const styles = ({ typography }) => ({
   root: {},
 })
