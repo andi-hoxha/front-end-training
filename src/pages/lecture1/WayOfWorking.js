@@ -9,6 +9,9 @@ const styles = ({ typography }) => ({
   root: {},
 })
 
+import boardInstructions from 'assets/images/board_instruction.png'
+import boardInstructions2 from 'assets/images/board_instruction_part_2.png'
+
 class Lecture1 extends React.Component {
   render() {
     const { classes, section } = this.props
@@ -28,9 +31,15 @@ class Lecture1 extends React.Component {
           <ul>
             <li>Open: We will consider this our backlog</li>
             <li>Doing: The assignments that are under progress</li>
-            <li>In Review: The assignments that are under review by your trainer or assistant</li>
+            <li>Review: The assignments that are under review by your trainer or assistant</li>
             <li>Done: The assignments that are reviewed and merged</li>
           </ul>
+        </Typography>
+        <Typography variant={'p'}>
+          <img src={boardInstructions}></img>
+        </Typography>
+        <Typography variant={'p'}>
+          <img src={boardInstructions2}></img>
         </Typography>
         <Typography>
           These are the following rules of the game that we will follow throughout the training:
@@ -58,7 +67,7 @@ class Lecture1 extends React.Component {
           Exercise 1:
         </Typography>
         <Typography>
-          Step 1: Create your first task with the following title and description and add it at doing:
+          Step 1: Create your first task with the title "Exercise 1" and description and add it at doing:
         </Typography>
         <Typography>
           Description: “In order to learn on how to exercise the way of working, I will change the “README.md” file to contain my name on it”
