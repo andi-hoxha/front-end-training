@@ -26,7 +26,6 @@ class Home extends React.Component {
           <Typography>Designed and structured by Agon Lohaj and Leutrim Neziri</Typography>
           <Divider />
         </Typography>
-        <Typography variant={'subHeading'} lead>Introduction</Typography>
         <Typography variant={'p'}>
           Welcome to the first training program by PRIME. This web app will be the container of all the materials that you need to have in order to follow through the training. We are going to publish every material that we use during our lectures, related assignments and also resources that you will need to complete the training successfully.
         </Typography>

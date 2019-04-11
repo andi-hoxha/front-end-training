@@ -55,7 +55,7 @@ class GettingStarted extends React.Component {
             <li>VS Code</li>
             <li>MongoDB Community Server</li>
             <li>Node Package Manager (NPM), part of the Node JS framework</li>
-            <li>Mac or Windows OS (Duuh!)</li>
+            <li>Mac or Windows OS</li>
           </ol>
         </Typography>
         <Typography variant={'p'}>
