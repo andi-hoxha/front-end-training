@@ -24,7 +24,6 @@ class Intro extends React.Component {
         <Typography variant='p'>
           The lecture 1 will contain these underlying pages:
           <ol>
-            <li>Introduction</li>
             <li>Getting Started</li>
             <li>Project Setup</li>
             <li>Agile Methodology Introduction</li>

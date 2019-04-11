@@ -11,6 +11,11 @@ const styles = ({ typography }) => ({
   root: {},
 })
 
+import fork from 'assets/images/fork_instruction.png'
+import cloneInstruction from 'assets/images/clone_instruction.png'
+import cloneSourceTree from 'assets/images/clone_new_source_tree.png'
+import visualCodeImport from 'assets/images/vs_code_import.png'
+
 class ProjectSetup extends React.Component {
   render() {
     const { classes, section } = this.props
@@ -26,12 +31,15 @@ class ProjectSetup extends React.Component {
           <ol>
             <li><label>Open your browser and go to this link: <SimpleLink href="https://gitlab.com">https://gitlab.com</SimpleLink></label></li>
             <li><label>Use your previously created account to login</label></li>
-            <li><label>Share your account name with your trainer or assistant. You will be given access now!</label></li>
             <li><label>Follow this link to go to the main project in gitlab (maintained by PRIME): <SimpleLink href="https://gitlab.com/agonlohaj/prime-front-end-training">https://gitlab.com/agonlohaj/prime-front-end-training</SimpleLink></label></li>
             <li><label>Click the fork button</label></li>
-            <li><label>Select the "Training Program Group" to fork the project</label></li>
+            <Typography variant={'p'}>
+              <img src={fork}></img>
+            </Typography>
+            <li><label>Select your account name as the namespace/group to fork the project</label></li>
           </ol>
         </Typography>
+
 
         <Typography variant={'p'}>
           Now in order to have the project locally, we will have to clone it using Source Tree. Follow the instructions listed here:
@@ -40,17 +48,26 @@ class ProjectSetup extends React.Component {
         <Typography variant={'p'}>
           <ol>
             <li>Go to your forked project page</li>
-            <li>Click the clone icon (TODO: INSERT IMAGE)</li>
-            <li>Use the clone with HTTPS, copy the url (TODO: INSERT IMAGE)</li>
+            <li>Click the clone icon</li>
+            <Typography variant={'p'}>
+              <img src={cloneInstruction}></img>
+            </Typography>
+            <li>Use the clone with HTTPS, copy the url</li>
             <li>Open Source tree on your local machine</li>
             <li>Go ahead and choose the File -> Clone/New option. You can also find it using the add button and going at the Clone Tab</li>
+            <Typography variant={'p'}>
+              <img src={cloneSourceTree}></img>
+            </Typography>
             <li>Paste the link at the source path, that you obtained from step 3</li>
-            <li>Choose a folder on your local machine</li>
+            <li>Choose a folder at your Documents/Training Program/Repository</li>
             <li>Click Clone</li>
           </ol>
         </Typography>
         <Typography variant={'p'}>
-          Now that you have the code locally, go ahead and open VS Code and import the project. Follow these steps to do that:
+          Now that you have the code locally, go ahead and open VS Code and import the project. Follow this image to do that:
+        </Typography>
+        <Typography variant={'p'}>
+          <img src={visualCodeImport}></img>
         </Typography>
 
         <Typography id={running.id} variant={'title'}>
