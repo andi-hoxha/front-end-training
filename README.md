@@ -35,6 +35,9 @@ Documentation
 --------------------
 This project itself is a documentation of the training program
 
+"Your Name Here"
+---------------------
+
 For More Information
 ---------------------
 
