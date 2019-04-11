@@ -47,7 +47,8 @@ module.exports = {
             path.resolve(APP_DIR)
         ],
         alias: {
-            '@go-prime': UI_DIR
+            '@go-prime': UI_DIR,
+            'ui': UI_DIR + '/ui'
         }
     },
     plugins: [new HtmlWebpackPlugin({

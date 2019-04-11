@@ -1,33 +1,14 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _withStyles = _interopRequireDefault(require("../withStyles"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 /**
  * Created by LeutrimNeziri on 01/03/2019.
  */
-var styles = function styles(_ref) {
-  var size = _ref.size,
-      transitions = _ref.transitions;
-  return {};
-};
+import React from 'react'
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
+import withStyles from 'ui/withStyles'
 
-var Link = function Link(props) {
-  return _react.default.createElement("a", props);
-};
+const styles = ({size, transitions}) => ({
+})
 
-var _default = (0, _withStyles.default)(styles)(Link);
+const Link = props => <a {...props}/>
 
-exports.default = _default;
+export default withStyles(styles)(Link)

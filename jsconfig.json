@@ -2,8 +2,10 @@
     "compilerOptions": {
         "target": "es6",
         "baseUrl": ".",
+        "module": "commonjs",
         "paths": {
             "@go-prime/ui/*": ["@go-prime/ui/*"],
+            "ui/*": ["@go-prime/ui/*"],
             "*": ["src/*"]
         }
     },

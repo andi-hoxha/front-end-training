@@ -1,20 +1,13 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.expandReverseAnimation60fps = exports.expandAnimation60fps = exports.expandAnimationInverse = exports.expandAnimation = exports.timing = void 0;
-
 /**
  * Created by LeutrimNeziri on 07/03/2019.
  */
-var timing = {
+export const timing = {
   shortest: 100,
   short: 200,
   normal: 250
-};
-exports.timing = timing;
-var expandAnimation = {
+}
+
+export const expandAnimation = {
   '0%': {
     transform: 'scaleY(0)',
     transformOrigin: '100% 0%',
@@ -25,9 +18,9 @@ var expandAnimation = {
     transformOrigin: '100% 0%',
     opacity: 1
   }
-};
-exports.expandAnimation = expandAnimation;
-var expandAnimationInverse = {
+}
+
+export const expandAnimationInverse = {
   '0%': {
     transform: 'scaleY(1)',
     transformOrigin: '100% 0%',
@@ -38,9 +31,9 @@ var expandAnimationInverse = {
     transformOrigin: '100% 0%',
     opacity: 0
   }
-};
-exports.expandAnimationInverse = expandAnimationInverse;
-var expandAnimation60fps = {
+}
+
+export const expandAnimation60fps = {
   "0%": {
     transform: "scaleY(0)"
   },
@@ -131,9 +124,10 @@ var expandAnimation60fps = {
   "100%": {
     transform: "scaleY(1)"
   }
-};
-exports.expandAnimation60fps = expandAnimation60fps;
-var expandReverseAnimation60fps = {
+}
+
+
+export const expandReverseAnimation60fps = {
   "0%": {
     transform: "scaleY(7.63592)"
   },
@@ -224,5 +218,4 @@ var expandReverseAnimation60fps = {
   "100%": {
     transform: "scaleY(1)"
   }
-};
-exports.expandReverseAnimation60fps = expandReverseAnimation60fps;
+}
