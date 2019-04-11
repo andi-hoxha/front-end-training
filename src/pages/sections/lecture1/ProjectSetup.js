@@ -27,10 +27,9 @@ class ProjectSetup extends React.Component {
             <li><label>Open your browser and go to this link: <SimpleLink href="https://gitlab.com">https://gitlab.com</SimpleLink></label></li>
             <li><label>Use your previously created account to login</label></li>
             <li><label>Share your account name with your trainer or assistant. You will be given access now!</label></li>
-            <li><label>Create a project group (TODO: INSERT IMAGE)</label></li>
-            <li><label>Follow this link to go to the main project in gitlab (maintained by PRIME): <SimpleLink href="#">TODO</SimpleLink></label></li>
-            <li><label>Click the fork button (TODO: INSERT IMAGE)</label></li>
-            <li><label>Select a namespace to fork the project, the one created at step 4 (TODO: check if the namespace should be created first)</label></li>
+            <li><label>Follow this link to go to the main project in gitlab (maintained by PRIME): <SimpleLink href="https://gitlab.com/agonlohaj/prime-front-end-training">https://gitlab.com/agonlohaj/prime-front-end-training</SimpleLink></label></li>
+            <li><label>Click the fork button</label></li>
+            <li><label>Select the "Training Program Group" to fork the project</label></li>
           </ol>
         </Typography>
 
@@ -73,6 +72,27 @@ class ProjectSetup extends React.Component {
           Open your browser at: <SimpleLink href="http://localhost:8080">http://localhost:8080</SimpleLink> and enjoy!
         </Typography>
 
+        <Typography variant={'p'}>
+          <br/>
+          In case you are experiencing difficulties starting the application, try the following:
+          <ol>
+            <li>
+              Run the Command Prompt as an administrator
+            </li>
+            <li>
+              Run: 
+              <Code>
+                {`npm install -g webpack-dev-server`}
+              </Code>
+              <Code>
+                {`npm install -g webpack`}
+              </Code>
+              <Code>
+                {`npm install -g webpack-cli`}
+              </Code>
+            </li>
+          </ol>
+        </Typography>
       </Fragment>
     )
   }
