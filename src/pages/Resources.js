@@ -10,7 +10,7 @@ const styles = ({ typography }) => ({
   root: {},
 })
 
-class Intro extends React.Component {
+class Resources extends React.Component {
   render() {
     const { classes } = this.props
     return (
@@ -43,4 +43,4 @@ class Intro extends React.Component {
   }
 }
 
-export default withStyles(styles)(Intro)
+export default withStyles(styles)(Resources)

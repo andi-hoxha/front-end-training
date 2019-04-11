@@ -6,6 +6,10 @@ const routes = [
     id: PAGES.HOME,
   },
   {
+    display: 'Plan Program',
+    id: PAGES.PLAN_PROGRAM
+  },
+  {
     display: 'Lecture 1',
     id: PAGES.LECTURE_1.ID,
     children: [

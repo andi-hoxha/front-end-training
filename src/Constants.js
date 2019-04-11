@@ -15,7 +15,8 @@ module.exports = {
       ID: 'lecture2'
     },
     GLOSSARY: 'glossary',
-    RESOURCES: 'resources'
+    RESOURCES: 'resources',
+    PLAN_PROGRAM: 'program'
   },
 }
 

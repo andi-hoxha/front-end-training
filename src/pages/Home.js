@@ -43,7 +43,7 @@ class Home extends React.Component {
           Msc. Agon Lohaj
         </Typography>
         <Typography variant={'p'}>
-          A master graduate from the Technical University of Munich. Software engineering major, Computer Graphics and Vision Minor, Algorithms minor. Lead Software Engineer @PRIME. Tech enthusiast and a Drummer.
+          A master graduate from the Technical University of Munich. Software Engineering Major, Computer Graphics and Vision Minor, Algorithms Minor. Lead Software Engineer @PRIME. Tech enthusiast and a Drummer.
         </Typography>
         <Typography variant={'title'}>
           Leutrim Neziri

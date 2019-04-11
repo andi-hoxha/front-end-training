@@ -16,7 +16,7 @@ import editTask from 'assets/images/lecture1/edit_task.png'
 import fetchNewBranch from 'assets/images/lecture1/fetch_new_branch.png'
 import firstPush from 'assets/images/lecture1/first_push.png'
 
-class Lecture1 extends React.Component {
+class WayOfWorking extends React.Component {
   render() {
     const { classes, section } = this.props
     const exercise = section.children[0]
@@ -109,13 +109,9 @@ class Lecture1 extends React.Component {
         <Typography>
           Step 9: Wait for us to approve your merge request. Don't close it yourself. You are Done!
         </Typography>
-
-
-
-
       </Fragment>
     )
   }
 }
 
-export default withStyles(styles)(Lecture1)
+export default withStyles(styles)(WayOfWorking)

@@ -11,6 +11,7 @@ import Lecture1 from 'pages/lecture1/Lecture1'
 import Glossary from "pages/Glossary";
 import Lecture2 from "pages/lecture2/Lecture2";
 import Resources from "pages/Resources";
+import PlanProgram from "pages/PlanProgram";
 
 const styles = ({typography}) => ({
   root: {}
@@ -75,6 +76,8 @@ class Factory extends React.Component {
         return <Glossary/>
       case PAGES.RESOURCES:
         return <Resources/>
+      case PAGES.PLAN_PROGRAM:
+        return <PlanProgram/>
       default:
         return <Home/>
     }
