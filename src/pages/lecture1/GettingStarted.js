@@ -1,8 +1,8 @@
 /**
  * Created by LeutrimNeziri on 09/04/2019.
  */
-import Code from "@go-prime/ui/Code/index";
-import withStyles from "@go-prime/ui/withStyles";
+import Code from "presentations/Code";
+import withStyles from "@material-ui/styles/withStyles";
 import Divider from "presentations/Divider";
 import SimpleLink from "presentations/rows/SimpleLink";
 import Typography from "presentations/Typography";

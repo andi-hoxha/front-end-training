@@ -3,8 +3,8 @@
  */
 import React from 'react'
 import classNames from 'classnames'
-import withStyles from '@go-prime/ui/withStyles'
-import Page from '@go-prime/ui/Page'
+import withStyles from '@material-ui/styles/withStyles'
+import Page from 'anatomy/Page'
 import Header from 'anatomy/Header'
 import LeftNav from 'anatomy/LeftNav'
 

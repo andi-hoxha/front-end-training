@@ -3,7 +3,7 @@
  */
 import React from "react"
 import PropTypes from "prop-types"
-import withStyles from "@go-prime/ui/withStyles"
+import withStyles from "@material-ui/styles/withStyles"
 import classNames from 'classnames'
 
 const variants = {

@@ -1,7 +1,7 @@
 /**
  * Created by LeutrimNeziri on 09/04/2019.
  */
-import withStyles from "@go-prime/ui/withStyles";
+import withStyles from "@material-ui/styles/withStyles";
 import agileMethodology from 'assets/images/lecture1/agile_methodology.jpg';
 import scrumImage from 'assets/images/lecture1/scrum.png';
 import Divider from "presentations/Divider";

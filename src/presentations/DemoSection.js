@@ -3,10 +3,10 @@
  */
 import React, {Fragment} from 'react'
 import classNames from 'classnames'
-import withStyles from '@go-prime/ui/withStyles'
-import IconButton from '@go-prime/ui/IconButton'
-import Code from '@go-prime/ui/Code'
-import Transition from '@go-prime/ui/Transition'
+import withStyles from '@material-ui/styles/withStyles'
+import IconButton from '@material-ui/core/IconButton'
+import Code from 'presentations/Code'
+import Collapse from '@material-ui/core/Collapse';
 import ShowCodeIcon from 'presentations/icons/CodeIcon'
 import {rgba} from 'polished'
 const styles = ({palette, size, typography}) => ({
@@ -98,11 +98,11 @@ class DemoSection extends React.Component {
               <ShowCodeIcon/>
             </IconButton>
           </div>
-          <Transition variant="collapse" in={open}>
+          <Collapse in={open}>
             <div className={classes.code}>
               <Code>{code}</Code>
             </div>
-          </Transition>
+          </Collapse>
           <div className={classes.demoContent}>
             {children}
           </div>

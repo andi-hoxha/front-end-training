@@ -2,9 +2,9 @@
  * Created by LeutrimNeziri on 31/03/2019.
  */
 import React from 'react'
-import withStyles from '@go-prime/ui/withStyles'
+import withStyles from '@material-ui/styles/withStyles'
 import classNames from 'classnames'
-import IconButton from '@go-prime/ui/IconButton'
+import IconButton from '@material-ui/core/IconButton'
 import ArrowDown from 'presentations/icons/ArrowDropDown'
 import {lighten} from 'polished'
 
@@ -22,14 +22,16 @@ const styles = ({palette, size, transitions}) => ({
     padding: [size.spacing, 0],
     display: 'inline-flex',
     width: '100%',
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent: 'space-between'
   },
   icon: {
     transition: transitions.common,
     transform: `rotate(-90deg)`,
     '& > *': {
       fontSize: size.spacing * 2
-    }
+    },
+    color: palette.textColorInverse
   },
   iconExpanded: {
     transform: `rotate(0)`,
@@ -81,10 +83,10 @@ class Collapsible extends React.Component {
     return (
       <div className={className}>
         {title && <div className={classes.title}>
+          {title}
           <IconButton className={classNames(classes.icon, open && classes.iconExpanded)} onClick={this.onCollapse}>
             <ArrowDown/>
           </IconButton>
-          {title}
         </div>}
         {open && <div className={classes.content}>
           {children}

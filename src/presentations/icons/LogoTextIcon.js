@@ -1,4 +1,4 @@
-import SvgIcon from '@go-prime/ui/SvgIcon'
+import SvgIcon from '@material-ui/core/SvgIcon'
 import React from 'react'
 const LogoTextIcon = (props) => {
   return (

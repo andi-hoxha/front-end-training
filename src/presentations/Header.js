@@ -4,7 +4,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import withStyles from 'ui/withStyles'
+import withStyles from '@material-ui/styles/withStyles'
 
 const styles = ({palette, size, typography}) => ({
   root: {

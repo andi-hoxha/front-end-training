@@ -1,7 +1,7 @@
 /**
  * Created by LeutrimNeziri on 09/04/2019.
  */
-import withStyles from "@go-prime/ui/withStyles";
+import withStyles from "@material-ui/styles/withStyles";
 import React from "react";
 import Intro from "pages/lecture2/Intro";
 const styles = ({ typography }) => ({

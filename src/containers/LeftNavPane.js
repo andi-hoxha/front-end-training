@@ -1,7 +1,7 @@
 /**
  * Created by LeutrimNeziri on 01/03/2019.
  */
-import withStyles from '@go-prime/ui/withStyles';
+import withStyles from '@material-ui/styles/withStyles';
 import classNames from 'classnames';
 import { PAGES } from 'Constants';
 import NavRowWrapper from 'presentations/rows/NavRowWrapper';

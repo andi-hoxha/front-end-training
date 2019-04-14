@@ -1,7 +1,7 @@
 /**
  * Created by LeutrimNeziri on 09/04/2019.
  */
-import withStyles from "@go-prime/ui/withStyles";
+import withStyles from "@material-ui/styles/withStyles";
 import Divider from "presentations/Divider";
 import PageLink from "presentations/rows/nav/PageLink";
 import Typography from "presentations/Typography";

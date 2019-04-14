@@ -2,12 +2,11 @@
  * Created by LeutrimNeziri on 31/03/2019.
  */
 import React from 'react'
-import withStyles from '@go-prime/ui/withStyles'
+import withStyles from '@material-ui/styles/withStyles'
 import classNames from 'classnames'
 import NavLink from 'presentations/rows/nav/NavLink'
 import Collapsible from 'presentations/Collapsible'
-
-import IconButton from '@go-prime/ui/IconButton'
+import IconButton from '@material-ui/core/IconButton'
 import ArrowDown from 'presentations/icons/ArrowDropDown'
 import {darken, lighten, rgba} from 'polished'
 import { PAGES } from "Constants"
@@ -47,7 +46,7 @@ const styles = ({palette, size, transitions}) => ({
     alignItems: 'flex-start',
     alignContent: 'flex-start',
     padding: [size.spacing * 2, 0],
-    overflowY: 'auto',
+    overflowY: 'overlay',
     flexGrow: 1,
     minHeight: 100,
     backgroundColor: darken(0.03, palette.navBgColor),
@@ -61,7 +60,8 @@ const styles = ({palette, size, transitions}) => ({
       transition: transitions.common,
       transform: `rotate(-90deg)`,
       fontSize: size.spacing * 3
-    }
+    },
+    padding: size.spacing / 2
   },
   iconExpanded: {
     '& > *': {
@@ -69,8 +69,7 @@ const styles = ({palette, size, transitions}) => ({
     }
   },
   collapsibleRoot: {
-    width: 'auto',
-    marginLeft: size.spacing * 2
+    paddingLeft: size.spacing * 2
   },
   collapsibleContent: {
     flexFlow: 'column nowrap'
@@ -141,8 +140,10 @@ class NavRowWrapper extends React.Component {
           <NavLink className={classes.navLinkRoot} to={url}
                    onClick={this.onClick}>{item.display}</NavLink>
           {children && children.length > 0 &&
-          <IconButton pressed={open} className={classNames(classes.icon, open && classes.iconExpanded)}
-                      onClick={this.onCollapse}>
+          <IconButton
+            pressed={open}
+            classes={{ root: classNames(classes.icon, open && classes.iconExpanded)}}
+            onClick={this.onCollapse}>
             <ArrowDown/>
           </IconButton>}
         </div>

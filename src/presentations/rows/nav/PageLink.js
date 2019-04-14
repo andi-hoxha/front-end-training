@@ -2,7 +2,7 @@
  * Created by LeutrimNeziri on 01/03/2019.
  */
 import React from 'react'
-import withStyles from '@go-prime/ui/withStyles'
+import withStyles from '@material-ui/styles/withStyles'
 import classNames from 'classnames'
 import {Link} from 'react-router-dom'
 

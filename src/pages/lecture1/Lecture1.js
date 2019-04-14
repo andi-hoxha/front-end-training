@@ -1,7 +1,7 @@
 /**
  * Created by LeutrimNeziri on 09/04/2019.
  */
-import withStyles from "@go-prime/ui/withStyles";
+import withStyles from "@material-ui/styles/withStyles";
 import { PAGES } from 'Constants';
 import React, { Fragment } from "react";
 import AgileMethodology from "pages/lecture1/AgileMethodology";
