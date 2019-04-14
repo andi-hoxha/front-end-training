@@ -40,8 +40,9 @@ class GettingStarted extends React.Component {
     let gitlab = section.children[0]
     let sourceTree = section.children[1]
     let vsCode = section.children[2]
-    let mongoDB = section.children[3]
-    let npm = section.children[4]
+    let slack = section.children[3]
+    let mongoDB = section.children[4]
+    let npm = section.children[5]
     return (
       <Fragment>
         <Typography variant={'heading'}>
@@ -95,6 +96,13 @@ class GettingStarted extends React.Component {
           Go ahead and install it from right here: <SimpleLink href="https://code.visualstudio.com/">https://code.visualstudio.com/</SimpleLink> and get started with it :D.
         </Typography>
 
+        <Typography id={slack.id} variant={'title'}>
+          {slack.display}
+        </Typography>
+
+        <Typography variant={'p'}>
+          We are going to use Slack as our communication tool. The workspace directory is located at <SimpleLink href="https://primefrontendtraining.slack.com">https://primefrontendtraining.slack.com</SimpleLink>. If you want to download it for your local machine use this link: <SimpleLink href="https://slack.com/download">https://slack.com/download</SimpleLink>. Its also available on Mobile (iOS and Android), look them up at the app store.
+        </Typography>
         <Typography id={mongoDB.id} variant={'title'}>
           {mongoDB.display}
         </Typography>

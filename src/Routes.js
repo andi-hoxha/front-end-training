@@ -27,6 +27,9 @@ const routes = [
             display: 'VS Code'
           },
           {
+            display: 'Slack'
+          },
+          {
             display: 'MongoDB'
           },
           {
