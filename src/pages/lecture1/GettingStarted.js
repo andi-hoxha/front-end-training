@@ -63,7 +63,7 @@ class GettingStarted extends React.Component {
           Here is a quick intro to all of them
         </Typography>
         <Typography id={gitlab.id} variant={'title'}>
-          Gitlab
+          {gitlab.display}
         </Typography>
 
         <Typography variant={'p'}>
@@ -73,7 +73,7 @@ class GettingStarted extends React.Component {
           Go ahead, follow this link: <SimpleLink href="https://gitlab.com">https://gitlab.com</SimpleLink> and sign up to create your first account! You are going to be using this A lot!
         </Typography>
         <Typography id={sourceTree.id} variant={'title'}>
-          Source Tree
+          {sourceTree.display}
         </Typography>
         <Typography variant={'p'}>
           Before you understand Source Tree, you need to first understand what GIT is. GIT is a free open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency. Using GIT we will setup working branches and maintain the code changes and pushes to your working repository which contains the interactive web app with your assignments.
@@ -84,7 +84,7 @@ class GettingStarted extends React.Component {
         </Typography>
 
         <Typography id={vsCode.id} variant={'title'}>
-          VS Code
+          {vsCode.display}
         </Typography>
 
         <Typography variant={'p'}>
@@ -96,7 +96,7 @@ class GettingStarted extends React.Component {
         </Typography>
 
         <Typography id={mongoDB.id} variant={'title'}>
-          MongoDB
+          {mongoDB.display}
         </Typography>
 
         <Typography variant={'p'}>
@@ -119,7 +119,7 @@ class GettingStarted extends React.Component {
         </Typography>
 
         <Typography id={npm.id} variant={'title'}>
-          NPM
+          {npm.display}
         </Typography>
         <Typography variant={'p'}>
           The Node Package Manager, helps you manage your references to other libraries. It makes it easy to include, upgrade and remove external references from your project. Go ahead and download it from here: <SimpleLink href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</SimpleLink>

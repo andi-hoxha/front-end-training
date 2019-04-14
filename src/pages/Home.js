@@ -5,9 +5,6 @@ import withStyles from "@go-prime/ui/withStyles";
 import Divider from 'presentations/Divider';
 import Typography from 'presentations/Typography';
 import React, { Fragment } from "react";
-import NavLink from "presentations/rows/nav/NavLink";
-
-
 
 const styles = ({ typography }) => ({
   root: {},

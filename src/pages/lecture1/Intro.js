@@ -3,6 +3,7 @@
  */
 import withStyles from "@go-prime/ui/withStyles";
 import Divider from "presentations/Divider";
+import PageLink from "presentations/rows/nav/PageLink";
 import Typography from "presentations/Typography";
 import React, { Fragment } from "react";
 const styles = ({ typography }) => ({
@@ -11,11 +12,11 @@ const styles = ({ typography }) => ({
 
 class Intro extends React.Component {
   render() {
-    const { classes } = this.props
+    const { classes, section } = this.props
     return (
       <Fragment>
         <Typography variant={'heading'}>
-          Lecture 1
+          Lecture 1: Setup and Introduction 
           <Divider />
         </Typography>
         <Typography variant='p'>
@@ -24,10 +25,9 @@ class Intro extends React.Component {
         <Typography variant='p'>
           The lecture 1 will contain these underlying pages:
           <ol>
-            <li>Getting Started</li>
-            <li>Project Setup</li>
-            <li>Agile Methodology Introduction</li>
-            <li>Way of Working</li>
+            {section.children.map(next => <li key={next.id}>
+              <PageLink to={`/lecture/${next.id}/`}>{next.display}</PageLink>
+            </li>)}
           </ol>
         </Typography>
       </Fragment>

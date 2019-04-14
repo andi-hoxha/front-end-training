@@ -10,7 +10,7 @@ const routes = [
     id: PAGES.PLAN_PROGRAM
   },
   {
-    display: 'Lecture 1',
+    display: 'Setup and Introduction',
     id: PAGES.LECTURE_1.ID,
     children: [
       {
@@ -39,6 +39,9 @@ const routes = [
         id: PAGES.LECTURE_1.PROJECT_SETTUP,
         children: [
           {
+            display: 'Seting up the repository'
+          },
+          {
             display: 'Running the Application'
           }
         ]
@@ -57,6 +60,12 @@ const routes = [
         id: PAGES.LECTURE_1.WAY_OF_WORKING,
         children: [
           {
+            display: 'GitLab Setup',
+          },
+          {
+            display: 'Rules',
+          },
+          {
             display: 'Exercise 1'
           }
         ]
@@ -64,7 +73,7 @@ const routes = [
     ]
   },
   {
-    display: 'Lecture 2',
+    display: 'Javascript and React (Part 1)',
     id: PAGES.LECTURE_2.ID,
     children: [
       {

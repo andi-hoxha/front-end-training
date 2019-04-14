@@ -14,6 +14,9 @@ module.exports = {
     LECTURE_2: {
       ID: 'lecture2'
     },
+    LECTURE_3: {
+      ID: 'lecture3'
+    },
     GLOSSARY: 'glossary',
     PLAYGROUND: 'playground',
     RESOURCES: 'resources',

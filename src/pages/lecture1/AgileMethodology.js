@@ -58,7 +58,7 @@ class AgileMethodology extends React.Component {
           </ol>
         </Typography>
         <Typography id={scrum.id} variant={'title'}>
-          Scrum
+          {scrum.display}
         </Typography>
 
         <Typography>

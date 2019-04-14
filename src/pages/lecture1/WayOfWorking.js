@@ -26,13 +26,18 @@ const styles = ({ typography }) => ({
 class WayOfWorking extends React.Component {
   render() {
     const { classes, section } = this.props
-    const exercise = section.children[0]
+    const gitLabSetup = section.children[0]
+    const rules = section.children[1]
+    const exercise = section.children[2]
     return (
       <Fragment>
         <Typography variant={'heading'}>
           Way of Working
           <Typography>During this training we are going to use the agile methodology and work as if we were following and doing an agile driven project. </Typography>
           <Divider />
+        </Typography>
+        <Typography id={gitLabSetup.id} variant={'title'}>
+          {gitLabSetup.display}
         </Typography>
         <Typography>
           Before we explain the rules, make sure your GitLab Board (Under the Issues section) has the following Columns:
@@ -57,16 +62,22 @@ class WayOfWorking extends React.Component {
         </Typography>
         <Typography>
           <ul>
-            <li>Go to Repository Settings at General
+            <li>Go to Repository Settings at General</li>
+            <Typography variant={'p'}>
               <img src={removeFork1}></img>
-            </li>
-            <li>Go to Remove Fork Relationship section and perform the action
+            </Typography>
+            <li>Go to Remove Fork Relationship section and perform the action</li>
+            <Typography variant={'p'}>
               <img src={removeFork2}></img>
-            </li>
-            <li>Confirm the action by typing in the name of the repository "front-end-training-program"
+            </Typography>
+            <li>Confirm the action by typing in the name of the repository "front-end-training-program"</li>
+            <Typography variant={'p'}>
               <img src={removeFork3}></img>
-            </li>
+            </Typography>
           </ul>
+        </Typography>
+        <Typography id={rules.id} variant={'title'}>
+          {rules.display}
         </Typography>
         <Typography>
           These are the following rules of the game that we will follow throughout the training:
@@ -91,7 +102,7 @@ class WayOfWorking extends React.Component {
           Pull requests let you tell others about changes you've pushed to a GitHub repository. Once a pull request is sent, interested parties can review the set of changes, discuss potential modifications, and even push follow-up commits if necessary.
         </Typography>
         <Typography id={exercise.id} variant={'title'}>
-          Exercise 1:
+          {exercise.display}
         </Typography>
         <Typography>
           Step 1: Create your first task with the title "Exercise 1" and add it at doing:
