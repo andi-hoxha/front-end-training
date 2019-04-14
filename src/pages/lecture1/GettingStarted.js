@@ -2,7 +2,7 @@
  * Created by LeutrimNeziri on 09/04/2019.
  */
 import Code from "presentations/Code";
-import withStyles from "@material-ui/styles/withStyles";
+import withStyles from "@material-ui/core/styles/withStyles";
 import Divider from "presentations/Divider";
 import SimpleLink from "presentations/rows/SimpleLink";
 import Typography from "presentations/Typography";

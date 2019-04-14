@@ -3,7 +3,7 @@
  */
 import React, {Fragment} from 'react'
 import classNames from 'classnames'
-import withStyles from '@material-ui/styles/withStyles'
+import withStyles from '@material-ui/core/styles/withStyles'
 import IconButton from '@material-ui/core/IconButton'
 import Code from 'presentations/Code'
 import Collapse from '@material-ui/core/Collapse';
@@ -36,7 +36,7 @@ const styles = ({palette, size, typography}) => ({
     flexFlow: 'row wrap',
     alignContent: 'flex-start',
     backgroundColor: rgba(palette.disabledColor, 0.1),
-    padding: [size.spacing * 3],
+    padding: `${size.spacing* 3}px 0px`,
     borderRadius: size.baseRadius * 2
   },
   code: {

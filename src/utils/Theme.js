@@ -14,7 +14,9 @@ export default class Theme {
         textColor: '#293642',
         textColorInverse: '#fff',
         disabledColor: '#8ca0b3',
-        error: '#e93d3d',
+        error: {
+          main: '#e93d3d'
+        },
         success: '#2ac866',
         warning: '#f5a623',
         navBgColor: '#334353',
@@ -40,6 +42,7 @@ export default class Theme {
         px: (num) => num
       },
       typography: {
+        useNextVariants: true,
         weight: {
           black: 900,
           bold: 700,

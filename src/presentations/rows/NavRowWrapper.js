@@ -2,7 +2,7 @@
  * Created by LeutrimNeziri on 31/03/2019.
  */
 import React from 'react'
-import withStyles from '@material-ui/styles/withStyles'
+import withStyles from '@material-ui/core/styles/withStyles'
 import classNames from 'classnames'
 import NavLink from 'presentations/rows/nav/NavLink'
 import Collapsible from 'presentations/Collapsible'
@@ -30,7 +30,8 @@ const styles = ({palette, size, transitions}) => ({
     alignItems: 'center',
     justifyContent: 'space-between',
     flexFlow: 'row nowrap',
-    height: 60
+    height: 60,
+    flexShrink: 0
   },
   navLinkRoot: {
     flex: 1,
@@ -45,7 +46,7 @@ const styles = ({palette, size, transitions}) => ({
     flexFlow: 'column nowrap',
     alignItems: 'flex-start',
     alignContent: 'flex-start',
-    padding: [size.spacing * 2, 0],
+    padding: `${size.spacing * 2}px 0px`,
     overflowY: 'overlay',
     flexGrow: 1,
     minHeight: 100,
@@ -61,7 +62,8 @@ const styles = ({palette, size, transitions}) => ({
       transform: `rotate(-90deg)`,
       fontSize: size.spacing * 3
     },
-    padding: size.spacing / 2
+    padding: size.spacing / 2,
+    color: palette.textColorInverse
   },
   iconExpanded: {
     '& > *': {
@@ -141,7 +143,6 @@ class NavRowWrapper extends React.Component {
                    onClick={this.onClick}>{item.display}</NavLink>
           {children && children.length > 0 &&
           <IconButton
-            pressed={open}
             classes={{ root: classNames(classes.icon, open && classes.iconExpanded)}}
             onClick={this.onCollapse}>
             <ArrowDown/>

@@ -3,7 +3,7 @@
  */
 import React from "react"
 import PropTypes from "prop-types"
-import withStyles from "@material-ui/styles/withStyles"
+import withStyles from "@material-ui/core/styles/withStyles"
 import classNames from 'classnames'
 
 const variants = {
@@ -33,25 +33,25 @@ const styles = ({palette, size, typography}) => ({
   heading: {
     fontSize: size.displayFontSize,
     fontWeight: typography.weight.bold,
-    margin: [0, 0, size.spacing * 3, 0],
+    margin: `0px 0px ${size.spacing * 3}px 0px`,
     color: 'inherit'
   },
   subHeading: {
     fontSize: size.headerFontSize + size.spacing,
-    margin: [0, 0, size.spacing * 2, 0],
+    margin: `0px 0px ${size.spacing * 2}px 0px`,
     fontWeight: typography.weight.regular,
     color: 'inherit'
   },
   title: {
     fontSize: size.headerFontSize,
-    margin:[size.spacing, 0],
+    margin: `${size.spacing}px 0px`,
     lineHeight: 1.7,
     fontWeight: typography.weight.bold,
     color: 'inherit'
   },
   p: {
     fontSize: size.titleFontSize,
-    margin:[size.spacing, 0],
+    margin: `${size.spacing}px 0px`,
     lineHeight: 1.7,
     fontWeight: typography.weight.regular,
     color: 'inherit'

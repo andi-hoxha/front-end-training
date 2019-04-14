@@ -2,7 +2,7 @@
  * Created by LeutrimNeziri on 31/03/2019.
  */
 import React from 'react'
-import withStyles from '@material-ui/styles/withStyles'
+import withStyles from '@material-ui/core/styles/withStyles'
 import classNames from 'classnames'
 import IconButton from '@material-ui/core/IconButton'
 import ArrowDown from 'presentations/icons/ArrowDropDown'
@@ -19,11 +19,10 @@ const styles = ({palette, size, transitions}) => ({
     flexShrink: 0
   },
   title: {
-    padding: [size.spacing, 0],
+    padding: `${size.spacing}px 0px`,
     display: 'inline-flex',
     width: '100%',
-    alignItems: 'center',
-    justifyContent: 'space-between'
+    alignItems: 'center'
   },
   icon: {
     transition: transitions.common,
@@ -31,7 +30,8 @@ const styles = ({palette, size, transitions}) => ({
     '& > *': {
       fontSize: size.spacing * 2
     },
-    color: palette.textColorInverse
+    color: palette.textColorInverse,
+    padding: size.spacing / 2
   },
   iconExpanded: {
     transform: `rotate(0)`,
@@ -83,10 +83,12 @@ class Collapsible extends React.Component {
     return (
       <div className={className}>
         {title && <div className={classes.title}>
-          {title}
-          <IconButton className={classNames(classes.icon, open && classes.iconExpanded)} onClick={this.onCollapse}>
+          <IconButton 
+            classes={{ root: classNames(classes.icon, open && classes.iconExpanded)}}
+            onClick={this.onCollapse}>
             <ArrowDown/>
           </IconButton>
+          {title}
         </div>}
         {open && <div className={classes.content}>
           {children}

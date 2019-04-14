@@ -2,7 +2,7 @@
  * Created by LeutrimNeziri on 30/03/2019.
  */
 import GoPrimeHeader from 'presentations/Header';
-import withStyles from '@material-ui/styles/withStyles';
+import withStyles from '@material-ui/core/styles/withStyles';
 import classNames from 'classnames';
 import { PAGES } from "Constants";
 import ArrowRight from 'presentations/icons/ArrowRight';

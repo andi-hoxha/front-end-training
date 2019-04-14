@@ -1,7 +1,7 @@
 /**
  * Created by LeutrimNeziri on 09/04/2019.
  */
-import withStyles from "@material-ui/styles/withStyles";
+import withStyles from "@material-ui/core/styles/withStyles";
 import boardInstructions from 'assets/images/lecture1/board_instruction.png';
 import boardInstructions2 from 'assets/images/lecture1/board_instruction_part_2.png';
 import createBranchGitLab from 'assets/images/lecture1/create_branch_gitlab.png';

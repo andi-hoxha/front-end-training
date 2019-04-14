@@ -2,7 +2,7 @@
  * Created by LeutrimNeziri on 30/03/2019.
  */
 import React from "react"
-import withStyles from "@material-ui/styles/withStyles"
+import withStyles from "@material-ui/core/styles/withStyles"
 import Content from 'anatomy/Content'
 import routes from 'Routes'
 import { PAGES } from 'Constants'

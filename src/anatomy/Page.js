@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import classNames from 'classnames'
-import withStyles from '@material-ui/styles/withStyles'
+import withStyles from '@material-ui/core/styles/withStyles'
 
 const styles = ({palette, size, typography}) => ({
   root: {

@@ -2,12 +2,12 @@
  * Created by LeutrimNeziri on 01/03/2019.
  */
 import React from 'react'
-import withStyles from '@material-ui/styles/withStyles'
+import withStyles from '@material-ui/core/styles/withStyles'
 import classNames from 'classnames'
 
 const styles = ({palette, size, transitions}) => ({
   root: {
-    padding: [0, size.spacing / 2],
+    padding: `0px ${size.spacing / 2}px`,
     fontSize: size.titleFontSize,
     transition: transitions.common,
     '&:hover': {

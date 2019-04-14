@@ -5,7 +5,7 @@ import React from 'react'
 import classNames from 'classnames'
 import {PrismAsyncLight as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {ghcolors} from 'react-syntax-highlighter/dist/esm/styles/prism'
-import withStyles from '@material-ui/styles/withStyles'
+import withStyles from '@material-ui/core/styles/withStyles'
 const styles = ({palette, size, shadows, transitions, typography}) => ({
   root: {
     display: 'flex',
