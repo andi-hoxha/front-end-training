@@ -15,7 +15,7 @@ class Intro extends React.Component {
     return (
       <Fragment>
         <Typography variant={'heading'}>
-          Lecture 2
+          Lecture 2: Javascript and React (Part 1)
           <Divider />
         </Typography>
         <Typography variant='p'>

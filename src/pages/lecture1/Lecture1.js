@@ -36,7 +36,7 @@ class Lecture1 extends React.Component {
       case PAGES.LECTURE_1.WAY_OF_WORKING:
         return <WayOfWorking {...props} />
     }
-    return <Intro />
+    return <Intro {...props} />
   }
 }
 

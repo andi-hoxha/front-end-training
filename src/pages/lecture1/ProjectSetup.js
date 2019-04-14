@@ -3,6 +3,14 @@
  */
 import Code from "@go-prime/ui/Code/index";
 import withStyles from "@go-prime/ui/withStyles";
+import addMember from 'assets/images/lecture1/add_member.png';
+import cloneInstruction from 'assets/images/lecture1/clone_instruction.png';
+import cloneSourceTree from 'assets/images/lecture1/clone_new_source_tree.png';
+import fork from 'assets/images/lecture1/fork_instruction.png';
+import newRemote from 'assets/images/lecture1/new_remote.png';
+import privateRepo from 'assets/images/lecture1/private_repo.png';
+import remoteMaster from 'assets/images/lecture1/remote_master.png';
+import visualCodeImport from 'assets/images/lecture1/vs_code_import.png';
 import Divider from "presentations/Divider";
 import SimpleLink from "presentations/rows/SimpleLink";
 import Typography from "presentations/Typography";
@@ -11,18 +19,12 @@ const styles = ({ typography }) => ({
   root: {},
 })
 
-import fork from 'assets/images/lecture1/fork_instruction.png'
-import cloneInstruction from 'assets/images/lecture1/clone_instruction.png'
-import cloneSourceTree from 'assets/images/lecture1/clone_new_source_tree.png'
-import visualCodeImport from 'assets/images/lecture1/vs_code_import.png'
-import addMember from 'assets/images/lecture1/add_member.png'
-import newRemote from 'assets/images/lecture1/new_remote.png'
-import remoteMaster from 'assets/images/lecture1/remote_master.png'
 
 class ProjectSetup extends React.Component {
   render() {
     const { classes, section } = this.props
-    let running = section.children[0]
+    let setup = section.children[0]
+    let running = section.children[1]
     return (
       <Fragment>
         <Typography variant={'heading'}>
@@ -30,19 +32,26 @@ class ProjectSetup extends React.Component {
           <Typography>Follow the steps to get access and create your fork of the main repository.</Typography>
           <Divider />
         </Typography>
+        <Typography id={setup.id} variant={'title'}>
+          {setup.display}
+        </Typography>
         <Typography variant={'p'}>
           <ol>
-            <li><label>Open your browser and go to this link: <SimpleLink href="https://gitlab.com">https://gitlab.com</SimpleLink></label></li>
-            <li><label>Use your previously created account to login</label></li>
+            <li>Open your browser and go to this link: <SimpleLink href="https://gitlab.com">https://gitlab.com</SimpleLink></li>
+            <li>Use your previously created account to login</li>
             <li><label>Follow this link to go to the main project in gitlab (maintained by PRIME): <SimpleLink href="https://gitlab.com/agonlohaj/prime-front-end-training">https://gitlab.com/agonlohaj/prime-front-end-training</SimpleLink></label></li>
-            <li><label>Click the fork button</label></li>
+            <li>Click the fork button</li>
             <Typography variant={'p'}>
               <img src={fork}></img>
             </Typography>
-            <li><label>Select your account name as the namespace/group to fork the project</label></li>
-            <li><label>Add Agon Lohaj and Leutrim Neziri as Maintainers</label></li>
+            <li>Select your account name as the namespace/group to fork the project</li>
+            <li>Add Agon Lohaj and Leutrim Neziri as Maintainers</li>
             <Typography variant={'p'}>
               <img src={addMember}></img>
+            </Typography>
+            <li>Make the project private. Only Agon, Leutrim and you will be able to see it</li>
+            <Typography variant={'p'}>
+              <img src={privateRepo}></img>
             </Typography>
           </ol>
         </Typography>
@@ -50,9 +59,6 @@ class ProjectSetup extends React.Component {
 
         <Typography variant={'p'}>
           Now in order to have the project locally, we will have to clone it using Source Tree. Follow the instructions listed here:
-        </Typography>
-
-        <Typography variant={'p'}>
           <ol>
             <li>Go to your forked project page</li>
             <li>Click the clone icon</li>
@@ -73,9 +79,6 @@ class ProjectSetup extends React.Component {
         
         <Typography variant={'p'}>
           Now lets track the remote changes that we will publish. These are the new lectures that you will get at the next session
-        </Typography>
-
-        <Typography variant={'p'}>
           <ol>
             <li>From the "Repository" menu click "Add Remote"</li>
             <li>Name the remote to "Training"</li>
@@ -99,7 +102,7 @@ class ProjectSetup extends React.Component {
         </Typography>
 
         <Typography id={running.id} variant={'title'}>
-          Running the application
+          {running.display}
         </Typography>
         <Typography variant={'p'}>
           Open CommandPrompt or Terminal at the project root directory. Once your there run the following command to install all the project dependencies:
@@ -117,7 +120,7 @@ class ProjectSetup extends React.Component {
           Open your browser at: <SimpleLink href="http://localhost:8080">http://localhost:8080</SimpleLink> and enjoy!
         </Typography>
 
-        <Typography variant={'p'}>
+        <Typography variant={'p'} fontStyle={'italic'}>
           <br/>
           In case you are experiencing difficulties starting the application, try the following:
           <ol>

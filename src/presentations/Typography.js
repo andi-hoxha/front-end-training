@@ -12,6 +12,9 @@ const variants = {
   p: 'p',
   title: 'title'
 }
+const fontStyles = {
+  italic: 'italic'
+}
 
 const styles = ({palette, size, typography}) => ({
   root: {
@@ -52,10 +55,13 @@ const styles = ({palette, size, typography}) => ({
     lineHeight: 1.7,
     fontWeight: typography.weight.regular,
     color: 'inherit'
+  },
+  italic: {
+    fontStyle: 'italic'
   }
 })
 
-const Typography = ({classes, variant, inverted, component: ComponentProp, lead, className: classNameProp, children, ...other}) => {
+const Typography = ({classes, variant, fontStyle, inverted, component: ComponentProp, lead, className: classNameProp, children, ...other}) => {
 
   const className = classNames(
     classes.root,
@@ -63,6 +69,7 @@ const Typography = ({classes, variant, inverted, component: ComponentProp, lead,
     variant === variants.subHeading && classes.subHeading,
     variant === variants.title && classes.title,
     variant === variants.p && classes.p,
+    fontStyle === fontStyles.italic && classes.italic,
     lead && classes.lead,
     inverted && classes.inverted,
     classNameProp
@@ -87,6 +94,7 @@ Typography.defaultProps = ({
 Typography.propTypes = ({
   lead: PropTypes.bool,
   inverted: PropTypes.bool,
+  fontStyle: PropTypes.string,
   component: PropTypes.any,
   variant: PropTypes.oneOf(Object.keys(variants))
 })

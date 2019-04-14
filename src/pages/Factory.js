@@ -12,6 +12,7 @@ import Glossary from "pages/Glossary";
 import Lecture2 from "pages/lecture2/Lecture2";
 import Resources from "pages/Resources";
 import PlanProgram from "pages/PlanProgram";
+import Playground from "pages/playground/Playground";
 
 const styles = ({typography}) => ({
   root: {}
@@ -76,6 +77,8 @@ class Factory extends React.Component {
         return <Glossary/>
       case PAGES.RESOURCES:
         return <Resources/>
+      case PAGES.PLAYGROUND:
+        return <Playground/>
       case PAGES.PLAN_PROGRAM:
         return <PlanProgram/>
       default:
