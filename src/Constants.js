@@ -15,6 +15,7 @@ module.exports = {
       ID: 'lecture2'
     },
     GLOSSARY: 'glossary',
+    PLAYGROUND: 'playground',
     RESOURCES: 'resources',
     PLAN_PROGRAM: 'program'
   },

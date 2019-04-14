@@ -2,19 +2,26 @@
  * Created by LeutrimNeziri on 09/04/2019.
  */
 import withStyles from "@go-prime/ui/withStyles";
+import boardInstructions from 'assets/images/lecture1/board_instruction.png';
+import boardInstructions2 from 'assets/images/lecture1/board_instruction_part_2.png';
+import createBranchGitLab from 'assets/images/lecture1/create_branch_gitlab.png';
+import editTask from 'assets/images/lecture1/edit_task.png';
+import fetchNewBranch from 'assets/images/lecture1/fetch_new_branch.png';
+import firstPush from 'assets/images/lecture1/first_push.png';
+import firstTask from 'assets/images/lecture1/first_task.png';
+import mergeRequestScreen from 'assets/images/lecture1/merge_request.png';
+import chooseBranch from 'assets/images/lecture1/merge_request_choose_branch.png';
+import removeFork1 from 'assets/images/lecture1/remove_fork_relationship_1.png';
+import removeFork2 from 'assets/images/lecture1/remove_fork_relationship_2.png';
+import removeFork3 from 'assets/images/lecture1/remove_fork_relationship_3.png';
 import Divider from "presentations/Divider";
+import SimpleLink from "presentations/rows/SimpleLink";
 import Typography from "presentations/Typography";
 import React, { Fragment } from "react";
+
 const styles = ({ typography }) => ({
   root: {},
 })
-
-import boardInstructions from 'assets/images/lecture1/board_instruction.png'
-import boardInstructions2 from 'assets/images/lecture1/board_instruction_part_2.png'
-import firstTask from 'assets/images/lecture1/first_task.png'
-import editTask from 'assets/images/lecture1/edit_task.png'
-import fetchNewBranch from 'assets/images/lecture1/fetch_new_branch.png'
-import firstPush from 'assets/images/lecture1/first_push.png'
 
 class WayOfWorking extends React.Component {
   render() {
@@ -44,6 +51,22 @@ class WayOfWorking extends React.Component {
         </Typography>
         <Typography variant={'p'}>
           <img src={boardInstructions2}></img>
+        </Typography>
+        <Typography>
+          Due to the <SimpleLink href="https://gitlab.com/gitlab-org/gitlab-ce/issues/20704">bug</SimpleLink> on Gitlab, we are going to follow a workaround. That is to first remove the "Fork" Relationship from the project. Here are the steps required:
+        </Typography>
+        <Typography>
+          <ul>
+            <li>Go to Repository Settings at General
+              <img src={removeFork1}></img>
+            </li>
+            <li>Go to Remove Fork Relationship section and perform the action
+              <img src={removeFork2}></img>
+            </li>
+            <li>Confirm the action by typing in the name of the repository "front-end-training-program"
+              <img src={removeFork3}></img>
+            </li>
+          </ul>
         </Typography>
         <Typography>
           These are the following rules of the game that we will follow throughout the training:
@@ -76,23 +99,26 @@ class WayOfWorking extends React.Component {
         <Typography variant={'p'}>
           <img src={firstTask}></img>
         </Typography>
-        <Typography>
+        <Typography variant={'p'}>
           Step 2: Click the title of the task to go to its details page
         </Typography>
         <Typography variant={'p'}>
           <img src={editTask}></img>
         </Typography>
-        <Typography>
+        <Typography variant={'p'}>
           Step 3: Add the description: “In order to learn on how to exercise the way of working, I will change the “README.md” file to contain my name on it”
         </Typography>
-        <Typography>
-          Step 4: Create a pull (merge) request at GitLab
+        <Typography variant={'p'}>
+          Step 4: Create a branch for the task at GitLab, fields are all automatic, just hit the "Create Branch" button
         </Typography>
-        <Typography>
+        <Typography variant={'p'}>
+          <img src={createBranchGitLab} />
+        </Typography>
+        <Typography variant={'p'}>
           Step 5: Go to Source Tree, and fetch all the remote branches
         </Typography>
-        <Typography>
-          Step 6: Double-click to jump to the new branch
+        <Typography variant={'p'}>
+          Step 6: Double-click to jump to the branch created at step 4
         </Typography>
         <Typography variant={'p'}>
           <img src={fetchNewBranch}></img>
@@ -107,7 +133,27 @@ class WayOfWorking extends React.Component {
           <img src={firstPush}></img>
         </Typography>
         <Typography>
+          Step 9: Create the merge request, by:
+          <ol>
+            <li>Go at the merge request screen</li>
+            <Typography variant={'p'}>
+              <img src={mergeRequestScreen}></img>
+            </Typography>
+            <li>Choose the branch created at step 4</li>
+            <Typography variant={'p'}>
+              <img src={chooseBranch}></img>
+            </Typography>
+          </ol>
+        </Typography>
+        <Typography>
+          Step 9: Move the task at the board to review!
+        </Typography>
+        <Typography>
           Step 9: Wait for us to approve your merge request. Don't close it yourself. You are Done!
+        </Typography>
+        <br/>
+        <Typography fontStyle={'italic'}>
+          If you are having permissions issues then follow this <SimpleLink href="https://awordfromnet.com/access-gitlab-via-sourcetree-updated/">link</SimpleLink> to connect your account.
         </Typography>
       </Fragment>
     )

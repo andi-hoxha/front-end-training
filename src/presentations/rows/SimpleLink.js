@@ -11,11 +11,11 @@ const styles = ({palette, size, transitions}) => ({
     fontSize: size.titleFontSize,
     transition: transitions.common,
     '&:hover': {
-      color: palette.leadColor
+      textDecoration: 'underline'
     },
+    color: palette.leadColor
   },
   active:{
-    color: palette.leadColor
   }
 })
 

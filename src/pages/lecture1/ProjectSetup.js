@@ -18,6 +18,7 @@ import visualCodeImport from 'assets/images/lecture1/vs_code_import.png'
 import addMember from 'assets/images/lecture1/add_member.png'
 import newRemote from 'assets/images/lecture1/new_remote.png'
 import remoteMaster from 'assets/images/lecture1/remote_master.png'
+import privateRepo from 'assets/images/lecture1/private_repo.png'
 
 class ProjectSetup extends React.Component {
   render() {
@@ -40,10 +41,12 @@ class ProjectSetup extends React.Component {
               <img src={fork}></img>
             </Typography>
             <li><label>Select your account name as the namespace/group to fork the project</label></li>
-            <li><label>Add Agon Lohaj and Leutrim Neziri as Maintainers</label></li>
-            <Typography variant={'p'}>
+            <li><label>Add Agon Lohaj and Leutrim Neziri as Maintainers</label>
               <img src={addMember}></img>
-            </Typography>
+            </li>
+            <li><label>Make the project private. Only Agon, Leutrim and you will be able to see it</label>
+              <img src={privateRepo}></img>
+            </li>
           </ol>
         </Typography>
 
@@ -117,7 +120,7 @@ class ProjectSetup extends React.Component {
           Open your browser at: <SimpleLink href="http://localhost:8080">http://localhost:8080</SimpleLink> and enjoy!
         </Typography>
 
-        <Typography variant={'p'}>
+        <Typography variant={'p'} fontStyle={'italic'}>
           <br/>
           In case you are experiencing difficulties starting the application, try the following:
           <ol>

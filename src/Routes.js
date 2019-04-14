@@ -79,6 +79,10 @@ const routes = [
     ]
   },
   {
+    display: 'Playground',
+    id: PAGES.PLAYGROUND,
+  },
+  {
     display: 'Glossary',
     id: PAGES.GLOSSARY,
   },

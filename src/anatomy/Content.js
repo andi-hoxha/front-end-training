@@ -17,7 +17,7 @@ const styles = ({palette, size, typography}) => ({
     ul: {
       margin: [size.spacing, 0],
       width: '100%'
-    },
+    }
   },
   appWrapper: {
     display: 'flex',
