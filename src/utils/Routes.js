@@ -10,7 +10,7 @@ const routes = [
     id: PAGES.PLAN_PROGRAM
   },
   {
-    display: 'Setup and Introduction',
+    display: '1. Setup and Introduction',
     id: PAGES.LECTURE_1.ID,
     children: [
       {
@@ -76,7 +76,7 @@ const routes = [
     ]
   },
   {
-    display: 'Javascript and React (Part 1)',
+    display: '2. Javascript and React (Part 1)',
     id: PAGES.LECTURE_2.ID,
     children: [
       {

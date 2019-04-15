@@ -51,8 +51,8 @@ class Home extends React.Component {
         <Typography variant={'p'}>
           The PRIME training program is organised into 26 hours of lectures split into 2 hours per day, 2 times a week. The schedule of the training program is as follows:
           <ol>
-            <li>Tuesday 5pm until 7pm</li>
-            <li>Thursday 5pm until 7pm</li>
+            <li>Monday 6pm until 8pm</li>
+            <li>Friday 5:30pm until 7:30pm</li>
           </ol>
         </Typography>
         <Typography variant={'p'}>
