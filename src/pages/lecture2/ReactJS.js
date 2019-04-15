@@ -120,6 +120,25 @@ class ReactJS extends React.Component {
         <Typography variant={'p'}>
           <TicTacToe/>
         </Typography>
+
+        <Typography variant={'p'}>
+          Home Assignment:<br/>
+          Title: "Implement the Tic Tac Toe"<br/>
+          Description:
+          <ol>
+            <li>Lets you play tic-tac-toe,</li>
+            <li>Indicates when a player has won the game,</li>
+            <li>Stores a game’s history as a game progresses,</li>
+            <li>Allows players to review a game’s history and see previous versions of a game’s board</li>
+          </ol>
+          Bonus points:
+          <ol>
+            <li>Highlight the step that you are in</li>
+            <li>Highlight the wining steps</li>
+            <li>Rewrite the board row secionts such that you use loops to render the components. Tip: const rows = Array(3).fill(null), 
+              loop twice to this array to map all the rows and their indexes (3x3)</li>
+          </ol>
+        </Typography>
       </Fragment>
 
     )

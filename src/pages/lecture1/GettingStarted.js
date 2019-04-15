@@ -101,7 +101,11 @@ class GettingStarted extends React.Component {
         </Typography>
 
         <Typography variant={'p'}>
-          We are going to use Slack as our communication tool. The workspace directory is located at <SimpleLink href="https://primefrontendtraining.slack.com">https://primefrontendtraining.slack.com</SimpleLink>. If you want to download it for your local machine use this link: <SimpleLink href="https://slack.com/download">https://slack.com/download</SimpleLink>. Its also available on Mobile (iOS and Android), look them up at the app store.
+          We are going to use Slack as our communication tool. 
+          <ol>
+            <li>The workspace directory is located at <SimpleLink href="https://primefrontendtraining.slack.com">https://primefrontendtraining.slack.com</SimpleLink></li>
+            <li>If you want to download it for your local machine use this link: <SimpleLink href="https://slack.com/download">https://slack.com/download</SimpleLink>. Its also available on Mobile (iOS and Android), look them up at the app store</li>
+          </ol>
         </Typography>
         <Typography id={mongoDB.id} variant={'title'}>
           {mongoDB.display}
