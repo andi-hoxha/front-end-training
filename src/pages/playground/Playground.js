@@ -9,7 +9,7 @@ const styles = ({ typography }) => ({
   root: {},
 })
 
-class Glossary extends React.Component {
+class Playground extends React.Component {
   render() {
     const { classes } = this.props
     return (
@@ -24,4 +24,4 @@ class Glossary extends React.Component {
   }
 }
 
-export default withStyles(styles)(Glossary)
+export default withStyles(styles)(Playground)

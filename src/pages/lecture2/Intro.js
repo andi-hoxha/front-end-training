@@ -3,6 +3,7 @@
  */
 import withStyles from "@material-ui/core/styles/withStyles";
 import Divider from "presentations/Divider";
+import PageLink from "presentations/rows/nav/PageLink";
 import Typography from "presentations/Typography";
 import React, { Fragment } from "react";
 const styles = ({ typography }) => ({
@@ -11,7 +12,7 @@ const styles = ({ typography }) => ({
 
 class Intro extends React.Component {
   render() {
-    const { classes } = this.props
+    const { classes, section } = this.props
     return (
       <Fragment>
         <Typography variant={'heading'}>
@@ -24,10 +25,9 @@ class Intro extends React.Component {
         <Typography variant='p'>
           The lecture 2 will contain these underlying pages:
           <ol>
-            <li>JavaScript programming language recap</li>
-            <li>React Introduction</li>
-            <li>Project Structure</li>
-            <li>Assignments (small get to know React assignments)</li>
+            {section.children.map(next => <li key={next.id}>
+              <PageLink to={`/lecture/${next.id}/`}>{next.display}</PageLink>
+            </li>)}
           </ol>
         </Typography>
       </Fragment>

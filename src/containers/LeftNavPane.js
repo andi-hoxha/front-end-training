@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import { PAGES } from 'Constants';
 import NavRowWrapper from 'presentations/rows/NavRowWrapper';
 import React from 'react';
-import routes from 'Routes';
+import routes from 'utils/Routes';
 
 const styles = ({ size, palette, typography }) => ({
   root: {

@@ -80,12 +80,23 @@ const routes = [
     id: PAGES.LECTURE_2.ID,
     children: [
       {
+        id: PAGES.LECTURE_2.JAVASCRIPT,
         display: 'JavaScript'
       },
       {
-        display: 'ReactJS'
+        id: PAGES.LECTURE_2.REACT,
+        display: 'ReactJS',
+        children: [
+          {
+            display: 'Introduction',
+          },
+          {
+            display: 'Tic Tac Toe',
+          }
+        ]
       },
       {
+        id: PAGES.LECTURE_2.PROJECT_STRUCTURE,
         display: 'Project Structure'
       }
     ]

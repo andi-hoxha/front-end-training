@@ -4,6 +4,11 @@
 import withStyles from "@material-ui/core/styles/withStyles";
 import React from "react";
 import Intro from "pages/lecture2/Intro";
+import { PAGES } from 'Constants';
+import Javascript from "pages/lecture2/Javascript";
+import ReactJS from "pages/lecture2/ReactJS";
+import ProjectStructure from "pages/lecture2/ProjectStructure";
+
 const styles = ({ typography }) => ({
   root: {},
 })
@@ -20,7 +25,16 @@ class Lecture1 extends React.Component {
     const props = {
       section
     }
-    return <Intro/>
+
+    switch (section.id) {
+      case PAGES.LECTURE_2.JAVASCRIPT:
+        return <Javascript {...props} />
+      case PAGES.LECTURE_2.REACT:
+        return <ReactJS {...props} />
+      case PAGES.LECTURE_2.PROJECT_STRUCTURE:
+        return <ProjectStructure {...props} />
+    }
+    return <Intro {...props}/>
   }
 }
 

@@ -67,12 +67,12 @@ export default class Theme {
         //TODO: calculate the size of each property depending on responsive breakpoints
         drawer: 350
       },
-      shadows: {
-        default: '0px 4px 8px 0px rgba(0, 0, 0, 0.13)',
-        hover: '0px 3px 7px 0px rgba(0, 0, 0, 0.24)',
-        popover: '0px 7px 13px 0px rgba(0, 0, 0, 0.17)',
-        modal: '0px 18px 32px 0px rgba(0, 0, 0, 0.47)'
-      }
+      // shadows: {
+      //   default: '0px 4px 8px 0px rgba(0, 0, 0, 0.13)',
+      //   hover: '0px 3px 7px 0px rgba(0, 0, 0, 0.24)',
+      //   popover: '0px 7px 13px 0px rgba(0, 0, 0, 0.17)',
+      //   modal: '0px 18px 32px 0px rgba(0, 0, 0, 0.47)'
+      // }
     }
     return {
       ...theme,

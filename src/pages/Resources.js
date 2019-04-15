@@ -36,6 +36,8 @@ class Resources extends React.Component {
             <li><label>JSX: <SimpleLink href="https://reactjs.org/docs/introducing-jsx.html">https://reactjs.org/docs/introducing-jsx.html</SimpleLink></label></li>
             <li><label>React Dev Tool: <SimpleLink href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en">Chrome</SimpleLink> or 
             <SimpleLink href="https://addons.mozilla.org/en-US/firefox/addon/react-devtools/">Firefox</SimpleLink></label></li>
+            <li>Webpack: <SimpleLink href="https://webpack.js.org/">https://webpack.js.org/</SimpleLink></li>
+            <li>Babel: <SimpleLink href="https://babeljs.io/">https://babeljs.io/</SimpleLink></li>
           </ul>
         </Typography>
       </Fragment>

@@ -12,7 +12,10 @@ module.exports = {
       WAY_OF_WORKING: 'wayofworking'
     },
     LECTURE_2: {
-      ID: 'lecture2'
+      ID: 'lecture2',
+      JAVASCRIPT: 'javascript',
+      REACT: 'react',
+      PROJECT_STRUCTURE: 'projectstructure'
     },
     LECTURE_3: {
       ID: 'lecture3'
