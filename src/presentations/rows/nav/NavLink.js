@@ -2,7 +2,7 @@
  * Created by LeutrimNeziri on 01/03/2019.
  */
 import React from 'react'
-import withStyles from '@go-prime/ui/withStyles'
+import withStyles from '@material-ui/core/styles/withStyles'
 import classNames from 'classnames'
 import {Link} from 'react-router-dom'
 
@@ -11,7 +11,7 @@ const styles = ({palette, size, transitions}) => ({
     display: 'flex',
     alignItems: 'center',
     flexFlow: 'row nowrap',
-    padding: [size.spacing, 0],
+    padding: `${size.spacing}px 0px`,
     color: palette.textColorInverse,
     fontSize: size.titleFontSize,
     textDecoration: 'none',

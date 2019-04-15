@@ -1,15 +1,13 @@
 /**
  * Created by LeutrimNeziri on 30/03/2019.
  */
-import React, {Fragment} from 'react'
-import classNames from 'classnames'
-import withStyles from '@go-prime/ui/withStyles'
-import GoPrimeHeader from '@go-prime/ui/Header'
-import IconButton from '@go-prime/ui/IconButton'
-import {Link} from 'react-router-dom'
-import Logo from 'presentations/icons/Logo'
-import ArrowRight from 'presentations/icons/ArrowRight'
-import {PAGES} from "Constants";
+import GoPrimeHeader from 'presentations/Header';
+import withStyles from '@material-ui/core/styles/withStyles';
+import classNames from 'classnames';
+import { PAGES } from "Constants";
+import ArrowRight from 'presentations/icons/ArrowRight';
+import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 
 const styles = ({palette, size, transitions, typography}) => ({
   root: {

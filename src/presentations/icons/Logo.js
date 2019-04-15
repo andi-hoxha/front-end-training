@@ -2,7 +2,7 @@
  * Created by LeutrimNeziri on 28/02/2019.
  */
 import React from 'react'
-import SvgIcon from '@go-prime/ui/SvgIcon'
+import SvgIcon from '@material-ui/core/SvgIcon'
 const Logo = props => {
   return (
     <SvgIcon {...props}  viewBox={'0 0 24 24'}>

@@ -2,12 +2,11 @@
  * Created by LeutrimNeziri on 31/03/2019.
  */
 import React from 'react'
-import withStyles from '@go-prime/ui/withStyles'
+import withStyles from '@material-ui/core/styles/withStyles'
 import classNames from 'classnames'
 import NavLink from 'presentations/rows/nav/NavLink'
 import Collapsible from 'presentations/Collapsible'
-
-import IconButton from '@go-prime/ui/IconButton'
+import IconButton from '@material-ui/core/IconButton'
 import ArrowDown from 'presentations/icons/ArrowDropDown'
 import {darken, lighten, rgba} from 'polished'
 import { PAGES } from "Constants"
@@ -31,7 +30,8 @@ const styles = ({palette, size, transitions}) => ({
     alignItems: 'center',
     justifyContent: 'space-between',
     flexFlow: 'row nowrap',
-    height: 60
+    height: 60,
+    flexShrink: 0
   },
   navLinkRoot: {
     flex: 1,
@@ -46,8 +46,8 @@ const styles = ({palette, size, transitions}) => ({
     flexFlow: 'column nowrap',
     alignItems: 'flex-start',
     alignContent: 'flex-start',
-    padding: [size.spacing * 2, 0],
-    overflowY: 'auto',
+    padding: `${size.spacing * 2}px 0px`,
+    overflowY: 'overlay',
     flexGrow: 1,
     minHeight: 100,
     backgroundColor: darken(0.03, palette.navBgColor),
@@ -61,7 +61,9 @@ const styles = ({palette, size, transitions}) => ({
       transition: transitions.common,
       transform: `rotate(-90deg)`,
       fontSize: size.spacing * 3
-    }
+    },
+    padding: size.spacing / 2,
+    color: palette.textColorInverse
   },
   iconExpanded: {
     '& > *': {
@@ -69,8 +71,7 @@ const styles = ({palette, size, transitions}) => ({
     }
   },
   collapsibleRoot: {
-    width: 'auto',
-    marginLeft: size.spacing * 2
+    paddingLeft: size.spacing * 2
   },
   collapsibleContent: {
     flexFlow: 'column nowrap'
@@ -141,8 +142,9 @@ class NavRowWrapper extends React.Component {
           <NavLink className={classes.navLinkRoot} to={url}
                    onClick={this.onClick}>{item.display}</NavLink>
           {children && children.length > 0 &&
-          <IconButton pressed={open} className={classNames(classes.icon, open && classes.iconExpanded)}
-                      onClick={this.onCollapse}>
+          <IconButton
+            classes={{ root: classNames(classes.icon, open && classes.iconExpanded)}}
+            onClick={this.onCollapse}>
             <ArrowDown/>
           </IconButton>}
         </div>

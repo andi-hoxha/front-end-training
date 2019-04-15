@@ -1,7 +1,7 @@
 /**
  * Created by LeutrimNeziri on 09/04/2019.
  */
-import withStyles from "@go-prime/ui/withStyles";
+import withStyles from "@material-ui/core/styles/withStyles";
 import Divider from "presentations/Divider";
 import Typography from "presentations/Typography";
 import React, { Fragment } from "react";
@@ -9,7 +9,7 @@ const styles = ({ typography }) => ({
   root: {},
 })
 
-class Glossary extends React.Component {
+class Playground extends React.Component {
   render() {
     const { classes } = this.props
     return (
@@ -24,4 +24,4 @@ class Glossary extends React.Component {
   }
 }
 
-export default withStyles(styles)(Glossary)
+export default withStyles(styles)(Playground)

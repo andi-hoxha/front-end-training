@@ -3,7 +3,7 @@
  */
 import React from "react"
 import PropTypes from "prop-types"
-import withStyles from "@go-prime/ui/withStyles"
+import withStyles from "@material-ui/core/styles/withStyles"
 import classNames from 'classnames'
 
 const variants = {
@@ -16,7 +16,7 @@ const styles = ({palette, size, typography}) => ({
   root: {
     width: '100%',
     display: 'flex',
-    margin: [size.spacing , 0, size.spacing * 3, 0],
+    margin: `${size.spacing}px 0px ${size.spacing * 3}px 0px`,
     '&:before': {
       content: '""',
       width: 60,
@@ -28,6 +28,9 @@ const styles = ({palette, size, typography}) => ({
       color: palette.leadColor,
     }
   },
+  lead: {
+
+  }
 })
 
 const Divider = ({classes, variant, inverted, component: ComponentProp, lead, className: classNameProp, children, ...other}) => {

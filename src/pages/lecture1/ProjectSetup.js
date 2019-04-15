@@ -1,8 +1,8 @@
 /**
  * Created by LeutrimNeziri on 09/04/2019.
  */
-import Code from "@go-prime/ui/Code/index";
-import withStyles from "@go-prime/ui/withStyles";
+import Code from "presentations/Code";
+import withStyles from "@material-ui/core/styles/withStyles";
 import addMember from 'assets/images/lecture1/add_member.png';
 import cloneInstruction from 'assets/images/lecture1/clone_instruction.png';
 import cloneSourceTree from 'assets/images/lecture1/clone_new_source_tree.png';

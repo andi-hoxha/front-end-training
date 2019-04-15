@@ -3,8 +3,8 @@
  */
 import React from 'react'
 import classNames from 'classnames'
-import withStyles from '@go-prime/ui/withStyles'
-import IconButton from '@go-prime/ui/IconButton'
+import withStyles from '@material-ui/core/styles/withStyles'
+import IconButton from '@material-ui/core/IconButton'
 import LeftNavPane from 'containers/LeftNavPane'
 //Icons
 import Logo from 'presentations/icons/Logo'

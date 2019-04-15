@@ -3,19 +3,19 @@
  */
 import React from 'react'
 import classNames from 'classnames'
-import withStyles from '@go-prime/ui/withStyles'
-import Page from '@go-prime/ui/Page'
+import withStyles from '@material-ui/core/styles/withStyles'
+import Page from 'anatomy/Page'
 import Header from 'anatomy/Header'
 import LeftNav from 'anatomy/LeftNav'
 
 const styles = ({palette, size, typography}) => ({
   '@global': {
     ol: {
-      margin: [size.spacing, 0],
+      margin: `${size.spacing}px 0px`,
       width: '100%'
     },
     ul: {
-      margin: [size.spacing, 0],
+      margin: `${size.spacing}px 0px`,
       width: '100%'
     }
   },
@@ -43,14 +43,14 @@ const styles = ({palette, size, typography}) => ({
     alignContent: 'flex-start',
     flex: 1,
     overflowY: 'auto',
-    padding: [size.spacing * 2, size.spacing * 4]
+    padding: `${size.spacing * 2}px ${size.spacing * 4}px`
   },
   footer: {
     display: 'flex',
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: [size.spacing, 0],
+    padding: `${size.spacing}px, 0px`,
     fontSize: size.captionFontSize,
     color: palette.disabledColor,
     fontStyle: 'italic'

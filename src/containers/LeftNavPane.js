@@ -1,12 +1,12 @@
 /**
  * Created by LeutrimNeziri on 01/03/2019.
  */
-import withStyles from '@go-prime/ui/withStyles';
+import withStyles from '@material-ui/core/styles/withStyles';
 import classNames from 'classnames';
 import { PAGES } from 'Constants';
 import NavRowWrapper from 'presentations/rows/NavRowWrapper';
 import React from 'react';
-import routes from 'Routes';
+import routes from 'utils/Routes';
 
 const styles = ({ size, palette, typography }) => ({
   root: {

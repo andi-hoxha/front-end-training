@@ -14,7 +14,9 @@ export default class Theme {
         textColor: '#293642',
         textColorInverse: '#fff',
         disabledColor: '#8ca0b3',
-        error: '#e93d3d',
+        error: {
+          main: '#e93d3d'
+        },
         success: '#2ac866',
         warning: '#f5a623',
         navBgColor: '#334353',
@@ -40,6 +42,7 @@ export default class Theme {
         px: (num) => num
       },
       typography: {
+        useNextVariants: true,
         weight: {
           black: 900,
           bold: 700,
@@ -64,12 +67,12 @@ export default class Theme {
         //TODO: calculate the size of each property depending on responsive breakpoints
         drawer: 350
       },
-      shadows: {
-        default: '0px 4px 8px 0px rgba(0, 0, 0, 0.13)',
-        hover: '0px 3px 7px 0px rgba(0, 0, 0, 0.24)',
-        popover: '0px 7px 13px 0px rgba(0, 0, 0, 0.17)',
-        modal: '0px 18px 32px 0px rgba(0, 0, 0, 0.47)'
-      }
+      // shadows: {
+      //   default: '0px 4px 8px 0px rgba(0, 0, 0, 0.13)',
+      //   hover: '0px 3px 7px 0px rgba(0, 0, 0, 0.24)',
+      //   popover: '0px 7px 13px 0px rgba(0, 0, 0, 0.17)',
+      //   modal: '0px 18px 32px 0px rgba(0, 0, 0, 0.47)'
+      // }
     }
     return {
       ...theme,
