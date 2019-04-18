@@ -10,22 +10,7 @@ import SimpleLink from "presentations/rows/SimpleLink";
 import Code from "presentations/Code";
 
 const styles = ({ typography, size }) => ({
-  root: {},
-  columns: {
-    width: '100%',
-    display: 'flex',
-    flexFlow: 'row nowrap',
-    '& :first-child': {
-      marginRight: size.spacing * 2
-    },
-    '& :last-child': {
-      marginLeft: size.spacing * 2
-    }
-  },
-  columnChild: {
-    flex: 1,
-    width: '30%',
-  }
+  root: {}
 })
 
 const tickerCode = `

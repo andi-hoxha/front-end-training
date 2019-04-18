@@ -9,6 +9,7 @@ import PropsStateAndLifecycle from "pages/lecture3/PropsStateAndLifecycle";
 import ProjectStructure from "pages/lecture3/ProjectStructure";
 import FunctionalComponents from "pages/lecture3/FunctionalComponents";
 import TicTacToeRecap from "pages/lecture3/TicTacToeRecap";
+import Assignments from "pages/lecture3/Assignments";
 
 const styles = ({ typography }) => ({
   root: {},
@@ -36,6 +37,8 @@ class Lecture3 extends React.Component {
         return <PropsStateAndLifecycle {...props} />
       case PAGES.LECTURE_3.PROJECT_STRUCTURE:
         return <ProjectStructure {...props} />
+      case PAGES.LECTURE_3.ASSIGNMENTS:
+        return <Assignments {...props} />
     }
     return <Intro {...props}/>
   }

@@ -146,6 +146,10 @@ const routes = [
       {
         id: PAGES.LECTURE_3.PROJECT_STRUCTURE,
         display: 'Project Structure'
+      },
+      {
+        id: PAGES.LECTURE_3.ASSIGNMENTS,
+        display: 'Assignments'
       }
     ]
   },

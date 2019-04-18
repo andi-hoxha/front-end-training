@@ -21,7 +21,8 @@ module.exports = {
       TIC_TAC_TOE_RECAP: 'ticTacToeRecap',
       REACT_FUNCTIONAL_COMPONENTS: 'reactFunctionalComponents',
       REACT_PART_TWO: 'react2',
-      PROJECT_STRUCTURE: 'projectStructure'
+      PROJECT_STRUCTURE: 'projectStructure',
+      ASSIGNMENTS: 'assignments'
     },
     PLAYGROUND: 'playground',
     SUPPORT: {
