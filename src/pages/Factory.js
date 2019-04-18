@@ -13,6 +13,7 @@ import Lecture2 from "pages/lecture2/Lecture2";
 import Resources from "pages/Resources";
 import PlanProgram from "pages/PlanProgram";
 import Playground from "pages/playground/Playground";
+import Lecture3 from "pages/lecture3/Lecture3";
 
 const styles = ({typography}) => ({
   root: {}
@@ -73,6 +74,8 @@ class Factory extends React.Component {
         return <Lecture1 breadcrumbs={breadcrumbs}/>
       case PAGES.LECTURE_2.ID:
         return <Lecture2 breadcrumbs={breadcrumbs}/>
+      case PAGES.LECTURE_3.ID:
+        return <Lecture3 breadcrumbs={breadcrumbs}/>
       case PAGES.GLOSSARY:
         return <Glossary/>
       case PAGES.RESOURCES:

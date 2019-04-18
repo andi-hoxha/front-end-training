@@ -18,7 +18,7 @@ const styles = ({palette, size, shadows, transitions, typography}) => ({
 class Code extends React.Component {
 
   render() {
-    const {classes, className: classNameProp, children} = this.props
+    const {classes, theme: { size } ,className: classNameProp, children} = this.props
 
     const className = classNames(
       classes.root,
@@ -31,10 +31,9 @@ class Code extends React.Component {
         customStyle={{
           width: '100%',
           margin: 0,
-          padding: 0,
+          padding: size.spacing * 2,
           lineHeight: 1.7,
           fontSize: 15,
-          border: 'none',
           backgroundColor: 'transparent'
         }}
         language="javascript"
@@ -46,4 +45,4 @@ class Code extends React.Component {
   }
 }
 
-export default withStyles(styles)(Code)
+export default withStyles(styles, { withTheme: true })(Code)

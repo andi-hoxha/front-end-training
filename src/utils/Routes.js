@@ -94,9 +94,27 @@ const routes = [
             display: 'Tic Tac Toe',
           }
         ]
+      }
+    ]
+  },
+  {
+    display: '3. React (Part 2)',
+    id: PAGES.LECTURE_3.ID,
+    children: [
+      {
+        id: PAGES.LECTURE_3.TIC_TAC_TOE_RECAP,
+        display: 'Tic Tac Toe Recap'
       },
       {
-        id: PAGES.LECTURE_2.PROJECT_STRUCTURE,
+        id: PAGES.LECTURE_3.REACT_FUNCTIONAL_COMPONENTS,
+        display: 'ReactJS Functional Components (state-less)'
+      },
+      {
+        id: PAGES.LECTURE_3.REACT_PART_TWO,
+        display: 'ReactJS Lifecycle, Props and State'
+      },
+      {
+        id: PAGES.LECTURE_3.PROJECT_STRUCTURE,
         display: 'Project Structure'
       }
     ]

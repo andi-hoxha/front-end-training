@@ -6,19 +6,22 @@ module.exports = {
     HOME: 'home',
     LECTURE_1: {
       ID: 'lecture1',
-      GETTING_STARTED: 'gettingstarted',
-      PROJECT_SETTUP: 'projectsetup',
+      GETTING_STARTED: 'gettingStarted',
+      PROJECT_SETTUP: 'projectSetup',
       AGILE_METHODOLOGY: 'agile',
-      WAY_OF_WORKING: 'wayofworking'
+      WAY_OF_WORKING: 'wayofWorking'
     },
     LECTURE_2: {
       ID: 'lecture2',
       JAVASCRIPT: 'javascript',
-      REACT: 'react',
-      PROJECT_STRUCTURE: 'projectstructure'
+      REACT: 'react'
     },
     LECTURE_3: {
-      ID: 'lecture3'
+      ID: 'lecture3',
+      TIC_TAC_TOE_RECAP: 'ticTacToeRecap',
+      REACT_FUNCTIONAL_COMPONENTS: 'reactFunctionalComponents',
+      REACT_PART_TWO: 'react2',
+      PROJECT_STRUCTURE: 'projectStructure'
     },
     GLOSSARY: 'glossary',
     PLAYGROUND: 'playground',

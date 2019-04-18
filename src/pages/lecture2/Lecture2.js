@@ -7,7 +7,6 @@ import Intro from "pages/lecture2/Intro";
 import { PAGES } from 'Constants';
 import Javascript from "pages/lecture2/Javascript";
 import ReactJS from "pages/lecture2/ReactJS";
-import ProjectStructure from "pages/lecture2/ProjectStructure";
 
 const styles = ({ typography }) => ({
   root: {},
@@ -31,8 +30,6 @@ class Lecture1 extends React.Component {
         return <Javascript {...props} />
       case PAGES.LECTURE_2.REACT:
         return <ReactJS {...props} />
-      case PAGES.LECTURE_2.PROJECT_STRUCTURE:
-        return <ProjectStructure {...props} />
     }
     return <Intro {...props}/>
   }
