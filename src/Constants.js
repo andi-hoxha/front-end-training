@@ -23,10 +23,14 @@ module.exports = {
       REACT_PART_TWO: 'react2',
       PROJECT_STRUCTURE: 'projectStructure'
     },
-    GLOSSARY: 'glossary',
     PLAYGROUND: 'playground',
-    RESOURCES: 'resources',
-    PLAN_PROGRAM: 'program'
+    SUPPORT: {
+      ID: 'support',
+      GLOSSARY: 'glossary',
+      RESOURCES: 'resources',
+      PLAN_PROGRAM: 'program',
+      TIPS_AND_TRICKS: 'tips_and_trics'
+    },
   },
 }
 

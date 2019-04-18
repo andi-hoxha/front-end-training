@@ -3,7 +3,7 @@
  */
 import withStyles from "@material-ui/core/styles/withStyles";
 import React from "react";
-import Intro from "pages/lecture2/Intro";
+import Intro from "pages/lecture3/Intro";
 import { PAGES } from 'Constants';
 import PropsStateAndLifecycle from "pages/lecture3/PropsStateAndLifecycle";
 import ProjectStructure from "pages/lecture3/ProjectStructure";
@@ -14,7 +14,7 @@ const styles = ({ typography }) => ({
   root: {},
 })
 
-class Lecture1 extends React.Component {
+class Lecture3 extends React.Component {
   render() {
     const { classes, breadcrumbs } = this.props
 
@@ -41,4 +41,4 @@ class Lecture1 extends React.Component {
   }
 }
 
-export default withStyles(styles)(Lecture1)
+export default withStyles(styles)(Lecture3)

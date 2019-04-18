@@ -6,6 +6,7 @@ import Code from "presentations/Code";
 import Divider from "presentations/Divider";
 import Typography from "presentations/Typography";
 import React, { Fragment } from "react";
+import SimpleLink from "presentations/rows/SimpleLink";
 
 const styles = ({ typography, size }) => ({
 })
@@ -87,11 +88,82 @@ class Transactions extends React.Component {
 }
 `
 
+const helloWorldCode = `
+const HelloWorld = (props) => {
+  return <div>{props.name}</div>
+}`
+
+const extractingComponents = `
+const App = (props) => {
+  return (
+    <div className="Comment">
+      <div className="UserInfo">
+        <img className="Avatar"
+          src={props.author.avatarUrl}
+          alt={props.author.name}
+        />
+        <div className="UserInfo-name">
+          {props.author.name}
+        </div>
+      </div>
+      <div className="Comment-text">
+        {props.text}
+      </div>
+      <div className="Comment-date">
+        {formatDate(props.date)}
+      </div>
+    </div>
+  )
+}
+`
+const avatarComponent = `
+const Avatar = (props) => {
+  return (
+    <img className="Avatar"
+      src={props.user.avatarUrl}
+      alt={props.user.name}
+    />
+  )
+}
+`
+const userInfoComponent = `
+const UserInfo = (props) => {
+  return (
+    <div className="UserInfo">
+      <Avatar user={props.user} />
+      <div className="UserInfo-name">
+        {props.user.name}
+      </div>
+    </div>
+  )
+}
+`
+const appUpdated = `
+const AppUpdated = (props) => {
+  return (
+    <div className="Comment">
+      <UserInfo user={props.author} />
+      <div className="Comment-text">
+        {props.text}
+      </div>
+      <div className="Comment-date">
+        {formatDate(props.date)}
+      </div>
+    </div>
+  )
+}
+`
+const Bold = (props) => {
+  return <label style={{display: 'contents', fontWeight: 'bold', paddingLeft: 4, paddingRight: 4}}>{props.children}</label>
+}
+
 class FunctionalComponents extends React.Component {
   render() {
     const { classes, section } = this.props
-    // let introcution = section.children[0]
-    // let tictactoe = section.children[1]
+    let renderingComponents = section.children[0]
+    let composingComponents = section.children[1]
+    let componentExtractions = section.children[2]
+    let readOnlyProps = section.children[3]
     return (
       <Fragment>
         <Typography variant={'heading'}>
@@ -123,15 +195,77 @@ class FunctionalComponents extends React.Component {
         <Typography variant={'p'}>
           They are called "functional components" because that is litteraly what they are: A javascript function that renders a component
         </Typography>
+        
+        <Typography id={renderingComponents.id} variant={'title'}>
+          {renderingComponents.display}
+        </Typography>
+
+        <Typography variant='p'>
+          In React you can represent DOM tags, that are considered to be of type Node, using JSX like follows
+          <Code>
+            {`const div = <div/>`}
+          </Code>
+          However elements can also represent user defined components like
+          <Code>
+            {`const element = <HelloWorld name="Agon"/>`}
+          </Code>
+          Where Hello World looks like this:
+          <Code>
+            {helloWorldCode}
+          </Code>
+          When React "sees" a user defined component it passes attributes as a single object called props. What happens next is as follows:
+          <ol>
+            <li>We call ReactDOM.render() with the {`<HelloWorld name="Agon" />`} element.</li>
+            <li>React calls the Welcome component with {`{name: 'Agon'}`} as the props.</li>
+            <li>Our Welcome component returns a {`<div>Hello, Agon</div>`} element as the result.</li>
+            <li>React DOM efficiently updates the DOM to match {`<div>Hello, Agon</div>`}.</li>
+          </ol>
+        </Typography>
+
+        <Typography id={composingComponents.id} variant={'title'}>
+          {composingComponents.display}
+        </Typography>
         <Typography variant={'p'}>
           You can even use composition (we will talk more in depth about this later) to render multiple of them like this:
         </Typography>
         <Code>
           {composition}
         </Code>
-
         <Typography variant={'p'}>
-          However there is one strict rule that you must follow when using React components. That is that <label style={{fontWeight: 'bold'}}>Props are Read-Only</label>. Consider the following function:
+          Components can refer to other components in their output. This lets us use the same component abstraction for any level of detail. A button, a form, a dialog, a screen: in React apps, all those are commonly expressed as components.
+        </Typography>
+        <Typography id={componentExtractions.id} variant={'title'}>
+          {componentExtractions.display}
+        </Typography>
+        <Typography variant={'p'}>
+          Consider the following App component:
+          <Code>
+            {extractingComponents}
+          </Code>
+        </Typography>
+        <Typography variant={'p'}>
+          Don't be afraid to extrat components out of it, that can be re-used by other parts of the app. By looking at the use case above, we can see that the user avatar can be something that we can re-use on other parts of the app, right? Lets do that:
+          <Code>
+            {avatarComponent}
+          </Code>
+        </Typography>
+        <Typography variant={'p'}>
+          Any other piece of the UI now can refer to this component when displaying avatars, and passing props of user to enable that. Further more, maybe in some use cases it makes sense to have a special "User Information" component to display all user related info, like this: 
+          <Code>
+            {userInfoComponent}
+          </Code>
+        </Typography>
+        <Typography variant={'p'}>
+          Putting it all together we get:
+          <Code>
+            {appUpdated}
+          </Code>
+        </Typography>
+        <Typography id={readOnlyProps.id} variant={'title'}>
+          {readOnlyProps.display}
+        </Typography>
+        <Typography variant={'p'}>
+          However there is one strict rule that you must follow when using React components. That is that <Bold>Props are Read-Only</Bold>. Consider the following function:
         </Typography>
 
         <Code>
@@ -158,6 +292,9 @@ class FunctionalComponents extends React.Component {
         </Code>
         <Typography variant={'p'}>
           The second "Text Field" component is changing the state value reference without the parent acknowledging it. This means that other views in the dependency tree could have missleading information.
+        </Typography>
+        <Typography variant='p'>
+          Examples taken from: <SimpleLink href="https://reactjs.org/docs/components-and-props.html">https://reactjs.org/docs/components-and-props.html</SimpleLink> with some additions.
         </Typography>
       </Fragment>
 

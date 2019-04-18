@@ -1,19 +1,17 @@
 /**
  * Created by LeutrimNeziri on 30/03/2019.
  */
-import React from "react"
-import withStyles from "@material-ui/core/styles/withStyles"
-import Content from 'anatomy/Content'
-import routes from 'utils/Routes';
-import { PAGES } from 'Constants'
-import Home from 'pages/Home'
-import Lecture1 from 'pages/lecture1/Lecture1'
-import Glossary from "pages/Glossary";
+import withStyles from "@material-ui/core/styles/withStyles";
+import Content from 'anatomy/Content';
+import { PAGES } from 'Constants';
+import Home from 'pages/Home';
+import Lecture1 from 'pages/lecture1/Lecture1';
 import Lecture2 from "pages/lecture2/Lecture2";
-import Resources from "pages/Resources";
-import PlanProgram from "pages/PlanProgram";
-import Playground from "pages/playground/Playground";
 import Lecture3 from "pages/lecture3/Lecture3";
+import Playground from "pages/playground/Playground";
+import Support from "pages/support/Support";
+import React from "react";
+import routes from 'utils/Routes';
 
 const styles = ({typography}) => ({
   root: {}
@@ -76,14 +74,10 @@ class Factory extends React.Component {
         return <Lecture2 breadcrumbs={breadcrumbs}/>
       case PAGES.LECTURE_3.ID:
         return <Lecture3 breadcrumbs={breadcrumbs}/>
-      case PAGES.GLOSSARY:
-        return <Glossary/>
-      case PAGES.RESOURCES:
-        return <Resources/>
+      case PAGES.SUPPORT.ID:
+        return <Support breadcrumbs={breadcrumbs} />
       case PAGES.PLAYGROUND:
-        return <Playground/>
-      case PAGES.PLAN_PROGRAM:
-        return <PlanProgram/>
+        return <Playground page={page} />
       default:
         return <Home/>
     }

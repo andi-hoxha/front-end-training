@@ -6,10 +6,6 @@ const routes = [
     id: PAGES.HOME,
   },
   {
-    display: 'Plan Program',
-    id: PAGES.PLAN_PROGRAM
-  },
-  {
     display: '1. Setup and Introduction',
     id: PAGES.LECTURE_1.ID,
     children: [
@@ -107,11 +103,45 @@ const routes = [
       },
       {
         id: PAGES.LECTURE_3.REACT_FUNCTIONAL_COMPONENTS,
-        display: 'ReactJS Functional Components (state-less)'
+        display: 'ReactJS Functional Components (state-less)',
+        children: [
+          {
+            display: 'Rendering Components',
+          },
+          {
+            display: 'Composing Components',
+          },
+          {
+            display: 'Component Extraction',
+          },
+          {
+            display: 'Read Only Props',
+          },
+        ]
       },
       {
         id: PAGES.LECTURE_3.REACT_PART_TWO,
-        display: 'ReactJS Lifecycle, Props and State'
+        display: 'ReactJS Lifecycle, Props and State',
+        children: [
+          {
+            display: 'render',
+          },
+          {
+            display: 'componentDidMount'
+          },
+          {
+            display: 'shouldComponentUpdate'
+          },
+          {
+            display: 'componentDidUpdate'
+          },
+          {
+            display: 'componentWillUnmount'
+          },
+          {
+            display: 'others'
+          }
+        ]
       },
       {
         id: PAGES.LECTURE_3.PROJECT_STRUCTURE,
@@ -120,24 +150,49 @@ const routes = [
     ]
   },
   {
+    display: 'Materials',
+    id: PAGES.SUPPORT.ID,
+    children: [
+      {
+        display: 'Plan Program',
+        id: PAGES.SUPPORT.PLAN_PROGRAM
+      },
+      {
+        display: 'Glossary',
+        id: PAGES.SUPPORT.GLOSSARY,
+      },
+      {
+        display: 'Resources',
+        id: PAGES.SUPPORT.RESOURCES,
+      },
+      {
+        display: 'Tips and Trics',
+        id: PAGES.SUPPORT.TIPS_AND_TRICKS,
+        children: [
+          {
+            display: 'Debugging'
+          },
+          {
+            display: 'Logging'
+          },
+          {
+            display: 'React Dev Tools'
+          }
+        ]
+      },
+    ]
+  },
+  {
     display: 'Playground',
     id: PAGES.PLAYGROUND,
   },
-  {
-    display: 'Glossary',
-    id: PAGES.GLOSSARY,
-  },
-  {
-    display: 'Resources',
-    id: PAGES.RESOURCES,
-  }
 ]
 
 const format = (which) => {
   let children = which.children || []
   return {
     ...which,
-    id: !which.id ? which.display.replace(' ', '').toLowerCase() : which.id,
+    id: !which.id ? which.display.replace(/ /g, '').toLowerCase() : which.id,
     children: children.map(format)
   }
 }

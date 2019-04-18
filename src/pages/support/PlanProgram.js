@@ -30,7 +30,7 @@ class PlanProgram extends React.Component {
             </li>
             <li>
               React JS introduction, first ever component created, lifecycle introduction (Part 2) and <br/>
-              Project Structure Introduction
+              Project Structure
             </li>
             <li>
               List and sort layout and implementation, component hierarchy introduction, properties and state (Part 2) and <br/>
