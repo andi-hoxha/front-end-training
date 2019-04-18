@@ -94,7 +94,7 @@ const routes = [
     ]
   },
   {
-    display: '3. React (Part 2)',
+    display: '3. Javascript and React (Part 2)',
     id: PAGES.LECTURE_3.ID,
     children: [
       {
