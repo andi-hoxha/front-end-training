@@ -92,13 +92,35 @@ const valuesIntoPie = (values) => {
   };
 }
 
+/**
+ * Generates random values of length, can be positive or negative
+ * @param {int} length 
+ */
 const randomValuesOfLength = (length) => {
-  return Array(length).fill(null).map(() => (Math.abs(Math.random() * 100) - 50))
+  return randomPositiveValues(length).map(next => next - 50)
 }
+
+/**
+ * Generates only positive values of length
+ * @param {int} length 
+ */
+const randomPositiveValues = (length) => {
+  return Array(length).fill(null).map(() => Math.abs(Math.random() * 100))
+}
+
+/**
+ * Generates random words of a given length
+ * @param {int} length 
+ */
 const randomWordsOfLength = (length) => {
   const words = ['Tell', 'Make', 'Pie', 'Peanut', 'Aunt', 'User', 'Contrast', 'Yellow', 'Ou My!', 'Jelly', 'Work', 'Mama', 'Queen', 'Knight']
   return Array(length).fill(null).map((next, index) => words[Math.floor(Math.random() * words.length)])
 }
+
+/**
+ * Generates random groups of a certain length
+ * @param {int} length 
+ */
 const randomGroupsOfLength = (length) => {
   const words = ['Developers', 'Designers', 'Magicians']
   return Array(length).fill(null).map((next, index) => words[Math.floor(Math.random() * words.length)])
@@ -127,9 +149,11 @@ class Assignments extends React.Component {
    *  name: 'Random Word',
    *  value: 'Random Value'
    * }
+   * @param {length} length 
+   * @param {boolean} positive = false
    */
-  randomCategoryData (length) {
-    const values = randomValuesOfLength(length)
+  randomCategoryData (length, positive = false) {
+    const values = positive ? randomPositiveValues(length) : randomValuesOfLength(length)
     const words = randomWordsOfLength(length)
     const groups = randomGroupsOfLength(length)
     return words.map((next, index) => { return { name: next, group: groups[index], value: values[index]} })
@@ -236,7 +260,7 @@ class Assignments extends React.Component {
    * I want to see the top 4 performing categories, given the randomCategoryData, the value is an indicator of the performance
    */
   function7 = () => {
-    const data = this.randomCategoryData(8)
+    const data = this.randomCategoryData(8, true)
     return {
       name: 'Tree',
       series: [
@@ -252,7 +276,7 @@ class Assignments extends React.Component {
    * Calculate the average within the groups now, and show that here. Check the random Category data on how it generates those
    */
   function8 = () => {
-    const data = this.randomCategoryData(8)
+    const data = this.randomCategoryData(8, true)
     return {
       series: [
         {
