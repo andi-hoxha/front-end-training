@@ -13,6 +13,7 @@ const styles = ({palette, size, transitions}) => ({
     '&:hover': {
       textDecoration: 'underline'
     },
+    display: 'contents',
     color: palette.leadColor
   },
   active:{

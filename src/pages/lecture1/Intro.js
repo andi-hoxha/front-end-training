@@ -23,7 +23,7 @@ class Intro extends React.Component {
           The purpose of the lecture one is to onboard the participants, get them acquainted with the way of working, the program plan, the tools that they need to setup and the training program structure.
         </Typography>
         <Typography variant='p'>
-          The lecture 1 will contain these underlying pages:
+          The lecture 1 contains these underlying pages:
           <ol>
             {section.children.map(next => <li key={next.id}>
               <PageLink to={`/lecture/${next.id}/`}>{next.display}</PageLink>

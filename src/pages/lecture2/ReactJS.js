@@ -11,22 +11,7 @@ import DomImage from "assets/images/lecture2/dom.png";
 import TicTacToe from 'pages/lecture2/TicTacToe'
 
 const styles = ({ typography, size }) => ({
-  root: {},
-  columns: {
-    width: '100%',
-    display: 'flex',
-    flexFlow: 'row nowrap',
-    '& :first-child': {
-      marginRight: size.spacing * 2
-    },
-    '& :last-child': {
-      marginLeft: size.spacing * 2
-    }
-  },
-  columnChild: {
-    flex: 1,
-    width: '30%',
-  }
+  root: {}
 })
 
 const reactComponent = `
@@ -135,7 +120,7 @@ class ReactJS extends React.Component {
           <ol>
             <li>Highlight the step that you are in</li>
             <li>Highlight the wining steps</li>
-            <li>Rewrite the board row secionts such that you use loops to render the components. Tip: const rows = Array(3).fill(null), 
+            <li>Rewrite the board row sections such that you use loops to render the components. Tip: const rows = Array(3).fill(null),
               loop twice to this array to map all the rows and their indexes (3x3)</li>
           </ol>
         </Typography>

@@ -269,7 +269,7 @@ class User {
 let a = new User()
 a.sayHello() // "John"
 a.name = "Don"
-a.sayHello() // "Don"`
+a.sayHello() // "John"`
 class Javascript extends React.Component {
   render() {
     const { classes } = this.props

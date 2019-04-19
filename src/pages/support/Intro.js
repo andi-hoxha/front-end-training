@@ -16,14 +16,10 @@ class Intro extends React.Component {
     return (
       <Fragment>
         <Typography variant={'heading'}>
-          Lecture 2: Javascript and React (Part 1)
+          Support Materials and Resources
           <Divider />
         </Typography>
         <Typography variant='p'>
-          The purpose of Lecture 2, is to introduce the participants with the web app structure, and have an introduction to React JS as well as JavaScript programming recap.
-        </Typography>
-        <Typography variant='p'>
-          The lecture 2 contains these underlying pages:
           <ol>
             {section.children.map(next => <li key={next.id}>
               <PageLink to={`/lecture/${next.id}/`}>{next.display}</PageLink>

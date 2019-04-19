@@ -54,6 +54,7 @@ class GettingStarted extends React.Component {
             <li>GitLab account</li>
             <li>Source Tree</li>
             <li>VS Code</li>
+            <li>Slack</li>
             <li>MongoDB Community Server</li>
             <li>Node Package Manager (NPM), part of the Node JS framework</li>
             <li>Mac or Windows OS</li>
