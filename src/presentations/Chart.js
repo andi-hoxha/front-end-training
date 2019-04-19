@@ -74,6 +74,9 @@ class Chart extends React.Component {
         right: padding,
         top: padding,
         bottom: padding
+      },
+      tooltip: {
+        show: true
       }
     }
     console.log('setting options')

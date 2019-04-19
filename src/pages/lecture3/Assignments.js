@@ -43,18 +43,6 @@ const Card = ({options, title, titleClass, graphClass, ...other}) => {
   </div>
 }
 
-const valuesIntoAxisGraphOfType = (series) => {
-  return {
-    xAxis: {
-      type: 'value'
-    },
-    yAxis: {
-      type: 'value'
-    },
-    series
-  };
-}
-
 /**
  * Generates random values of length, can be positive or negative
  * @param {int} length
@@ -68,7 +56,7 @@ const randomValuesOfLength = (length) => {
  * @param {int} length
  */
 const randomPositiveValues = (length) => {
-  return Array(length).fill(null).map(() => Math.abs(Math.random() * 100))
+  return Array(length).fill(null).map(() => Math.round(Math.random() * 100))
 }
 
 /**
