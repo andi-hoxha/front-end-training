@@ -295,6 +295,9 @@ class Assignments extends React.Component {
           For more examples on available graphs take a look at: <SimpleLink href="https://ecomfe.github.io/echarts-examples/public/index.html">Echarts Demo</SimpleLink><br/>
           If you want to implement a new chart, then refer to the options: <SimpleLink href="https://ecomfe.github.io/echarts-doc/public/en/option.html">Echarts Graph Options</SimpleLink><br/>
         </Typography>
+        <Typography fontStyle={'italic'} variant='p'>
+          Tips and Tricks: You are going to use the "Math" function a lot in this assignment, check what the options are!
+        </Typography>
         <div className={classes.graphs}>
           {this.function1(cardProps)}
           {this.function2(cardProps)}

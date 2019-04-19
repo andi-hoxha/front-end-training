@@ -15,7 +15,7 @@ import Console from 'assets/images/support/console.png'
 import ReactDevTool from 'assets/images/support/react.png'
 import ErrorMessages from 'assets/images/support/error_messages.png'
 
-class TipsAndTrics extends React.Component {
+class TipsAndTricks extends React.Component {
   render() {
     const { classes, section } = this.props
     const debugging = section.children[0]
@@ -29,7 +29,7 @@ class TipsAndTrics extends React.Component {
         <Typography variant={'heading'}>
           {section.display}
           <Typography variant='p'>
-            In this page we are going to show some tipcs and trics on how to improve and get better at understanding React development as well as tools that can help you optimise your workflow
+            In this page we are going to show some tips and tricks on how to improve and get better at understanding React development as well as tools that can help you optimise your workflow
           </Typography>
           <Divider />
         </Typography>
@@ -81,4 +81,4 @@ class TipsAndTrics extends React.Component {
   }
 }
 
-export default withStyles(styles)(TipsAndTrics)
+export default withStyles(styles)(TipsAndTricks)

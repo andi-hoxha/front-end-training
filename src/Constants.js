@@ -30,7 +30,7 @@ module.exports = {
       GLOSSARY: 'glossary',
       RESOURCES: 'resources',
       PLAN_PROGRAM: 'program',
-      TIPS_AND_TRICKS: 'tips_and_trics'
+      TIPS_AND_TRICKS: 'tips_and_tricks'
     },
   },
 }

@@ -6,7 +6,7 @@ import React from "react";
 import Intro from "pages/support/Intro";
 import { PAGES } from 'Constants';
 import Glossary from "pages/support/Glossary";
-import TipsAndTrics from "pages/support/TipsAndTrics";
+import TipsAndTricks from "pages/support/TipsAndTricks";
 import Resources from "pages/support/Resources";
 import PlanProgram from "pages/support/PlanProgram";
 
@@ -29,7 +29,7 @@ class Lecture3 extends React.Component {
 
     switch (section.id) {
       case PAGES.SUPPORT.TIPS_AND_TRICKS:
-        return <TipsAndTrics  {...props} />
+        return <TipsAndTricks  {...props} />
       case PAGES.SUPPORT.RESOURCES:
         return <Resources  {...props} />
       case PAGES.SUPPORT.GLOSSARY:

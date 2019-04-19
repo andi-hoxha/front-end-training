@@ -170,7 +170,7 @@ const routes = [
         id: PAGES.SUPPORT.RESOURCES,
       },
       {
-        display: 'Tips and Trics',
+        display: 'Tips and Tricks',
         id: PAGES.SUPPORT.TIPS_AND_TRICKS,
         children: [
           {
