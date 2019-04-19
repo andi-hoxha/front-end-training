@@ -55,46 +55,9 @@ const valuesIntoAxisGraphOfType = (series) => {
   };
 }
 
-const valuesIntoScatter = (values, type) => {
-  return valuesIntoAxisGraphOfType([{
-    data: values,
-    type: 'scatter'
-  }])
-}
-
-const valuesIntoLine = (values) => {
-  return valuesIntoAxisGraphOfType([{
-    data: values,
-    type: 'line'
-  }])
-}
-
-const doubleLineFunction = (values, values2) => {
-  return valuesIntoAxisGraphOfType([{
-    data: values,
-    type: 'line'
-  }, {
-    data: values2,
-    type: 'line'
-  }])
-}
-
-const valuesIntoPie = (values) => {
-  return {
-    series: [{
-      data: values.map(next => { 
-        return {
-          name: next[0], value: next[1]
-        }
-      }),
-      type: 'pie'
-    }]
-  };
-}
-
 /**
  * Generates random values of length, can be positive or negative
- * @param {int} length 
+ * @param {int} length
  */
 const randomValuesOfLength = (length) => {
   return randomPositiveValues(length).map(next => next - 50)
@@ -102,7 +65,7 @@ const randomValuesOfLength = (length) => {
 
 /**
  * Generates only positive values of length
- * @param {int} length 
+ * @param {int} length
  */
 const randomPositiveValues = (length) => {
   return Array(length).fill(null).map(() => Math.abs(Math.random() * 100))
@@ -110,7 +73,7 @@ const randomPositiveValues = (length) => {
 
 /**
  * Generates random words of a given length
- * @param {int} length 
+ * @param {int} length
  */
 const randomWordsOfLength = (length) => {
   const words = ['Tell', 'Make', 'Pie', 'Peanut', 'Aunt', 'User', 'Contrast', 'Yellow', 'Ou My!', 'Jelly', 'Work', 'Mama', 'Queen', 'Knight']
@@ -119,7 +82,7 @@ const randomWordsOfLength = (length) => {
 
 /**
  * Generates random groups of a certain length
- * @param {int} length 
+ * @param {int} length
  */
 const randomGroupsOfLength = (length) => {
   const words = ['Developers', 'Designers', 'Magicians']
@@ -149,7 +112,7 @@ class Assignments extends React.Component {
    *  name: 'Random Word',
    *  value: 'Random Value'
    * }
-   * @param {length} length 
+   * @param {int} length
    * @param {boolean} positive = false
    */
   randomCategoryData (length, positive = false) {
@@ -162,106 +125,116 @@ class Assignments extends React.Component {
   /**
    * Function as Line: y = x * 2
    */
-  function1 = () => {
+  function1 = (props) => {
     const values = randomValuesOfLength(30)
-    return {
+    const options = {
      ...axisGraphDefaultOptions,
       series: [
         {
-          data: values.map(next => [next, next * 2]),
+          data: values.map(x => [x, x * 2]),
           type: GRAPH_TYPES.LINE
         }
       ]
     }
+    return <Card options={options} {...props} title={'Function as Line: y = x * 2'} />
   }
 
   /**
    * Function as Scatter y = square root of the absolute value of ((x ^ 2) + (x * 4))
    */
-  function2 = () => {
+  function2 = (props) => {
     const values = randomValuesOfLength(30)
-    return {
+    const options = {
      ...axisGraphDefaultOptions,
       series: [
         {
-          data: values.map(next => [next, next * 2]),
+          data: values.map(x => [x, x * 2]),
           type: GRAPH_TYPES.SCATTER
         }
       ]
     }
+    const title = 'Function as Scatter y = square root of the absolute value of ((x ^ 2) + (x * 4))'
+    return <Card options={options} {...props} title={title} />
   }
 
   /**
    * Function y = If 3^2 - x^2 > 0 than square root of (3^2 - x^2). If 3^2 - x^2 < 0 then - square root of absolute value of (3^2 - x^2)
    */
-  function3 = () => {
+  function3 = (props) => {
     const values = randomValuesOfLength(30)
-    return {
+    const options = {
      ...axisGraphDefaultOptions,
       series: [
         {
-          data: values.map(next => [next, next * 2]),
+          data: values.map(x => [x, x * 2]),
           type: GRAPH_TYPES.SCATTER
         }
       ]
     }
+    const title = 'Function y = If 3^2 - x^2 > 0 than square root of (3^2 - x^2). If 3^2 - x^2 < 0 then -1 * square root of absolute value of (3^2 - x^2)'
+    return <Card options={options} {...props} title={title} />
   }
 
   /**
    * Function as Line: y = sin(x)
    */
-  function4 = () => {
+  function4 = (props) => {
     const values = randomValuesOfLength(30)
-    return {
+    const options = {
      ...axisGraphDefaultOptions,
       series: [
         {
-          data: values.map(next => [next, next * 2]),
+          data: values.map(x => [x, x * 2]),
           type: GRAPH_TYPES.SCATTER
         }
       ]
     }
+    return <Card options={options} {...props} title={'Function as Line: y = sin(x)'} />
   }
 
   /**
    * Function as Line: y = cos(x)
    */
-  function5 = () => {
+  function5 = (props) => {
     const values = randomValuesOfLength(30)
-    return {
+    const options = {
      ...axisGraphDefaultOptions,
       series: [
         {
-          data: values.map(next => [next, next * 2]),
+          data: values.map(x => [x, x * 2]),
           type: GRAPH_TYPES.SCATTER
         }
       ]
     }
+    return <Card options={options} {...props} title={'Function as Line: y = cos(x)'} />
   }
 
   /**
    * 2 Line Functions displayed together, one for Sin and one for Cos, check only the series option to include two of them
    * Check previous functions
    */
-  function6 = () => {
-    const values = randomValuesOfLength(30)
-    return {
+  function6 = (props) => {
+    const valuesSin = randomValuesOfLength(30)
+    const valuesCos = randomValuesOfLength(30)
+    const options = {
      ...axisGraphDefaultOptions,
       series: [
         {
-          data: values.map(next => [next, next * 2]),
+          data: valuesSin.map(x => [x, x * 2]),
           type: GRAPH_TYPES.SCATTER
         }
       ]
     }
+    const title = '2 Line Functions displayed together, one for Sin and one for Cos, check only the series option to include two of them'
+    return <Card options={options} {...props} title={title} />
   }
 
   /**
    * I want to see the top 4 performing categories, given the randomCategoryData, the value is an indicator of the performance
    */
-  function7 = () => {
-    const data = this.randomCategoryData(8, true)
-    return {
+  function7 = (props) => {
+    const data = this.randomCategoryData(24, true)
+    const options = {
       name: 'Tree',
       series: [
         {
@@ -270,14 +243,16 @@ class Assignments extends React.Component {
         }
       ]
     }
+    const title = 'Filter out top 4 most common words, based on their random generated value'
+    return <Card options={options} {...props} title={title} />
   }
 
   /**
    * Calculate the average within the groups now, and show that here. Check the random Category data on how it generates those
    */
-  function8 = () => {
+  function8 = (props) => {
     const data = this.randomCategoryData(8, true)
-    return {
+    const options = {
       series: [
         {
           data,
@@ -285,14 +260,15 @@ class Assignments extends React.Component {
         }
       ]
     }
+    return <Card options={options} {...props} title={'The Average within Groups'} />
   }
 
   /**
    * Calculate the values such that they are comulative, each subsequent is sumed with the total so far!
    */
-  function9 = () => {
+  function9 = (props) => {
     const data = this.randomCategoryData(8)
-    return {
+    const options = {
       xAxis: {
         type: 'category',
         data: data.map(next => next.name)
@@ -307,6 +283,8 @@ class Assignments extends React.Component {
         }
       ]
     }
+    const title = 'Calculate the values such that they are comulative, each subsequent is sumed with the total so far!'
+    return <Card options={options} {...props} title={title} />
   }
 
   render() {
@@ -330,15 +308,15 @@ class Assignments extends React.Component {
           If you want to implement a new chart, then refer to the options: <SimpleLink href="https://ecomfe.github.io/echarts-doc/public/en/option.html">Echarts Graph Options</SimpleLink><br/>
         </Typography>
         <div className={classes.graphs}>
-          <Card options={this.function1()} {...cardProps} title={'Function as Line: y = x * 2'} />
-          <Card options={this.function2()} {...cardProps} title={'Function as Scatter y = square root of the absolute value of ((x ^ 2) + (x * 4))'} />
-          <Card options={this.function3()} {...cardProps} title={'Function y = If 3^2 - x^2 > 0 than square root of (3^2 - x^2). If 3^2 - x^2 < 0 then - square root of absolute value of (3^2 - x^2)'} />
-          <Card options={this.function4()} {...cardProps} title={'Function as Line: y = sin(x)'} />
-          <Card options={this.function5()} {...cardProps} title={'Function as Line: y = cos(x)'} />
-          <Card options={this.function6()} {...cardProps} title={'2 Line Functions displayed together, one for Sin and one for Cos, check only the series option to include two of them'} />
-          <Card options={this.function7()} {...cardProps} title={'Filter out top 4 most common words, based on their random generated value'} />
-          <Card options={this.function8()} {...cardProps} title={'The Average within Groups'} />
-          <Card options={this.function9()} {...cardProps} title={'Calculate the values such that they are comulative, each subsequent is sumed with the total so far!'} />
+          {this.function1(cardProps)}
+          {this.function2(cardProps)}
+          {this.function3(cardProps)}
+          {this.function4(cardProps)}
+          {this.function5(cardProps)}
+          {this.function6(cardProps)}
+          {this.function7(cardProps)}
+          {this.function8(cardProps)}
+          {this.function9(cardProps)}
         </div>
       </Fragment>
     )
