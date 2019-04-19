@@ -4,3 +4,4 @@ build/*
 !build/favicon.png
 .idea/*
 .history/*
+package-lock.json
