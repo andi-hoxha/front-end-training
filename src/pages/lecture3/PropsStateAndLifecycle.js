@@ -150,7 +150,7 @@ class PropsStateAndLifecycle extends React.Component {
         </Code>
 
         <Typography variant='p'>
-          A React component has three main categories: Mounting, Updating and Unmountin. Lets look at the each lifecycle method one by one, starting with the render method which is also the most used one:
+          A React component has three main categories: Mounting, Updating and Un-mounting. Lets look at the each lifecycle method one by one, starting with the render method which is also the most used one:
         </Typography>
 
         <Typography id={render.id} variant={'title'}>
@@ -202,7 +202,7 @@ class PropsStateAndLifecycle extends React.Component {
           {componentWillUnmount.display}
         </Typography>
         <Typography>
-          Before the component unmounts this method is called for reasons to clean up resources. If you initiated a timer, or did a call at the API, this is the moment to cancel or clean them up, so that you don't have uneccesary resource leackage
+          Before the component un-mounts this method is called for reasons to clean up resources. If you initiated a timer, or did a call at the API, this is the moment to cancel or clean them up, so that you don't have unnecessary resource leakage
           <Code>
             {cleanCode}
           </Code>

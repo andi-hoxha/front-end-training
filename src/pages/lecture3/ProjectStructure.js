@@ -45,7 +45,7 @@ class ProjectStructure extends React.Component {
                 <li>README.md</li>
                 The file that explains or instructs, gives details about the repository you are looking at. It is important to put some information on how other developers can install and use your project, how they can run it etc.
                 <li>webpack.config.js</li>
-                We are using webpack to compile our javascript and to run our front-end code, without the need of a server. Webpack is a module bundler for JavaScript. Its sole purpose it to bundle all the code into 'bundle.js' bundles. That means that all of the code of the app can be compiled into these big fat bundles that are minified, organised (no unused imports in there) and the end result very small. Instead of moving hundreds of folders and hundreds of files as a deployable, you would use webpack to just bundle all of that and organise it nicely. Than the entire web application can be bundled into a few files, or on other cases 1 file. It depends if you want to bundle parts of the application separately (known as chunks) or all in one. 
+                We are using webpack to compile our javascript and to run our front-end code, without the need of a server. Webpack is a module bundler for JavaScript. Its sole purpose it to bundle all the code into 'bundle.js' bundles. That means that all of the code of the app can be compiled into these big fat bundles that are minified, organised (no unused imports in there) and the end result very small. Instead of moving hundreds of folders and hundreds of files as a deployable, you would use webpack to just bundle all of that and organise it nicely. Than the entire web application can be bundled into a few files, or on other cases 1 file. It depends if you want to bundle parts of the application separately (known as chunks) or all in one.
                 <li>LICENSE</li>
                 The Git License of the project, currently MIT (do as you please with it)
                 <li>jsconfig.json</li>
@@ -72,11 +72,11 @@ class ProjectStructure extends React.Component {
                 <li>presentations</li>
                 All the React components that are used to present content. No logic on them, re-usable.
                 <li>utils</li>
-                As the name suggest, utilitie classes and functions
+                As the name suggest, utilities classes and functions
                 <li>index.js</li>
                 The starting point of the app. Uses the React API to mount the applicatin to the document with id.
                 <li>App.js</li>
-                Our top level hirearchy of the React App. Contains routing and providers.
+                Our top level hierarchy of the React App. Contains routing and providers.
                 <li>Constants.js</li>
                 Holds Contants that are used through out the app. Usually you keep constants like hostname, batch sizes, page definitions etc
                 <li>index.html</li>

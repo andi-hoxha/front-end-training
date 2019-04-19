@@ -169,7 +169,7 @@ class FunctionalComponents extends React.Component {
         <Typography variant={'heading'}>
           {section.display}
           <Typography variant='p'>
-            In this section we are going to do a recap and talk about how can we turn a fnuctional component and a few tips and trics!
+            In this section we are going to do a recap and talk about how can we turn a functional component and a few tips and trics!
           </Typography>
           <Divider />
         </Typography>
@@ -177,7 +177,7 @@ class FunctionalComponents extends React.Component {
           Functional components? You mean like a function rendering a component? Without any State?
         </Typography>
         <Typography variant={'p'}>
-          Yep that's exactly what I mean. Lets see what we discussed so far about the "Square" component. Since it doens't have any state, like the "Game" component, can we make it simplier?
+          Yep that's exactly what I mean. Lets see what we discussed so far about the "Square" component. Since it doesn't have any state, like the "Game" component, can we make it simpler?
         </Typography>
         <Code>
           {square}
@@ -189,11 +189,11 @@ class FunctionalComponents extends React.Component {
           {functionalSquare}
         </Code>
         <Typography variant={'p'}>
-          Let us have a look at what exactly changed. First of all the "Square" is not any more a class, but rather a function. It only accepts properties and returns another tag. That is pretty straight forward isn't it? This is how react can also levarage functions to render components. If the component has no state we can simplyfy it!
+          Let us have a look at what exactly changed. First of all the "Square" is not any more a class, but rather a function. It only accepts properties and returns another tag. That is pretty straight forward isn't it? This is how react can also levarage functions to render components. If the component has no state we can simplify it!
         </Typography>
 
         <Typography variant={'p'}>
-          They are called "functional components" because that is litteraly what they are: A javascript function that renders a component
+          They are called "functional components" because that is literally what they are: A javascript function that renders a component
         </Typography>
         
         <Typography id={renderingComponents.id} variant={'title'}>
@@ -244,7 +244,7 @@ class FunctionalComponents extends React.Component {
           </Code>
         </Typography>
         <Typography variant={'p'}>
-          Don't be afraid to extrat components out of it, that can be re-used by other parts of the app. By looking at the use case above, we can see that the user avatar can be something that we can re-use on other parts of the app, right? Lets do that:
+          Don't be afraid to extract components out of it, that can be re-used by other parts of the app. By looking at the use case above, we can see that the user avatar can be something that we can re-use on other parts of the app, right? Lets do that:
           <Code>
             {avatarComponent}
           </Code>
@@ -282,16 +282,16 @@ class FunctionalComponents extends React.Component {
           {impure}
         </Code>
         <Typography variant={'p'}>
-          <label>Now this is an important rule since, a state change in a parent component causes a rerender of the tree and a new prop being passed into the children components and <label style={{fontWeight: 'bold'}}>not</label> a reference change. A reference change introduces a dependency that only the component modifying it is aware off, and not all the other child components that depend on the same prop! When working with React there is only one strict rule that you must follow, that is that: <label style={{fontWeight: 'bold'}}>All React components must act like pure functions with respect to their props.</label></label>
+          <label>Now this is an important rule since, a state change in a parent component causes a re-render of the tree and a new prop being passed into the children components and <label style={{fontWeight: 'bold'}}>not</label> a reference change. A reference change introduces a dependency that only the component modifying it is aware off, and not all the other child components that depend on the same prop! When working with React there is only one strict rule that you must follow, that is that: <label style={{fontWeight: 'bold'}}>All React components must act like pure functions with respect to their props.</label></label>
         </Typography>
         <Typography variant={'p'}>
-          Consider the following example where a components relies on a transactions state to update multiple views. Itself it renders the ammounts of transactions that has happend so far:
+          Consider the following example where a components relies on a transactions state to update multiple views. Itself it renders the amounts of transactions that has happened so far:
         </Typography>
         <Code>
           {badTransactionsExample}
         </Code>
         <Typography variant={'p'}>
-          The second "Text Field" component is changing the state value reference without the parent acknowledging it. This means that other views in the dependency tree could have missleading information.
+          The second "Text Field" component is changing the state value reference without the parent acknowledging it. This means that other views in the dependency tree could have miss leading information.
         </Typography>
         <Typography variant='p'>
           Examples taken from: <SimpleLink href="https://reactjs.org/docs/components-and-props.html">https://reactjs.org/docs/components-and-props.html</SimpleLink> with some additions.

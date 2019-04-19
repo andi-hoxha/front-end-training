@@ -238,7 +238,7 @@ class TicTacToeRecap extends React.Component {
         </Code>
 
         <Typography variant={'p'}>
-          And the Game component handled all the heavy lifing. By that it means that all the logic was embeded into once component. That basically looks like this:
+          And the Game component handled all the heavy lifting. By that it means that all the logic was embedded into once component. That basically looks like this:
         </Typography>
 
         <Code>
@@ -255,7 +255,7 @@ class TicTacToeRecap extends React.Component {
         </Code>
 
         <Typography variant={'p'}>
-          Which, if you don't specify and look at the console log, right click on the web app and select "Inpsect Element" and going to the "Console" tab, looks like this (Try removing it from the solution):
+          Which, if you don't specify and look at the console log, right click on the web app and select "Inspect Element" and going to the "Console" tab, looks like this (Try removing it from the solution):
         </Typography>
         <Typography variant={'p'}>
           <img src={KeyMissingImage}/>

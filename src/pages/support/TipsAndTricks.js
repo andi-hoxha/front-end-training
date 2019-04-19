@@ -43,7 +43,7 @@ class TipsAndTricks extends React.Component {
           <img src={OpenInspectElement} />
         </Typography>
         <Typography variant='p'>
-          The first tab that opens can allow users to inspect how the HTML looks like and allow them to quickly try changing it and visuallising the change live!
+          The first tab that opens can allow users to inspect how the HTML looks like and allow them to quickly try changing it and visualising the change live!
         </Typography>
         <Typography variant='p'>
           <img src={InspectHTMLElement} />
@@ -64,7 +64,7 @@ class TipsAndTricks extends React.Component {
           <img src={ErrorMessages} />
         </Typography>
         <Typography variant='p'>
-          At the above example the reference of the bug is not defined. The bug happend at TipsAndTrics.js. By clicking the link you can see what the code that failed looks like and try to fix it!
+          At the above example the reference of the bug is not defined. The bug happened at TipsAndTrics.js. By clicking the link you can see what the code that failed looks like and try to fix it!
         </Typography>
         <Typography id={devTools.id} variant={'title'}>
           {devTools.display}

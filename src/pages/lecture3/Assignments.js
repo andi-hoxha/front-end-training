@@ -252,7 +252,7 @@ class Assignments extends React.Component {
   }
 
   /**
-   * Calculate the values such that they are comulative, each subsequent is sumed with the total so far!
+   * Calculate the values such that they are cumulative, each subsequent is summed with the total so far!
    */
   function9 = (props) => {
     const data = this.randomCategoryData(8)
@@ -271,7 +271,7 @@ class Assignments extends React.Component {
         }
       ]
     }
-    const title = 'Calculate the values such that they are comulative, each subsequent is sumed with the total so far!'
+    const title = 'Calculate the values such that they are cumulative, each subsequent is summed with the total so far!'
     return <Card options={options} {...props} title={title} />
   }
 

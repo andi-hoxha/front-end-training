@@ -120,7 +120,7 @@ class ReactJS extends React.Component {
           <ol>
             <li>Highlight the step that you are in</li>
             <li>Highlight the wining steps</li>
-            <li>Rewrite the board row secionts such that you use loops to render the components. Tip: const rows = Array(3).fill(null), 
+            <li>Rewrite the board row sections such that you use loops to render the components. Tip: const rows = Array(3).fill(null),
               loop twice to this array to map all the rows and their indexes (3x3)</li>
           </ol>
         </Typography>
