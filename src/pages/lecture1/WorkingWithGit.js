@@ -94,6 +94,12 @@ class WorkingWithGit extends React.Component {
           At Source Tree these are basically your staged files, stage selected file would be the same as running the command above (See Figure 2). 
         </Typography>
         <Typography variant='p'>
+          Git shows the same status overview by using the <Bold>status</Bold> command. 
+        </Typography>
+        <Code>
+          {`git status`}
+        </Code>
+        <Typography variant='p'>
           If you want to Stage All files, or add every file that changed into your Index (Stage tree) you can use the following command (* stands for all):
         </Typography>
         <Code>
@@ -164,6 +170,18 @@ class WorkingWithGit extends React.Component {
         <Typography variant='p'>
           Now the remote repository has the new branch that you have created without any changes yet. This is the command from the <Bold>{pushingChanges.display}</Bold> section.
         </Typography>
+        <Typography variant='p'>
+          In order to only switch to another branch you can use the git checkout command without the -b:
+        </Typography>
+        <Code>
+          {`git checkout git_branch_demo`}
+        </Code>
+        <Typography variant='p'>
+          At Source Tree you can just double click a branch to jump to.
+        </Typography>
+        <Typography variant='p'>
+          <Italic>Note: You cannot switch branches if you have unstaged and or staged files that would be overriten if you switch branch. That is the branch you are trying to get to, has already updates on the files that you have updated at your current branch! First commit the changes or discard them and then proceed!</Italic>
+        </Typography>
 
         <Typography id={updateAndMerge.id} variant={'title'}>
           {updateAndMerge.display}
@@ -172,11 +190,29 @@ class WorkingWithGit extends React.Component {
           After we have done changes to a branch it is time to merge those changes back to master or if you need to get the changes that someone else did on the same branch we use the <Bold>pull</Bold> command! This updates your local repository to the newest commit available at the remote repository! This does a <Italic>fetch</Italic> and <Italic>merge</Italic> remote changes of the branch that you are at!
         </Typography>
         <Typography variant='p'>
-          To merge another branch into your current branch use the 
+          To merge another branch into your current branch use the following command:
         </Typography>
         <Code>
-          {`git pull origin <target_branch>`}
+          {`git pull origin <source_branch>`}
         </Code>
+        <Typography variant='p'>
+          or:
+        </Typography>
+        <Code>
+          {`git merge <source_branch>`}
+        </Code>
+        <Typography variant='p'>
+          Both will try to auto merge the changes, but sometimes this can lead to <Italic>Conflicts</Italic>. You are responsible to merge those conflicts manually by editing the files shown by git. After changing, you need to mark them as merged with the:
+        </Typography>
+        <Code>
+          {`git add <file_name>`}
+        </Code>
+        <Typography variant='p'>
+          At Source Tree you can use the "Pull" button to do the same, it will default to the branch that you are located in.
+        </Typography>
+        <Typography variant='p'>
+          <Italic>Note: Same as with checking out branches you cannot pull branches if you have unstaged and or staged files that would be overriten if you switch branch. That is the branch you are trying to get to, has already updates on the files that you have updated at your current branch! First commit the changes or discard them and then proceed!</Italic>
+        </Typography>
       </Fragment>
     )
   }

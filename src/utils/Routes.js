@@ -55,21 +55,6 @@ const routes = [
         ]
       },
       {
-        display: 'Way of Working',
-        id: PAGES.LECTURE_1.WAY_OF_WORKING,
-        children: [
-          {
-            display: 'GitLab Setup',
-          },
-          {
-            display: 'Rules',
-          },
-          {
-            display: 'Exercise 1'
-          }
-        ]
-      },
-      {
         display: 'Working with GIT (Source Tree or Terminal)',
         id: PAGES.LECTURE_1.WORKING_WITH_GIT,
         children: [
@@ -87,6 +72,21 @@ const routes = [
           },
           {
             display: 'Update and Merge'
+          }
+        ]
+      },
+      {
+        display: 'Way of Working',
+        id: PAGES.LECTURE_1.WAY_OF_WORKING,
+        children: [
+          {
+            display: 'GitLab Setup',
+          },
+          {
+            display: 'Rules',
+          },
+          {
+            display: 'Exercise 1'
           }
         ]
       }
