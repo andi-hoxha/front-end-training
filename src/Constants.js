@@ -9,7 +9,8 @@ module.exports = {
       GETTING_STARTED: 'gettingStarted',
       PROJECT_SETTUP: 'projectSetup',
       AGILE_METHODOLOGY: 'agile',
-      WAY_OF_WORKING: 'wayofWorking'
+      WAY_OF_WORKING: 'wayofWorking',
+      WORKING_WITH_GIT: 'git'
     },
     LECTURE_2: {
       ID: 'lecture2',
