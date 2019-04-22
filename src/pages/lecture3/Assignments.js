@@ -339,7 +339,7 @@ class Assignments extends React.Component {
         <Typography variant='p'>
           Title: "Implement the Binary Search Function"<br/>
           Description: "Using Binary Search I will search for the given value at the given sorted array"<br/>
-          To understand how binary search works visit: <SimpleLink href="https://www.tutorialspoint.com/data_structures_algorithms/binary_search_algorithm.html">Binary Search Explenation</SimpleLink><br/>
+          To understand how binary search works visit: <SimpleLink href="https://www.tutorialspoint.com/data_structures_algorithms/binary_search_algorithm.htm">Binary Search Explenation</SimpleLink><br/>
           
         </Typography>
         <Typography variant='p'>
