@@ -26,6 +26,7 @@ class Resources extends React.Component {
             <li><label>Install Visual Studio Code: <SimpleLink href="https://code.visualstudio.com/">https://code.visualstudio.com/</SimpleLink></label></li>
             <li><label>GitLab: <SimpleLink href="https://gitlab.com">https://gitlab.com</SimpleLink></label></li>
             <li><label>GIT: <SimpleLink href="https://git-scm.com/">https://git-scm.com/</SimpleLink></label></li>
+            <li><label>Working with GIT: <SimpleLink href="https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners">https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners</SimpleLink></label></li>
             <li><label>MongoDB: <SimpleLink href="https://www.mongodb.com/">https://www.mongodb.com/</SimpleLink></label></li>
             <li><label>JSON: <SimpleLink href="https://www.json.org/">https://www.json.org/</SimpleLink></label></li>
             <li><label>W3Schools JS: <SimpleLink href="https://www.w3schools.com/js/">https://www.w3schools.com/js/</SimpleLink></label></li>
