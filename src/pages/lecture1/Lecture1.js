@@ -9,6 +9,7 @@ import GettingStarted from "pages/lecture1/GettingStarted";
 import Intro from "pages/lecture1/Intro";
 import ProjectSetup from "pages/lecture1/ProjectSetup";
 import WayOfWorking from "pages/lecture1/WayOfWorking";
+import WorkingWithGit from "pages/lecture1/WorkingWithGit";
 const styles = ({ typography }) => ({
   root: {},
 })
@@ -35,6 +36,8 @@ class Lecture1 extends React.Component {
         return <AgileMethodology {...props} />
       case PAGES.LECTURE_1.WAY_OF_WORKING:
         return <WayOfWorking {...props} />
+      case PAGES.LECTURE_1.WORKING_WITH_GIT:
+        return <WorkingWithGit {...props} />
     }
     return <Intro {...props} />
   }

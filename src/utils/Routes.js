@@ -68,6 +68,27 @@ const routes = [
             display: 'Exercise 1'
           }
         ]
+      },
+      {
+        display: 'Working with GIT (Source Tree or Terminal)',
+        id: PAGES.LECTURE_1.WORKING_WITH_GIT,
+        children: [
+          {
+            display: 'Workflow'
+          },
+          {
+            display: 'Add & Commit'
+          },
+          {
+            display: 'Pushing Changes'
+          },
+          {
+            display: 'Branching'
+          },
+          {
+            display: 'Update and Merge'
+          }
+        ]
       }
     ]
   },
