@@ -170,7 +170,15 @@ const routes = [
       },
       {
         id: PAGES.LECTURE_3.ASSIGNMENTS,
-        display: 'Assignments'
+        display: 'Assignments',
+        children: [
+          {
+            display: 'Graph Functions'
+          },
+          {
+            display: 'Binary Search Sort'
+          }
+        ]
       }
     ]
   },

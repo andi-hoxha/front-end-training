@@ -8,6 +8,7 @@ import Typography from "presentations/Typography";
 import React, { Fragment } from "react";
 import Chart from "presentations/Chart";
 import SimpleLink from "presentations/rows/SimpleLink";
+import { Normal } from "presentations/Label";
 
 const styles = ({ typography, size }) => ({
   root: {},
@@ -218,7 +219,7 @@ class Assignments extends React.Component {
   }
 
   /**
-   * I want to see the top 4 performing categories, given the randomCategoryData, the value is an indicator of the performance
+   * I want to see the top 4 performing words, given the randomCategoryData, the top 4 with the highest random generated value
    */
   function7 = (props) => {
     const data = this.randomCategoryData(24, true)
@@ -275,19 +276,42 @@ class Assignments extends React.Component {
     return <Card options={options} {...props} title={title} />
   }
 
+  /**
+   * TODO: Implement Binary Search Method
+   * @param {Array} values 
+   * @param {int} search 
+   */
+  binarySearch (values, search) {
+    // implement 
+
+    // -1 means I cannot find it. Todo return the index
+    return -1
+  }
+
   render() {
-    const { classes } = this.props
+    const { classes, section } = this.props
+
+    let graphFunctions = section.children[0]
+    let binarySearch = section.children[1]
 
     const cardProps = {
       titleClass: classes.title,
       className: classes.card,
       graphClass: classes.graph
     }
+
+    const values = [1, 4, 12, 16, 22, 24, 28, 44, 70]
+    const search = 24
+    const index = this.binarySearch(values, search)
+    const isCorrect = values.includes(search) === index
     return (
       <Fragment>
         <Typography variant={'heading'}>
             Home Assignments
             <Divider />
+        </Typography>
+        <Typography id={graphFunctions.id} variant={'title'}>
+          {graphFunctions.display}
         </Typography>
         <Typography variant='p'>
           Title: "Implements and visualise Mathematical Functions:"<br/>
@@ -309,6 +333,20 @@ class Assignments extends React.Component {
           {this.function8(cardProps)}
           {this.function9(cardProps)}
         </div>
+        <Typography id={binarySearch.id} variant={'title'}>
+          {binarySearch.display}
+        </Typography>
+        <Typography variant='p'>
+          Title: "Implement the Binary Search Function"<br/>
+          Description: "Using Binary Search I will search for the given value at the given sorted array"<br/>
+          To understand how binary search works visit: <SimpleLink href="https://www.tutorialspoint.com/data_structures_algorithms/binary_search_algorithm.html">Binary Search Explenation</SimpleLink><br/>
+          
+        </Typography>
+        <Typography variant='p'>
+          For the given values: {values.join(', ')}, return the index of the value {search} which is {values.indexOf(search)} using Binary Search!<br/>
+          Currently the solution is: <Normal style={{ color: isCorrect ? 'green' : 'red' }}>{isCorrect ? 'Correct' : 'Not Correct'}</Normal><br/>
+          The returned value from the algorithm: {index}
+        </Typography>
       </Fragment>
     )
   }
