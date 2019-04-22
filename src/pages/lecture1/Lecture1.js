@@ -3,13 +3,13 @@
  */
 import withStyles from "@material-ui/core/styles/withStyles";
 import { PAGES } from 'Constants';
-import React, { Fragment } from "react";
 import AgileMethodology from "pages/lecture1/AgileMethodology";
 import GettingStarted from "pages/lecture1/GettingStarted";
 import Intro from "pages/lecture1/Intro";
 import ProjectSetup from "pages/lecture1/ProjectSetup";
 import WayOfWorking from "pages/lecture1/WayOfWorking";
 import WorkingWithGit from "pages/lecture1/WorkingWithGit";
+import React from "react";
 const styles = ({ typography }) => ({
   root: {},
 })

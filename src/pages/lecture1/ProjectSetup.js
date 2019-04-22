@@ -1,7 +1,6 @@
 /**
  * Created by LeutrimNeziri on 09/04/2019.
  */
-import Code from "presentations/Code";
 import withStyles from "@material-ui/core/styles/withStyles";
 import addMember from 'assets/images/lecture1/add_member.png';
 import cloneInstruction from 'assets/images/lecture1/clone_instruction.png';
@@ -11,6 +10,7 @@ import newRemote from 'assets/images/lecture1/new_remote.png';
 import privateRepo from 'assets/images/lecture1/private_repo.png';
 import remoteMaster from 'assets/images/lecture1/remote_master.png';
 import visualCodeImport from 'assets/images/lecture1/vs_code_import.png';
+import Code from "presentations/Code";
 import Divider from "presentations/Divider";
 import SimpleLink from "presentations/rows/SimpleLink";
 import Typography from "presentations/Typography";

@@ -1,28 +1,20 @@
 /**
  * Created by LeutrimNeziri on 09/04/2019.
  */
-import Code from "presentations/Code";
 import withStyles from "@material-ui/core/styles/withStyles";
-import addMember from 'assets/images/lecture1/add_member.png';
-import cloneInstruction from 'assets/images/lecture1/clone_instruction.png';
-import cloneSourceTree from 'assets/images/lecture1/clone_new_source_tree.png';
-import fork from 'assets/images/lecture1/fork_instruction.png';
-import newRemote from 'assets/images/lecture1/new_remote.png';
-import privateRepo from 'assets/images/lecture1/private_repo.png';
-import remoteMaster from 'assets/images/lecture1/remote_master.png';
-import visualCodeImport from 'assets/images/lecture1/vs_code_import.png';
+import CommitedChanges from 'assets/images/lecture1/commited_changes.png';
+import GitBranches from 'assets/images/lecture1/git_branches.png';
+import GitCommitImage from 'assets/images/lecture1/git_commit.png';
+import GitWorkflowImage from 'assets/images/lecture1/git_workflow.png';
+import StagedFilesImage from 'assets/images/lecture1/un_or_staged_files.png';
+import WorkflowTreeImage from 'assets/images/lecture1/workflow_tree.png';
+import Code from "presentations/Code";
 import Divider from "presentations/Divider";
+import { Bold, Italic } from 'presentations/Label';
 import SimpleLink from "presentations/rows/SimpleLink";
 import Typography from "presentations/Typography";
 import React, { Fragment } from "react";
-import WorkflowTreeImage from 'assets/images/lecture1/workflow_tree.png';
-import GitWorkflowImage from 'assets/images/lecture1/git_workflow.png';
-import StagedFilesImage from 'assets/images/lecture1/un_or_staged_files.png';
-import GitCommitImage from 'assets/images/lecture1/git_commit.png';
-import CommitedChanges from 'assets/images/lecture1/commited_changes.png';
-import GitBranches from 'assets/images/lecture1/git_branches.png';
 
-import { Italic, Bold } from 'presentations/Label'
 const styles = ({ typography }) => ({
   root: {},
 })
