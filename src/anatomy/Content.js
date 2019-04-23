@@ -50,7 +50,7 @@ const styles = ({palette, size, typography}) => ({
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: `${size.spacing}px, 0px`,
+    padding: `${size.spacing}px 0px`,
     fontSize: size.captionFontSize,
     color: palette.disabledColor,
     fontStyle: 'italic'

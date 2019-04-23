@@ -303,7 +303,7 @@ class Assignments extends React.Component {
     const values = [1, 4, 12, 16, 22, 24, 28, 44, 70]
     const search = 24
     const index = this.binarySearch(values, search)
-    const isCorrect = values.includes(search) === index
+    const isCorrect = values.indexOf(search) === index
     return (
       <Fragment>
         <Typography variant={'heading'}>
