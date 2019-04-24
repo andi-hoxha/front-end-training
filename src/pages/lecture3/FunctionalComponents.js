@@ -169,7 +169,7 @@ class FunctionalComponents extends React.Component {
         <Typography variant={'heading'}>
           {section.display}
           <Typography variant='p'>
-            In this section we are going to do a recap and talk about how can we turn a functional component and a few tips and trics!
+            In this section we are going to do a recap and talk about how can we turn a functional component and a few tips and trics! Inspired by <SimpleLink href="https://reactjs.org/docs/components-and-props.html">https://reactjs.org/docs/components-and-props.html</SimpleLink>
           </Typography>
           <Divider />
         </Typography>

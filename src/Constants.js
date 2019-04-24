@@ -25,6 +25,15 @@ module.exports = {
       PROJECT_STRUCTURE: 'projectStructure',
       ASSIGNMENTS: 'assignments'
     },
+    LECTURE_4: {
+      ID: 'lecture4',
+      HANDLING_EVENTS: 'handlingEvents',
+      CONDITIONAL_RENDERING: 'conditionalRendering',
+      LISTS_AND_KEYS: 'lists_and_keys',
+      FORMS: 'forms',
+      LIFTING_STATE: 'lifting_state',
+      COMPOSITION_INHERITANCE: 'composition_vs_inheritance'
+    },
     PLAYGROUND: 'playground',
     SUPPORT: {
       ID: 'support',
