@@ -216,12 +216,17 @@ const routes = [
         children: [
           {
             display: 'Controlled Components'
+          },
+          {
+            display: 'Other Tags'
+          },
+          {
+            display: 'Controlled Input Null Value'
+          },
+          {
+            display: 'Uncontrolled Components'
           }
         ]
-      },
-      {
-        id: PAGES.LECTURE_4.LIFTING_STATE,
-        display: 'Lifting State Up'
       },
       {
         id: PAGES.LECTURE_4.COMPOSITION_INHERITANCE,

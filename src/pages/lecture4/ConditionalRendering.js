@@ -116,10 +116,6 @@ const SecretInfo = (props) => {
 }
 `
 
-
-
-
-
 class ConditionalRendering extends React.Component {
   render() {
     const { classes, section } = this.props

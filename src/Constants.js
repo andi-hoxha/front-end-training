@@ -31,7 +31,6 @@ module.exports = {
       CONDITIONAL_RENDERING: 'conditionalRendering',
       LISTS_AND_KEYS: 'lists_and_keys',
       FORMS: 'forms',
-      LIFTING_STATE: 'lifting_state',
       COMPOSITION_INHERITANCE: 'composition_vs_inheritance'
     },
     PLAYGROUND: 'playground',

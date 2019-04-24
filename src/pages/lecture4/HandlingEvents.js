@@ -131,7 +131,6 @@ class LoopEventClick extends React.Component {
 }
 `
 
-
 class HandlingEvents extends React.Component {
   render() {
     const { classes, section } = this.props
@@ -201,7 +200,6 @@ class HandlingEvents extends React.Component {
           </Code>
         </Typography>
       </Fragment>
-
     )
   }
 }
