@@ -135,6 +135,9 @@ class PropsStateAndLifecycle extends React.Component {
       <Fragment>
         <Typography variant={'heading'}>
           {section.display}
+          <Typography variant='p'>
+            In this section we are going to talk about React Component lifecycle events. Inspired by <SimpleLink href="https://reactjs.org/docs/state-and-lifecycle.html">https://reactjs.org/docs/state-and-lifecycle.html</SimpleLink>
+          </Typography>
           <Divider />
         </Typography>
         <Typography variant='p'>
@@ -212,7 +215,7 @@ class PropsStateAndLifecycle extends React.Component {
         </Typography>
 
         <Typography>
-          There are other lifecycle which got recently introduced like the <Italic>getDerivedStateFromProps</Italic>, <Italic>getSnapshotBeforeUpdate</Italic> <Italic>getDerivedStateFromError</Italic> and <Italic>componentDidCatch</Italic> which we will discuss later on!
+          There are other lifecycle which got recently introduced like the <Italic>getDerivedStateFromProps</Italic>, <Italic>getSnapshotBeforeUpdate</Italic> <Italic>getDerivedStateFromError</Italic> and <Italic>componentDidCatch</Italic> which we will discuss later on! If you want to get a more detailed description about all React component API refer to this link <SimpleLink href="https://reactjs.org/docs/react-component.html">https://reactjs.org/docs/react-component.html</SimpleLink>
         </Typography>
 
         <Typography variant='p'>

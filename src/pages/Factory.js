@@ -12,6 +12,7 @@ import Playground from "pages/playground/Playground";
 import Support from "pages/support/Support";
 import React from "react";
 import routes from 'utils/Routes';
+import Lecture4 from "pages/lecture4/Lecture4";
 
 const styles = ({typography}) => ({
   root: {}
@@ -74,6 +75,8 @@ class Factory extends React.Component {
         return <Lecture2 breadcrumbs={breadcrumbs}/>
       case PAGES.LECTURE_3.ID:
         return <Lecture3 breadcrumbs={breadcrumbs}/>
+      case PAGES.LECTURE_4.ID:
+        return <Lecture4 breadcrumbs={breadcrumbs}/>
       case PAGES.SUPPORT.ID:
         return <Support breadcrumbs={breadcrumbs} />
       case PAGES.PLAYGROUND:

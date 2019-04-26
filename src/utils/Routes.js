@@ -183,6 +183,77 @@ const routes = [
     ]
   },
   {
+    id: PAGES.LECTURE_4.ID,
+    display: '4. Javascript and React (Part 3)',
+    children: [
+      {
+        id: PAGES.LECTURE_4.HANDLING_EVENTS,
+        display: 'Handling Events',
+        children: [
+          {
+            display: 'Passing Arguments to Event Handlers'
+          }
+        ]
+      },
+      {
+        id: PAGES.LECTURE_4.CONDITIONAL_RENDERING,
+        display: 'Conditional Rendering',
+        children: [
+          {
+            display: 'Element Variables'
+          },
+          {
+            display: 'Inline Conditional with Operators',
+          },
+          {
+            display: 'Prevent Components from Rendering',
+          }
+        ]
+      },
+      {
+        id: PAGES.LECTURE_4.FORMS,
+        display: 'Forms',
+        children: [
+          {
+            display: 'Controlled Components'
+          },
+          {
+            display: 'Other Tags'
+          },
+          {
+            display: 'Controlled Input Null Value'
+          },
+          {
+            display: 'Uncontrolled Components'
+          }
+        ]
+      },
+      {
+        id: PAGES.LECTURE_4.COMPOSITION_INHERITANCE,
+        display: 'Composition vs Inheritance',
+        children: [
+          {
+            display: 'Containement'
+          },
+          {
+            display: 'Specialization'
+          },
+          {
+            display: 'So What About Inheritance?'
+          }
+        ]
+      },
+      {
+        id: PAGES.LECTURE_4.EXERCISE,
+        display: 'Exercise'
+      },
+      {
+        id: PAGES.LECTURE_4.ASSIGNMENTS,
+        display: 'Assignments'
+      }
+    ]
+  },
+  {
     display: 'Materials',
     id: PAGES.SUPPORT.ID,
     children: [

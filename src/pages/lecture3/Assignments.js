@@ -10,6 +10,13 @@ import Chart from "presentations/Chart";
 import SimpleLink from "presentations/rows/SimpleLink";
 import { Normal } from "presentations/Label";
 
+import { 
+  randomValuesOfLength,
+  randomPositiveValues,
+  randomWordsOfLength,
+  randomGroupsOfLength
+} from 'utils/DataGenerator'
+
 const styles = ({ typography, size }) => ({
   root: {},
   graphs: {
@@ -42,40 +49,6 @@ const Card = ({options, title, titleClass, graphClass, ...other}) => {
     <Typography variant={'title'} className={titleClass}>{title}</Typography>
     <Chart className={graphClass} options={options} />
   </div>
-}
-
-/**
- * Generates random values of length, can be positive or negative
- * @param {int} length
- */
-const randomValuesOfLength = (length) => {
-  return randomPositiveValues(length).map(next => next - 50)
-}
-
-/**
- * Generates only positive values of length
- * @param {int} length
- */
-const randomPositiveValues = (length) => {
-  return Array(length).fill(null).map(() => Math.round(Math.random() * 100))
-}
-
-/**
- * Generates random words of a given length
- * @param {int} length
- */
-const randomWordsOfLength = (length) => {
-  const words = ['Tell', 'Make', 'Pie', 'Peanut', 'Aunt', 'User', 'Contrast', 'Yellow', 'Ou My!', 'Jelly', 'Work', 'Mama', 'Queen', 'Knight']
-  return Array(length).fill(null).map((next, index) => words[Math.floor(Math.random() * words.length)])
-}
-
-/**
- * Generates random groups of a certain length
- * @param {int} length
- */
-const randomGroupsOfLength = (length) => {
-  const words = ['Developers', 'Designers', 'Magicians']
-  return Array(length).fill(null).map((next, index) => words[Math.floor(Math.random() * words.length)])
 }
 
 const axisGraphDefaultOptions = {

@@ -23,7 +23,17 @@ module.exports = {
       REACT_FUNCTIONAL_COMPONENTS: 'reactFunctionalComponents',
       REACT_PART_TWO: 'react2',
       PROJECT_STRUCTURE: 'projectStructure',
-      ASSIGNMENTS: 'assignments'
+      ASSIGNMENTS: 'assignments_3'
+    },
+    LECTURE_4: {
+      ID: 'lecture4',
+      HANDLING_EVENTS: 'handlingEvents',
+      CONDITIONAL_RENDERING: 'conditionalRendering',
+      LISTS_AND_KEYS: 'lists_and_keys',
+      FORMS: 'forms',
+      COMPOSITION_INHERITANCE: 'composition_vs_inheritance',
+      EXERCISE: 'exercise',
+      ASSIGNMENTS: 'assignments_4'
     },
     PLAYGROUND: 'playground',
     SUPPORT: {
