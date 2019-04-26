@@ -230,7 +230,26 @@ const routes = [
       },
       {
         id: PAGES.LECTURE_4.COMPOSITION_INHERITANCE,
-        display: 'Composition vs Inheritance'
+        display: 'Composition vs Inheritance',
+        children: [
+          {
+            display: 'Containement'
+          },
+          {
+            display: 'Specialization'
+          },
+          {
+            display: 'So What About Inheritance?'
+          }
+        ]
+      },
+      {
+        id: PAGES.LECTURE_4.EXERCISE,
+        display: 'Exercise'
+      },
+      {
+        id: PAGES.LECTURE_4.ASSIGNMENTS,
+        display: 'Assignments'
       }
     ]
   },

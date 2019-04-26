@@ -8,6 +8,9 @@ import { PAGES } from 'Constants';
 import HandlingEvents from "pages/lecture4/HandlingEvents";
 import ConditionalRendering from "pages/lecture4/ConditionalRendering";
 import Forms from "pages/lecture4/Forms";
+import ComponsitionVSInheritance from "pages/lecture4/ComponsitionVSInheritance";
+import Exercise from "pages/lecture4/Exercise";
+import Assignments from "pages/lecture4/Assignments";
 
 const styles = ({ typography }) => ({
   root: {},
@@ -33,6 +36,12 @@ class Lecture4 extends React.Component {
         return <ConditionalRendering {...props} />
       case PAGES.LECTURE_4.FORMS:
         return <Forms {...props} />
+      case PAGES.LECTURE_4.COMPOSITION_INHERITANCE:
+        return <ComponsitionVSInheritance {...props} />
+      case PAGES.LECTURE_4.EXERCISE:
+        return <Exercise {...props} />
+      case PAGES.LECTURE_4.ASSIGNMENTS:
+        return <Assignments {...props} />
     }
     return <Intro {...props}/>
   }
