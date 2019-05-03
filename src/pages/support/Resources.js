@@ -39,6 +39,7 @@ class Resources extends React.Component {
             <SimpleLink href="https://addons.mozilla.org/en-US/firefox/addon/react-devtools/">Firefox</SimpleLink></label></li>
             <li>Webpack: <SimpleLink href="https://webpack.js.org/">https://webpack.js.org/</SimpleLink></li>
             <li>Babel: <SimpleLink href="https://babeljs.io/">https://babeljs.io/</SimpleLink></li>
+            <li>React Routing: <SimpleLink href="https://reacttraining.com/react-router/web/guides/quick-start">https://reacttraining.com/react-router/web/guides/quick-start</SimpleLink></li>
           </ul>
         </Typography>
       </Fragment>

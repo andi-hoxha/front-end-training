@@ -58,7 +58,7 @@ class Assignments extends React.Component {
         <Typography variant={'heading'}>
           {section.display}
           <Typography variant='p'>
-            Home Assignments
+            Home Assignment
           </Typography>
           <Divider />
         </Typography>
