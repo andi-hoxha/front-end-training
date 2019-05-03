@@ -249,7 +249,58 @@ const routes = [
       },
       {
         id: PAGES.LECTURE_4.ASSIGNMENTS,
-        display: 'Assignments'
+        display: 'Assignment'
+      }
+    ]
+  },
+  {
+    id: PAGES.LECTURE_5.ID,
+    display: '5. React HOC-s and Routing',
+    children: [
+      {
+        id: PAGES.LECTURE_5.ASSIGNMENT_RECAP,
+        display: 'Assignments Recap',
+        children: [
+          {
+            display: 'Graph Functions Recap'
+          },
+          {
+            display: 'Binary Search Sort Recap'
+          }
+        ]
+      },
+      {
+        id: PAGES.LECTURE_5.ROUTING,
+        display: 'React Routing',
+        children: [
+          {
+            display: 'Intro'
+          },
+          {
+            display: 'Route Matching'
+          },
+          {
+            display: 'Route Rendering Props'
+          },
+          {
+            display: 'Navigation'
+          },
+          {
+            display: 'Code Splitting'
+          }
+        ]
+      },
+      {
+        id: PAGES.LECTURE_5.HIGHER_ORDER_COMPONENTS,
+        display: 'Higher Order Components',
+        children: [
+          { 
+            display: 'Intro'
+          },
+          {
+            display: 'Conventions'
+          }
+        ]
       }
     ]
   },

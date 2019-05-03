@@ -19,17 +19,21 @@ const styles = ({palette, size, transitions}) => ({
       color: palette.leadColor
     },
   },
+  inline: {
+    display: 'contents',
+  },
   active:{
     color: palette.leadColor
   }
 })
 
 const PageLink = props => {
-  const {classes, children, className: classNameProp, ...other} = props
+  const {classes, children, inline, className: classNameProp, ...other} = props
   let active = props.to === window.location.pathname
   const className = classNames(
     classes.root,
     active && classes.active,
+    inline && classes.inline,
     classNameProp
   )
 

@@ -35,6 +35,15 @@ module.exports = {
       EXERCISE: 'exercise',
       ASSIGNMENTS: 'assignments_4'
     },
+    LECTURE_5: {
+      ID: 'lecture5',
+      ASSIGNMENT_RECAP: 'assignmentsRecap4',
+      ROUTING: 'routing',
+      // CODE_SPLITTING: 'codeSplitting',
+      HIGHER_ORDER_COMPONENTS: 'higherOrderComponents',
+      REACT_CLONE_ELEMENT: 'reactCloneElement',
+      ASSIGNMENTS: 'assignments_5'
+    },
     PLAYGROUND: 'playground',
     SUPPORT: {
       ID: 'support',

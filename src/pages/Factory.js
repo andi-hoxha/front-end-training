@@ -13,6 +13,7 @@ import Support from "pages/support/Support";
 import React from "react";
 import routes from 'utils/Routes';
 import Lecture4 from "pages/lecture4/Lecture4";
+import Lecture5 from "pages/lecture5/Lecture5";
 
 const styles = ({typography}) => ({
   root: {}
@@ -65,7 +66,7 @@ class Factory extends React.Component {
   }
 
   renderSections = (breadcrumbs) => {
-    const {match: {params: {id = ''} = {}} = {}} = this.props
+    const {match, match: {params: {id = ''} = {}} = {}, location} = this.props
 
     let page = breadcrumbs[0]
     switch (page.id) {
@@ -77,6 +78,8 @@ class Factory extends React.Component {
         return <Lecture3 breadcrumbs={breadcrumbs}/>
       case PAGES.LECTURE_4.ID:
         return <Lecture4 breadcrumbs={breadcrumbs}/>
+      case PAGES.LECTURE_5.ID:
+        return <Lecture5 breadcrumbs={breadcrumbs} location={location} match={match}/>
       case PAGES.SUPPORT.ID:
         return <Support breadcrumbs={breadcrumbs} />
       case PAGES.PLAYGROUND:

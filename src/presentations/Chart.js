@@ -79,8 +79,6 @@ class Chart extends React.Component {
         show: true
       }
     }
-    console.log('setting options')
-    console.log(graph)
     // TODO: test and remove this option in the future
     // this.chart.clear()
     try {
