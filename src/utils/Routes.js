@@ -255,7 +255,7 @@ const routes = [
   },
   {
     id: PAGES.LECTURE_5.ID,
-    display: '5. React HOC-s and Routing',
+    display: '5. React HOC-s, Routing and Children API',
     children: [
       {
         id: PAGES.LECTURE_5.ASSIGNMENT_RECAP,
@@ -315,6 +315,33 @@ const routes = [
             id: 'hoc_exercise',
             display: 'Exercise'
           }
+        ]
+      },
+      {
+        id: PAGES.LECTURE_5.REACT_CHILDREN_API,
+        display: 'React.Children API',
+        children: [
+          {
+            id: 'children_intro',
+            display: 'Introduction'
+          },
+          {
+            id: 'children_api',
+            display: 'Children API Reference'
+          },
+          {
+            display: 'Children Manipulations'
+          },
+          {
+            id: 'children_exercise',
+            display: 'Exercise'
+          }
+        ]
+      },
+      {
+        id: PAGES.LECTURE_5.ASSIGNMENTS,
+        display: 'Assignments',
+        children: [
         ]
       }
     ]

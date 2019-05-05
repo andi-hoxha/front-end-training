@@ -8,6 +8,8 @@ import { PAGES } from 'Constants';
 import AssignmentsRecap from 'pages/lecture5/AssignmentsRecap'
 import Routing from "pages/lecture5/Routing";
 import HigherOrderComponents from "pages/lecture5/HigherOrderComponents";
+import ReactChildren from "pages/lecture5/ReactChildren";
+import Assignments from "pages/lecture5/Assignments";
 
 const styles = ({ typography }) => ({
   root: {},
@@ -34,6 +36,10 @@ class Lecture5 extends React.Component {
         return <Routing {...props} />
       case PAGES.LECTURE_5.HIGHER_ORDER_COMPONENTS:
         return <HigherOrderComponents {...props} />
+      case PAGES.LECTURE_5.REACT_CHILDREN_API:
+        return <ReactChildren {...props} />
+      case PAGES.LECTURE_5.ASSIGNMENTS:
+        return <Assignments {...props} />
     }
     return <Intro {...props}/>
   }
