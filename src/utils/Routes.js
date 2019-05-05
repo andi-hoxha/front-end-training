@@ -274,7 +274,8 @@ const routes = [
         display: 'React Routing',
         children: [
           {
-            display: 'Intro'
+            id: 'routing_intro',
+            display: 'Introduction'
           },
           {
             display: 'Route Matching'
@@ -295,10 +296,24 @@ const routes = [
         display: 'Higher Order Components',
         children: [
           { 
-            display: 'Intro'
+            id: 'hoc_intro',
+            display: 'Introduction'
           },
           {
-            display: 'Conventions'
+            display: 'Composition over Mutations'
+          },
+          {
+            display: 'Pass unrelated props'
+          },
+          {
+            display: 'Maximising Composability'
+          },
+          {
+            display: 'Debugging'
+          },
+          {
+            id: 'hoc_exercise',
+            display: 'Exercise'
           }
         ]
       }

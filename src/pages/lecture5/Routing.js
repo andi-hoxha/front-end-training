@@ -232,25 +232,48 @@ function MyComponent() {
 
 const wrappedRoute = `
 const PrivateRoute = ({ component: Component, ...other}) => {
-  const isLoggedIn = true //do the check here
-  if (!isLoggedIn) {
-    return (
-      <Redirect
-        to={{
-          pathname: "/login",
-          state: { from: props.location }
-        }}
-      />
-    )
-  }
   return (
     <Route
       {...other}
-      component={<Component/>}
+      render={(props) => {
+        const isLoggedIn = true //do the check here
+        if (!isLoggedIn) {
+          return (
+            <Redirect
+              to={{
+                pathname: "/login",
+                state: { from: props.location }
+              }}
+            />
+          )
+        }
+        return <Component {...props}/>
+      }}
     />
   )
 }
 `
+const PrivateRoute = ({ component: Component, ...other}) => {
+  return (
+    <Route
+      {...other}
+      render={(props) => {
+        const isLoggedIn = true //do the check here
+        if (!isLoggedIn) {
+          return (
+            <Redirect
+              to={{
+                pathname: "/login",
+                state: { from: props.location }
+              }}
+            />
+          )
+        }
+        return <Component {...props}/>
+      }}
+    />
+  )
+}
 
 class Routing extends React.Component {
   render() {

@@ -35,16 +35,18 @@ export const randomGroupsOfLength = (length) => {
 }
 
 /**
- * Extracts the unique values of an array
+ * Returns given a length, an array that contains that many elements of the form
+ * {
+ *  name: 'Random Word',
+ *  group: 'Random Group',
+ *  value: 'Random Value'
+ * }
  * @param {int} length
+ * @param {boolean} positive = false
  */
-export const uniqueValues = (array) => {
-    let result = []
-
-    array.forEach((next) => {
-        if (!result.includes(next)) {
-            result = result.concat(next)
-        }
-    })
-    return result
+export const randomCategoryData = (length, positive = false) => {
+    const values = positive ? randomPositiveValues(length) : randomValuesOfLength(length)
+    const words = randomWordsOfLength(length)
+    const groups = randomGroupsOfLength(length)
+    return words.map((next, index) => { return { name: next, group: groups[index], value: values[index]} })
 }
