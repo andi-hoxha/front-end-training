@@ -236,10 +236,16 @@ class HigherOrderComponents extends React.Component {
           </Typography>
         <Typography variant='p'>
           For example, say you have a CommentList component that subscribes to an external data source to render a list of comments:
+          <Code>
+            {commentList}
+          </Code>
         </Typography>
 
         <Typography variant='p'>
           Later, you write a component for subscribing to a single blog post, which follows a similar pattern:
+          <Code>
+            {blogPost}
+          </Code>
         </Typography>
 
         <Typography variant='p'>

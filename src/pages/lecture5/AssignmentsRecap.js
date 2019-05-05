@@ -131,7 +131,7 @@ class AssignmentsRecap extends React.Component {
         {
           data: values.map(x => {
             let y = 3**2 - x ** 2
-            return [x, y > 0 ? Math.sqrt(y) : Math.sqrt(Math.abs(y))]
+            return [x, y > 0 ? Math.sqrt(y) : -1 * Math.sqrt(Math.abs(y))]
           }),
           type: GRAPH_TYPES.SCATTER
         }
@@ -204,20 +204,29 @@ class AssignmentsRecap extends React.Component {
    */
   function7 = (props) => {
     const data = this.randomCategoryData(24, true)
-    // const withoutDuplicates = data.reduce((accumulator, next, index) => {
-    //   const isTheSame = (a, b) => a.name === b.name
-    //   const found = accumulator.find(which => isTheSame(which, next))
-    //   if (found) {
-    //     return accumulator.map(which => {
-    //       if (isTheSame(which, next)) {
-    //         return {...which, value: which.value + next.value }
-    //       }
-    //       return which
-    //     })
-    //   }
-    //   const { name, value } = next
-    //   return [...accumulator, { name, value }]
-    // }, [])
+    // {
+    //   name: 'Agon',
+    //   group: 'Lohaj',
+    //   value: 23
+    // }
+    const withoutDuplicates = data.reduce((accumulator, next, index) => {
+      const isTheSame = (a, b) => a.name === b.name
+      const found = accumulator.find(which => isTheSame(which, next))
+      if (found) {
+        return accumulator.map(which => {
+          if (isTheSame(which, next)) {
+            return {...which, value: which.value + next.value }
+          }
+          return which
+        })
+      }
+      const { name, value } = next
+      return [...accumulator, { name, value }]
+    }, [])
+    // {
+    //   name: 'Diqka',
+    //   value: 235
+    // }
     // console.log('data', data)
     // console.log('withoutDuplicates', withoutDuplicates)
     // console.log('data.sort((a, b) => a.value - b.value)', data.sort((a, b) => a.value - b.value))
@@ -240,7 +249,7 @@ class AssignmentsRecap extends React.Component {
    */
   function8 = (props) => {
     const data = this.randomCategoryData(8, true)
-
+    //["Tip", "Group 2", "Group 3"]
     const groups = data.reduce((accumulator, next) => {
       const group = next.group
       return accumulator.includes(group) ? accumulator : [...accumulator, group]
@@ -276,6 +285,10 @@ class AssignmentsRecap extends React.Component {
       const cumulatedValue = sum + next.value
       return { sum: cumulatedValue, data: [...data, {...next, value: cumulatedValue}]}
     }, { sum: 0, data: [] })
+    // {
+    //   sum: 300,
+    //   data: [{ name: "Agon", value: 4}, { name: "Rrita", value: 10}]
+    // }
     const options = {
       xAxis: {
         type: 'category',
@@ -296,9 +309,10 @@ class AssignmentsRecap extends React.Component {
   }
 
   /**
-   * TODO: Implement Binary Search Method
+   * I return the index of the searched value within the given values (sorted array of number)
    * @param {Array} values 
    * @param {int} search 
+   * @return index - the index of the value
    */
   binarySearch (values, search) {
     // implement 
@@ -332,7 +346,7 @@ class AssignmentsRecap extends React.Component {
     }
 
     const values = [1, 4, 12, 16, 22, 24, 28, 44, 70]
-    const search = 70
+    const search = 3
     const index = this.binarySearch(values, search)
     const isCorrect = values.indexOf(search) === index
     return (
