@@ -4,14 +4,35 @@
 import withStyles from "@material-ui/core/styles/withStyles";
 import Code from "presentations/Code";
 import Divider from "presentations/Divider";
+import SimpleLink from "presentations/rows/SimpleLink";
 import Typography from "presentations/Typography";
 import React, { Fragment } from "react";
-import SimpleLink from "presentations/rows/SimpleLink";
-import { Italic } from "presentations/Label";
-import {Route, Router, Switch} from 'react-router-dom'
-import PageLink from "presentations/rows/nav/PageLink";
 
 const styles = ({ typography, size }) => ({
+  graphs: {
+    display: 'flex',
+    width: '100%',
+    height: 900,
+    position: 'relative',
+    backgroundColor: '#CFD8DC'
+  },
+  card: {
+    backgroundColor: 'white',
+    width: 280,
+    height: 140,
+    margin: size.spacing,
+    padding: 8,
+    display: 'flex',
+    position: 'absolute',
+    flexFlow: 'column wrap',
+    alignItems: 'flex-start'
+  },
+  graph: {
+    display: 'flex',
+    flex: 1,
+    width: '100%',
+    height: 'auto'
+  }
 })
 
 const hocComponent = `const EnhancedComponent = higherOrderComponent(WrappedComponent)`
@@ -194,7 +215,7 @@ const enhance = connect(commentListSelector, commentListActions);
 // to the Redux store
 const ConnectedComment = enhance(CommentList)`
 
-const wrapDisplayName = `
+const wrapDisplayNameCode = `
 function withSubscription(WrappedComponent) {
   class WithSubscription extends React.Component {/* ... */}
   WithSubscription.displayName = \`WithSubscription(\${getDisplayName(WrappedComponent)})\`;
@@ -205,17 +226,56 @@ function getDisplayName(WrappedComponent) {
   return WrappedComponent.displayName || WrappedComponent.name || 'Component';
 }`
 
+const draggable = (Component) => {
+  return class extends React.Component {
+    constructor(props) {
+      super(props)
+      this.state = {
+        x: 0,
+        y: 0,
+      }
+    }
+
+    render() {
+      const { x, y } = this.state
+      return <Component style={{ top: y, left: x }} {...this.props} />
+    }
+  }
+}
+
+const Card = ({ title, titleClass, content, ...other }) => {
+  return <div {...other}>
+    <Typography variant={'title'} className={titleClass}>{title}</Typography>
+    <Typography variant={'p'} className={content} >
+      I want to be draggable!
+    </Typography>
+  </div>
+}
+
+const DraggableCard = draggable(Card)
+
 class HigherOrderComponents extends React.Component {
+
   render() {
     const { classes, match: { url }, section } = this.props
     const intro = section.children[0]
-    const conventions = section.children[1]
+    const compositionVsMutation = section.children[1]
+    const unrelatedProps = section.children[2]
+    const maximiseComposability = section.children[3]
+    const wrapDisplayName = section.children[4]
+    const exercise = section.children[5]
+
+    const cardProps = {
+      titleClass: classes.title,
+      className: classes.card,
+      content: classes.content
+    }
     return (
       <Fragment>
         <Typography variant={'heading'}>
           {section.display}
           <Typography variant='p'>
-          A higher-order component (HOC) is an advanced technique in React for reusing component logic. HOCs are not part of the React API, per se. They are a pattern that emerges from React’s compositional nature.! Inspired by <SimpleLink href="https://reactjs.org/docs/higher-order-components.html">https://reactjs.org/docs/higher-order-components.html</SimpleLink>
+            A higher-order component (HOC) is an advanced technique in React for reusing component logic. HOCs are not part of the React API, per se. They are a pattern that emerges from React’s compositional nature.! Inspired by <SimpleLink href="https://reactjs.org/docs/higher-order-components.html">https://reactjs.org/docs/higher-order-components.html</SimpleLink>
           </Typography>
           <Divider />
         </Typography>
@@ -272,9 +332,9 @@ class HigherOrderComponents extends React.Component {
             {withSubscriptionFunction}
           </Code>
         </Typography>
-        
-        <Typography id={conventions.id} variant={'title'}>
-          {conventions.display}
+
+        <Typography id={compositionVsMutation.id} variant={'title'}>
+          {compositionVsMutation.display}
         </Typography>
         <Typography variant='p'>
           Don’t Mutate the Original Component. Use Composition:
@@ -296,11 +356,17 @@ class HigherOrderComponents extends React.Component {
           You may have noticed similarities between HOCs and a pattern called container components (which we have mentioned before). Container components are part of a strategy of separating responsibility between high-level and low-level concerns. Containers manage things like subscriptions and state, and pass props to components that handle things like rendering UI. HOCs use containers as part of their implementation. You can think of HOCs as parameterized container component definitions.
         </Typography>
 
+        <Typography id={unrelatedProps.id} variant={'title'}>
+          {unrelatedProps.display}
+        </Typography>
         <Typography variant='p'>
           Pass Unrelated Props Through to the Wrapped Component. What ever you are getting as props at the render method, the HOC should pass all of those down to the original component. HOCs should only add features. The component that is returned from a HOC has a similar interface to the wrapped component. Most HOCs contain a render method that looks something like this:
           <Code>
             {hocRender}
           </Code>
+        </Typography>
+        <Typography id={maximiseComposability.id} variant={'title'}>
+          {maximiseComposability.display}
         </Typography>
         <Typography variant='p'>
           Maximizing Composability is the goal. Not all HOCs look the same. Sometimes they accept only a single argument, the wrapped component:
@@ -322,7 +388,10 @@ class HigherOrderComponents extends React.Component {
           In other words, connect is a higher-order function that returns a higher-order component!
         </Typography>
 
-        
+        <Typography id={wrapDisplayName.id} variant={'title'}>
+          {wrapDisplayName.display}
+        </Typography>
+
         <Typography variant='p'>
           Wrap the Display Name for Easy Debugging. The container components created by HOCs show up in the React Developer Tools like any other component. To ease debugging, choose a display name that communicates that it’s the result of a HOC.
         </Typography>
@@ -330,9 +399,18 @@ class HigherOrderComponents extends React.Component {
         <Typography variant='p'>
           The most common technique is to wrap the display name of the wrapped component. So if your higher-order component is named withSubscription, and the wrapped component’s display name is CommentList, use the display name WithSubscription(CommentList):
           <Code>
-            {wrapDisplayName}
+            {wrapDisplayNameCode}
           </Code>
         </Typography>
+        <Typography id={exercise.id} variant={'title'}>
+          {exercise.display}
+        </Typography>
+
+        <div className={classes.graphs}>
+          {Array(8).fill(null).map((next, index) => {
+            return <DraggableCard key={index} {...cardProps} title={`Draggable Card-${index}`} />
+          })}
+        </div>
       </Fragment>
     )
   }

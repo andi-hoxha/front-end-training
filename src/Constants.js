@@ -41,7 +41,7 @@ module.exports = {
       ROUTING: 'routing',
       // CODE_SPLITTING: 'codeSplitting',
       HIGHER_ORDER_COMPONENTS: 'higherOrderComponents',
-      REACT_CLONE_ELEMENT: 'reactCloneElement',
+      REACT_CHILDREN_API: 'reactChildrenApi',
       ASSIGNMENTS: 'assignments_5'
     },
     PLAYGROUND: 'playground',

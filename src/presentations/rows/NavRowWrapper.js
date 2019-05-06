@@ -39,6 +39,7 @@ const styles = ({palette, size, transitions}) => ({
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
+    display: 'block'
   },
   content: {
     display: 'flex',
@@ -135,7 +136,15 @@ class NavRowWrapper extends React.Component {
       classes.root,
       classNameProp
     )
-    const url = item.id === PAGES.HOME ? '/' : `/lecture/${item.id}/`
+    let url = `/lecture/${item.id}/`
+    switch (item.id) {
+      case PAGES.HOME:
+        url = '/'
+        break
+      case PAGES.SANDBOX:
+        url = '/sandbox/'
+        break
+    }
     return (
       <div className={className}>
         <div className={classes.header}>

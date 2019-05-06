@@ -255,7 +255,7 @@ const routes = [
   },
   {
     id: PAGES.LECTURE_5.ID,
-    display: '5. React HOC-s and Routing',
+    display: '5. React HOC-s, Routing and Children API',
     children: [
       {
         id: PAGES.LECTURE_5.ASSIGNMENT_RECAP,
@@ -274,7 +274,8 @@ const routes = [
         display: 'React Routing',
         children: [
           {
-            display: 'Intro'
+            id: 'routing_intro',
+            display: 'Introduction'
           },
           {
             display: 'Route Matching'
@@ -295,11 +296,52 @@ const routes = [
         display: 'Higher Order Components',
         children: [
           { 
-            display: 'Intro'
+            id: 'hoc_intro',
+            display: 'Introduction'
           },
           {
-            display: 'Conventions'
+            display: 'Composition over Mutations'
+          },
+          {
+            display: 'Pass unrelated props'
+          },
+          {
+            display: 'Maximising Composability'
+          },
+          {
+            display: 'Debugging'
+          },
+          {
+            id: 'hoc_exercise',
+            display: 'Exercise'
           }
+        ]
+      },
+      {
+        id: PAGES.LECTURE_5.REACT_CHILDREN_API,
+        display: 'React.Children API',
+        children: [
+          {
+            id: 'children_intro',
+            display: 'Introduction'
+          },
+          {
+            id: 'children_api',
+            display: 'Children API Reference'
+          },
+          {
+            display: 'Children Manipulations'
+          },
+          {
+            id: 'children_exercise',
+            display: 'Exercise'
+          }
+        ]
+      },
+      {
+        id: PAGES.LECTURE_5.ASSIGNMENTS,
+        display: 'Assignments',
+        children: [
         ]
       }
     ]
@@ -340,7 +382,7 @@ const routes = [
   {
     display: 'Playground',
     id: PAGES.PLAYGROUND,
-  },
+  }
 ]
 
 const format = (which) => {

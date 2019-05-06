@@ -35,10 +35,7 @@ class Chart extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    // only update if the options change
-    if (prevProps.actionId !== this.props.actionId) {
-      this.setOption()
-    }
+    this.setOption()
   }
 
   /**

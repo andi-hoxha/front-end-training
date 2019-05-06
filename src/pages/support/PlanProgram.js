@@ -29,24 +29,24 @@ class PlanProgram extends React.Component {
               React JS introduction, first ever component created (Part 1)
             </li>
             <li>
-              React JS introduction, first ever component created, lifecycle introduction (Part 2) and <br/>
-              Project Structure
+              React Functional Components and <br/>
+              Lifecycle, Props and State
             </li>
             <li>
-              List and sort layout and implementation, component hierarchy introduction, properties and state (Part 2) and <br/>
-              State management and props management, React component hierarchy setup (Part 1)
+              Conditional Rendering, forms and <br/>
+              Composition vs Inheritance
             </li>
             <li>
-              State management and props management, React component hierarchy setup (Part 2) and <br/>
-              Page skeleton implementation and Routing and
+              React Routing and <br/>
+              Higher Order Components (Part 1)
+            </li>
+            <li>
+              Higher Order Components (Part 2) and <br/>
+              React Children API
             </li>
             <li>
               Style management and CSS recap (Part 1) and <br/>
               Style management and CSS recap (Part 2)
-            </li>
-            <li>
-              Higher level components, component composition (Part 1) and <br/>
-              Higher level components, component composition (Part 2)
             </li>
             <li>
               Introduction to Redux Part 1 and <br/>

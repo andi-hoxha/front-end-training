@@ -10,10 +10,10 @@ import {
   randomValuesOfLength,
   randomPositiveValues,
   randomWordsOfLength,
-  randomGroupsOfLength,
-  uniqueValues
+  randomGroupsOfLength
 } from 'utils/DataGenerator'
 import { TextField, FormControlLabel, Checkbox } from "@material-ui/core";
+import { uniqueValues } from "utils/DataUtilities";
 
 const styles = ({ typography, size }) => ({
   content: {

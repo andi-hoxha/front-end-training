@@ -11,8 +11,7 @@ import {
   randomValuesOfLength,
   randomPositiveValues,
   randomWordsOfLength,
-  randomGroupsOfLength,
-  uniqueValues
+  randomGroupsOfLength
 } from 'utils/DataGenerator'
 import { Italic } from "presentations/Label";
 import Code from "presentations/Code";
