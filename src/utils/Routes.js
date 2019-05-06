@@ -382,7 +382,7 @@ const routes = [
   {
     display: 'Playground',
     id: PAGES.PLAYGROUND,
-  },
+  }
 ]
 
 const format = (which) => {

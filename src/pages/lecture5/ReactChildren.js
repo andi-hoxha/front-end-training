@@ -21,9 +21,9 @@ const styles = ({ typography, size }) => ({
   },
   card: {
     backgroundColor: 'white',
-    width: `calc(32% - ${size.spacing * 2}px)`,
+    width: 280,
+    height: 140,
     margin: size.spacing,
-    height: 320,
     padding: 8,
     display: 'flex',
     position: 'absolute',
@@ -79,17 +79,11 @@ const Information = (props) => {
 const Wrapper = (props) => {
   const children = React.Children.toArray(props.children)
 
-  const greetings = children.filter(next => next.type === Greetings)
-  const information = children.filter(next => next.type === Information)
-  const others = children.filter(next => next.type !== Greetings && next.type !== Information)
-  if (others.length > 0) {
-    throw new Error("I cannot accept other types of components! The ones that I handle are Greetings and Information")
-  }
-
-  return <div>
-    <div>Greetings only:{greetings}</div>
-    <div>Informations only:{information}</div>
-  </div>
+  return children
+    .filter(next => next.type === Greetings) // filter on Component Type
+    .filter(next => next.props.name === 'Agon') // filter on prop
+    .reduce((accumulator, next) => [...accumulator, next, next], []) // reduce them, duplicate!
+    .map((next, index) => React.cloneElement(next, { key: index, name: 'Overriden' })) // generate new keys and override names!
 }
 
 const wrapperToArray = `
@@ -284,11 +278,6 @@ class ReactChildren extends React.Component {
             {acceptedComponents}
           </Code>
         </Typography>
-        <Wrapper>
-          <Greetings name="Other"/>
-          <Information name="Info on stock!"/>
-          <Greetings name="Agon"/>
-        </Wrapper>
         <Typography id={exercise.id} variant={'title'}>
           {exercise.display}
         </Typography>

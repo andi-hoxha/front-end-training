@@ -18,9 +18,9 @@ const styles = ({ typography, size }) => ({
   },
   card: {
     backgroundColor: 'white',
-    width: `calc(32% - ${size.spacing * 2}px)`,
+    width: 280,
+    height: 140,
     margin: size.spacing,
-    height: 320,
     padding: 8,
     display: 'flex',
     position: 'absolute',
