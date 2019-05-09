@@ -44,6 +44,15 @@ module.exports = {
       REACT_CHILDREN_API: 'reactChildrenApi',
       ASSIGNMENTS: 'assignments_5'
     },
+    LECTURE_7: {
+      ID: 'lecture7',
+      ASSIGNMENT_RECAP: 'assignmentsRecap6',
+      INTRO: 'stylingReactIntro',
+      INLINE_STYLING: 'inlineStyling',
+      VANILLA_CSS: 'vanillaCss',
+      CSS_PREPROCESSORS: 'cssPreprocessors',
+      CSS_IN_JS: 'CSSinJS',
+    },
     PLAYGROUND: 'playground',
     SUPPORT: {
       ID: 'support',

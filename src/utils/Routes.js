@@ -347,6 +347,59 @@ const routes = [
     ]
   },
   {
+    id: PAGES.LECTURE_7.ID,
+    display: '7. Styling React Components',
+    children: [
+      {
+        id: PAGES.LECTURE_7.ASSIGNMENT_RECAP,
+        display: 'Assignments Recap',
+        children: []
+      },
+      {
+        id: PAGES.LECTURE_7.INTRO,
+        display: 'Ways to Style React Components Intro',
+        children: [
+          {
+            id: 'inlineStylingIntro',
+            display: 'Inline Styling'
+          },
+          {
+            id: 'vanillaCSSIntro',
+            display: 'Vanilla CSS / CSS Style Sheet'
+          },
+          {
+            id: 'CSSpreprocessorsIntro',
+            display: 'Using CSS preprocessors (SASS/SCSS)/LESS(Almost deprecated)/ POSTCSS'
+          },
+          {
+            id: 'CSSinJSIntro',
+            display: 'CSS in JS'
+          }
+        ]
+      },
+      {
+        id: PAGES.LECTURE_7.INLINE_STYLING,
+        display: 'Inline Styling',
+        children: []
+      },
+      {
+        id: PAGES.LECTURE_7.VANILLA_CSS,
+        display: 'Vanilla CSS / CSS Style Sheet',
+        children: []
+      },
+      {
+        id: PAGES.LECTURE_7.CSS_PREPROCESSORS,
+        display: 'CSS preprocessors',
+        children: []
+      },
+      {
+        id: PAGES.LECTURE_7.CSS_IN_JS,
+        display: 'Css In JS',
+        children: []
+      },
+    ]
+  },
+  {
     display: 'Materials',
     id: PAGES.SUPPORT.ID,
     children: [
