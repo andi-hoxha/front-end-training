@@ -38,30 +38,86 @@ const styles = ({ typography, size }) => ({
   }
 })
 
-const draggable = (Component) => {
-  return class extends React.Component {
-    constructor(props) {
-      super(props)
-      this.state = {
-        x: 0,
-        y: 0,
-      }
+class DraggableWrapper extends React.Component {
+  
+  constructor(props) {
+    super(props)
+    this.state = {
+      x: 0,
+      y: 0
     }
+  }
 
-    render() {
-      const { x, y } = this.state
-      return <Component style={{ top: y, left: x }} {...this.props} />
+  componentDidMount () {
+    document.addEventListener("mousemove", this.onMouseMove)
+    document.addEventListener("mouseup", this.onMouseUp)
+  }
+
+  componentWillUnmount () {
+    document.removeEventListener("mousemove", this.onMouseMove)
+    document.removeEventListener("mouseup", this.onMouseUp)
+  }
+
+  onMouseDown = (event) => {
+    event.preventDefault()
+    let pageX = event.pageX
+    let pageY = event.pageY
+    const { x, y } = this.state
+    this.setState({
+      location: {
+        x: pageX - x,
+        y: pageY - y
+      }
+    })
+  }
+
+  onMouseMove = (event) => {
+    const { location } = this.state
+    if (!location) {
+      return
     }
+    event.preventDefault()
+
+    const { pageX, pageY } = event
+    this.setState({
+      x: pageX - location.x,
+      y: pageY - location.y
+    })
+  }
+
+  onMouseUp = (event) => {
+    event.preventDefault()
+    this.setState({
+      location: undefined
+    })
+  }
+
+  render () {
+    const { children } = this.props
+    let child = React.Children.only(children)
+
+    const { x, y } = this.state
+    const listeners = {
+      onMouseDown: this.onMouseDown,
+      onMouseMove: this.onMouseMove,
+      onMouseUp: this.onMouseUp
+    } 
+    return React.cloneElement(child, {
+      ...listeners,
+      style: { top: y, left: x }
+    })
   }
 }
 
 const Card = ({ title, titleClass, content, ...other }) => {
-  return <div {...other}>
-    <Typography variant={'title'} className={titleClass}>{title}</Typography>
-    <Typography variant={'p'} className={content} >
-      I want to be draggable!
-    </Typography>
-  </div>
+  return <DraggableWrapper>
+    <div {...other}>
+      <Typography variant={'title'} className={titleClass}>{title}</Typography>
+      <Typography variant={'p'} className={content} >
+        I want to be draggable!
+      </Typography>
+    </div>
+  </DraggableWrapper>
 }
 
 const Greetings = (props) => {
@@ -179,8 +235,6 @@ const Wrapper = (props) => {
   <Greetings name="Agon"/>
 </Wrapper>`
 
-const DraggableCard = draggable(Card)
-
 class ReactChildren extends React.Component {
 
   render() {
@@ -286,7 +340,7 @@ class ReactChildren extends React.Component {
         </Typography>
         <div className={classes.graphs}>
           {Array(8).fill(null).map((next, index) => {
-            return <DraggableCard key={index} {...cardProps} title={`Draggable Card-${index}`} />
+            return <Card key={index} {...cardProps} title={`Draggable Card-${index}`} />
           })}
         </div>
       </Fragment>

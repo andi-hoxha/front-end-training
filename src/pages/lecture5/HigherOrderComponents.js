@@ -232,13 +232,62 @@ const draggable = (Component) => {
       super(props)
       this.state = {
         x: 0,
-        y: 0,
+        y: 0
       }
+    }
+
+    componentDidMount () {
+      document.addEventListener("mousemove", this.onMouseMove)
+      document.addEventListener("mouseup", this.onMouseUp)
+    }
+
+    componentWillUnmount () {
+      document.removeEventListener("mousemove", this.onMouseMove)
+      document.removeEventListener("mouseup", this.onMouseUp)
+    }
+
+    onMouseDown = (event) => {
+      event.preventDefault()
+      let pageX = event.pageX
+      let pageY = event.pageY
+      const { x, y } = this.state
+      this.setState({
+        location: {
+          x: pageX - x,
+          y: pageY - y
+        }
+      })
+    }
+
+    onMouseMove = (event) => {
+      const { location } = this.state
+      if (!location) {
+        return
+      }
+      event.preventDefault()
+
+      const { pageX, pageY } = event
+      this.setState({
+        x: pageX - location.x,
+        y: pageY - location.y
+      })
+    }
+
+    onMouseUp = (event) => {
+      event.preventDefault()
+      this.setState({
+        location: undefined
+      })
     }
 
     render() {
       const { x, y } = this.state
-      return <Component style={{ top: y, left: x }} {...this.props} />
+      const listeners = {
+        onMouseDown: this.onMouseDown,
+        onMouseMove: this.onMouseMove,
+        onMouseUp: this.onMouseUp
+      } 
+      return <Component {...listeners} style={{ top: y, left: x }} {...this.props} />
     }
   }
 }
