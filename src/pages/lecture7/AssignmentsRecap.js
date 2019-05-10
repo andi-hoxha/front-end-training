@@ -14,6 +14,7 @@ import EditIcon from '@material-ui/icons/Edit'
 import RemoveIcon from '@material-ui/icons/Clear'
 import { Table, TableHead, TableRow, TableBody, TableCell, IconButton, Dialog, DialogTitle, DialogContent, TextField, DialogActions, Button, ListItem, RadioGroup, Radio, FormControlLabel } from "@material-ui/core";
 import Chart from "presentations/Chart";
+import uuid from 'uuid'
 
 
 const styles = ({ typography, size }) => ({
@@ -84,9 +85,38 @@ class AssignmentsRecap extends React.Component {
 
   constructor (props) {
     super (props)
-    // this.state = {
-    //   items: 
-    // }
+    this.state = {
+      text: '',
+      items: [
+        {
+          id: uuid.v1(),
+          name: "Agon",
+          lastName: "Lohaj",
+          username: "agon_lohaj",
+          type: "Admin",
+          age: 28,
+          gender: "M"
+        },
+        {
+          id: uuid.v1(),
+          name: "Trim",
+          lastName: "Lohaj",
+          username: "trim_lohaj",
+          type: "Normal",
+          age: 36,
+          gender: "M"
+        },
+        {
+          id: uuid.v1(),
+          name: "Festina",
+          lastName: "Ymeri",
+          username: "festina_ymeri",
+          type: "Normal",
+          age: 24,
+          gender: "F"
+        }
+      ]
+    }
   }
   /**
    * TODO: Implement Binary Search Tree Method
@@ -94,25 +124,118 @@ class AssignmentsRecap extends React.Component {
    * @param {int} search 
    */
   binarySearchTree(node, search) {
+    if (!node) {
+      return -1
+    }
     // implement 
-
-    // -1 means I cannot find it. Todo return the node
-    return -1
-  }
-
-  render() {
-    const { classes, section } = this.props
-    const search = 10
-    const value = this.binarySearchTree(tree, search)
-    
-    const cardProps = {
-      titleClass: classes.title,
-      className: classes.card,
-      graphClass: classes.graph
+    if (node.value === search) {
+      return node
     }
 
-    // TODO: bind this to the model, calculate it based on the list of items
-    const averageAge = {
+    if (node.value > search) {
+      return this.binarySearchTree(node.left, search)
+    }
+    return this.binarySearchTree(node.right, search)
+  }
+
+  onSearchChanged = (event) => {
+    event.preventDefault()
+    this.setState({
+      text: event.target.value
+    })
+  }
+  
+  onValueChanged = (event) => {
+    event.preventDefault()
+    const { value, name } = event.target
+
+    this.setState((prevState) => ({
+      editing: {
+        ...prevState.editing,
+        [name]: value
+      }
+    }))
+  }
+
+  onEdit = (item, event) => {
+    event.preventDefault()
+
+    this.setState({
+      editing: item
+    })
+  }
+
+  onAddNewClicked = (event) => {
+    event.preventDefault()
+
+    this.setState({
+      editing: {
+        id: uuid.v1(),
+        type: "Admin",
+        gender: "F"
+      }
+    })
+  }
+
+  onSaveClicked = (event) => {
+    event.preventDefault()
+
+    const { items, editing } = this.state
+    let found = items.find(which => which.id === editing.id)
+
+    let state = {
+      items
+    }
+    if (found) {
+      state = {
+        ...state,
+        items: items.map(next => {
+          if (next.id === editing.id) {
+            return editing
+          }
+          return next
+        })
+      }
+    } else {
+      state = {
+        ...state,
+        items: [...items, editing]
+      }
+    }
+
+    this.setState({
+      ...state,
+      editing: undefined
+    })
+  }
+
+  onCancelClicked = (event) => {
+    if (event) {
+      event.preventDefault()
+    }
+    this.setState({
+      editing: undefined
+    })
+  }
+
+  onRemove = (item, event) => {
+    event.preventDefault()
+
+    this.setState((prevState) => ({
+      items: prevState.items.filter(next => next.id !== item.id)
+    }))
+  }
+
+  averageAgeOptions (items) {
+    const admins = items.filter(next => next.type === "Admin")
+    const normal = items.filter(next => next.type === "Normal")
+
+    const ageSum = (sum, next) => {
+      return sum + next.age
+    }
+    const totalAdminAge = admins.reduce(ageSum, 0)
+    const totalNormalAge = normal.reduce(ageSum, 0)
+    return {
       series: [
         {
           name: 'Average age between types',
@@ -120,34 +243,64 @@ class AssignmentsRecap extends React.Component {
           data: [
             {
               name: 'Admin',
-              value: 37
+              value: totalAdminAge / (admins.length || Infinity)
             },
             {
               name: 'Normal',
-              value: 28
+              value: totalNormalAge / (normal.length || Infinity)
             }
           ]
         }
       ]
     }
-    // TODO: bind this to the model, calculate it based on the list of items
-    const genderEquality = {
+  }
+
+  malesVsFemales (items) {
+    const males = items.filter(next => next.gender === "M")
+    const females = items.filter(next => next.gender === "F")
+
+    return {
       series: [
         {
-          name: 'Average age between types',
+          name: 'Males vs Females',
           type: 'pie',
           data: [
             {
               name: 'Male',
-              value: 3
+              value: males.length
             },
             {
               name: 'Female',
-              value: 4
+              value: females.length
             }
           ]
         }
       ]
+    }
+  }
+
+  render() {
+    const { classes, section } = this.props
+    const { items, editing = {}, text } = this.state
+    const search = 10
+    const value = this.binarySearchTree(tree, search)
+    console.log('value', value, 'search', search)
+    
+    const filtered = items.filter(next => {
+      const searchText = this.state.text.toLowerCase()
+      const name = next.name.toLowerCase()
+      const username = next.username.toLowerCase()
+      const lastName = next.lastName.toLowerCase()
+      const type = next.type.toLowerCase()
+      return name.includes(searchText) ||
+        lastName.includes(searchText) ||
+        username.includes(searchText) ||
+        type.includes(searchText)
+    })
+    const cardProps = {
+      titleClass: classes.title,
+      className: classes.card,
+      graphClass: classes.graph
     }
 
     return (
@@ -170,7 +323,8 @@ class AssignmentsRecap extends React.Component {
             <li>Based on user types show a graf of the average age of the user</li>
           </ol>
         </Typography>
-          <TextField fullWidth margin="normal" value={''} label="Search"/>
+        <TextField fullWidth margin="normal" onChange={this.onSearchChanged} value={text} label="Search"/>
+        <Button onClick={this.onAddNewClicked} color="primary">Add New Item</Button>
         <Table>
           <TableHead>
             <TableRow>
@@ -184,86 +338,56 @@ class AssignmentsRecap extends React.Component {
             </TableRow>
           </TableHead>
           <TableBody>
-            <TableRow>
-              <TableCell>Agon</TableCell>
-              <TableCell>Lohaj</TableCell>
-              <TableCell>agon_lohaj</TableCell>
-              <TableCell>Normal</TableCell>
-              <TableCell>32</TableCell>
-              <TableCell>Male</TableCell>
-              <TableCell>
-                <IconButton>
-                  <EditIcon />
-                </IconButton>
-                <IconButton>
-                  <RemoveIcon />
-                </IconButton>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>Agon</TableCell>
-              <TableCell>Lohaj</TableCell>
-              <TableCell>agon_lohaj</TableCell>
-              <TableCell>Normal</TableCell>
-              <TableCell>48</TableCell>
-              <TableCell>Male</TableCell>
-              <TableCell>
-                <IconButton>
-                  <EditIcon />
-                </IconButton>
-                <IconButton>
-                  <RemoveIcon />
-                </IconButton>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>Agon</TableCell>
-              <TableCell>Lohaj</TableCell>
-              <TableCell>agon_lohaj</TableCell>
-              <TableCell>Normal</TableCell>
-              <TableCell>62</TableCell>
-              <TableCell>Male</TableCell>
-              <TableCell>
-                <IconButton>
-                  <EditIcon />
-                </IconButton>
-                <IconButton>
-                  <RemoveIcon />
-                </IconButton>
-              </TableCell>
-            </TableRow>
+            {filtered.map((next, index) => {
+              return <TableRow key={next.id}>
+                <TableCell>{next.name}</TableCell>
+                <TableCell>{next.lastName}</TableCell>
+                <TableCell>{next.username}</TableCell>
+                <TableCell>{next.type}</TableCell>
+                <TableCell>{next.age}</TableCell>
+                <TableCell>{next.gender}</TableCell>
+                <TableCell>
+                  <IconButton onClick={(event) => this.onEdit(next, event)}>
+                    <EditIcon />
+                  </IconButton>
+                  <IconButton onClick={(event) => this.onRemove(next, event)}>
+                    <RemoveIcon />
+                  </IconButton>
+                </TableCell>
+              </TableRow>
+            })}
           </TableBody>
         </Table>
-        <Dialog open={false}>
+        <Dialog open={!!editing.id} onClose={this.onCancelClicked}>
           <DialogTitle>
             My Awesome Dialog
           </DialogTitle>
           <DialogContent>
-            <TextField fullWidth margin="normal" value={''} label="Name"/>
-            <TextField fullWidth margin="normal" value={''} label="Last Name"/>
-            <TextField fullWidth margin="normal" value={''} label="User Name"/>
-            <TextField fullWidth margin="normal" select value={'Admin'} label="Select Type">
+            <TextField fullWidth margin="normal" name="name" onChange={this.onValueChanged} value={editing.name} label="Name"/>
+            <TextField fullWidth margin="normal" name="lastName" onChange={this.onValueChanged} value={editing.lastName} label="Last Name"/>
+            <TextField fullWidth margin="normal" name="username" onChange={this.onValueChanged} value={editing.username} label="User Name"/>
+            <TextField fullWidth margin="normal" name="type" onChange={this.onValueChanged} select value={editing.type} label="Select Type">
               <ListItem value="Admin">Admin</ListItem>
               <ListItem value="Normal">Normal</ListItem>
             </TextField>
-            <TextField fullWidth margin="normal" value={''} label="Age"/>
-            <RadioGroup name="gender" value="F">
+            <TextField fullWidth margin="normal" name="age" onChange={this.onValueChanged} value={editing.age} label="Age"/>
+            <RadioGroup name="gender" name="gender" onChange={this.onValueChanged} value={editing.gender}>
               <FormControlLabel value="M" control={<Radio />} label="Male"/>
               <FormControlLabel value="F" control={<Radio />} label="Female"/>
             </RadioGroup>
           </DialogContent>
           <DialogActions>
-            <Button color="secondary">
+            <Button onClick={this.onCancelClicked} color="secondary">
               Cancel
             </Button>
-            <Button color="primary">
+            <Button onClick={this.onSaveClicked} color="primary">
               Save
             </Button>
           </DialogActions>
         </Dialog>
         <div className={classes.graphs}>
-          <Card options={averageAge} {...cardProps} title={'Average age between types'} />
-          <Card options={genderEquality} {...cardProps} title={'Males vs Females between types'} />
+          <Card options={this.averageAgeOptions(filtered)} {...cardProps} title={'Average age between types'} />
+          <Card options={this.malesVsFemales(filtered)} {...cardProps} title={'Males vs Females between types'} />
         </div>
         <Typography variant='p'>
           Title: "Implement the Binary Search Tree"<br />
