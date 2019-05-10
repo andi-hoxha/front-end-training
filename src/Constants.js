@@ -52,6 +52,7 @@ module.exports = {
       VANILLA_CSS: 'vanillaCss',
       CSS_PREPROCESSORS: 'cssPreprocessors',
       CSS_IN_JS: 'CSSinJS',
+      ASSIGNMENT: 'assignments_7'
     },
     PLAYGROUND: 'playground',
     SUPPORT: {

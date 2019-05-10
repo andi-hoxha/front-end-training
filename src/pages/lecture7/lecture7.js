@@ -10,6 +10,7 @@ import InlineStyling from "pages/lecture7/InlineStyling";
 import VanillaCSS from "pages/lecture7/VanillaCSS";
 import CssPreprocessors from "pages/lecture7/CssPreprocessors";
 import CssInJS from "pages/lecture7/CssInJS";
+import Assignment from "pages/lecture7/Assignment";
 import { PAGES } from 'Constants';
 
 const styles = ({ typography }) => ({
@@ -41,8 +42,10 @@ class Lecture5 extends React.Component {
         return <VanillaCSS {...props} />
       case PAGES.LECTURE_7.CSS_PREPROCESSORS:
         return <CssPreprocessors {...props} />
-      case PAGES.LECTURE_7.CSS_PREPROCESSORS:
+      case PAGES.LECTURE_7.CSS_IN_JS:
         return <CssInJS {...props} />
+        case PAGES.LECTURE_7.ASSIGNMENT:
+          return <Assignment {...props} />
     }
     return <Intro {...props}/>
   }
