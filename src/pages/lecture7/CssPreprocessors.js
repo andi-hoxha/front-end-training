@@ -39,7 +39,8 @@ nav {
     }
   
     li { display: inline-block; }
-  
+
+    
     a {
       display: block;
       padding: 6px 12px;
@@ -114,6 +115,11 @@ aside[role="complementary"] {
 class CssPreprocessors extends React.Component {
   render() {
     const { classes, section } = this.props
+    const themeing = section.children[0]
+    const nestingTitle = section.children[1]
+    const mixinsTitle = section.children[2]
+    const operatorsTitle = section.children[3]
+
     return (
       <Fragment>
         <Typography variant={'heading'}>
@@ -140,7 +146,7 @@ class CssPreprocessors extends React.Component {
             NOTE: While demoing we are going to use SASS becuase it is most popular one.
         </Typography>
 
-        <Typography variant='title'>Themeing</Typography>
+        <Typography variant='title' id={themeing.id}>{themeing.display}</Typography>
         <Typography>
             Themeing using CSS preprocessors is quite easy because it compiles and it means that we can use variables and store some values and reuse them :)<br/>
             Let's say that we are going to build a simple laning page and the desinger gave us all the colors used on his/her designs.
@@ -153,7 +159,7 @@ class CssPreprocessors extends React.Component {
             in other components 
         </Typography>
         
-        <Typography variant='title'>Nesting</Typography>
+        <Typography variant='title' id={nestingTitle.id}>{nestingTitle.display}</Typography>
 
         <Typography>
             When writing HTML you've probably noticed that it has a clear nested and visual hierarchy. CSS, on the other hand, doesn't.
@@ -167,7 +173,7 @@ class CssPreprocessors extends React.Component {
             <Code>{cssNesting}</Code>
         </div>
     
-        <Typography variant='title'>Mixins</Typography>
+        <Typography variant='title' id={mixinsTitle.id}>{mixinsTitle.id}</Typography>
 
         <Typography>
             Some things in CSS are a bit tedious to write, especially with CSS3 and the many vendor prefixes that exist.
@@ -186,7 +192,7 @@ class CssPreprocessors extends React.Component {
             We're also using the variable $property inside the parentheses so we can pass in a transform of whatever we want.
             After you create your mixin, you can then use it as a CSS declaration starting with @include followed by the name of the mixin.
         </Typography>
-        <Typography variant='title'>Operators</Typography>
+        <Typography variant='title' id={operatorsTitle.id}>{operatorsTitle.display}</Typography>
         <Typography variant='p'>
             Doing math in your CSS is very helpful. Sass has a handful of standard math operators like +, -, *, /, and %. 
             In our example we're going to do some simple math to calculate widths for an aside & article.

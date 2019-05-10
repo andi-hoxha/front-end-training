@@ -4,6 +4,7 @@
 export default class Theme {
   static getTheme() {
     let theme = {
+      type: 'default',
       palette: {
         leadColor: '#3cb9e2',
         leadAccent1: '#1b9ad1',

@@ -146,6 +146,10 @@ class Link extends React.Component{
 class InlineStyling extends React.Component {
   render() {
     const { classes, section } = this.props
+    const conditionalRendering = section.children[0]
+    const noPseudClasses = section.children[1]
+    const noCSSSelectors = section.children[2]
+
     return (
       <Fragment>
         <Typography variant={'heading'}>
@@ -182,7 +186,7 @@ class InlineStyling extends React.Component {
           {divWithClassName}
         </Code>
         </Typography>
-        <Typography variant='title'>Conditional Rendering</Typography>
+        <Typography variant='title' id={conditionalRendering.id}>{conditionalRendering.display}</Typography>
         <Typography variant='p'>
           In React we often find ourselves using conditoional rendering because of react nature, so let's do a comparasion when changing 
           some properties depending on the given props.
@@ -220,8 +224,8 @@ class InlineStyling extends React.Component {
           HTML would grow larger and will cause lag or even worst not respond at all.
         </Typography>
 
-        <Typography variant='title'>
-          You cannot use pseudoClasses
+        <Typography variant='title' id={noPseudClasses.id}>
+          {noPseudClasses.display}
         </Typography>
         <Typography variant='p'>
           When using inline stlying you cannot use the PseudoClasses let's do a demo <br />
@@ -236,8 +240,8 @@ class InlineStyling extends React.Component {
             <br/>
           </Typography>
         </Typography>
-        <Typography variant='title'>
-          You cannot use CSS Selectors
+        <Typography variant='title' id={noCSSSelectors.id}>
+          {noCSSSelectors.display}
         </Typography>
         <Typography variant='p'>
           While using inline styling you cannot use the power of CSS Selectors because we write style for each element.

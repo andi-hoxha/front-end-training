@@ -15,30 +15,27 @@ const styles = ({ typography }) => ({
 
 
 const cssLink = `
-  //main.css
-  link{
+  //link.css
+  .link{
     background-color: '#fff';
     width: 400;
     color: #999;
-    :hover{
-      color: #000
-    }
+  }
+  .link:hover{
+    color: #000
   }
 `
 
 const hoverState = `
-import main.css
-class Link extends React.Component{
-
-  render(){
-    const {to} = this.props
+import link.css
+const Link props => {
+    const {to,children} = props
     return(
       <a className='link'
       href={to}>
-        Go to google
+        {children}
       </a>
     )
-  }
 }
 `
 
@@ -85,12 +82,12 @@ class Link extends React.Component{
 }
 `
 const noSelectors = `
-import IconButton from '@material-ui/core/IconButton'
 
 const styles = {
   link:{
     backgroundColor: '#fff',
     width: 400,
+    marginBottom: 20
   },
   labelStyle: {
     color: '#999',
@@ -106,9 +103,11 @@ const styles = {
 class Link extends React.Component{
 
   render(){
-    const {to} = this.props
+    const {to, isLastOne} = this.props
     return(
-      <a style={styles.link} href={to}>
+      <a style={{
+        ...styles.link,
+        marginBottom:isLastOne ? 0 : styles.link.marginBottom}} href={to}>
         <label style={styles.label}>
           Go to google
         </label>
@@ -125,6 +124,7 @@ const withSelectorsStyleSheed  = `
   .link{
     backgroundColor: #fff;
     width: 400;
+    margin-bottom: 20px;
   }
   .labelStyle {
     color: #999;
@@ -132,8 +132,11 @@ const withSelectorsStyleSheed  = `
     text-oveflow: ellipsis;
     white-space: no-wrap;
   }
-  .link svg{
-    margin-right: 8px;
+  .link:first-child{
+    margin-bottom: 0;
+  }
+  .iconStyle:{
+    margin-left: 8px
   }
 `
 
@@ -146,7 +149,7 @@ const LinkWithArrows = props =>{
       <label className='label'>
         {children}
       </label>
-      <IconButton>
+      <IconButton className='iconStyle'>
         <Add/>
       </IconButton>
     </a>
@@ -204,6 +207,9 @@ const LinkWithArrows = props =>{
 class VanillaCss extends React.Component {
   render() {
     const { classes, section } = this.props
+    const useOfPseudoClasses = section.children[0]
+    const useOfSelectors = section.children[1]
+    const useOfPseudElements = section.children[2]
     return (
       <Fragment>
         <Typography variant={'heading'}>
@@ -213,15 +219,15 @@ class VanillaCss extends React.Component {
         <Typography variant='p'>
           Vanilla CSS means writing css completly manually. 
           <br />
-          As we can imagine this is not very handy for styling React Components let's demo this and look at pros and cons.
+          Let's demo this and look at pros and cons.
           <br />
           Note: Before we start let's keep in mind that every PreProcessor or React Hoc or whatever task runner we use it will 
           compile the code as vanilla css.
         </Typography>
         
-        <Typography variant='title'>Use of Pseud Classes</Typography>
+        <Typography variant='title' id={useOfPseudoClasses.id}>{useOfPseudoClasses.display}</Typography>
         <Typography variant='p'>
-          Some of the pros for this styling approach are that we can use the pseudoElements and pseudoClasses. <br/>
+          Some of the pros for this styling approach are that we can use the Pseudo Elements and Pseudo Classes. <br/>
           Let's take a look to the component that we did in the previous section and rewrite that using vanilla css.
         <Code>
           {cssLink}
@@ -237,11 +243,11 @@ class VanillaCss extends React.Component {
           When using the inline styling the component looked like this.
           <Code>{hoverStateInline}</Code>
         </Typography>
-        <Typography variant="title">Use of Selectors</Typography>
+        <Typography variant="title" id={useOfSelectors.id}>{useOfSelectors.display}</Typography>
         <Typography variant='p'>
           When using vanilla css we can use CSS Selectors and we are able to give some styling properties to children, 
           siblings, also we can add some extra properties when the children is the last one eg.
-          <code>.parent .child:first-child {`{...someStyle}`}</code>.
+          <code>.parent .child:last-child {`{...someStyle}`}</code>.
         </Typography>
 
         <Typography variant="p">Let's give a try and convert the compoent below using vanilla CSS</Typography>
@@ -249,7 +255,7 @@ class VanillaCss extends React.Component {
         <Code>
           {noSelectors}
         </Code>
-        <Typography variant="title">Using Vanilla CSS</Typography>
+        <Typography variant="title" id={useOfPseudElements.id}>{useOfPseudElements.display}</Typography>
         <Code>
           {withSelectorsStyleSheed}
         </Code>
@@ -257,8 +263,8 @@ class VanillaCss extends React.Component {
           {withSelectors}
         </Code>
         
-        <Typography variant="p">So as you can see there is no need to specify an extra classname for svg(IconButton)
-        but instead we add style from parent link
+        <Typography variant="p">So as you can see there is no need to specify a prop or to calculate the index and identify if it is the last one or not. but instead
+        just use css selectors.
         </Typography>
 
         <Typography variant="title">Use of Pseud Elements</Typography>

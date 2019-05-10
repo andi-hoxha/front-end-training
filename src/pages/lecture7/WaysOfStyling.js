@@ -24,8 +24,8 @@ class Intro extends React.Component {
           <Divider />
         </Typography>
         <Typography variant='p'>
-          There are enumerus way to add style in React components but we are going to mention the ones that are most popular,
-          also are going to compare each styling approach and mention pros and cones for each one.
+          There are numerous way to add style in React components, but we are going to mention the ones that are most popular,
+          we are also going to compare each styling approach and mention pros and cones for each one.
           <ol>
             <li>Inline styling</li>
             <li>Vanilla CSS / CSS Stylesheet</li>
@@ -39,7 +39,7 @@ class Intro extends React.Component {
         <Typography variant='p'>
         Pros.
           <ol>
-            <li>The propeties applied inline are stronger than classes propeties.</li>
+            <li>The propeties applied inline are stronger than the propeties applied via classnames.</li>
             <li>Conditional styling for one property is easier </li>
           </ol>
         </Typography>
