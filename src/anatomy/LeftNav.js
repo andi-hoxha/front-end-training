@@ -53,7 +53,8 @@ const styles = ({size, zIndex, palette, typography}) => ({
   },
   iconActive: {},
   leftNavRoot:{
-    height: `calc(100% - 80px)`
+    height: `calc(100% - 80px)`,
+    overflowY: 'overlay'
   }
 })
 

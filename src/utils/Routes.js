@@ -255,7 +255,7 @@ const routes = [
   },
   {
     id: PAGES.LECTURE_5.ID,
-    display: '5. React HOC-s, Routing and Children API',
+    display: '5 and 6. React HOC-s, Routing and Children API',
     children: [
       {
         id: PAGES.LECTURE_5.ASSIGNMENT_RECAP,
@@ -343,6 +343,132 @@ const routes = [
         display: 'Assignments',
         children: [
         ]
+      }
+    ]
+  },
+  {
+    id: PAGES.LECTURE_7.ID,
+    display: '7. Styling React Components',
+    children: [
+      {
+        id: PAGES.LECTURE_7.ASSIGNMENT_RECAP,
+        display: 'Assignments Recap',
+        children: []
+      },
+      {
+        id: PAGES.LECTURE_7.INTRO,
+        display: 'Ways to Style React Components Intro',
+        children: [
+          {
+            id: 'inlineStylingIntro',
+            display: 'Inline Styling'
+          },
+          {
+            id: 'vanillaCSSIntro',
+            display: 'Vanilla CSS / CSS Style Sheet'
+          },
+          {
+            id: 'CSSpreprocessorsIntro',
+            display: 'Using CSS preprocessors'
+          },
+          {
+            id: 'CSSinJSIntro',
+            display: 'CSS in JS'
+          }
+        ]
+      },
+      {
+        id: PAGES.LECTURE_7.INLINE_STYLING,
+        display: 'Inline Styling',
+        children: [
+          {
+            id: 'conditionalRendering',
+            display: 'Conditional Rendering',
+          },
+          {
+            id: 'noPseudClasses',
+            display: 'You cannot use pseudoClasses',
+          },
+          {
+            id: 'noCSSSelectors',
+            display: 'You cannot use CSS Selectors',
+          },
+        ]
+      },
+      {
+        id: PAGES.LECTURE_7.VANILLA_CSS,
+        display: 'Vanilla CSS / CSS Style Sheet',
+        children: [
+          {
+            id: 'useOfPseudoClasses',
+            display: 'Use of Pseud Classes',
+          },
+          {
+            id: 'useOfSelectors',
+            display: 'Use of Selectors',
+          },
+          {
+            id: 'useOfPseudElements',
+            display: 'Use of Pseud Classes',
+          },
+        ]
+      },
+      {
+        id: PAGES.LECTURE_7.CSS_PREPROCESSORS,
+        display: 'CSS preprocessors',
+        children: [
+          {
+            id: 'themeingCssPreporcessors',
+            display: 'Themeing',
+          },
+          {
+            id: 'nesting',
+            display: 'Nesting',
+          },
+          {
+            id: 'mixins',
+            display: 'Mixins',
+          },
+          {
+            id: 'operators',
+            display: 'Operators',
+          },
+        ]
+      },
+      {
+        id: PAGES.LECTURE_7.CSS_IN_JS,
+        display: 'Css In JS',
+        children: [
+          {
+            id: 'themeing',
+            display: 'Themeing',
+          },
+          {
+            id: 'criticalCssExtraction',
+            display: 'Critical CSS extraction',
+          },
+          {
+            id: 'lazyEvaluation',
+            display: 'Lazy Evaluation',
+          },
+          {
+            id: 'noNamingConventions',
+            display: 'No Naming Conventions',
+          },
+          {
+            id: 'styleoNgivenProp',
+            display: 'Style on given Prop',
+          },
+          {
+            id: 'exerciseCssInJs',
+            display: 'Exercise',
+          }
+        ]
+      },
+      {
+        id: PAGES.LECTURE_7.ASSIGNMENT,
+        display: 'Assigment',
+        children: []
       }
     ]
   },
