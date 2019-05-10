@@ -255,7 +255,7 @@ const routes = [
   },
   {
     id: PAGES.LECTURE_5.ID,
-    display: '5. React HOC-s, Routing and Children API',
+    display: '5 and 6. React HOC-s, Routing and Children API',
     children: [
       {
         id: PAGES.LECTURE_5.ASSIGNMENT_RECAP,

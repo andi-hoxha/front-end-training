@@ -40,6 +40,9 @@ class Resources extends React.Component {
             <li>Webpack: <SimpleLink href="https://webpack.js.org/">https://webpack.js.org/</SimpleLink></li>
             <li>Babel: <SimpleLink href="https://babeljs.io/">https://babeljs.io/</SimpleLink></li>
             <li>React Routing: <SimpleLink href="https://reacttraining.com/react-router/web/guides/quick-start">https://reacttraining.com/react-router/web/guides/quick-start</SimpleLink></li>
+            <li>Material UI: <SimpleLink href="https://material-ui.com/demos/text-fields/">https://material-ui.com/demos/text-fields/</SimpleLink></li>
+            <li>Flex Box: <SimpleLink href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">https://css-tricks.com/snippets/css/a-guide-to-flexbox/</SimpleLink></li>
+            <li>React JSS: <SimpleLink href="https://cssinjs.org/react-jss?v=v10.0.0-alpha.16">https://cssinjs.org/react-jss?v=v10.0.0-alpha.16</SimpleLink></li>
           </ul>
         </Typography>
       </Fragment>
