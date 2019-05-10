@@ -1,6 +1,6 @@
 {
   "name": "front-end-training",
-  "version": "6.0.0",
+  "version": "6.1.0",
   "description": "The interactive web for front-end training.",
   "main": "src/index.js",
   "scripts": {

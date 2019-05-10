@@ -163,7 +163,8 @@ class Assignments extends React.Component {
             <li>Based on user types show a graf of the average age of the user</li>
           </ol>
         </Typography>
-          <TextField fullWidth margin="normal" value={''} label="Search"/>
+        <TextField fullWidth margin="normal" value={''} label="Search"/>
+        <Button color="primary">Add New Item</Button>
         <Table>
           <TableHead>
             <TableRow>
@@ -226,8 +227,8 @@ class Assignments extends React.Component {
               </TableCell>
             </TableRow>
           </TableBody>
-        </Table>
-        <Dialog open={false}>
+        </Table> 
+        <Dialog open={false} onClose={e => {console.log(e)}}>
           <DialogTitle>
             My Awesome Dialog
           </DialogTitle>
