@@ -8,7 +8,7 @@ import PageLink from "presentations/rows/nav/PageLink";
 import IconButton from '@material-ui/core/IconButton'
 import Typography from "presentations/Typography";
 import React, { Fragment } from "react";
-// import 'pages/lecture7/Link.css'
+import 'pages/lecture7/Link.css'
 const styles = ({ typography }) => ({
   root: {},
 })
