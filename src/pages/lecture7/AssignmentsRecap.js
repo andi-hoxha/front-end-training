@@ -15,6 +15,8 @@ import RemoveIcon from '@material-ui/icons/Clear'
 import { Table, TableHead, TableRow, TableBody, TableCell, IconButton, Dialog, DialogTitle, DialogContent, TextField, DialogActions, Button, ListItem, RadioGroup, Radio, FormControlLabel } from "@material-ui/core";
 import Chart from "presentations/Chart";
 import uuid from 'uuid'
+import { connect } from 'react-redux'
+import { fetchUsers } from "reducers/users/UserActions";
 
 
 const styles = ({ typography, size }) => ({
@@ -117,6 +119,10 @@ class AssignmentsRecap extends React.Component {
         }
       ]
     }
+  }
+
+  componentDidMount () {
+    this.props.fetchUsers()
   }
   /**
    * TODO: Implement Binary Search Tree Method
@@ -403,4 +409,14 @@ class AssignmentsRecap extends React.Component {
   }
 }
 
-export default withStyles(styles)(AssignmentsRecap)
+const mapStateToProps = (state) => {
+  return {
+    users: state.users
+  }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchUsers: () => dispatch(fetchUsers())
+})
+
+export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(AssignmentsRecap))
