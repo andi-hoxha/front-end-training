@@ -1,14 +1,12 @@
 /**
  * Created by LeutrimNeziri on 09/04/2019.
  */
-import withStyles from "@material-ui/core/styles/withStyles"
-import Divider from "presentations/Divider"
-import Typography from "presentations/Typography"
-import React, { Fragment } from "react"
-import SimpleLink from "presentations/rows/SimpleLink"
-import Code from "presentations/Code"
-import { createStore, combineReducers } from 'redux'
+import withStyles from "@material-ui/core/styles/withStyles";
+import Code from "presentations/Code";
+import Divider from "presentations/Divider";
 import { Bold } from "presentations/Label";
+import Typography from "presentations/Typography";
+import React, { Fragment } from "react";
 const styles = ({ typography }) => ({
   root: {},
 })
