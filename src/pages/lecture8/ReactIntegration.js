@@ -1,19 +1,14 @@
 /**
  * Created by LeutrimNeziri on 09/04/2019.
  */
-import withStyles from "@material-ui/core/styles/withStyles"
-import Divider from "presentations/Divider"
-import Typography from "presentations/Typography"
-import React, { Fragment } from "react"
-import SimpleLink from "presentations/rows/SimpleLink"
-import Code from "presentations/Code"
-import { createStore, combineReducers } from 'redux'
-import { Bold, Italic } from "presentations/Label";
-import { connect } from 'react-redux'
-import { fetchUsers } from "reducers/users/UserActions";
-import ReactRedux from 'assets/images/lecture8/react_redux.png'
-import { TextField, Table, TableHead, TableRow, TableCell, Button, TableBody } from "@material-ui/core";
+import withStyles from "@material-ui/core/styles/withStyles";
+import ReactRedux from 'assets/images/lecture8/react_redux.png';
 import Todo from "pages/lecture8/todo/Todo";
+import Code from "presentations/Code";
+import Divider from "presentations/Divider";
+import { Italic } from "presentations/Label";
+import Typography from "presentations/Typography";
+import React, { Fragment } from "react";
 const styles = ({ typography }) => ({
   actionWrapper: {
     display: 'flex',
