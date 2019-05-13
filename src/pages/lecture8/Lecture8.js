@@ -3,7 +3,7 @@
  */
 import withStyles from "@material-ui/core/styles/withStyles";
 import { PAGES } from 'Constants';
-import Intro from "pages/lecture7/Intro";
+import Intro from "pages/lecture8/Intro";
 import Redux from "pages/lecture8/Redux";
 import React from "react";
 import CoreConcepts from "pages/lecture8/CoreConcepts";
