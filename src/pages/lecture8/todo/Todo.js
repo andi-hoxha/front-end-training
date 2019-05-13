@@ -29,6 +29,15 @@ class Todo extends React.Component {
     filter(event.target.value)
   }
 
+  onToggleOpen = (event) => {
+    if (event) {
+      event.preventDefault()
+    }
+    this.setState((prevState) => ({
+      open: !prevState.open
+    }))
+  }
+
   render() {
     const { classes, search } = this.props
     const { open } = this.state
@@ -36,10 +45,10 @@ class Todo extends React.Component {
       <Fragment>
         <div className={classes.actionWrapper}>
           <TextField label="Search" value={search} onChange={this.onChange}/>
-          <Button onClick={this.onNewTaskClicked}>Add new ToDo</Button>
+          <Button onClick={this.onToggleOpen}>Add new ToDo</Button>
         </div>
-        <ToDoList onToggle={this.onToggle} />
-        <TodoForm open={open} onCancelClicked={this.onHide} />
+        <ToDoList />
+        <TodoForm open={open} onCancelClicked={this.onToggleOpen} />
       </Fragment>
     )
   }
