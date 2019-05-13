@@ -3,12 +3,12 @@
  */
 import withStyles from "@material-ui/core/styles/withStyles";
 import ReactRedux from 'assets/images/lecture8/react_redux.png';
-import Todo from "pages/lecture8/todo/Todo";
 import Code from "presentations/Code";
 import Divider from "presentations/Divider";
 import { Italic } from "presentations/Label";
 import Typography from "presentations/Typography";
 import React, { Fragment } from "react";
+import Todo from 'pages/lecture8/todo/Todo'
 const styles = ({ typography }) => ({
   actionWrapper: {
     display: 'flex',
@@ -42,33 +42,9 @@ const ReduxAwareComponent = connect(mapStateToProps, mapDispatchToProps)(Compone
 
 class ReactIntegration extends React.Component {
 
-  constructor (props) {
-    super (props)
-
-    this.state = {
-      search: '',
-      items: []
-    }
-  }
-
-  onNewTaskClicked () {
-    this.setState({
-      editing: {
-        id: uuid.v1(),
-        text: ''
-      }
-    })
-  }
-
   render() {
     const { classes, section } = this.props
     const exercise = section.children[0]
-    const { items, search } = this.state
-
-    const filtered = items.filter(next => {
-      const text = next.text || ''
-      return text.toLowerCase().includes(search.toLowerCase())
-    })
     return (
       <Fragment>
         <Typography variant={'heading'}>

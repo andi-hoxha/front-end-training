@@ -4,6 +4,9 @@
 import { Table, TableBody, TableCell, TableHead, TableRow, Checkbox } from "@material-ui/core";
 import withStyles from "@material-ui/core/styles/withStyles";
 import React from "react";
+import { connect } from 'react-redux'
+import { toggleComplete } from 'reducers/todo/ToDoActions'
+import { filteredItems } from 'reducers/todo/Todo'
 const styles = ({ typography }) => ({
   root: {
     minHeight: 600,
@@ -16,8 +19,8 @@ class ToDoList extends React.Component {
   onToggle = (event, item) => {
     event.preventDefault()
 
-    const { onToggle } = this.props
-    onToggle(item, event.target.checked)
+    const { toggleComplete } = this.props
+    toggleComplete(item)
   }
 
   render() {
@@ -45,4 +48,14 @@ class ToDoList extends React.Component {
   }
 }
 
-export default withStyles(styles)(ToDoList)
+const mapStateToProps = (store) => {
+  return {
+    items: filteredItems(store)
+  }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+  toggleComplete: (item) => dispatch(toggleComplete(item))
+})
+
+export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(ToDoList))

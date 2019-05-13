@@ -4,6 +4,7 @@ import {routerMiddleware, routerReducer} from "react-router-redux"
 import createBrowserHistory from 'history/createBrowserHistory'
 
 import users from 'reducers/users/Users'
+import todo from 'reducers/todo/Todo'
 
 // its running under a process, then create browser history
 const history = createBrowserHistory()
@@ -13,7 +14,8 @@ const loggerMiddleware = createLogger()
 
 const reducers = combineReducers({
   routing: routerReducer,
-  users
+  users,
+  todo
 })
 const middleware = [
   routerMiddleware(history),

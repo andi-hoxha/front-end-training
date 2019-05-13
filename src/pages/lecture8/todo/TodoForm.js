@@ -5,6 +5,8 @@ import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } 
 import withStyles from "@material-ui/core/styles/withStyles";
 import React from "react";
 import uuid from 'uuid';
+import { connect } from 'react-redux'
+import { addTodo } from 'reducers/todo/ToDoActions'
 const styles = ({ typography }) => ({
 })
 
@@ -29,13 +31,11 @@ class TodoForm extends React.Component {
   onSaveClicked = (event) => {
     event.preventDefault()
 
-    const { onTodoAdded } = this.props
+    const { addTodo, onCancelClicked } = this.props
     const { text } = this.state
-    if (onTodoAdded) {
-      onTodoAdded({
-        id: uuid.v1(),
-        text: text
-      })
+    if (addTodo) {
+      addTodo(text)
+      onCancelClicked()
     }
     this.setState({
       text: ''
@@ -66,4 +66,14 @@ class TodoForm extends React.Component {
   }
 }
 
-export default withStyles(styles)(TodoForm)
+const mapStateToProps = (store) => {
+  return {
+    
+  }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+  addTodo: (text) => dispatch(addTodo(text))
+})
+
+export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(TodoForm))

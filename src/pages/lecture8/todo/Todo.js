@@ -7,6 +7,8 @@ import TodoForm from "pages/lecture8/todo/TodoForm";
 import ToDoList from "pages/lecture8/todo/ToDoList";
 import React, { Fragment } from "react";
 import uuid from 'uuid';
+import { connect } from 'react-redux'
+import { filter } from 'reducers/todo/ToDoActions'
 const styles = ({ typography }) => ({
   actionWrapper: {
     display: 'flex',
@@ -16,86 +18,41 @@ const styles = ({ typography }) => ({
   },
 })
 
-class ReactIntegration extends React.Component {
+class Todo extends React.Component {
 
-  constructor (props) {
-    super (props)
-
-    this.state = {
-      search: '',
-      items: [{
-        id: uuid.v1(),
-        text: 'Gots to buy me some food!'
-      }, {
-        id: uuid.v1(),
-        text: 'Gots to buy me some flowers!'
-      }],
-      open: false
-    }
+  state = {
+    open: false
   }
-
+  
   onChange = (event) => {
-    this.setState({
-      search: event.target.value
-    })
-  }
-
-  onToggle = (item, checked) => {
-    this.setState((prevState) => ({
-      items: prevState.items.map(next => {
-        if (next.id === item.id) {
-          return {
-            ...next,
-            completed: checked
-          }
-        }
-        return next
-      })
-    }))
-  }
-
-  onNewTaskClicked = () => {
-    this.setState({
-      open: true
-    })
-  }
-
-  onHide = (event) => {
-    if (event) {
-      event.preventDefault()
-    }
-
-    this.setState({
-      open: false
-    })
-  }
-
-  onTodoAdded = (item) => {
-    this.setState((prevState) => ({
-      items: [...prevState.items, item],
-      open: false
-    }))
+    const { filter } = this.props
+    filter(event.target.value)
   }
 
   render() {
-    const { classes } = this.props
-    const { items, search, open } = this.state
-
-    const filtered = items.filter(next => {
-      const text = next.text || ''
-      return text.toLowerCase().includes(search.toLowerCase())
-    })
+    const { classes, search } = this.props
+    const { open } = this.state
     return (
       <Fragment>
         <div className={classes.actionWrapper}>
           <TextField label="Search" value={search} onChange={this.onChange}/>
           <Button onClick={this.onNewTaskClicked}>Add new ToDo</Button>
         </div>
-        <ToDoList items={filtered} onToggle={this.onToggle} />
-        <TodoForm open={open} onHide={this.onHide} onTodoAdded={this.onTodoAdded} />
+        <ToDoList onToggle={this.onToggle} />
+        <TodoForm open={open} onCancelClicked={this.onHide} />
       </Fragment>
     )
   }
 }
 
-export default withStyles(styles)(ReactIntegration)
+const mapStateToProps = (store) => {
+  return {
+    search: store.todo.filter
+  }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+  filter: (text) => dispatch(filter(text))
+})
+
+export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(Todo))
