@@ -255,7 +255,7 @@ const routes = [
   },
   {
     id: PAGES.LECTURE_5.ID,
-    display: '5 and 6. React HOC-s, Routing and Children API',
+    display: '5 & 6. React HOC-s, Routing and Children API',
     children: [
       {
         id: PAGES.LECTURE_5.ASSIGNMENT_RECAP,
@@ -469,6 +469,49 @@ const routes = [
         id: PAGES.LECTURE_7.ASSIGNMENT,
         display: 'Assigment',
         children: []
+      }
+    ]
+  },
+  {
+    id: PAGES.LECTURE_8.ID,
+    display: '8. Redux',
+    children: [
+      {
+        id: PAGES.LECTURE_8.REDUX,
+        display: 'Introduction',
+        children: [
+          {
+            display: 'Example'
+          },
+          {
+            display: 'Motivation'
+          }
+        ]
+      },
+      {
+        id: PAGES.LECTURE_8.CORE_CONCEPTS,
+        display: 'Core Concepts',
+        children: [
+          {
+            display: 'Single source of truth'
+          },
+          {
+            display: 'State is read-only'
+          },
+          {
+            display: 'Changes are made with pure functions'
+          }
+        ]
+      },
+      {
+        id: PAGES.LECTURE_8.REACT_INTEGRATION,
+        display: 'Redux React Integration',
+        children: [
+          {
+            id: 'redux_react_exercise',
+            display: 'Exercise'
+          }
+        ]
       }
     ]
   },

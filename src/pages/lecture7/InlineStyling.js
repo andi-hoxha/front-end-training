@@ -168,40 +168,40 @@ class InlineStyling extends React.Component {
           declaread in a stylesheet(applied via className).
           Example:
         </Typography>
-        
+
         <Typography variant='p'>
           The properties applied in this form always will be applied first because they are rendered in the HTML
           <Code>
             {divWithInlineStyle}
           </Code>
         </Typography>
-        
+
         <Typography variant='p'>
-        This property will be ignored and won't get applied because the properties applied with inline will get rendered after the head
-        tag.
+          This property will be ignored and won't get applied because the properties applied with inline will get rendered after the head
+          tag.
         <Code>
-          {redBg}
-        </Code>
-        <Code>
-          {divWithClassName}
-        </Code>
+            {redBg}
+          </Code>
+          <Code>
+            {divWithClassName}
+          </Code>
         </Typography>
         <Typography variant='title' id={conditionalRendering.id}>{conditionalRendering.display}</Typography>
         <Typography variant='p'>
-          In React we often find ourselves using conditoional rendering because of react nature, so let's do a comparasion when changing 
+          In React we often find ourselves using conditoional rendering because of react nature, so let's do a comparasion when changing
           some properties depending on the given props.
           Example:
           <Typography variant='p'>
             Let's say that we want to have a button with red background when an error has occured.
             <Code>
-            {errorBtn}
+              {errorBtn}
             </Code>
-            As you can see above, using inline styling when it comes to change one property is very easy. 
+            As you can see above, using inline styling when it comes to change one property is very easy.
           </Typography>
         </Typography>
 
         <Typography variant='title'>
-          Is this approach the best for styling React Components ? 
+          Is this approach the best for styling React Components ?
         </Typography>
 
         <Typography variant='p'>
@@ -217,11 +217,11 @@ class InlineStyling extends React.Component {
           Let's see how a list would look in real life app.
          <Typography variant='title'>This list is rendered in HTML
          <Code>
-            {biList}
-          </Code>
-         </Typography>
-         So As you can see every style property is written in html and duplicated for each row, so as you can gues when rendering a list as the ones above the
-          HTML would grow larger and will cause lag or even worst not respond at all.
+              {biList}
+            </Code>
+          </Typography>
+          So As you can see every style property is written in html and duplicated for each row, so as you can gues when rendering a list as the ones above the
+           HTML would grow larger and will cause lag or even worst not respond at all.
         </Typography>
 
         <Typography variant='title' id={noPseudClasses.id}>
@@ -235,9 +235,9 @@ class InlineStyling extends React.Component {
             <Code>
               {hoverStateInline}
             </Code>
-            As you can see we should manually add a listeners to detect if we are over link if true we should change state to true, othervise 
+            As you can see we should manually add a listeners to detect if we are over link if true we should change state to true, othervise
             make it false.
-            <br/>
+            <br />
           </Typography>
         </Typography>
         <Typography variant='title' id={noCSSSelectors.id}>
@@ -245,7 +245,7 @@ class InlineStyling extends React.Component {
         </Typography>
         <Typography variant='p'>
           While using inline styling you cannot use the power of CSS Selectors because we write style for each element.
-          <br/>
+          <br />
           Let's say that we have a Link and it have two children a label and an icon.
           <Code>
             {noSelectors}

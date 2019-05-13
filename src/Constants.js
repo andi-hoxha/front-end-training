@@ -54,6 +54,12 @@ module.exports = {
       CSS_IN_JS: 'CSSinJS',
       ASSIGNMENT: 'assignments_7'
     },
+    LECTURE_8: {
+      ID: 'lecture8',
+      REDUX: 'redux',
+      CORE_CONCEPTS: 'coreConcepts',
+      REACT_INTEGRATION: 'reduxReact'
+    },
     PLAYGROUND: 'playground',
     SUPPORT: {
       ID: 'support',
