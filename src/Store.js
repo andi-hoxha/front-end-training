@@ -5,6 +5,8 @@ import createBrowserHistory from 'history/createBrowserHistory'
 
 import users from 'reducers/users/Users'
 import todo from 'reducers/todo/Todo'
+import posts from 'reducers/posts/Posts'
+import thunk from 'redux-thunk';
 
 // its running under a process, then create browser history
 const history = createBrowserHistory()
@@ -15,10 +17,12 @@ const loggerMiddleware = createLogger()
 const reducers = combineReducers({
   routing: routerReducer,
   users,
-  todo
+  todo,
+  posts
 })
 const middleware = [
   routerMiddleware(history),
+  thunk,
   process.env.NODE_ENV === 'development' && loggerMiddleware
 ].filter(Boolean)
 

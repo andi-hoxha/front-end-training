@@ -2,6 +2,7 @@
  * Created by LeutrimNeziri on 30/03/2019.
  */
 module.exports = {
+  ENDPOINT: 'http://5cdde1216f4437001467a3c8.mockapi.io/api',
   PAGES: {
     HOME: 'home',
     LECTURE_1: {
@@ -59,6 +60,12 @@ module.exports = {
       REDUX: 'redux',
       CORE_CONCEPTS: 'coreConcepts',
       REACT_INTEGRATION: 'reduxReact'
+    },
+    LECTURE_9: {
+      ID: 'lecture9',
+      PROMISES: 'promises',
+      REACT_ASYNCH: 'react_asynch',
+      REDUX_ASYNCH: 'redux_asynch'
     },
     PLAYGROUND: 'playground',
     SUPPORT: {
