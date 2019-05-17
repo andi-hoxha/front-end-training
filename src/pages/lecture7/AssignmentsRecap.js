@@ -118,10 +118,7 @@ class AssignmentsRecap extends React.Component {
       ]
     }
   }
-
-  componentDidMount () {
-    this.props.fetchUsers()
-  }
+  
   /**
    * TODO: Implement Binary Search Tree Method
    * @param {Object} node 

@@ -20,14 +20,19 @@ const styles = ({ typography }) => ({
 
 class Posts extends React.Component {
     state = {
-        items: []
+        items: [],
+        isLoading: false
     }
 
     componentDidMount() {
-        setTimeout(this.loadPosts, 1000)
+        setTimeout(this.loadPosts, 4000)
     }
 
     loadPosts = () => {
+        this.setState({
+            isLoading: true,
+            message: ''
+        })
         fetch(`${ENDPOINT}/posts`)
             .then((response) => {
                 // check the HTTP status code if it was sucessfull
@@ -41,12 +46,16 @@ class Posts extends React.Component {
             }
             ).then((response) => {
                 this.setState({
-                    items: response
+                    items: response,
                 })
             }, (error) => {
                 console.log('error', error)
                 this.setState({
                     message: error.message
+                })
+            }).then(() => {
+                this.setState({
+                    isLoading: false
                 })
             })
     }
@@ -63,13 +72,14 @@ class Posts extends React.Component {
     }
 
     render() {
-        const { items, message } = this.state
+        const { items, isLoading, message } = this.state
         const { classes } = this.props
         return <Fragment>
             {message && <Typography variant='p'>{message}</Typography>}
             <div className={classes.wrapper}>
                 {items.map(this.renderPost)}
             </div>
+            {isLoading && <Typography variant='p'>{"Loading!"}</Typography>}
         </Fragment>
     }
 }

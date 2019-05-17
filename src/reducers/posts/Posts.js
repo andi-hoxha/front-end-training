@@ -1,7 +1,6 @@
 import uuid from 'uuid'
 import ACTION_TYPES from 'reducers/posts/PostsActionTypes'
-const defaultState = []
-const posts = (state = defaultState, action) => {
+const posts = (state = [], action) => {
     switch (action.type) {
         case ACTION_TYPES.RECEIVE_DATA:
             return action.data

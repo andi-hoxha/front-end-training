@@ -31,16 +31,16 @@ class Posts extends React.Component {
         fetch(`${ENDPOINT}/posts`)
             .then((response) => {
                 // check the HTTP status code if it was sucessfull
-                if (response.status === 200) {
+                if (response.status === 200 || response.status === 201) {
                     return response.json()
                 }
                 throw {
                     code: response.status,
                     message: response.statusText
                 }
-            }).then((response) => {
+            }).then((items) => {
                 this.setState({
-                    items: response
+                    items
                 })
             }, (error) => {
                 console.log('error', error)
