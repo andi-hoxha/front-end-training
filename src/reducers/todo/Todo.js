@@ -35,7 +35,7 @@ const todoFilter = (state = '', action) => {
     }
 }
 
-const ToDoReducer = (state = {}, action) => {
+const todoReducer = (state = {}, action) => {
     return {
         items: todos(state.items, action),
         filter: todoFilter(state.filter, action)
@@ -50,4 +50,4 @@ export const filteredItems = (store) => {
     })
 }
 
-export default ToDoReducer
+export default todoReducer

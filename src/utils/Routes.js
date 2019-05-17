@@ -516,6 +516,32 @@ const routes = [
     ]
   },
   {
+    id: PAGES.LECTURE_9.ID,
+    display: '8. Promises and Redux Part 2!',
+    children: [
+      {
+        id: PAGES.LECTURE_9.PROMISES,
+        display: 'Asynchronous Javascript and Promises!',
+        children: [
+          { display: 'Callback functions' },
+          { display: 'Promises Introduction!' },
+          { display: 'Promises API' }
+        ]
+      },
+      {
+        id: PAGES.LECTURE_9.REACT_ASYNCH,
+        display: 'React Asynch',
+        children: [
+          { display: 'Example', id: 'react_asynch_example' }
+        ]
+      },
+      {
+        id: PAGES.LECTURE_9.REDUX_ASYNCH,
+        display: 'Redux Asynch'
+      }
+    ]
+  },
+  {
     display: 'Materials',
     id: PAGES.SUPPORT.ID,
     children: [

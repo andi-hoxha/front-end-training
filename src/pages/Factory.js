@@ -5,17 +5,18 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import Content from 'anatomy/Content';
 import { PAGES } from 'Constants';
 import Home from 'pages/Home';
-import Lecture1 from 'pages/lecture1/Lecture1';
-import Lecture2 from "pages/lecture2/Lecture2";
-import Lecture3 from "pages/lecture3/Lecture3";
 import Playground from "pages/playground/Playground";
 import Support from "pages/support/Support";
 import React from "react";
 import routes from 'utils/Routes';
+import Lecture1 from 'pages/lecture1/Lecture1';
+import Lecture2 from "pages/lecture2/Lecture2";
+import Lecture3 from "pages/lecture3/Lecture3";
 import Lecture4 from "pages/lecture4/Lecture4";
 import Lecture5 from "pages/lecture5/Lecture5";
 import Lecture7 from "pages/lecture7/Lecture7";
 import Lecture8 from "pages/lecture8/Lecture8";
+import Lecture9 from "pages/lecture9/Lecture9";
 
 const styles = ({typography}) => ({
   root: {}
@@ -86,6 +87,8 @@ class Factory extends React.Component {
         return <Lecture7 breadcrumbs={breadcrumbs} />
       case PAGES.LECTURE_8.ID:
         return <Lecture8 breadcrumbs={breadcrumbs} />
+      case PAGES.LECTURE_9.ID:
+        return <Lecture9 breadcrumbs={breadcrumbs} />
       case PAGES.SUPPORT.ID:
         return <Support breadcrumbs={breadcrumbs} />
       case PAGES.PLAYGROUND:

@@ -43,6 +43,8 @@ class Resources extends React.Component {
             <li>Material UI: <SimpleLink href="https://material-ui.com/demos/text-fields/">https://material-ui.com/demos/text-fields/</SimpleLink></li>
             <li>Flex Box: <SimpleLink href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">https://css-tricks.com/snippets/css/a-guide-to-flexbox/</SimpleLink></li>
             <li>React JSS: <SimpleLink href="https://cssinjs.org/react-jss?v=v10.0.0-alpha.16">https://cssinjs.org/react-jss?v=v10.0.0-alpha.16</SimpleLink></li>
+            <li>Fetch API: <SimpleLink href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</SimpleLink></li>
+            <li>Promises API: <SimpleLink href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promises API</SimpleLink></li>
           </ul>
         </Typography>
       </Fragment>

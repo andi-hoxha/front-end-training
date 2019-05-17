@@ -1,6 +1,6 @@
 {
   "name": "front-end-training",
-  "version": "8.1.1",
+  "version": "9.0.0",
   "description": "The interactive web for front-end training.",
   "main": "src/index.js",
   "scripts": {
@@ -58,7 +58,9 @@
     "react-transition-group": "2.6.0",
     "redux": "4.0.1",
     "redux-logger": "3.0.6",
+    "redux-thunk": "^2.3.0",
     "uuid": "3.3.2",
-    "warning": "4.0.3"
+    "warning": "4.0.3",
+    "whatwg-fetch": "^3.0.0"
   }
 }
