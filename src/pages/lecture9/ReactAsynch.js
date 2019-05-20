@@ -10,7 +10,7 @@ import SimpleLink from "presentations/rows/SimpleLink";
 import Typography from "presentations/Typography";
 import Posts from 'pages/lecture9/examples/Posts'
 import PostsExercise from 'pages/lecture9/examples/PostsExercise'
-import { ENDPOINT } from 'Constants';
+import { API_URL } from 'Constants';
 const styles = ({ typography }) => ({
   root: {},
 })
@@ -23,7 +23,7 @@ class Posts extends React.Component {
   }
 
   componentDidMount() {
-    fetch(\`\${ENDPOINT}/posts\`)
+    fetch(\`\${API_URL}/posts\`)
       .then((response) => {
           // check the HTTP status code if it was sucessfull
           if (response.status === 200) {
@@ -71,7 +71,7 @@ class Posts extends React.Component {
 const fetchAPIExample = `
 import 'whatwg-fetch'
 // initiate a call to a URL, by default its a GET request!
-fetch(\`\${ENDPOINT}/posts\`)
+fetch(\`\${API_URL}/posts\`)
   .then((response) => {
       // check the HTTP status code if it was sucessfull
       if (response.code === 200) {
@@ -151,7 +151,7 @@ class ReactAsynch extends React.Component {
           {example.display}
         </Typography>
         <Typography variant='p'>
-          For that we have declared an endpoint: <Italic>/posts</Italic> at the following URL: <SimpleLink href={`${ENDPOINT}/posts`}>posts</SimpleLink>. That is a place where we can perform API calls for a specific resource, in this case user posts! The way we initiate a call using the fetch api is:
+          For that we have declared an endpoint: <Italic>/posts</Italic> at the following URL: <SimpleLink href={`${API_URL}/posts`}>posts</SimpleLink>. That is a place where we can perform API calls for a specific resource, in this case user posts! The way we initiate a call using the fetch api is:
           <Code>
             {fetchAPIExample}
           </Code>

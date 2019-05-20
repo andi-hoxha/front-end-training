@@ -1,7 +1,7 @@
 import { Card } from "@material-ui/core";
 import withStyles from "@material-ui/core/styles/withStyles";
 import React, { Fragment } from "react";
-import { ENDPOINT } from 'Constants';
+import { API_URL } from 'Constants';
 import Typography from "presentations/Typography";
 import 'whatwg-fetch';
 
@@ -28,7 +28,7 @@ class Posts extends React.Component {
     }
 
     loadPosts = () => {
-        fetch(`${ENDPOINT}/posts`)
+        fetch(`${API_URL}/posts`)
             .then((response) => {
                 // check the HTTP status code if it was sucessfull
                 if (response.status === 200 || response.status === 201) {

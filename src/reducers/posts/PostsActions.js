@@ -1,6 +1,6 @@
 import ACTION_TYPES from 'reducers/posts/PostsActionTypes'
 import PostsExercise from 'pages/lecture9/examples/PostsExercise'
-import { ENDPOINT } from 'Constants';
+import { API_URL } from 'Constants';
 
 export const requestData = () => {
     return {
@@ -37,7 +37,7 @@ export const displayMessage = (response) => {
 export const addPost = (post) => {
     return (dispatch) => {
         dispatch(requestData())
-        return fetch(`${ENDPOINT}/posts`, {
+        return fetch(`${API_URL}/posts`, {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
             mode: 'cors', // no-cors, cors, *same-origin
             cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -72,7 +72,7 @@ export const addPost = (post) => {
 export const deletePost = (post) => {
     return (dispatch) => {
         dispatch(requestData())
-        return fetch(`${ENDPOINT}/posts/${post.id}`, {
+        return fetch(`${API_URL}/posts/${post.id}`, {
             method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
             mode: 'cors', // no-cors, cors, *same-origin
             cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -108,7 +108,7 @@ export const fetchPosts = () => {
     return (dispatch) => {
 
         dispatch (requestData())
-        return fetch(`${ENDPOINT}/posts`)
+        return fetch(`${API_URL}/posts`)
             .then((response) => {
                 // check the HTTP status code if it was sucessfull
                 if (response.status === 200) {

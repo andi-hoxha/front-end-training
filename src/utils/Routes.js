@@ -517,7 +517,7 @@ const routes = [
   },
   {
     id: PAGES.LECTURE_9.ID,
-    display: '8. Promises and Redux Part 2!',
+    display: '9. Promises and Redux Part 2!',
     children: [
       {
         id: PAGES.LECTURE_9.PROMISES,
@@ -538,6 +538,36 @@ const routes = [
       {
         id: PAGES.LECTURE_9.REDUX_ASYNCH,
         display: 'Redux Asynch'
+      }
+    ]
+  },
+  {
+    id: PAGES.LECTURE_10.ID,
+    display: '10. Redux Middleware and API Calls!',
+    children: [
+      {
+        id: PAGES.LECTURE_10.REDUX_MIDDLEWARE,
+        display: 'Redux Middlewares',
+        children: [
+          { display: 'Understanding Middleware'},
+          { display: 'Attempt #1: Logging Manually' },
+          { display: 'Attempt #2: Wrapping Dispatch' },
+          { display: 'Attempt #3: Monkeypatching Dispatch' },
+          { display: 'The Final Approach' }
+        ]
+      },
+      {
+        id: PAGES.LECTURE_10.API_SERVICES,
+        display: 'API Services'
+      },
+      {
+        id: PAGES.LECTURE_10.ASSIGNMENTS,
+        display: 'Assignments',
+        children: [
+          { display: 'Users and their Transactions!' },
+          { display: 'Chess Backtracking Algorithm!' },
+          { display: 'Ranking' }
+        ]
       }
     ]
   },
@@ -584,7 +614,7 @@ const format = (which) => {
   let children = which.children || []
   return {
     ...which,
-    id: !which.id ? which.display.replace(/ /g, '').toLowerCase() : which.id,
+    id: !which.id ? which.display.replace(/ /g, '').replace(/[^a-zA-Z]/g, '').toLowerCase() : which.id,
     children: children.map(format)
   }
 }

@@ -35,7 +35,7 @@ const fetchPosts = () => {
     // In this case, we return a promise to wait for.
     // This is not required by thunk middleware, but it is convenient for us.
 
-    return fetch(\`\${ENDPOINT}/posts\`)
+    return fetch(\`\${API_URL}/posts\`)
         .then((response) => {
             // check the HTTP status code if it was sucessfull
             if (response.status === 200) {
