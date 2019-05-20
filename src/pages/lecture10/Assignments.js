@@ -34,7 +34,7 @@ const transactionsModel = `{
   "category": "cultivate",
   "subCategory": "invoice",
   "product": "Generic Steel Computer",
-  "price": "909.00",
+  "price": 909,
   "quantity": 90624
 }`
 
@@ -161,13 +161,13 @@ class Assignments extends React.Component {
             <li>At the transactions page, use charts underneath the table, to represent information like:
               <ol>
                 <li>
-                  Total Purchased products over categories (total quantity + total (price * quantity))
+                  Total Purchased products over categories (total (price * quantity))
                 </li>
                 <li>
-                  Total Purchased products over sub categories (total quantity + total (price * quantity))
+                  Total Purchased products over sub categories (total (price * quantity))
                 </li>
                 <li>
-                  Total Purchased products over proucts (total quantity + total (price * quantity))
+                  Total Purchased products over proucts (total (price * quantity))
                 </li>
                 <li>
                   Average Quantity between categories (On average quantity per category)
