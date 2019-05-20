@@ -102,7 +102,7 @@ class Assignments extends React.Component {
                 <li>Transactions Dashboard</li>
               </ol>
               All organised into /src/lecture10/assignment/<br/>
-              Add your own reducers at /src/reducers into their own respective folders, each containing all the neccesary action types, actions and respective reducers!<br/>
+              Add your own reducers at /src/reducers into their own respective folders (users and transactions), each containing all the neccesary action types, actions and respective reducers!<br/>
               Reducers will contain the following model:
               <Code>
                 {reduxModel}
