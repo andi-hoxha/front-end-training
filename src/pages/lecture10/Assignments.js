@@ -61,6 +61,9 @@ class Assignments extends React.Component {
           {section.display}
           <Divider />
         </Typography>
+        <Typography variant='p'>
+          The deadline for these assignments is exactly the end of the Training Program: (Friday, 31th of May 2019, 0am!). Basically on Friday the assignments should have been submitted!
+        </Typography>
 
         <Typography variant='title' id={transactions.id}>
           {transactions.display}
