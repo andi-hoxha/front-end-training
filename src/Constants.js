@@ -2,7 +2,7 @@
  * Created by LeutrimNeziri on 30/03/2019.
  */
 module.exports = {
-  ENDPOINT: 'http://5cdde1216f4437001467a3c8.mockapi.io/api',
+  API_URL: 'http://5cdde1216f4437001467a3c8.mockapi.io/api',
   PAGES: {
     HOME: 'home',
     LECTURE_1: {
@@ -66,6 +66,12 @@ module.exports = {
       PROMISES: 'promises',
       REACT_ASYNCH: 'react_asynch',
       REDUX_ASYNCH: 'redux_asynch'
+    },
+    LECTURE_10: {
+      ID: 'lecture10',
+      REDUX_MIDDLEWARE: 'redux_middleware',
+      API_SERVICES: 'api_services',
+      ASSIGNMENTS: 'assignments10'
     },
     PLAYGROUND: 'playground',
     SUPPORT: {
