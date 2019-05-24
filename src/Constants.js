@@ -73,6 +73,22 @@ module.exports = {
       API_SERVICES: 'api_services',
       ASSIGNMENTS: 'assignments10'
     },
+    LECTURE_11: {
+      ID: 'lecture11',
+      REACT_PROPTYPES: 'react_proptypes',
+      REACT_CONTEXT: 'react_context',
+      REACT_HOOKS: 'react_hooks'
+    },
+    LECTURE_12: {
+      ID: 'lecture12',
+      TESTING: 'testing',
+      CDCI: 'cd_ci'
+    },
+    LECTURE_13: {
+      ID: 'lecture13',
+      RECAP: 'recap',
+      WRAP_UP: 'wrap_up'
+    },
     PLAYGROUND: 'playground',
     SUPPORT: {
       ID: 'support',

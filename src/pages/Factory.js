@@ -18,6 +18,9 @@ import Lecture7 from "pages/lecture7/Lecture7";
 import Lecture8 from "pages/lecture8/Lecture8";
 import Lecture9 from "pages/lecture9/Lecture9";
 import Lecture10 from "pages/lecture10/Lecture10";
+import Lecture11 from "pages/lecture11/Lecture11";
+import Lecture12 from "pages/lecture12/Lecture12";
+import Lecture13 from "pages/lecture13/Lecture13";
 
 const styles = ({typography}) => ({
   root: {}
@@ -92,6 +95,12 @@ class Factory extends React.Component {
         return <Lecture9 breadcrumbs={breadcrumbs} />
       case PAGES.LECTURE_10.ID:
         return <Lecture10 breadcrumbs={breadcrumbs} />
+      case PAGES.LECTURE_11.ID:
+        return <Lecture11 breadcrumbs={breadcrumbs} />
+      case PAGES.LECTURE_12.ID:
+        return <Lecture12 breadcrumbs={breadcrumbs} />
+      case PAGES.LECTURE_13.ID:
+        return <Lecture13 breadcrumbs={breadcrumbs} />
       case PAGES.SUPPORT.ID:
         return <Support breadcrumbs={breadcrumbs} />
       case PAGES.PLAYGROUND:
