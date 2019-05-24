@@ -572,6 +572,88 @@ const routes = [
     ]
   },
   {
+    id: PAGES.LECTURE_11.ID,
+    display: '11. React Advanced Guides!',
+    children: [
+      {
+        id: PAGES.LECTURE_11.REACT_PROPTYPES,
+        display: 'React Typechecking and Documentation',
+        children: [
+          {
+            display: 'Prop Types'
+          },
+          {
+            display: 'Default Props'
+          },
+          {
+            display: 'Documentation'
+          }
+        ]
+      },
+      {
+        id: PAGES.LECTURE_11.REACT_CONTEXT,
+        display: 'React Context',
+        children: [
+          {
+            display: 'React.createContext'
+          },
+          {
+            display: 'Context.Provider'
+          },
+          {
+            display: 'Context.Consumer'
+          },
+          {
+            display: 'Class.contextType'
+          },
+          {
+            id: 'react_context_example',
+            display: 'Example'
+          }
+        ]
+      },
+      {
+        id: PAGES.LECTURE_11.REACT_HOOKS,
+        display: 'React Hooks',
+        children: [
+          { display: 'Use State Hook' },
+          { display: 'Effect Hook' },
+          { display: 'Rules of Hooks' },
+          { display: 'Building your own Hooks' },
+          { display: 'Other Hooks' }
+        ]
+      }
+    ]
+  },
+  {
+    id: PAGES.LECTURE_12.ID,
+    display: '12. Testing and CD/CI!',
+    children: [
+      {
+        id: PAGES.LECTURE_12.TESTING,
+        display: 'Testing your Components and Code!',
+      },
+      {
+        id: PAGES.LECTURE_12.CDCI,
+        display: 'Continuous Deployment and Integration'
+      }
+    ]
+  },
+  {
+    id: PAGES.LECTURE_13.ID,
+    display: '13. Recap and Wrap Up!',
+    children: [
+      {
+        id: PAGES.LECTURE_13.RECAP,
+        display: 'Recap!',
+      },
+      {
+        id: PAGES.LECTURE_13.WRAP_UP,
+        display: 'Wrap Up!'
+      }
+    ]
+  },
+  {
     display: 'Materials',
     id: PAGES.SUPPORT.ID,
     children: [

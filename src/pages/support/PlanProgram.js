@@ -61,15 +61,13 @@ class PlanProgram extends React.Component {
               REST-full API introduction + services setup
             </li>
             <li>
-              API service structuring, promises introduction and <br/>
-              API project setup and introduction, Java recap
+              React PropTypes and Advanced Concepts (Context, Hooks)
             </li>
             <li>
-              REST-full API implementation introduction, you’re first GET, POST, PUT, DELETE requests and <br/>
-              Error handling and Roles management
+              Testing and CD/CI
             </li>
             <li>
-              Advanced aggregations (introduction) and <br/>
+              Recap and <br/>
               Wrap UP!
             </li>
           </ol>
