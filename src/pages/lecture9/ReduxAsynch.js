@@ -1,19 +1,17 @@
 /**
  * Created by LeutrimNeziri on 09/04/2019.
  */
-import React, { Fragment } from "react";
+import { Button, IconButton, Table, TableBody, TableCell, TableHead, TableRow, TextField } from "@material-ui/core";
 import withStyles from "@material-ui/core/styles/withStyles";
+import RemoveIcon from '@material-ui/icons/Clear';
+import EditIcon from '@material-ui/icons/Edit';
 import Code from "presentations/Code";
 import Divider from "presentations/Divider";
 import { Italic } from "presentations/Label";
-import SimpleLink from "presentations/rows/SimpleLink";
 import Typography from "presentations/Typography";
-import Posts from 'pages/lecture9/examples/Posts'
-import { connect } from 'react-redux'
-import EditIcon from '@material-ui/icons/Edit'
-import RemoveIcon from '@material-ui/icons/Clear'
-import { fetchPosts, addPost, deletePost } from 'reducers/posts/PostsActions'
-import { TextField, Button, Table, TableHead, TableRow, TableCell, TableBody, IconButton } from "@material-ui/core";
+import React, { Fragment } from "react";
+import { connect } from 'react-redux';
+import { addPost, deletePost, fetchPosts } from 'reducers/posts/PostsActions';
 const styles = ({ typography }) => ({
   root: {},
 })
@@ -22,7 +20,7 @@ const asynchAction = `
 // Meet our first thunk action creator!
 // Though its insides are different, you would use it just like any other action creator:
 // store.dispatch(fetchPosts())
-
+O
 const fetchPosts = () => {
   // Thunk middleware knows how to handle functions.
   // It passes the dispatch method as an argument to the function,

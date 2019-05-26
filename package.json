@@ -4,7 +4,7 @@
   "description": "The interactive web for front-end training.",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "webpack --config webpack.config.js",
     "start": "webpack-dev-server --content-base ./build --inline"
   },
@@ -23,8 +23,14 @@
     "@babel/preset-react": "7.0.0",
     "babel-loader": "8.0.5",
     "babel-plugin-module-resolver": "3.2.0",
+    "chai": "4.2.0",
     "css-loader": "2.1.0",
+    "enzyme": "3.9.0",
+    "enzyme-adapter-react-16": "1.13.1",
     "html-loader": "0.5.5",
+    "jest": "24.8.0",
+    "jest-fetch-mock": "2.1.2",
+    "redux-mock-store": "1.5.3",
     "style-loader": "0.23.1",
     "webpack": "4.29.5",
     "webpack-cli": "3.2.3",
@@ -58,9 +64,9 @@
     "react-transition-group": "2.6.0",
     "redux": "4.0.1",
     "redux-logger": "3.0.6",
-    "redux-thunk": "^2.3.0",
+    "redux-thunk": "2.3.0",
     "uuid": "3.3.2",
     "warning": "4.0.3",
-    "whatwg-fetch": "^3.0.0"
+    "whatwg-fetch": "3.0.0"
   }
 }

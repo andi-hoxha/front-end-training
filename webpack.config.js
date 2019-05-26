@@ -2,7 +2,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const BUILD_DIR = path.resolve(__dirname, 'build')
 const APP_DIR = path.resolve(__dirname, 'src')
-const UI_DIR = path.resolve(__dirname, '@go-prime')
 
 const BUILD_ENV = process.env.NODE_ENV || 'development'
 
@@ -51,11 +50,7 @@ module.exports = {
         modules: [
             'node_modules',
             path.resolve(APP_DIR)
-        ],
-        alias: {
-            '@go-prime': UI_DIR,
-            'ui': UI_DIR + '/ui'
-        }
+        ]
     },
     plugins: [new HtmlWebpackPlugin({
         hash: true,

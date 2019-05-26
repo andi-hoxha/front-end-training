@@ -631,7 +631,37 @@ const routes = [
     children: [
       {
         id: PAGES.LECTURE_12.TESTING,
-        display: 'Testing your Components and Code!',
+        display: 'Testing your Javascript Code!',
+        children: [
+          { display: 'Getting Started', id: 'getting_started_testing' },
+          { display: 'Common Matchers'},
+          { display: 'Truthiness'},
+          { display: 'Numbers'},
+          { display: 'Strings'},
+          { display: 'Arrays and Iterables'},
+          { display: 'Exceptions'},
+          { display: 'Promises'},
+          { display: 'API Calls'}
+        ]
+      },
+      {
+        id: PAGES.LECTURE_12.TESTING_REDUX,
+        display: 'Testing Redux!',
+        children: [
+          { display: 'Getting Started', id: 'getting_started_redux' },
+          { display: 'Testing Store Actions' },
+          { display: 'Testing Store Reducers' },
+        ]
+      },
+      {
+        id: PAGES.LECTURE_12.TESTING_REACT_COMPONENTS,
+        display: 'Testing your React Components!',
+        children: [
+          { display: 'Getting Started', id: 'getting_started_react_components' },
+          { display: 'Shallow Rendering' },
+          { display: 'Full DOM Rendering' },
+          { display: 'Static Rendering' },
+        ]
       },
       {
         id: PAGES.LECTURE_12.CDCI,

@@ -25,6 +25,18 @@ const posts = (state = [], action) => {
 
 const request = (state = { isLoading: false, status: 200 }, action) => {
     switch (action.type) {
+        case ACTION_TYPES.REQUEST_DATA:
+            return {
+                isLoading: true,
+                status: 200
+            }
+        default:
+            return state;
+    }
+}
+
+const filter = (state = '', action) => {
+    switch (action.type) {
         case ACTION_TYPES.FILTER:
             return action.text
         default:
@@ -35,7 +47,8 @@ const request = (state = { isLoading: false, status: 200 }, action) => {
 const postsReducer = (state = {}, action) => {
     return {
         items: posts(state.items, action),
-        request: request(state.request, action)
+        request: request(state.request, action),
+        filter: filter(state.filter, action)
     }
 }
 

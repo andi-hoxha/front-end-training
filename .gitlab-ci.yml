@@ -1,0 +1,7 @@
+image: node:10.15.3
+job:
+  script:
+   - npm install
+   - npm test
+   - npm run build
+  only: ['master', 'development', '13-lecture-12']

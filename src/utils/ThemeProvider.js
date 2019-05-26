@@ -9,7 +9,6 @@ class ThemeProvider extends React.Component {
   render() {
     const {children, theme: themeProp} = this.props
     let theme = createMuiTheme(Theme.getTheme())
-    console.log('theme', theme)
     return (
       <ThemeProviderMaterialUI theme={themeProp || theme}>
         {children}
