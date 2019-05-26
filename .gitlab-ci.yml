@@ -4,11 +4,16 @@ cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
   - node_modules/
-job:
-  before_script:
-   - npm install
-  test:
+
+before_script:
+ - npm install
+
+test:
+  script:
    - npm test
+
+build:
   script:
    - npm run build
+
   only: ['master', 'development', '13-lecture-12']
