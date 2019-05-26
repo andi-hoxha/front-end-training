@@ -5,15 +5,20 @@ cache:
   paths:
   - node_modules/
 
+stages:
+- test
+- build
+
 before_script:
  - npm install
 
-test:
-  script:
-   - npm test
-
-build:
+compile:
+  stage: build
   script:
    - npm run build
-
   only: ['master', 'development', '13-lecture-12']
+
+test:
+  stage: test
+  script:
+   - npm test
