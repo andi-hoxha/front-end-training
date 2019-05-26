@@ -1,13 +1,13 @@
 image: node:10.15.3
 # Cache modules in between jobs
 cache:
-  key: ${CI_COMMIT_REF_SLUG}
   paths:
   - node_modules/
 
 stages:
 - build
 - test
+- deploy
 
 before_script:
  - npm install
@@ -21,3 +21,15 @@ test:
   stage: test
   script:
    - npm test
+
+deply-staging:
+  stage: deploy
+  script:
+    - echo 'Deploy Development'
+  only: ['development']
+
+deply-master:
+  stage: deploy
+  script:
+    - echo 'Deploy Master'
+  only: ['master']
