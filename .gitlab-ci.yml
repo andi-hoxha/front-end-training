@@ -1,6 +1,14 @@
 image: node:10.15.3
+# Cache modules in between jobs
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+  - node_modules/
+before_script:
+ - npm install
+test:
+ - npm test
 job:
   script:
-   - npm install
    - npm run build
   only: ['master', 'development', '13-lecture-12']
