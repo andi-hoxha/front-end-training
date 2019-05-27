@@ -38,7 +38,7 @@ deply-staging:
   stage: deploy
   script:
     - mkdir .public
-    - cp -r .build .public
+    - cp -r ./build .public
     - echo 'Deploy Development'
   # environment:
     # name: staging
@@ -53,8 +53,6 @@ deply-staging:
 # without our manual intervention
 deply-master:
   stage: deploy
-  dependencies:
-    - build
   script:
     - mkdir .public
     - cp -r ./build .public
