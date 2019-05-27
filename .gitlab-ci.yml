@@ -38,6 +38,7 @@ deply-staging:
   stage: deploy
   script:
     - mkdir .public
+    - ls
     - cp -r ./build .public
     - echo 'Deploy Development'
   # environment:
@@ -46,6 +47,8 @@ deply-staging:
   artifacts:
     paths:
     - public
+  dependencies:
+    - build
   # only: ['development']
 
 # Deploy only when on the master branch!
@@ -63,5 +66,7 @@ deply-master:
   artifacts:
     paths:
     - public
+  dependencies:
+    - build
   when: manual
   only: ['master']
