@@ -29,25 +29,15 @@ cache:
 # All stages of our pipeline! Ordered!
 stages:
 - build
-# - test
+- test
 - deploy
 
 # in between stages, a global npm install is executed
 before_script:
  - npm install
 
-# the compile job, for the build stage, multiple jobs can exist within one stage
-# If that is the case they are executed in parallel
-compile:
-  stage: build
-  script:
-   - npm run build
-  artifacts:
-    paths:
-    - build
-
 # compile for gitlab
-pages-compile:
+compile:
   stage: build
   script:
    - npm run build:pages
@@ -71,34 +61,12 @@ pages:
   artifacts:
     paths:
     - public
-  # only: ['master']
-
-# Deploy only when the development branch
-deply-development:
-  stage: deploy
-  script:
-    - echo 'Development Deployment'
-  # environment:
-    # name: staging
-    # url: https://staging.example.com
-  only: ['development']
-
-# Deploy only when on the master branch!
-# The when property, specifies that this step will only be prepared but not triggered
-# without our manual intervention
-deply-master:
-  stage: deploy
-  script:
-    - echo 'Production Deployment'
-  # environment:
-    # name: production
-    # url: https://app.example.com
-  when: manual
-  only: ['master']`
+  only: ['master']
+`
 
 const pagesDeploy = `
-Compile for GitLab
-pages-compile:
+# compile for gitlab
+compile:
   stage: build
   script:
    - npm run build:pages
@@ -288,25 +256,22 @@ class ContinousDeploymentAndIntegration extends React.Component {
               </ol>
             </li>
             <li>
-              At the build stage, the following jobs run in parallel:
+              At the build stage, we run the following job:
               <ol>
-                <li>compile - the compile job runs which bundles our code and puts the results at the /build directory!</li>
-                <li>pages-compile - the compile job runs which bundles our code and puts the results at the /public directory!</li>
+                <li>compile - the compile job runs which bundles our code and puts the results at the /public directory!</li>
               </ol>
             </li>
             <li>
-              At the test stage, our test cases using Jest are run!
+              At the test stage, we run our test cases using Jest!
             </li>
             <li>
-              The last stage which is deployment consists of three jobs:
+              The last stage which is deployment, contains the following job:
               <ol>
                 <li>pages -> The special Gitlab pages job</li>
-                <li>deply-development -> In case the development branch, deploy to some development enviroment</li>
-                <li>deply-master -> In case the master branch, deploy to some production enviroment</li>
               </ol>
             </li>
           </ul>
-          In our case the "pages" deployment looks like this:
+          Here is also an example pipeline executed for a specific commit:
         </Typography>
         <img src={DeployPipelineImage} />
 
@@ -325,9 +290,9 @@ class ContinousDeploymentAndIntegration extends React.Component {
           <Code>
             {pagesDeploy}
           </Code>
-          We can see we made the special pages-compile to put the content of:
+          We can see we made the special compile to put the content of:
           <Code>
-            {`npm run build`}
+            {`npm run build:pages`}
           </Code>
           Into the /public directory. That in turn told that this job artifact is exactly that directory that we want to publish!
         </Typography>
@@ -363,7 +328,7 @@ class ContinousDeploymentAndIntegration extends React.Component {
         </Typography>
 
         <Typography variant='p'>
-          With that, we conclude this section!
+          With that, now we have closet the eternal loop of a software development lifecycle, from coding, to testing, to integration and deployment! Every time a feature is finished like this, we take on the next challenge using the exact same approach!
         </Typography>
       </Fragment>
     )
