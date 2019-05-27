@@ -24,7 +24,13 @@ or
 
        npm run build
 	   
-to build it
+to build it!
+
+Gitlab Pages
+--------------------
+
+The repository is available at the following location: [https://agonlohaj.gitlab.io/prime-front-end-training/](https://agonlohaj.gitlab.io/prime-front-end-training/).
+Refreshing the page currently doesn't work at a specific location, you always have to start over from the base url due to the static pages configuration of GitLab!
 
 IDE
 --------------------
