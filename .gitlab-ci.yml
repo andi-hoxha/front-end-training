@@ -33,22 +33,33 @@ compile:
 #   script:
 #    - npm test
 
-# Deploy only when the development branch
-deply-staging:
+# Git Lab Pages Deploy
+pages:
   stage: deploy
   script:
     - mkdir .public
     - cp -r ./build .public
     - mv .public public
     - ls
-    - echo 'Deploy Development'
+    - echo 'Gitlab Pages Deployment'
   # environment:
     # name: staging
     # url: https://staging.example.com
   artifacts:
     paths:
     - public
-  # only: ['development']
+# Deploy only when the development branch
+pages:
+  stage: deploy
+  script:
+    - echo 'Development Deployment'
+  # environment:
+    # name: staging
+    # url: https://staging.example.com
+  artifacts:
+    paths:
+    - public
+  only: ['development']
 
 # Deploy only when on the master branch!
 # The when property, specifies that this step will only be prepared but not triggered
@@ -56,11 +67,7 @@ deply-staging:
 deply-master:
   stage: deploy
   script:
-    - mkdir .public
-    - cp -r ./build .public
-    - mv .public public
-    - ls
-    - echo 'Master Development'
+    - echo 'Production Deployment'
   # environment:
     # name: production
     # url: https://app.example.com
