@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const BUILD_DIR = path.resolve(__dirname, 'public')
 const APP_DIR = path.resolve(__dirname, 'src')
+const webpack = require('webpack')
 
 const BUILD_ENV = process.env.NODE_ENV || 'development'
 
@@ -52,9 +53,14 @@ module.exports = {
             path.resolve(APP_DIR)
         ]
     },
-    plugins: [new HtmlWebpackPlugin({
-        hash: true,
-        template:`${APP_DIR}/pages.index.html`,
-        filename: `${BUILD_DIR}/index.html`
-    })]
+    plugins: [
+        new HtmlWebpackPlugin({
+            hash: true,
+            template:`${APP_DIR}/pages.index.html`,
+            filename: `${BUILD_DIR}/index.html`
+        }),
+        new webpack.DefinePlugin({
+            BASE_URL: JSON.stringify('/prime-front-end-training/')
+        })
+    ]
 }

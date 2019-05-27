@@ -13,7 +13,7 @@ const App = ({children}) => {
   return (
     <Provider store={store}>
       <Suspense fallback={<div>Loading...</div>}>
-        <Router history={history}>
+        <Router basename={BASE_URL} history={history}>
           <ThemeProvider>
             <Switch>
                 <Route path="/lecture/:id/" component={Factory}/>
