@@ -49,7 +49,7 @@ pages:
     paths:
     - public
 # Deploy only when the development branch
-pages:
+deply-development:
   stage: deploy
   script:
     - echo 'Development Deployment'
