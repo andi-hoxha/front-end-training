@@ -631,11 +631,49 @@ const routes = [
     children: [
       {
         id: PAGES.LECTURE_12.TESTING,
-        display: 'Testing your Components and Code!',
+        display: 'Testing your Javascript Code!',
+        children: [
+          { display: 'Getting Started', id: 'getting_started_testing' },
+          { display: 'Common Matchers'},
+          { display: 'Truthiness'},
+          { display: 'Numbers'},
+          { display: 'Strings'},
+          { display: 'Arrays and Iterables'},
+          { display: 'Exceptions'},
+          { display: 'Promises'},
+          { display: 'API Calls'}
+        ]
+      },
+      {
+        id: PAGES.LECTURE_12.TESTING_REDUX,
+        display: 'Testing Redux!',
+        children: [
+          { display: 'Getting Started', id: 'getting_started_redux' },
+          { display: 'Testing Store Actions' },
+          { display: 'Testing Store Reducers' },
+        ]
+      },
+      {
+        id: PAGES.LECTURE_12.TESTING_REACT_COMPONENTS,
+        display: 'Testing your React Components!',
+        children: [
+          { display: 'Getting Started', id: 'getting_started_react_components' },
+          { display: 'Shallow Rendering' },
+          { display: 'Full DOM Rendering' },
+          { display: 'Static Rendering' },
+        ]
       },
       {
         id: PAGES.LECTURE_12.CDCI,
-        display: 'Continuous Deployment and Integration'
+        display: 'Continuous Deployment and Integration',
+        children: [
+          { display: 'Introduction', id: "cd_ci_introduction" },
+          { display: 'Continuous Integration' },
+          { display: 'Continuous Delivery'},
+          { display: 'Continuous Deployment'},
+          { display: 'Workflow', id: 'cd_ci_workflow' },
+          { display: 'Setup', id: 'cd_ci_setup' }
+        ]
       }
     ]
   },

@@ -12,7 +12,7 @@ module.exports = {
     output: {
         path: BUILD_DIR,
         filename: 'bundle.js',
-        publicPath: '/'
+        publicPath: '/prime-front-end-training/'
     },
     module: {
         rules: [
@@ -56,11 +56,11 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             hash: true,
-            template:`${APP_DIR}/index.html`,
+            template:`${APP_DIR}/pages.index.html`,
             filename: `${BUILD_DIR}/index.html`
         }),
         new webpack.DefinePlugin({
-            BASE_URL: JSON.stringify('/')
+            BASE_URL: JSON.stringify('/prime-front-end-training/')
         })
     ]
 }

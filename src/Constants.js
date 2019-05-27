@@ -82,6 +82,8 @@ module.exports = {
     LECTURE_12: {
       ID: 'lecture12',
       TESTING: 'testing',
+      TESTING_REACT_COMPONENTS: 'testing_react_components',
+      TESTING_REDUX: 'testing_redux',
       CDCI: 'cd_ci'
     },
     LECTURE_13: {

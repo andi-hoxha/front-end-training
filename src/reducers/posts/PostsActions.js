@@ -1,6 +1,6 @@
 import ACTION_TYPES from 'reducers/posts/PostsActionTypes'
-import PostsExercise from 'pages/lecture9/examples/PostsExercise'
 import { API_URL } from 'Constants';
+import 'whatwg-fetch'
 
 export const requestData = () => {
     return {

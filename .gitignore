@@ -1,7 +1,9 @@
 node_modules/
 # build code
-build/*
-!build/favicon.png
+public/*
+!public/favicon.png
 .idea/*
 .history/*
 package-lock.json
+
+/tests/coverage

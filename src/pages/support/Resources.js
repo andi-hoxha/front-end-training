@@ -35,7 +35,7 @@ class Resources extends React.Component {
             <li><label>CSS: <SimpleLink href="https://www.w3schools.com/css/">https://www.w3schools.com/css/</SimpleLink></label></li>
             <li><label>ES6 Javascript: <SimpleLink href="http://es6-features.org">http://es6-features.org</SimpleLink></label></li>
             <li><label>JSX: <SimpleLink href="https://reactjs.org/docs/introducing-jsx.html">https://reactjs.org/docs/introducing-jsx.html</SimpleLink></label></li>
-            <li><label>React Dev Tool: <SimpleLink href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en">Chrome</SimpleLink> or 
+            <li><label>React Dev Tool: <SimpleLink href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en">Chrome</SimpleLink> or
             <SimpleLink href="https://addons.mozilla.org/en-US/firefox/addon/react-devtools/">Firefox</SimpleLink></label></li>
             <li>Webpack: <SimpleLink href="https://webpack.js.org/">https://webpack.js.org/</SimpleLink></li>
             <li>Babel: <SimpleLink href="https://babeljs.io/">https://babeljs.io/</SimpleLink></li>
@@ -45,6 +45,11 @@ class Resources extends React.Component {
             <li>React JSS: <SimpleLink href="https://cssinjs.org/react-jss?v=v10.0.0-alpha.16">https://cssinjs.org/react-jss?v=v10.0.0-alpha.16</SimpleLink></li>
             <li>Fetch API: <SimpleLink href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</SimpleLink></li>
             <li>Promises API: <SimpleLink href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promises API</SimpleLink></li>
+            <li>Jest JS: <SimpleLink href="https://jestjs.io/">Jest JS</SimpleLink></li>
+            <li>Enzyme: <SimpleLink href="https://airbnb.io/enzyme/">Enzyme</SimpleLink> and </li>
+            <li>Chai: <SimpleLink href="https://www.chaijs.com/">Chai</SimpleLink></li>
+            <li>Jest Fetch Mock Api: <SimpleLink href="https://github.com/jefflau/jest-fetch-mock">Jest Fetch Mock Api</SimpleLink></li>
+            <li>Redux Mock Api: <SimpleLink href="https://github.com/dmitry-zaets/redux-mock-store">Redux Mock Api</SimpleLink></li>
           </ul>
         </Typography>
       </Fragment>
