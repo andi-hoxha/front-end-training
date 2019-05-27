@@ -8,7 +8,7 @@ cache:
 # All stages of our pipeline! Ordered!
 stages:
 - build
-# - test
+- test
 - deploy
 
 # in between stages, a global npm install is executed
@@ -26,12 +26,12 @@ compile:
     - build
 
 # Our test stage, install dev depencencies as extra script then run the test cases!
-# test:
-#   before_script:
-#    - npm install --only-dev
-#   stage: test
-#   script:
-#    - npm test
+test:
+  before_script:
+   - npm install --only-dev
+  stage: test
+  script:
+   - npm test
 
 # Git Lab Pages Deploy
 pages:
@@ -40,14 +40,9 @@ pages:
     - mkdir .public
     - cp -r ./build .public
     - mv .public public
-    - ls
     - echo 'Gitlab Pages Deployment'
-  # environment:
-    # name: staging
-    # url: https://staging.example.com
-  artifacts:
-    paths:
-    - public
+  only: ['master']
+
 # Deploy only when the development branch
 deply-development:
   stage: deploy
@@ -71,8 +66,5 @@ deply-master:
   # environment:
     # name: production
     # url: https://app.example.com
-  artifacts:
-    paths:
-    - public
   when: manual
   only: ['master']

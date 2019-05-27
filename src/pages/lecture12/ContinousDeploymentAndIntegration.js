@@ -10,6 +10,7 @@ import SimpleLink from "presentations/rows/SimpleLink";
 import Typography from "presentations/Typography";
 import WorkflowExample from 'assets/images/lecture12/gitlab_workflow_example.png'
 import WorkflowExtendedExample from 'assets/images/lecture12/gitlab_workflow_example_extended.png'
+import NPMRunBuildImage from 'assets/images/lecture12/npm_run_build.png'
 import React, { Fragment } from "react";
 import { connect } from 'react-redux';
 import { Button } from "@material-ui/core";
@@ -41,6 +42,9 @@ compile:
   stage: build
   script:
    - npm run build
+  artifacts:
+    paths:
+    - build
 
 # Our test stage, install dev depencencies as extra script then run the test cases!
 test:
@@ -50,11 +54,27 @@ test:
   script:
    - npm test
 
-# Deploy only when the development branch
-deply-staging:
+# Git Lab Pages Deploy
+pages:
   stage: deploy
   script:
-    - echo 'Deploy Development'
+    - mkdir .public
+    - cp -r ./build .public
+    - mv .public public
+    - echo 'Gitlab Pages Deployment'
+  only: ['master']
+
+# Deploy only when the development branch
+deply-development:
+  stage: deploy
+  script:
+    - echo 'Development Deployment'
+  # environment:
+    # name: staging
+    # url: https://staging.example.com
+  artifacts:
+    paths:
+    - public
   only: ['development']
 
 # Deploy only when on the master branch!
@@ -63,12 +83,32 @@ deply-staging:
 deply-master:
   stage: deploy
   script:
-    - echo 'Deploy Master'
+    - echo 'Production Deployment'
+  # environment:
+    # name: production
+    # url: https://app.example.com
   when: manual
   only: ['master']
 `
 
+const pagesDeploy = `
+# Git Lab Pages Deploy
+pages:
+  stage: deploy
+  script:
+    - mkdir .public
+    - cp -r ./build .public
+    - mv .public public
+    - echo 'Gitlab Pages Deployment'
+  # environment:
+    # name: staging
+    # url: https://staging.example.com
+  only: ['master']`
 
+const publicDir = `
+- mkdir .public
+- cp -r ./build .public
+- mv .public public`
 class ContinousDeploymentAndIntegration extends React.Component {
 
   render() {
@@ -228,6 +268,91 @@ class ContinousDeploymentAndIntegration extends React.Component {
             {script}
           </Code>
           By navigating at: <SimpleLink href="https://gitlab.com/agonlohaj/prime-front-end-training/pipelines">Gitlab Pipelines</SimpleLink> you will see all the pipelines that ran so far, based on that script!
+        </Typography>
+        <Typography variant='p'>
+          The important things to know are:
+          <ul>
+            <li>
+              The pipeline runs into 3 stages:
+              <ol>
+                <li>build</li>
+                <li>test</li>
+                <li>deploy</li>
+              </ol>
+            </li>
+            <li>
+              At the build stage, the compile job runs which bundles our code and puts the results at the /build directory!
+            </li>
+            <li>
+              At the test stage, our test cases using Jest are run!
+            </li>
+            <li>
+              The last stage which is deployment consists of three jobs:
+              <ol>
+                <li>pages -> The special Gitlab pages job</li>
+                <li>deply-development -> In case the development branch, deploy to some development enviroment</li>
+                <li>deply-master -> In case the master branch, deploy to some production enviroment</li>
+              </ol>
+            </li>
+          </ul>
+        </Typography>
+
+        <Typography variant='p'>
+          Due to the special job named <Bold>pages</Bold> this repository also got uploaded to Gitlab Pages located at <SimpleLink href="https://agonlohaj.gitlab.io/prime-front-end-training">https://agonlohaj.gitlab.io/prime-front-end-training</SimpleLink>
+        </Typography>
+        <Typography variant='p'>
+          In order to deploy to GitLab pages all we needed is:
+          <ol>
+            <li>A project</li>
+            <li>A configuration file (<Bold>.gitlab-ci.yml</Bold>) to deploy your site</li>
+            <li>A specific job called <Bold>pages</Bold> in the configuration file that will make GitLab aware that you are deploying a GitLab Pages website</li>
+            <li>A public directory with the content of the website</li>
+          </ol>
+          Looking at the code again:
+          <Code>
+            {pagesDeploy}
+          </Code>
+          We can see that we moved the output of:
+          <Code>
+            {`npm run build`}
+          </Code>
+          Into the public directory by using:
+          <Code>
+            {publicDir}
+          </Code>
+          That in turn told that this job artifact is exactly that directory that we want to publish!
+        </Typography>
+
+        <Typography variant='p'>
+          The content of all of our work is constructed like this (by running npm run build):
+          <img src={NPMRunBuildImage} style={{width: '100%'}} />
+          The important things are:
+          <ol>
+            <li>
+              bundle.js
+              <ul>
+                <li>
+                  Main repository Bundle file. All of our javascript code compiled into one big fat file!
+                </li>
+              </ul>
+            </li>
+            <li>
+              Index.html
+              <ul>
+                <li>
+                  The entry point of out app
+                </li>
+              </ul>
+            </li>
+            <li>
+              Image files, ending with .png or .jpg
+            </li>
+          </ol>
+          All of this omitted at the build directory, the directory that keeps our compiled code.
+        </Typography>
+
+        <Typography variant='p'>
+          With that, we conclude this section!
         </Typography>
       </Fragment>
     )
