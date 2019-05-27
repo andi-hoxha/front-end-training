@@ -41,7 +41,7 @@ pages:
     - cp -r ./build/* .public
     - mv .public public
     - echo 'Gitlab Pages Deployment'
-  only: ['master']
+  # only: ['master']
 
 # Deploy only when the development branch
 deply-development:
