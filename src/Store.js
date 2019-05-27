@@ -9,7 +9,9 @@ import posts from 'reducers/posts/Posts'
 
 
 // its running under a process, then create browser history
-const history = createBrowserHistory()
+const history = createBrowserHistory({
+  basename: '/prime-front-end-training/'
+})
 
 console.log('process.env.NODE_ENV', process.env.NODE_ENV)
 

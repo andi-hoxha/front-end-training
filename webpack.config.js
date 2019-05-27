@@ -11,7 +11,7 @@ module.exports = {
     output: {
         path: BUILD_DIR,
         filename: 'bundle.js',
-        publicPath: '/'
+        publicPath: '/prime-front-end-training/'
     },
     module: {
         rules: [
