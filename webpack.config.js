@@ -56,7 +56,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             hash: true,
-            template:`${APP_DIR}/pages.index.html`,
+            template:`${APP_DIR}/index.html`,
             filename: `${BUILD_DIR}/index.html`
         }),
         new webpack.DefinePlugin({
