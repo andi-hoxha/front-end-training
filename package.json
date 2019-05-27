@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest",
     "build": "webpack --config webpack.config.js",
+    "build:pages": "webpack --config pages.webpack.config.js",
     "start": "webpack-dev-server --content-base ./build --inline"
   },
   "repository": {
