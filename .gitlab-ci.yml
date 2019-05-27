@@ -39,6 +39,7 @@ deply-staging:
   script:
     - mkdir .public
     - cp -r ./build .public
+    - ls
     - echo 'Deploy Development'
   # environment:
     # name: staging
@@ -56,6 +57,7 @@ deply-master:
   script:
     - mkdir .public
     - cp -r ./build .public
+    - ls
     - echo 'Master Development'
   # environment:
     # name: production
