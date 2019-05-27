@@ -59,7 +59,7 @@ pages:
   stage: deploy
   script:
     - mkdir .public
-    - cp -r ./build .public
+    - cp -r ./build/* .public
     - mv .public public
     - echo 'Gitlab Pages Deployment'
   only: ['master']
@@ -97,12 +97,9 @@ pages:
   stage: deploy
   script:
     - mkdir .public
-    - cp -r ./build .public
+    - cp -r ./build/* .public
     - mv .public public
     - echo 'Gitlab Pages Deployment'
-  # environment:
-    # name: staging
-    # url: https://staging.example.com
   only: ['master']`
 
 const publicDir = `
