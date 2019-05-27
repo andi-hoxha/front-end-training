@@ -325,7 +325,9 @@ class ContinousDeploymentAndIntegration extends React.Component {
 
         <Typography variant='p'>
           The content of all of our work is constructed like this (by running npm run build):
-          <img src={NPMRunBuildImage} style={{width: '100%'}} />
+        </Typography>
+        <img src={NPMRunBuildImage} />
+        <Typography variant='p'>
           The important things are:
           <ol>
             <li>
