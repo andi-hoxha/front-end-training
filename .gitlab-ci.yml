@@ -36,9 +36,10 @@ test:
 # Deploy only when the development branch
 deply-staging:
   stage: deploy
+  dependencies:
+    - build
   script:
     - mkdir .public
-    - ls
     - cp -r ./build .public
     - echo 'Deploy Development'
   # environment:
@@ -47,8 +48,6 @@ deply-staging:
   artifacts:
     paths:
     - public
-  dependencies:
-    - build
   # only: ['development']
 
 # Deploy only when on the master branch!
@@ -56,6 +55,8 @@ deply-staging:
 # without our manual intervention
 deply-master:
   stage: deploy
+  dependencies:
+    - build
   script:
     - mkdir .public
     - cp -r ./build .public
@@ -66,7 +67,5 @@ deply-master:
   artifacts:
     paths:
     - public
-  dependencies:
-    - build
   when: manual
   only: ['master']
