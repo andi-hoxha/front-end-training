@@ -162,14 +162,17 @@ test('the data is peanut butter', () => {
 })`
 
 const promisesFailExample = `
+const fetchDataFailure = () => {
+	return Promise.reject('error')
+}
 test('the fetch fails with an error', () => {
   expect.assertions(1);
-  return fetchData().catch(e => expect(e).toMatch('error'));
-});`
+  return fetchDataFailure().catch(e => expect(e).toMatch('error'));
+})`
 
 const promiseRejectExample = `
-test('the data is peanut butter', () => {
-  return expect(fetchData()).resolves.toBe('peanut butter')
+test('the fetch fails with an error', () => {
+  return expect(fetchDataFailure()).rejects.toMatch('error')
 })`
 
 
@@ -229,11 +232,11 @@ class Testing extends React.Component {
           </Code>
           Or if we don't want to do it via npm we can also call:
           <Code>
-            {`jest test`}
+            {`jest`}
           </Code>
           In order to output code coverage, that is, how much of the code was covered when our test cases ran we can use:
           <Code>
-            {`jest test --coverage`}
+            {`jest --coverage`}
           </Code>
           This will output the coverage at your terminal but also a detailed coverage report at directory: <Italic>/tests/coverage/lcov-report</Italic>
         </Typography>

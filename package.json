@@ -1,13 +1,13 @@
 {
   "name": "front-end-training",
-  "version": "12.0.1",
+  "version": "12.0.2",
   "description": "The interactive web for front-end training.",
   "main": "src/index.js",
   "scripts": {
     "test": "jest",
     "build": "webpack --config webpack.config.js",
     "build:pages": "webpack --config pages.webpack.config.js",
-    "start": "webpack-dev-server --content-base ./build --inline"
+    "start": "webpack-dev-server --content-base ./public --inline"
   },
   "repository": {
     "type": "git",
