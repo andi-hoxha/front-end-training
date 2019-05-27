@@ -21,6 +21,9 @@ compile:
   stage: build
   script:
    - npm run build
+  artifacts:
+    paths:
+    - build
 
 # Our test stage, install dev depencencies as extra script then run the test cases!
 test:
