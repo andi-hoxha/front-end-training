@@ -38,9 +38,12 @@ pages:
   stage: deploy
   script:
     - mkdir .public
-    - cp -r ./build/* .public
-    - mv .public/build public
+    - cp -r ./build/ .public
+    - mv .public public
     - echo 'Gitlab Pages Deployment'
+  artifacts:
+    paths:
+    - public
   # only: ['master']
 
 # Deploy only when the development branch
