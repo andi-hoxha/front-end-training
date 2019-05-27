@@ -1,35 +1,56 @@
+# Using Node as our preset enviroment (includes npm as well)
 image: node:10.15.3
-# Cache modules in between jobs
+
+# Cache node_modules in between jobs
 cache:
   paths:
   - node_modules/
-
+# All stages of our pipeline! Ordered!
 stages:
 - build
 - test
 - deploy
 
+# in between stages, a global npm install is executed
 before_script:
  - npm install
 
+# the compile job, for the build stage, multiple jobs can exist within one stage
+# If that is the case they are executed in parallel
 compile:
   stage: build
   script:
    - npm run build
 
+# Our test stage, install dev depencencies as extra script then run the test cases!
 test:
+  before_script:
+   - npm install --only-dev
   stage: test
   script:
    - npm test
 
+# Deploy only when the development branch
 deply-staging:
   stage: deploy
   script:
     - echo 'Deploy Development'
-  only: ['development']
+  # environment:
+    # name: staging
+    # url: https://staging.example.com
+  artifacts:
+    paths:
+    - build
 
+# Deploy only when on the master branch!
+# The when property, specifies that this step will only be prepared but not triggered
+# without our manual intervention
 deply-master:
   stage: deploy
   script:
     - echo 'Deploy Master'
+  # environment:
+    # name: production
+    # url: https://app.example.com
+  when: manual
   only: ['master']

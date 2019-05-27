@@ -665,7 +665,15 @@ const routes = [
       },
       {
         id: PAGES.LECTURE_12.CDCI,
-        display: 'Continuous Deployment and Integration'
+        display: 'Continuous Deployment and Integration',
+        children: [
+          { display: 'Introduction', id: "cd_ci_introduction" },
+          { display: 'Continuous Integration' },
+          { display: 'Continuous Delivery'},
+          { display: 'Continuous Deployment'},
+          { display: 'Workflow', id: 'cd_ci_workflow' },
+          { display: 'Setup', id: 'cd_ci_setup' }
+        ]
       }
     ]
   },

@@ -8,7 +8,7 @@ import Page from 'anatomy/Page'
 import Header from 'anatomy/Header'
 import LeftNav from 'anatomy/LeftNav'
 
-const styles = ({palette, size, typography}) => ({
+const styles = ({palette, size, typography, shadows}) => ({
   '@global': {
     ol: {
       margin: `${size.spacing}px 0px`,
@@ -17,6 +17,9 @@ const styles = ({palette, size, typography}) => ({
     ul: {
       margin: `${size.spacing}px 0px`,
       width: '100%'
+    },
+    img: {
+      boxShadow: shadows[3]
     }
   },
   appWrapper: {
