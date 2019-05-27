@@ -19,8 +19,7 @@ const styles = ({ typography }) => ({
   root: {},
 })
 
-const script = `
-# Using Node as our preset enviroment (includes npm as well)
+const script = `# Using Node as our preset enviroment (includes npm as well)
 image: node:10.15.3
 
 # Cache node_modules in between jobs
@@ -30,7 +29,7 @@ cache:
 # All stages of our pipeline! Ordered!
 stages:
 - build
-- test
+# - test
 - deploy
 
 # in between stages, a global npm install is executed
@@ -47,6 +46,15 @@ compile:
     paths:
     - build
 
+# compile for gitlab
+pages-compile:
+  stage: build
+  script:
+   - npm run build:pages
+  artifacts:
+    paths:
+    - public
+
 # Our test stage, install dev depencencies as extra script then run the test cases!
 test:
   before_script:
@@ -59,11 +67,11 @@ test:
 pages:
   stage: deploy
   script:
-    - mkdir .public
-    - cp -r ./build/* .public
-    - mv .public public
     - echo 'Gitlab Pages Deployment'
-  only: ['master']
+  artifacts:
+    paths:
+    - public
+  # only: ['master']
 
 # Deploy only when the development branch
 deply-development:
@@ -73,9 +81,6 @@ deply-development:
   # environment:
     # name: staging
     # url: https://staging.example.com
-  artifacts:
-    paths:
-    - public
   only: ['development']
 
 # Deploy only when on the master branch!
@@ -89,24 +94,28 @@ deply-master:
     # name: production
     # url: https://app.example.com
   when: manual
-  only: ['master']
-`
+  only: ['master']`
 
 const pagesDeploy = `
+Compile for GitLab
+pages-compile:
+  stage: build
+  script:
+   - npm run build:pages
+  artifacts:
+    paths:
+    - public
+
 # Git Lab Pages Deploy
 pages:
   stage: deploy
   script:
-    - mkdir .public
-    - cp -r ./build/* .public
-    - mv .public public
     - echo 'Gitlab Pages Deployment'
+  artifacts:
+    paths:
+    - public
   only: ['master']`
 
-const publicDir = `
-- mkdir .public
-- cp -r ./build .public
-- mv .public public`
 class ContinousDeploymentAndIntegration extends React.Component {
 
   render() {
@@ -279,7 +288,11 @@ class ContinousDeploymentAndIntegration extends React.Component {
               </ol>
             </li>
             <li>
-              At the build stage, the compile job runs which bundles our code and puts the results at the /build directory!
+              At the build stage, the following jobs run in parallel:
+              <ol>
+                <li>compile - the compile job runs which bundles our code and puts the results at the /build directory!</li>
+                <li>pages-compile - the compile job runs which bundles our code and puts the results at the /public directory!</li>
+              </ol>
             </li>
             <li>
               At the test stage, our test cases using Jest are run!
@@ -312,15 +325,11 @@ class ContinousDeploymentAndIntegration extends React.Component {
           <Code>
             {pagesDeploy}
           </Code>
-          We can see that we moved the output of:
+          We can see we made the special pages-compile to put the content of:
           <Code>
             {`npm run build`}
           </Code>
-          Into the public directory by using:
-          <Code>
-            {publicDir}
-          </Code>
-          That in turn told that this job artifact is exactly that directory that we want to publish!
+          Into the /public directory. That in turn told that this job artifact is exactly that directory that we want to publish!
         </Typography>
 
         <Typography variant='p'>
