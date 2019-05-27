@@ -86,6 +86,7 @@ const routes = [
             display: 'Rules',
           },
           {
+            id: 'way_of_working_exercise_1',
             display: 'Exercise 1'
           }
         ]
