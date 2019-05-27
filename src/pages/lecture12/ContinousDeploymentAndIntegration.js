@@ -10,6 +10,7 @@ import SimpleLink from "presentations/rows/SimpleLink";
 import Typography from "presentations/Typography";
 import WorkflowExample from 'assets/images/lecture12/gitlab_workflow_example.png'
 import WorkflowExtendedExample from 'assets/images/lecture12/gitlab_workflow_example_extended.png'
+import DeployPipelineImage from 'assets/images/lecture12/pipeline.png'
 import NPMRunBuildImage from 'assets/images/lecture12/npm_run_build.png'
 import React, { Fragment } from "react";
 import { connect } from 'react-redux';
@@ -264,7 +265,7 @@ class ContinousDeploymentAndIntegration extends React.Component {
           <Code>
             {script}
           </Code>
-          By navigating at: <SimpleLink href="https://gitlab.com/agonlohaj/prime-front-end-training/pipelines">Gitlab Pipelines</SimpleLink> you will see all the pipelines that ran so far, based on that script!
+          By navigating at: <SimpleLink href="https://gitlab.com/agonlohaj/prime-front-end-training/pipelines">Gitlab Pipelines</SimpleLink> you will see all the pipelines that ran so far, based on that script! 
         </Typography>
         <Typography variant='p'>
           The important things to know are:
@@ -292,7 +293,9 @@ class ContinousDeploymentAndIntegration extends React.Component {
               </ol>
             </li>
           </ul>
+          In our case the "pages" deployment looks like this:
         </Typography>
+        <img src={DeployPipelineImage} />
 
         <Typography variant='p'>
           Due to the special job named <Bold>pages</Bold> this repository also got uploaded to Gitlab Pages located at <SimpleLink href="https://agonlohaj.gitlab.io/prime-front-end-training">https://agonlohaj.gitlab.io/prime-front-end-training</SimpleLink>
