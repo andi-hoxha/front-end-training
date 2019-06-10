@@ -62,9 +62,8 @@ class Home extends React.Component {
             <li>Working with CD/CI</li>
             <li>Working with Webpack</li>
             <li>Working with React JS and Redux</li>
-            <li>Setting up an API server</li>
-            <li>Basic API implementation using MongoDB as a data storage tool</li>
-            <li>Basic Mongo querying</li>
+            <li>Consuming API services using RESTful API-s</li>
+            <li>Unit Testing</li>
             <li>Agile Methodology</li>
           </ol>
         </Typography>
