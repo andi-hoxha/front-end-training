@@ -310,6 +310,7 @@ const routes = [
             display: 'Maximising Composability'
           },
           {
+            id: 'hoc_debugging',
             display: 'Debugging'
           },
           {
