@@ -35,7 +35,7 @@ const fetchPosts = () => {
 
     return fetch(\`\${API_URL}/posts\`)
         .then((response) => {
-            // check the HTTP status code if it was sucessfull
+            // check the HTTP status code if it was successful
             if (response.status === 200) {
                 return response.json()
             }

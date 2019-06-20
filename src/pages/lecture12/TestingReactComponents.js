@@ -258,7 +258,7 @@ class TestingReactComponents extends React.Component {
           Use enzyme's render function to generate HTML from your React tree, and analyze the resulting HTML structure. 
         </Typography>
         <Typography variant='p'>
-          <Italic>render</Italic> returns a wrapper very similar to the other renderers in enzyme, mount and shallow; however, render uses a third party HTML parsing and traversal library Cheerio. Example:
+          <Italic>render</Italic> returns a wrapper very similar to the other renders in enzyme, mount and shallow; however, render uses a third party HTML parsing and traversal library Cheerio. Example:
           <Code>
             {staticRenderExample}
           </Code>

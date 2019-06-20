@@ -60,14 +60,6 @@ const styles = ({size, zIndex, palette, typography}) => ({
 
 class LeftNav extends React.Component {
 
-  static get defaultProps() {
-    return {
-      open: false,
-      onPaneChange: () => {
-      }
-    }
-  }
-
   state = {
     active: ''
   }

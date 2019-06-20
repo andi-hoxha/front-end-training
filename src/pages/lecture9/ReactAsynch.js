@@ -107,11 +107,11 @@ class ReactAsynch extends React.Component {
           <Code>
             {`npm install whatwg-fetch --save`}
           </Code>
-          This is basically a polifill to enable a web browser feature that is not supported (Internet Explorer). Definition: In web development, a polyfill is code that implements a feature on web browsers that do not support the feature.
+          This is basically a polyfill to enable a web browser feature that is not supported (Internet Explorer). Definition: In web development, a polyfill is code that implements a feature on web browsers that do not support the feature.
         </Typography>
 
         <Typography variant='p'>
-          Furthermore, we are going to use the following service: <SimpleLink href="https://www.mockapi.io">Mock API</SimpleLink> to simulate an API server that we can do requests to! The communication is all done using JSON request and response! The API generated is fully RESTfull! We are going to look into more details when it comes to RESTfull API-s later on. If you want to get a head start read the following guide: <SimpleLink href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</SimpleLink>
+          Furthermore, we are going to use the following service: <SimpleLink href="https://www.mockapi.io">Mock API</SimpleLink> to simulate an API server that we can do requests to! The communication is all done using JSON request and response! The API generated is fully RESTful! We are going to look into more details when it comes to RESTful API-s later on. If you want to get a head start read the following guide: <SimpleLink href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</SimpleLink>
         </Typography>
         <Typography variant='p'>
           For now we are going to focus on some of the main properties of a RESTfull API, That is an api that adhere to the REST architectural constraints. HTTP-based RESTful APIs are defined with the following aspects:
@@ -163,7 +163,7 @@ class ReactAsynch extends React.Component {
         </Typography>
         <Posts/>
         <Typography variant='p'>
-          Lets further ehance this example by implementing the other methods:
+          Lets further enhance this example by implementing the other methods:
         </Typography>
         <PostsExercise />
       </Fragment>

@@ -39,7 +39,7 @@ class Intro extends React.Component {
         <Typography variant='p'>
         Pros.
           <ol>
-            <li>The propeties applied inline are stronger than the propeties applied via classnames.</li>
+            <li>The propeties applied inline are stronger than the properties applied via classnames.</li>
             <li>Conditional styling for one property is easier </li>
           </ol>
         </Typography>
@@ -48,9 +48,9 @@ class Intro extends React.Component {
           <ol>
             <li>No CSS Pseudo Classes <code>:hover</code>, <code>:active</code>, <code>:checked</code>, <code>:focused</code> <code>:first</code>-child </li>
             <li>no CSS Pseudo Elements <code>::after</code>, <code>::before</code>, <code>::selection</code> etc </li>
-            <li>style is written in html, imagin a tabel with 1000 rows and all elements have inline styling applied it can grow to large and cause lag </li>
-            <li>There are no css selectors, inpossible to style children from parent</li>
-            <li>You will need to handle responsivnes with javascript instead of css (Pain right)</li>
+            <li>style is written in html, imagine a tabel with 1000 rows and all elements have inline styling applied it can grow to large and cause lag </li>
+            <li>There are no css selectors, impossible to style children from parent</li>
+            <li>You will need to handle responsiveness with javascript instead of css (Pain right)</li>
             <li>No key frames (no advance animation)</li>
           </ol>
         </Typography>
@@ -62,14 +62,14 @@ class Intro extends React.Component {
         Pros.
           <ol>
             <li>Css is injected in head tag and it is loaded once.</li>
-            <li>Use of Pseudo Elements and Pseudo Classes aswel selectors</li>
-            <li>You can use @media queries to handle responsivnes.</li>
+            <li>Use of Pseudo Elements and Pseudo Classes as well selectors</li>
+            <li>You can use @media queries to handle responsiveness.</li>
             <li>You can use @key frames, to do super animations.</li>
           </ol>
           Cons.
           <ol>
             <li>
-              No themeing, it means you cannot define variables and reuse those in other componets, 
+              No themeing, it means you cannot define variables and reuse those in other components,
               you will copy past colors every time from component to a component
             </li>
             <li>
@@ -90,7 +90,7 @@ class Intro extends React.Component {
         <Typography variant='p'>
         Pros.
           <ol>
-            <li>You can use theming using sass/less variables</li>
+            <li>You can do theming using sass/less variables</li>
             <li>The css is injected in head in terms of performance is way faster / same as vanilla css</li>
             <li>Most CSS preprocessors will add some features that don't exist in pure CSS, such as mixin, nesting selector </li>
             <li>Minifications</li>
@@ -164,7 +164,7 @@ There is no need for additional build pipeline configuration for CSS. Whatever t
           </ol>
           Cons.
           <ol>
-            <li>The intial setup it requires more effort.</li>
+            <li>The initial setup it requires more effort.</li>
           </ol>
         </Typography>
       </Fragment>

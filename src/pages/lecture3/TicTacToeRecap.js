@@ -135,7 +135,7 @@ class Game extends React.Component {
     const isXNext = this.isXNext
     const status = isXNext ? 'X' : 'Y'
     const { winner, moves } = calculateWinner(board)
-    let label = \`Next player is ${status}\`
+    let label = \`Next player is \${status}\`
     const total = board.reduce((accumulator, next) => {
       return accumulator + (next ? 1 : 0)
     }, 0)

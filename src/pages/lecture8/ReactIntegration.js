@@ -53,10 +53,10 @@ class ReactIntegration extends React.Component {
         </Typography>
 
         <Typography variant={'p'}>
-          So far, we have managed our model by using state at a React component and passing it down to child components. Through props we reacted to changes through functions and this way we managed our models through organised components in a hirearchy.
+          So far, we have managed our model by using state at a React component and passing it down to child components. Through props we reacted to changes through functions and this way we managed our models through organised components in a hierarchy.
         </Typography>
         <Typography variant={'p'}>
-          With Redux we can basically split these concerns and make it the reducers responsability to handle state change, and redux to manage our store! Now we can distribute this store at any React component by using the <Italic>connect</Italic> HOC!
+          With Redux we can basically split these concerns and make it the reducers responsibility to handle state change, and redux to manage our store! Now we can distribute this store at any React component by using the <Italic>connect</Italic> HOC!
         </Typography>
         <Typography variant={'p'}>
           That looks like this:

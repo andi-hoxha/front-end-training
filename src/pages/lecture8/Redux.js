@@ -227,13 +227,13 @@ class Redux extends React.Component {
           It helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test. On top of that, it provides a great developer experience, such as live code editing combined with a time traveling debugger.
         </Typography>
         <Typography variant={'p'}>
-          You can use Redux together with React, or with any other view library. It is tiny (2kB, including dependencies), but has a large ecosystem of addons available.
+          You can use Redux together with React, or with any other view library. It is tiny (2kB, including dependencies), but has a large ecosystem of add-ons available.
         </Typography>
         <Typography variant={'p'}>
           In order to set it up on this project, we have used the following npm libraries:
           <ol>
             <li>redux - the redux core library</li>
-            <li>redux-logger - the redux logging add-on, usefull for debugging store state</li>
+            <li>redux-logger - the redux logging add-on, useful for debugging store state</li>
             <li>react-redux - redux with react integration, will look into this at the next sections</li>
             <li>react-router-redux - redux with react router integration</li>
           </ol>
@@ -265,14 +265,14 @@ class Redux extends React.Component {
           In a typical Redux app, there is just a single store with a single root reducing function. As your app grows, you split the root reducer into smaller reducers independently operating on the different parts of the state tree. This is exactly like how there is just one root component in a React app, but it is composed out of many small components.
         </Typography>
         <Typography variant='p'>
-          Next example shows using two reduxers instead of one, by using the combineReducers function from react-redux:
+          Next example shows using two reducers instead of one, by using the combineReducers function from react-redux:
           <Code>
             {multipleReducersExample}
           </Code>
           Now the redux store has two properties that hold the returned values of the reducers, in this case a counter and a user
         </Typography>
         <Typography variant='p'>
-          Reducers can also be reused accross different reducers through nestedness!:
+          Reducers can also be reused across different reducers through nestedness!:
           <Code>
             {nestednessReducersExample}
           </Code>
@@ -290,7 +290,7 @@ class Redux extends React.Component {
           As if this weren't bad enough, consider the new requirements becoming common in front-end product development. As developers, we are expected to handle optimistic updates, server-side rendering, fetching data before performing route transitions, and so on. We find ourselves trying to manage a complexity that we have never had to deal with before, and we inevitably ask the question: is it time to give up? The answer is no.
         </Typography>
         <Typography variant='p'>
-          This complexity is difficult to handle as we're mixing two concepts that are very hard for the human mind to reason about: mutation and asynchronicity. It's the Mentos and Coke. Both can be great in separation, but together they create a mess. React attempts to solve this problem in the view layer by removing both asynchrony and direct DOM manipulation. However, managing the state of your data is left up to you. This is where Redux enters.
+          This complexity is difficult to handle as we're mixing two concepts that are very hard for the human mind to reason about: mutation and asynchronicity. It's the Mentos and Coke. Both can be great in separation, but together they create a mess. React attempts to solve this problem in the view layer by removing both asynchronous and direct DOM manipulation. However, managing the state of your data is left up to you. This is where Redux enters.
         </Typography>
         <Typography variant='p'>
           <Bold>Redux attempts to make state mutations predictable</Bold> by imposing certain restrictions on how and when updates can happen. These restrictions are reflected in the three principles of Redux.

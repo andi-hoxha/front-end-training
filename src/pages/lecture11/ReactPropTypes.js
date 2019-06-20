@@ -338,7 +338,7 @@ class ReactPropTypes extends React.Component {
           In general it is a good idea to document functions and classes and everything really, in order to help other developers or sometimes also yourself, in cases where you have to get back to a piece of code that you wrote a month ago as an example, to better read or understand the purpose and/or behaviour of the code.
         </Typography>
         <Typography variant='p'>
-          Most of the IDE-s will react based on your documentation and provide meaningfull assistance when you are trying to invoke a function, assign a property etc. Let us look at the following example:
+          Most of the IDE-s will react based on your documentation and provide meaningful assistance when you are trying to invoke a function, assign a property etc. Let us look at the following example:
           <Code>
             {none_documented}
           </Code>

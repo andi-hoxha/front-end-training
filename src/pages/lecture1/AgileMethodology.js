@@ -7,6 +7,7 @@ import scrumImage from 'assets/images/lecture1/scrum.png';
 import Divider from "presentations/Divider";
 import Typography from "presentations/Typography";
 import React, { Fragment } from "react";
+
 const styles = ({ typography }) => ({
   root: {},
 })
@@ -37,7 +38,7 @@ class AgileMethodology extends React.Component {
           </ol>
         </Typography>
         <Typography variant={'p'}>
-          <img src={agileMethodology}></img>
+          <img src={agileMethodology} />
         </Typography>
         <Typography variant={'p'}>
           Here are some key points on how an agile model works:
@@ -89,7 +90,7 @@ class AgileMethodology extends React.Component {
                 <li>Do we need to perform any research?</li>
               </ul>
             </li>
-            <li>Daily Standup. It is a short meeting, max 5 min per participant, where everyone answers the following questions:
+            <li>Daily Stand-Up. It is a short meeting, max 5 min per participant, where everyone answers the following questions:
               <ul>
                 <li>What did I do yesterday?</li>
                 <li>What am I going to do today?</li>
@@ -114,7 +115,7 @@ class AgileMethodology extends React.Component {
         </Typography>
 
         <Typography variant={'p'}>
-          <img src={scrumImage}></img>
+          <img src={scrumImage}/>
         </Typography>
         <Typography>
           The general idea behind SCRUM, is that at the end of every Sprint a new product deliverable is created. That means the features under development were developed, tested and merged to the repository and are ready to be published at the end of the sprint. In general, the ideal use case for a developer is to:

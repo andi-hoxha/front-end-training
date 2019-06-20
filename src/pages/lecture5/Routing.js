@@ -303,7 +303,7 @@ class Routing extends React.Component {
             {routingIntro}
           </Code>
           These routes take in a path as a string property, and a component to render in case the path matches. The exact property is to match the path exactly. While <Italic>/about/234</Italic> matches the <Italic>/about/</Italic> path, the same cannot be said for the <Italic>/2345</Italic> with regards to the <Italic>/</Italic> path. <br/>
-          <Italic>Note: Instead of writting {`<a href=""/>`} use {`<Link to="/">`}</Italic> 
+          <Italic>Note: Instead of writing {`<a href=""/>`} use {`<Link to="/">`}</Italic>
         </Typography>
         <Typography variant='p'>
           Routing is used to split the code that handles a certain url path. This makes it easier to organise the project into multiple components that handle different Pages and or Content

@@ -20,7 +20,7 @@ class Assignment extends React.Component {
           <Divider />
         </Typography>
         <Typography variant='p'>
-          Build a CV Component compossed by small Components(as some of you did in previos lecture), and if we pass a prop inverted
+          Build a CV Component composed by small Components(as some of you did in previous lecture), and if we pass a prop inverted
           everything should appear as inverted (eg: if you were using black color for text and white for bg's invert those colors)
           <br/>
           Implement CV using CSS in JS (using classes)

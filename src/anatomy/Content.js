@@ -70,7 +70,7 @@ class Content extends React.Component {
   }
 
   render() {
-    const {classes, className: classNameProp, contentRef, children, title, showHeader, breadcrumbs, ...other} = this.props
+    const {classes, className: classNameProp, children, showHeader, breadcrumbs, ...other} = this.props
     const className = classNames(classes.root, classNameProp)
     return (
       <Page className={className} {...other}>

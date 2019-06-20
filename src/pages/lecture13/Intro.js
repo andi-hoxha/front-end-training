@@ -20,7 +20,7 @@ class Intro extends React.Component {
           <Divider />
         </Typography>
         <Typography variant='p'>
-          The lecture 12 contains these underlying pages:
+          The lecture 13 contains these underlying pages:
           <ol>
             {section.children.map(next => <li key={next.id}>
               <PageLink to={`/lecture/${next.id}/`}>{next.display}</PageLink>

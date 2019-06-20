@@ -196,7 +196,7 @@ class ReduxMiddleware extends React.Component {
         <Typography variant={'heading'}>
           {section.display}
           <Typography variant='p'>
-            In this section we are going to explain on how we can create our own middlewares for Redux! Taken from <SimpleLink href="https://redux.js.org/advanced/middleware">https://redux.js.org/advanced/middleware</SimpleLink>
+            In this section we are going to explain on how we can create our own middleware for Redux! Taken from <SimpleLink href="https://redux.js.org/advanced/middleware">https://redux.js.org/advanced/middleware</SimpleLink>
           </Typography>
           <Divider />
         </Typography>

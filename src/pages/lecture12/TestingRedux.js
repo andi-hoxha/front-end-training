@@ -124,7 +124,7 @@ class TestingRedux extends React.Component {
           {gettingStarted.display}
         </Typography>
         <Typography variant='p'>
-          The libraries used to test Redux in conjuction with Jest are:
+          The libraries used to test Redux in conjunction with Jest are:
           <ol>
             <li><SimpleLink href="https://github.com/jefflau/jest-fetch-mock">Jest Fetch Mock Api</SimpleLink> and </li>
             <li><SimpleLink href="https://github.com/dmitry-zaets/redux-mock-store">Redux Mock Api</SimpleLink></li>
@@ -139,7 +139,7 @@ class TestingRedux extends React.Component {
           <Code>
             {simpleAction}
           </Code>
-          Pretty straightforward, we exepct the action send to the store to match the payload we just dispatched!
+          Pretty straightforward, we except the action send to the store to match the payload we just dispatched!
         </Typography>
         <Typography variant='p'>
           The other use case is when store actions are asynchronous, in this case we have to do the following:

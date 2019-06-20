@@ -315,7 +315,7 @@ class AssignmentsRecap extends React.Component {
         </Typography>
         <Typography variant='p'>
           Title: "Implement add/update/delete on a User List"<br />
-          We've created the following sceleton and we want to make it functional. Fill in the missing pieces of the code! The requirements are:
+          We've created the following skeleton and we want to make it functional. Fill in the missing pieces of the code! The requirements are:
           <ol>
             <li>Hold a array of users at the state of this component</li>
             <li>Render rows on the table based on the items of the array</li>
@@ -393,10 +393,10 @@ class AssignmentsRecap extends React.Component {
         <Typography variant='p'>
           Title: "Implement the Binary Search Tree"<br />
           Description: "Using Binary Search Tree I will search for the given value at the given tree structure"<br />
-          To understand how binary search tree works visit: <SimpleLink href="https://www.tutorialspoint.com/data_structures_algorithms/binary_search_tree.htm">Binary Search Tree Explenation</SimpleLink><br />
+          To understand how binary search tree works visit: <SimpleLink href="https://www.tutorialspoint.com/data_structures_algorithms/binary_search_tree.htm">Binary Search Tree Explanation</SimpleLink><br />
         </Typography>
         <Typography variant='p'>
-          Implement the algorythm that searches the given tree and returns the node where the value {search} exists:
+          Implement the algorithm that searches the given tree and returns the node where the value {search} exists:
         </Typography>
         <img src={BinarySearchTreeImage} />
       </Fragment>

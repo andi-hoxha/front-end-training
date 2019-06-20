@@ -110,7 +110,7 @@ class WorkingWithGit extends React.Component {
           <img src={GitCommitImage}></img>
         </Typography>
         <Typography variant='p'>
-          Now that you have done this, your changes are at the Head of your branch. The Head can either be the same as the remote latest commit, or the latest commits together with the new one you just did. Still these changes are only present at your local computer (not on remote yet). Source Tree will propmt a new Push is available, and the commited changes will be visualised as shown in the following image:
+          Now that you have done this, your changes are at the Head of your branch. The Head can either be the same as the remote latest commit, or the latest commits together with the new one you just did. Still these changes are only present at your local computer (not on remote yet). Source Tree will propmt a new Push is available, and the committed changes will be visualised as shown in the following image:
         </Typography>
         <Typography variant={'p'}>
           <img src={CommitedChanges}></img>
@@ -132,7 +132,7 @@ class WorkingWithGit extends React.Component {
           {branching.display}
         </Typography>
         <Typography variant='p'>
-          Branches are used to develop features isolated from each other (i.e. exercises and assignments). The master branch is the "default" branch when you create a repository. Use other branches for development and merge them back to the master branch upon completion. In a work enviroment branches would look like this:
+          Branches are used to develop features isolated from each other (i.e. exercises and assignments). The master branch is the "default" branch when you create a repository. Use other branches for development and merge them back to the master branch upon completion. In a work environment branches would look like this:
         </Typography>
         <Typography variant={'p'}>
           <img src={GitBranches}></img>
@@ -172,7 +172,7 @@ class WorkingWithGit extends React.Component {
           At Source Tree you can just double click a branch to jump to.
         </Typography>
         <Typography variant='p'>
-          <Italic>Note: You cannot switch branches if you have unstaged and or staged files that would be overriten if you switch branch. That is the branch you are trying to get to, has already updates on the files that you have updated at your current branch! First commit the changes or discard them and then proceed!</Italic>
+          <Italic>Note: You cannot switch branches if you have unstaged and or staged files that would be overwritten if you switch branch. That is the branch you are trying to get to, has already updates on the files that you have updated at your current branch! First commit the changes or discard them and then proceed!</Italic>
         </Typography>
 
         <Typography id={updateAndMerge.id} variant={'title'}>
@@ -203,7 +203,7 @@ class WorkingWithGit extends React.Component {
           At Source Tree you can use the "Pull" button to do the same, it will default to the branch that you are located in.
         </Typography>
         <Typography variant='p'>
-          <Italic>Note: Same as with checking out branches you cannot pull branches if you have unstaged and or staged files that would be overriten if you switch branch. That is the branch you are trying to get to, has already updates on the files that you have updated at your current branch! First commit the changes or discard them and then proceed!</Italic>
+          <Italic>Note: Same as with checking out branches you cannot pull branches if you have unstaged and or staged files that would be overwritten if you switch branch. That is the branch you are trying to get to, has already updates on the files that you have updated at your current branch! First commit the changes or discard them and then proceed!</Italic>
         </Typography>
       </Fragment>
     )

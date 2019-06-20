@@ -143,13 +143,13 @@ class CssPreprocessors extends React.Component {
         <Typography>
             So as stated above using CSS preprocessors we enable some extra features (CSS with superpowers).<br/>
             let's mention a few of them and do some comparisons.<br/>
-            NOTE: While demoing we are going to use SASS becuase it is most popular one.
+            NOTE: While demoing we are going to use SASS because it is most popular one.
         </Typography>
 
         <Typography variant='title' id={themeing.id}>{themeing.display}</Typography>
         <Typography>
             Themeing using CSS preprocessors is quite easy because it compiles and it means that we can use variables and store some values and reuse them :)<br/>
-            Let's say that we are going to build a simple laning page and the desinger gave us all the colors used on his/her designs.
+            Let's say that we are going to build a simple landing page and the designer gave us all the colors used on his/her designs.
         </Typography>
         <Code>
             {variables}

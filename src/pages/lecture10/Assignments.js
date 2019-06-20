@@ -154,9 +154,9 @@ class Assignments extends React.Component {
               All the transactions of a user will be loaded based on his user id! They will be displayed into a Table, each row containing the following information:
               <ol>
                 <li>All of the defined properties, excluding User ID</li>
-                <li>The total ammount -> derived by multiplying quantity * price!</li>
+                <li>The total amount -> derived by multiplying quantity * price!</li>
               </ol>
-              Futhermore, at the transactions page, the user information will be shown above the table!
+              Furthermore, at the transactions page, the user information will be shown above the table!
             </li>
             <li>At the transactions page, use charts underneath the table, to represent information like:
               <ol>
@@ -191,7 +191,7 @@ class Assignments extends React.Component {
         <Typography variant='p'>
           Title: "Solve the Knights Tour Problem"<br/>
           Description: "Using Backtracking algorithm I am going to solve the Knights Tour Problem!"<br/>
-          Here is the Explenation of the problem and a solution: <SimpleLink href="https://www.geeksforgeeks.org/the-knights-tour-problem-backtracking-1/">Knights Tour Problem</SimpleLink><br/>
+          Here is the Explanation of the problem and a solution: <SimpleLink href="https://www.geeksforgeeks.org/the-knights-tour-problem-backtracking-1/">Knights Tour Problem</SimpleLink><br/>
           
         </Typography>
         <Typography variant='p'>

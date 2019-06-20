@@ -201,7 +201,7 @@ class Promises extends React.Component {
         </Typography>
 
         <Typography variant={'p'}>
-          So far through out this training we have always executed synchrynous code. Every time we initiated an action like clicking a button, changing input of a text field, dispatching an action to Redux the response followed synchrynously! But in real world applications you most propably have a server somewhere in the cloud that serves the data that your application need, and for that you have to <Bold>await</Bold> for the response to come back. That is, until the response arrives we have to stop the execution of the code!
+          So far through out this training we have always executed synchronous code. Every time we initiated an action like clicking a button, changing input of a text field, dispatching an action to Redux the response followed synchronously! But in real world applications you most probably have a server somewhere in the cloud that serves the data that your application need, and for that you have to <Bold>await</Bold> for the response to come back. That is, until the response arrives we have to stop the execution of the code!
         </Typography>
         <Typography variant={'p'}>
           Before we continue you have to understand that Javascript runs Synchronously. It is a blocking, single-threaded language. That just means that only one operation can be in progress at a time. That’s not the entire story, though!
@@ -218,7 +218,7 @@ class Promises extends React.Component {
           <Code>
             {callbackExample}
           </Code>
-          The call to the function, passes the second argument which is a callback function for when the request is completed. Notice that this releases the execution of the Javascript synchrynous code!
+          The call to the function, passes the second argument which is a callback function for when the request is completed. Notice that this releases the execution of the Javascript synchronous code!
         </Typography>
 
         <Typography variant='p'>
@@ -286,7 +286,7 @@ class Promises extends React.Component {
           </Code>
         </Typography>
         <Typography variant='p'>
-          <Bold>Promise race.</Bold> Now the tables have turned! As our very famous, nation wide (one can say its internationall as well) singer: "Tuna" used to say: "The status quo has changed!"
+          <Bold>Promise race.</Bold> Now the tables have turned! As our very famous, nation wide (one can say its international as well) singer: "Tuna" used to say: "The status quo has changed!"
           <Code>
             {promiseRace}
           </Code>

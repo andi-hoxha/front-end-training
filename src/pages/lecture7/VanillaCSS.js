@@ -217,7 +217,7 @@ class VanillaCss extends React.Component {
           <Divider />
         </Typography>
         <Typography variant='p'>
-          Vanilla CSS means writing css completly manually. 
+          Vanilla CSS means writing css completely manually.
           <br />
           Let's demo this and look at pros and cons.
           <br />

@@ -116,7 +116,7 @@ class GettingStarted extends React.Component {
           MongoDB is an open source Document Database. We love it very much here at PRIME. It’s so flexible and doesn’t complain a lot but gets things done anyway (good guy Mongo). By flexible I mean, that it can handle nested data structures, like arrays within a row of data, a document within a document and many other cool stuff. Also the rows doesn’t necessarily have to have the same fields (highly discouraged, why am I giving you bad ideas).
         </Typography>
         <Typography variant={'p'}>
-          It is very easy to work with, integrate and distribute.  Read more about how awesome it is over here:<SimpleLink href="https://www.mongodb.com/">https://www.mongodb.com/.</SimpleLink>Go ahead and download it while your at it! For this training, we are going to store data in there, leverage the mongo querying and aggregation functions to yield cool results, but most importantly have fun with it while doing it!
+          It is very easy to work with, integrate and distribute. Read more about how awesome it is over here:<SimpleLink href="https://www.mongodb.com/">https://www.mongodb.com/.</SimpleLink>Go ahead and download it while your at it! For this training, we are going to store data in there, leverage the mongo querying and aggregation functions to yield cool results, but most importantly have fun with it while doing it!
         </Typography>
 
         <Typography variant={'p'}>

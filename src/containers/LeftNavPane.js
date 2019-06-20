@@ -30,12 +30,7 @@ class LeftNav extends React.Component {
   }
 
   state = {
-    active: PAGES.LECTURE_1.ID
-  }
-
-  onClose = event => {
-    const { onClose } = this.props
-    if (onClose) onClose(event)
+    active: PAGES.HOME
   }
 
   componentDidMount() {
@@ -93,7 +88,7 @@ class LeftNav extends React.Component {
   }
 
   render() {
-    const { className: classNameProp, classes, open, active, onClose, children, ...other } = this.props
+    const { className: classNameProp, classes } = this.props
     const className = classNames(
       classes.root,
       classNameProp

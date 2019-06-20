@@ -158,14 +158,14 @@ class InlineStyling extends React.Component {
         </Typography>
 
         <Typography variant='p'>
-          Untill now in the training we were using inline-styling most of the time and we weren't able to compare those into details
+          Until now in the training we were using inline-styling most of the time and we weren't able to compare those into details
           to see which is what and which one is more suitable for styling components.
-          Let's go ahead and demostrate some of cons and pros
+          Let's go ahead and demonstrate some of cons and pros
         </Typography>
 
         <Typography variant='p'>
           One of the benefits when using inline styling approach is that the properties applied are stronger that the ones
-          declaread in a stylesheet(applied via className).
+          declared in a stylesheet (applied via className).
           Example:
         </Typography>
 
@@ -188,7 +188,7 @@ class InlineStyling extends React.Component {
         </Typography>
         <Typography variant='title' id={conditionalRendering.id}>{conditionalRendering.display}</Typography>
         <Typography variant='p'>
-          In React we often find ourselves using conditoional rendering because of react nature, so let's do a comparasion when changing
+          In React we often find ourselves using conditional rendering because of react nature, so let's do a comparision when changing
           some properties depending on the given props.
           Example:
           <Typography variant='p'>
@@ -212,7 +212,7 @@ class InlineStyling extends React.Component {
 
 
         <Typography variant='p'>
-          Let's say we are builiding an applications that shows logs and tracks user events,
+          Let's say we are building an applications that shows logs and tracks user events,
           as we can imagine we would have a list that it can go to 1000 rows or more.
           Let's see how a list would look in real life app.
          <Typography variant='title'>This list is rendered in HTML
@@ -220,7 +220,7 @@ class InlineStyling extends React.Component {
               {biList}
             </Code>
           </Typography>
-          So As you can see every style property is written in html and duplicated for each row, so as you can gues when rendering a list as the ones above the
+          So As you can see every style property is written in html and duplicated for each row, so as you can guess when rendering a list as the ones above the
            HTML would grow larger and will cause lag or even worst not respond at all.
         </Typography>
 
@@ -228,10 +228,10 @@ class InlineStyling extends React.Component {
           {noPseudClasses.display}
         </Typography>
         <Typography variant='p'>
-          When using inline stlying you cannot use the PseudoClasses let's do a demo <br />
+          When using inline styling you cannot use the PseudoClasses let's do a demo <br />
 
           <Typography variant='p'>
-            We often want to indcate when a link is on hover let's se how that works when using this method of styling.
+            We often want to indicate when a link is on hover let's se how that works when using this method of styling.
             <Code>
               {hoverStateInline}
             </Code>

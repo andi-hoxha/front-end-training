@@ -139,7 +139,7 @@ const App = ({children}) => {
 
 export default App
 `
-const useHok = `
+const useHoc = `
 import withStyles from "@material-ui/core/styles/withStyles"
 
 const styles = theme => ({
@@ -371,11 +371,11 @@ class CssInJs extends React.Component {
         <Typography variant='p'>
           In this training program we were using two ways to style React Components. <br/>
         <Typography variant='p'>
-        Inline-styling and using HOK's provided from material-ui => <code>withStyles(style)(Component)</code>
+        Inline-styling and using HOC's provided from material-ui => <code>withStyles(style)(Component)</code>
         </Typography>
          Let's go ahead and mention a few benefits when using this approach.
         </Typography>
-        <Typography variant='title' id={themeing.id}>Themeing(Dynamic Theming)</Typography>
+        <Typography variant='title' id={themeing.id}>Themes (Dynamic Theme)</Typography>
         <Typography variant='p'>
           The idea is that you define a theme, 
           wrap your application with ThemeProvider and pass the theme to ThemeProvider. 
@@ -387,7 +387,7 @@ class CssInJs extends React.Component {
         <Typography variant='title'>
           Theme Provider
         <Typography variant='p'>
-          Let's see how we have used ThemeProvider in this interactiv web app
+          Let's see how we have used ThemeProvider in this interactive web app
         </Typography>
         </Typography>
         
@@ -413,10 +413,10 @@ class CssInJs extends React.Component {
           {themeProvider}
         </Code>
         <Typography variant='p'>
-            Note: if we want to benefit from ThemeProvider we should always use the HOK in order to have theme object available. <br />
+            Note: if we want to benefit from ThemeProvider we should always use the HOC in order to have theme object available. <br />
             To do that consider the code below:
             <Code>
-              {useHok}
+              {useHoc}
             </Code>
         </Typography>
         <Typography variant='title' id={criticalCssExtraction.id}>Critical CSS extraction</Typography>
@@ -440,7 +440,7 @@ class CssInJs extends React.Component {
             </Code> 
           </Typography>
           <Typography variant='title' id={noNamingConventions.id}>Removes the need for naming conventions.</Typography>
-          <Typography variant='p'>If you rember when styling components with Vanilla Css or using Css PreProcessors
+          <Typography variant='p'>If you remember when styling components with Vanilla Css or using Css PreProcessors
             we should follow some standards in order to have unique class names and to be sure that they never overlap (hard to think of that especially when developing large scale apps).
           </Typography>
           <Typography variant='p'>
@@ -452,8 +452,8 @@ class CssInJs extends React.Component {
           <Typography variant='title'>Without BEM</Typography>
           <Typography variant='p'>
             If we take a closer look in the code below we can notice that when the component got rendered 
-            it added the name of the component before the actual classname (<code>root</code> in this case) aswll before the className <br/>
-            You see JSS handles naming comnvention for us, we don't need to bother about it at all, btw if we still don't trust in that we can
+            it added the name of the component before the actual classname (<code>root</code> in this case) as well before the className <br/>
+            You see JSS handles naming convention for us, we don't need to bother about it at all, btw if we still don't trust in that we can
             go even further by adding some prefixes in JSSProvide config.
             <Code>
               {withoutBEM}

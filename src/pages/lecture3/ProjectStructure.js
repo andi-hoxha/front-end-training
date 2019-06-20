@@ -62,7 +62,7 @@ class ProjectStructure extends React.Component {
             To organise a React project you would usually follow this structure
             <ol>
                 <li>anatomy</li>
-                The sceleton of the project. Elements placed here describe how a page is layed output
+                The skeleton of the project. Elements placed here describe how a page is layed output
                 <li>assets</li>
                 All css, images, json or other assets are put here. Basically everything that is not code.
                 <li>containers</li>
@@ -74,11 +74,11 @@ class ProjectStructure extends React.Component {
                 <li>utils</li>
                 As the name suggest, utilities classes and functions
                 <li>index.js</li>
-                The starting point of the app. Uses the React API to mount the applicatin to the document with id.
+                The starting point of the app. Uses the React API to mount the application to the document with id.
                 <li>App.js</li>
                 Our top level hierarchy of the React App. Contains routing and providers.
                 <li>Constants.js</li>
-                Holds Contants that are used through out the app. Usually you keep constants like hostname, batch sizes, page definitions etc
+                Holds Constants that are used through out the app. Usually you keep constants like hostname, batch sizes, page definitions etc
                 <li>index.html</li>
                 A template used by webpack to generate the root index.html file of the project (dumped at build directory). This html file will have the placeholder div for index.js to mount the React App.
             </ol>

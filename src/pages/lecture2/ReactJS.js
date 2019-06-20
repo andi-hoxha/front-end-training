@@ -29,7 +29,7 @@ class HelloMessage extends React.Component {
 class ReactJS extends React.Component {
   render() {
     const { classes, section } = this.props
-    let introcution = section.children[0]
+    let introduction = section.children[0]
     let tictactoe = section.children[1]
     return (
       <Fragment>
@@ -37,8 +37,8 @@ class ReactJS extends React.Component {
           React JS
           <Divider />
         </Typography>
-        <Typography id={introcution.id} variant={'title'}>
-          {introcution.display}
+        <Typography id={introduction.id} variant={'title'}>
+          {introduction.display}
         </Typography>
         <Typography variant='p'>
           ReactJS ia a library for building User Interfaces (UI). 

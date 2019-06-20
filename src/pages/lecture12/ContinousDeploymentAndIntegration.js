@@ -19,7 +19,7 @@ const styles = ({ typography }) => ({
   root: {},
 })
 
-const script = `# Using Node as our preset enviroment (includes npm as well)
+const script = `# Using Node as our preset environment (includes npm as well)
 image: node:10.15.3
 
 # Cache node_modules in between jobs
@@ -45,7 +45,7 @@ compile:
     paths:
     - public
 
-# Our test stage, install dev depencencies as extra script then run the test cases!
+# Our test stage, install dev dependencies as extra script then run the test cases!
 test:
   before_script:
    - npm install --only-dev

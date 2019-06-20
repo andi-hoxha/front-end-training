@@ -55,7 +55,7 @@ class Header extends React.Component {
   }
 
   render() {
-    const {classes, className: classNameProp, children, breadcrumbs, title, other} = this.props
+    const {classes, className: classNameProp, breadcrumbs, other} = this.props
     const className = classNames(classes.root, classNameProp)
 
     return (

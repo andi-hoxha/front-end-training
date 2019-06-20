@@ -124,7 +124,7 @@ class Exercise extends React.Component {
         <TextField fullWidth onChange={this.onValueChanged} label="Search" value={search} />
         <FormControlLabel onChange={this.onToggle} style={{width: '100%'}} control={
           <Checkbox checked={inStock} />
-        } label="In Stock"></FormControlLabel>
+        } label="In Stock"/>
         {filtered.map((item, index) => {
           return <Card title={item.group} key={index}>
             {item.children.map((next, index) => {
