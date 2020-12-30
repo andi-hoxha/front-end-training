@@ -16,6 +16,7 @@ import {
   randomWordsOfLength,
   randomGroupsOfLength
 } from 'utils/DataGenerator'
+import {number, string} from "prop-types";
 
 const styles = ({ typography, size }) => ({
   root: {},
@@ -254,7 +255,6 @@ class AssignmentsRecap extends React.Component {
       const group = next.group
       return accumulator.includes(group) ? accumulator : [...accumulator, group]
     }, [])
-
     const grouped = groups.map(group => {
       const items = data.filter(next => next.group === group)
       const length = items.length || Infinity
@@ -304,6 +304,7 @@ class AssignmentsRecap extends React.Component {
         }
       ]
     }
+    console.log('test',cumulative.data)
     const title = 'Calculate the values such that they are cumulative, each subsequent is summed with the total so far!'
     return <Card options={options} {...props} title={title} />
   }
@@ -378,6 +379,7 @@ class AssignmentsRecap extends React.Component {
           {this.function8(cardProps)}
           {this.function9(cardProps)}
         </div>
+
         <Typography id={binarySearch.id} variant={'title'}>
           {binarySearch.display}
         </Typography>

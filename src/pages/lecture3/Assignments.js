@@ -16,6 +16,7 @@ import {
   randomWordsOfLength,
   randomGroupsOfLength
 } from 'utils/DataGenerator'
+import {number, string} from "prop-types";
 
 const styles = ({ typography, size }) => ({
   root: {},
@@ -93,7 +94,7 @@ class Assignments extends React.Component {
      ...axisGraphDefaultOptions,
       series: [
         {
-          data: values.map(x => [x, x * 2]),
+          data:values.map(x => x * 2),
           type: GRAPH_TYPES.LINE
         }
       ]
@@ -110,7 +111,7 @@ class Assignments extends React.Component {
      ...axisGraphDefaultOptions,
       series: [
         {
-          data: values.map(x => [x, x * 2]),
+          data: values.map(nr => Math.sqrt(Math.abs(Math.pow(nr,2) + (nr * 4)))),
           type: GRAPH_TYPES.SCATTER
         }
       ]
@@ -128,7 +129,10 @@ class Assignments extends React.Component {
      ...axisGraphDefaultOptions,
       series: [
         {
-          data: values.map(x => [x, x * 2]),
+          data:values.map(nr => {
+            const func = Math.pow(3,2) - Math.pow(nr,2)
+            return (func > 0) ? Math.sqrt(Math.pow(3,2) - Math.pow(nr,2)) : -1 * (Math.sqrt(Math.abs(Math.pow(3,2) - Math.pow(nr,2))));
+          }),
           type: GRAPH_TYPES.SCATTER
         }
       ]
@@ -146,7 +150,7 @@ class Assignments extends React.Component {
      ...axisGraphDefaultOptions,
       series: [
         {
-          data: values.map(x => [x, x * 2]),
+          data: values.map(nr => Math.sin(nr)),
           type: GRAPH_TYPES.SCATTER
         }
       ]
@@ -163,7 +167,7 @@ class Assignments extends React.Component {
      ...axisGraphDefaultOptions,
       series: [
         {
-          data: values.map(x => [x, x * 2]),
+          data: values.map(nr => Math.cos(nr)),
           type: GRAPH_TYPES.SCATTER
         }
       ]
@@ -182,8 +186,12 @@ class Assignments extends React.Component {
      ...axisGraphDefaultOptions,
       series: [
         {
-          data: valuesSin.map(x => [x, x * 2]),
-          type: GRAPH_TYPES.SCATTER
+          data: valuesSin.sort((a, b) => a - b).map(x => [x, Math.sin(x)]),
+          type: GRAPH_TYPES.LINE
+        },
+        {
+          data: valuesCos.sort((a, b) => a - b).map(x => [x, Math.cos(x)]),
+          type: GRAPH_TYPES.LINE
         }
       ]
     }
@@ -200,7 +208,7 @@ class Assignments extends React.Component {
       name: 'Tree',
       series: [
         {
-          data,
+          data: data.sort((a, b) => b.value - a.value).filter((which, index) => index < 4),
           type: GRAPH_TYPES.TREEMAP
         }
       ]
@@ -214,10 +222,23 @@ class Assignments extends React.Component {
    */
   function8 = (props) => {
     const data = this.randomCategoryData(8, true)
+    const groups = data.reduce((accumulator, next) => {
+      const group = next.group
+      return accumulator.includes(group) ? accumulator : [...accumulator, group]
+    }, [])
+    const grouped = groups.map(group => {
+      const items = data.filter(next => next.group === group)
+      const length = items.length || Infinity
+      const average = items.reduce((sum, next) => sum + next.value, 0) / length
+      return {
+        name: group,
+        value: average.toFixed(2)
+      }
+    })
     const options = {
       series: [
         {
-          data,
+          data:grouped,
           type: GRAPH_TYPES.PIE
         }
       ]
@@ -230,6 +251,25 @@ class Assignments extends React.Component {
    */
   function9 = (props) => {
     const data = this.randomCategoryData(8)
+    // const data = [
+    //   {name:'Andi',value:10,group:'A'},
+    //   {name:'Hello',value:100,group: 'B'},
+    //   {name:'Faton',value:-7,group: 'F'}
+    // ]
+    const cumulative = data.reduce((accumulator, next) => {
+      if(accumulator.length === 0){
+        accumulator.push(next)
+      }else{
+        next.value = accumulator[accumulator.length -1].value + next.value
+        accumulator.push(next)
+      }
+      return accumulator;
+    }, [])
+    // const cumulative = data.reduce((accumulator, next) => {
+    //   const { sum, data } = accumulator
+    //   const cumulatedValue = sum + next.value
+    //   return { sum: cumulatedValue, data: [...data, {...next, value: cumulatedValue}]}
+    // }, { sum: 0, data: [] })
     const options = {
       xAxis: {
         type: 'category',
@@ -240,11 +280,13 @@ class Assignments extends React.Component {
       },
       series: [
         {
-          data,
+          data: cumulative,
           type: GRAPH_TYPES.BAR
         }
       ]
     }
+
+    console.log(data)
     const title = 'Calculate the values such that they are cumulative, each subsequent is summed with the total so far!'
     return <Card options={options} {...props} title={title} />
   }
@@ -256,9 +298,25 @@ class Assignments extends React.Component {
    */
   binarySearch (values, search) {
     // implement 
-
+    const sorted = values.sort();
+    let first = 0;
+    let last = sorted.length - 1;
+    let middle = (first + last) / 2;
+    while (first <= last){
+      if(sorted[middle] < search){
+        first = middle + 1;
+      }else if(sorted[middle] === search){
+        return middle;
+      }else {
+        last = middle -1;
+      }
+      middle = (first + last) / 2;
+    }
+    if(first > last){
+      return -1;
+    }
     // -1 means I cannot find it. Todo return the index
-    return -1
+    return -1;
   }
 
   render() {

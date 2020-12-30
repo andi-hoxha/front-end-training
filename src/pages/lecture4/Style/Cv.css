@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=M+PLUS+Rounded+1c:wght@300&display=swap');
+
+.root {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    margin-top: 50px;
+    align-items: stretch;
+    justify-content: stretch;
+    background-color: #fffcf5;
+}
+
+
+.leftContainer {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #e0e1e5;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.leftSide {
+    display: flex;
+    flex-direction: column;
+    width: inherit;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #fffcf5;
+}
+
+.rightContainer {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 6;
+    justify-content: flex-start;
+    margin-left: 40px;
+    background-color: #fffcf5;
+    align-items: center;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.image {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 250px;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.divider {
+    width: 300px;
+    justify-content: flex-start;
+    border-top: 2px solid #484848;
+    border-radius: 5px;
+}
+
+div.contact > * {
+    margin-left: 50px;
+}
+
+.contact-icons {
+    margin: 5px 10px;
+}
+
+.contact-info {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.main-box {
+    margin-left: 130px;
+}
+
+.education {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    justify-content: flex-start;
+}
+
+div.education > * {
+    margin-left: 50px;
+}
+
+.education-box {
+    margin-top: 10px;
+}
+
+.education-box > * {
+    margin-top: 7px;
+    margin-bottom: 5px;
+}
+
+.skills {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    justify-content: flex-start;
+}
+
+.skills > * {
+    margin-left: 50px;
+}
+
+.check-list {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+.check-list li {
+    position: relative;
+    list-style-type: none;
+    padding-left: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.check-list li:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: -2px;
+    width: 5px;
+    height: 11px;
+    border-width: 0 2px 2px 0;
+    border-style: solid;
+    border-color: #00a8a8;
+    transform-origin: bottom left;
+    transform: rotate(45deg);
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    background-color: #494949;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin-bottom: 7%;
+    margin-top: 35px;
+    box-shadow: 0 8px 6px -3px rgba(0, 0, 0, 0.25);
+}
+
+.header-box {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    align-items: center;
+    font-size: large;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    color: #cacaca;
+}
+
+.header-box h1 {
+    letter-spacing: 3px;
+}
+
+.divider2 {
+    width: 300px;
+    justify-content: flex-start;
+    border-top: 2px solid #cacaca;
+    border-radius: 5px;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.rightContainer p {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.working-experience {
+    display: flex;
+    flex-direction: column;
+}
+
+.job-title {
+    margin-top: 10px;
+}
+
+.job-title > * {
+    margin: 3px 0;
+}
+
+.job-desc ul {
+    margin-top: 10px;
+}

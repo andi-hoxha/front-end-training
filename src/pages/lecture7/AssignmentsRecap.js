@@ -149,7 +149,6 @@ class AssignmentsRecap extends React.Component {
   onValueChanged = (event) => {
     event.preventDefault()
     const { value, name } = event.target
-
     this.setState((prevState) => ({
       editing: {
         ...prevState.editing,
@@ -187,6 +186,7 @@ class AssignmentsRecap extends React.Component {
     let state = {
       items
     }
+
     if (found) {
       state = {
         ...state,
@@ -367,6 +367,10 @@ class AssignmentsRecap extends React.Component {
             <TextField fullWidth margin="normal" name="name" onChange={this.onValueChanged} value={editing.name} label="Name"/>
             <TextField fullWidth margin="normal" name="lastName" onChange={this.onValueChanged} value={editing.lastName} label="Last Name"/>
             <TextField fullWidth margin="normal" name="username" onChange={this.onValueChanged} value={editing.username} label="User Name"/>
+            <TextField fullWidth margin="normal" name="type" onChange={this.onValueChanged} select value={editing.type} label="Select Type">
+              <ListItem value="Admin">Admin</ListItem>
+              <ListItem value="Normal">Normal</ListItem>
+            </TextField>
             <TextField fullWidth margin="normal" name="type" onChange={this.onValueChanged} select value={editing.type} label="Select Type">
               <ListItem value="Admin">Admin</ListItem>
               <ListItem value="Normal">Normal</ListItem>
