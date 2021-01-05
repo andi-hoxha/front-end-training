@@ -159,7 +159,6 @@ class Assignments extends React.Component {
             [name]: value
         });
     }
-
     test = (event, index, datePickerName) => {
         let name;
         let value;

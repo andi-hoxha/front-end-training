@@ -14,6 +14,7 @@ import EditIcon from '@material-ui/icons/Edit'
 import RemoveIcon from '@material-ui/icons/Clear'
 import { Table, TableHead, TableRow, TableBody, TableCell, IconButton, Dialog, DialogTitle, DialogContent, TextField, DialogActions, Button, ListItem, RadioGroup, Radio, FormControlLabel } from "@material-ui/core";
 import Chart from "presentations/Chart";
+import {number} from "prop-types";
 
 
 const styles = ({ typography, size }) => ({
@@ -81,6 +82,13 @@ const Card = ({options, title, titleClass, graphClass, ...other}) => {
 
 
 class Assignments extends React.Component {
+
+  state = {
+    isOpen:false,
+    currentUser:{name:'',lastName:'',username:'',type:'',age:0,gender:''},
+    item:[],
+    showData:false
+  }
   /**
    * TODO: Implement Binary Search Tree Method
    * @param {Object} node 
@@ -92,6 +100,94 @@ class Assignments extends React.Component {
     // -1 means I cannot find it. Todo return the node
     return -1
   }
+
+  onValueChanged = (event) => {
+    let name = event.target.name;
+    let value = event.target.value;
+    let user = this.state.currentUser;
+    name === "age" ? user[name] = parseInt(value || 0) : user[name] = value;
+    this.setState({
+      currentUser:user
+    })
+    console.log('user',this.state.currentUser)
+  }
+
+  onAddNewItem = () => {
+    const currentUser = this.state.currentUser;
+    this.setState(prevState => ({
+      item:[...prevState.item,currentUser],
+      currentUser:{name:'',lastName:'',username:'',type:'',age:0,gender:''},
+      isOpen:!this.state.isOpen
+    }));
+  }
+
+  openModal = () => {
+    this.setState({
+      isOpen:!this.state.isOpen
+    })
+  }
+
+  onEdit = (index) => {
+    const actualUser = this.state.item[index]
+    this.setState({
+        isOpen:!this.state.isOpen,
+        currentUser:actualUser
+    });
+    console.log('actualUser',actualUser)
+  }
+
+   avgBetweenTypes = () => {
+   const {item = []} = this.state
+       const admins = item.filter(next => next.type === "Admin")
+       const normal = item.filter(next => next.type === "Normal")
+
+       const totalAdminAge = admins.reduce((a,b) => a + b.age, 0)
+       const totalNormalAge = normal.reduce((a,b) => a + b.age, 0)
+       return {
+         series: [
+           {
+             name: 'Average age between types',
+             type: 'pie',
+             data: [
+               {
+                 name: 'Admin',
+                 value: totalAdminAge / (admins.length || Infinity)
+               },
+               {
+                 name: 'Normal',
+                 value: totalNormalAge / (normal.length || Infinity)
+               }
+             ]
+           }
+         ]
+       }
+  }
+
+  malesVsFemales = () => {
+    const {item} = this.state
+    const males = item.filter(next => next.gender === "M")
+    const females = item.filter(next => next.gender === "F")
+
+    return {
+      series: [
+        {
+          name: 'Males vs Females',
+          type: 'pie',
+          data: [
+            {
+              name: 'Male',
+              value: males.length
+            },
+            {
+              name: 'Female',
+              value: females.length
+            }
+          ]
+        }
+      ]
+    }
+  }
+
 
   render() {
     const { classes, section } = this.props
@@ -110,16 +206,7 @@ class Assignments extends React.Component {
         {
           name: 'Average age between types',
           type: 'pie',
-          data: [
-            {
-              name: 'Admin',
-              value: 37
-            },
-            {
-              name: 'Normal',
-              value: 28
-            }
-          ]
+          data: this.state.item
         }
       ]
     }
@@ -129,16 +216,7 @@ class Assignments extends React.Component {
         {
           name: 'Average age between types',
           type: 'pie',
-          data: [
-            {
-              name: 'Male',
-              value: 3
-            },
-            {
-              name: 'Female',
-              value: 4
-            }
-          ]
+          data: this.state.item
         }
       ]
     }
@@ -164,7 +242,7 @@ class Assignments extends React.Component {
           </ol>
         </Typography>
         <TextField fullWidth margin="normal" value={''} label="Search"/>
-        <Button color="primary">Add New Item</Button>
+        <Button color="primary" onClick={this.openModal}>Add New Item</Button>
         <Table>
           <TableHead>
             <TableRow>
@@ -178,86 +256,58 @@ class Assignments extends React.Component {
             </TableRow>
           </TableHead>
           <TableBody>
-            <TableRow>
-              <TableCell>Agon</TableCell>
-              <TableCell>Lohaj</TableCell>
-              <TableCell>agon_lohaj</TableCell>
-              <TableCell>Normal</TableCell>
-              <TableCell>32</TableCell>
-              <TableCell>Male</TableCell>
-              <TableCell>
-                <IconButton>
-                  <EditIcon />
-                </IconButton>
-                <IconButton>
-                  <RemoveIcon />
-                </IconButton>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>Agon</TableCell>
-              <TableCell>Lohaj</TableCell>
-              <TableCell>agon_lohaj</TableCell>
-              <TableCell>Normal</TableCell>
-              <TableCell>48</TableCell>
-              <TableCell>Male</TableCell>
-              <TableCell>
-                <IconButton>
-                  <EditIcon />
-                </IconButton>
-                <IconButton>
-                  <RemoveIcon />
-                </IconButton>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>Agon</TableCell>
-              <TableCell>Lohaj</TableCell>
-              <TableCell>agon_lohaj</TableCell>
-              <TableCell>Normal</TableCell>
-              <TableCell>62</TableCell>
-              <TableCell>Male</TableCell>
-              <TableCell>
-                <IconButton>
-                  <EditIcon />
-                </IconButton>
-                <IconButton>
-                  <RemoveIcon />
-                </IconButton>
-              </TableCell>
-            </TableRow>
+            {this.state.item.map((next,index) => {
+              return (
+                  <TableRow>
+                    <TableCell>{next.name}</TableCell>
+                    <TableCell>{next.lastName}</TableCell>
+                    <TableCell>{next.username}</TableCell>
+                    <TableCell>{next.type}</TableCell>
+                    <TableCell>{next.age}</TableCell>
+                    <TableCell>{next.gender}</TableCell>
+                    <TableCell>
+                      <IconButton>
+                        <EditIcon onClick={() => this.onEdit(index)}/>
+                      </IconButton>
+                      <IconButton>
+                        <RemoveIcon />
+                      </IconButton>
+                    </TableCell>
+                  </TableRow>
+              )
+            })}
           </TableBody>
         </Table> 
-        <Dialog open={false} onClose={e => {console.log(e)}}>
+        <Dialog open={this.state.isOpen}>
           <DialogTitle>
             My Awesome Dialog
           </DialogTitle>
           <DialogContent>
-            <TextField fullWidth margin="normal" value={''} label="Name"/>
-            <TextField fullWidth margin="normal" value={''} label="Last Name"/>
-            <TextField fullWidth margin="normal" value={''} label="User Name"/>
-            <TextField fullWidth margin="normal" select value={'Admin'} label="Select Type">
+            <TextField fullWidth margin="normal" value={this.state.currentUser.name} label="Name" name="name" onChange={this.onValueChanged}/>
+            <TextField fullWidth margin="normal" value={this.state.currentUser.lastName} label="Last Name" name="lastName" onChange={this.onValueChanged}/>
+            <TextField fullWidth margin="normal" value={this.state.currentUser.username} label="User Name" name="username" onChange={this.onValueChanged}/>
+            <TextField fullWidth margin="normal" select value={this.state.currentUser.type} label="Select Type" name="type" onChange={this.onValueChanged}>
               <ListItem value="Admin">Admin</ListItem>
               <ListItem value="Normal">Normal</ListItem>
             </TextField>
-            <TextField fullWidth margin="normal" value={''} label="Age"/>
-            <RadioGroup name="gender" value="F">
+            <TextField fullWidth margin="normal" type="number" value={this.state.currentUser.age} label="Age" name="age" onChange={this.onValueChanged}/>
+            <RadioGroup name="gender" value={this.state.currentUser.gender} onChange={this.onValueChanged}>
               <FormControlLabel value="M" control={<Radio />} label="Male"/>
               <FormControlLabel value="F" control={<Radio />} label="Female"/>
             </RadioGroup>
           </DialogContent>
           <DialogActions>
-            <Button color="secondary">
+            <Button color="secondary" onClick={this.openModal}>
               Cancel
             </Button>
-            <Button color="primary">
+            <Button color="primary" onClick={this.onAddNewItem} >
               Save
             </Button>
           </DialogActions>
         </Dialog>
         <div className={classes.graphs}>
-          <Card options={averageAge} {...cardProps} title={'Average age between types'} />
-          <Card options={genderEquality} {...cardProps} title={'Males vs Females between types'} />
+          <Card options={this.avgBetweenTypes()} {...cardProps} title={'Average age between types'}/>
+          <Card options={this.malesVsFemales()} {...cardProps} title={'Males vs Females between types'} />
         </div>
         <Typography variant='p'>
           Title: "Implement the Binary Search Tree"<br />
