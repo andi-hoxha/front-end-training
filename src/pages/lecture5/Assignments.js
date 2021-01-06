@@ -104,7 +104,7 @@ class Assignments extends React.Component {
         isOpen: false,
         currentUser: {name: '', lastName: '', username: '', type: '', age: 0, gender: ''},
         item: [],
-        showData: false
+        search:''
     }
 
     /**
@@ -113,33 +113,39 @@ class Assignments extends React.Component {
      * @param {int} search
      */
     binarySearchTree(node, search) {
-        // implement
+        if (!node) {
+            return -1
+        }
+        if (node.value === search) {
+            return node
+        }
 
-        // -1 means I cannot find it. Todo return the node
-        return -1
+        if (node.value > search) {
+            return this.binarySearchTree(node.left, search)
+        }
+        return this.binarySearchTree(node.right, search)
     }
 
     onValueChanged = (event) => {
-        let name = event.target.name;
-        let value = event.target.value;
-        let user = this.state.currentUser;
+        let name = event.target.name
+        let value = event.target.value
+        let user = this.state.currentUser
+        let text = ''
         name === "age" ? user[name] = parseInt(value || 0) : user[name] = value;
-        this.setState(prevState => ({
-            // ...prevState.item,
-            currentUser: user
-        }));
-        console.log('user', user)
+        name === "search" ? text = value : text = ''
+        this.setState({
+            currentUser:user,
+            search:text
+        });
     }
 
     onSaveClicked = (event) => {
         event.preventDefault();
 
-        const {item, currentUser} = this.state
+        let {item, currentUser} = this.state
         let index = item.indexOf(currentUser)
         let found = item.includes(currentUser)
-
         if (found) {
-            item[index] = currentUser
             this.setState(prevState => ({
                 item: [...prevState.item],
                 isOpen: !this.state.isOpen,
@@ -152,7 +158,6 @@ class Assignments extends React.Component {
                 currentUser: {name: '', lastName: '', username: '', type: '', age: 0, gender: ''}
             }));
         }
-        console.log('Element found ', found)
     }
 
     openModal = () => {
@@ -162,14 +167,19 @@ class Assignments extends React.Component {
         })
     }
 
-    onEdit = (index) => {
-        let actualUser = this.state.item[index]
+    onEdit = (item) => {
         this.setState({
             isOpen: !this.state.isOpen,
-            currentUser: actualUser
+            currentUser:item
         });
-        console.log('actualUser', actualUser)
-        console.log('user1', this.state.currentUser)
+    }
+
+    onRemove = (index) => {
+        const items = [...this.state.item]
+        items.splice(index, 1)
+        this.setState({
+            item: items
+        });
     }
 
     avgBetweenTypes = () => {
@@ -227,9 +237,18 @@ class Assignments extends React.Component {
 
     render() {
         const {classes, section} = this.props
-        const search = 10
-        const value = this.binarySearchTree(tree, search)
-        const items = this.state.item.slice();
+        const searchValue = 10
+        const value = this.binarySearchTree(tree, searchValue)
+        const {item = [],search = ''} = this.state
+
+        const filteredItems = item.filter(next => {
+            const search = this.state.search.toLowerCase()
+            const name = next.name.toLowerCase()
+            const lastName = next.lastName.toLowerCase()
+            const username = next.username.toLowerCase()
+            const type = next.type.toLowerCase()
+            return name.includes(search) || lastName.includes(search) || username.includes(search) || type.includes(search)
+        })
 
         const cardProps = {
             titleClass: classes.title,
@@ -282,7 +301,7 @@ class Assignments extends React.Component {
                         <li>Based on user types show a graf of the average age of the user</li>
                     </ol>
                 </Typography>
-                <TextField fullWidth margin="normal" value={''} label="Search"/>
+                <TextField fullWidth margin="normal" name="search" value={this.state.search} onChange={this.onValueChanged} label="Search"/>
                 <Button color="primary" onClick={this.openModal}>Add New Item</Button>
                 <Table>
                     <TableHead>
@@ -297,7 +316,7 @@ class Assignments extends React.Component {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {items.map((next, index) => {
+                        {filteredItems.map((next, index) => {
                             return (
                                 <TableRow>
                                     <TableCell>{next.name}</TableCell>
@@ -307,10 +326,10 @@ class Assignments extends React.Component {
                                     <TableCell>{next.age}</TableCell>
                                     <TableCell>{next.gender}</TableCell>
                                     <TableCell>
-                                        <IconButton>
-                                            <EditIcon onClick={() => this.onEdit(index)}/>
+                                        <IconButton  onClick={() => this.onEdit(next)}>
+                                            <EditIcon/>
                                         </IconButton>
-                                        <IconButton>
+                                        <IconButton onClick={() => this.onRemove(index)}>
                                             <RemoveIcon/>
                                         </IconButton>
                                     </TableCell>
@@ -324,19 +343,14 @@ class Assignments extends React.Component {
                         My Awesome Dialog
                     </DialogTitle>
                     <DialogContent>
-                        <TextField fullWidth margin="normal" value={this.state.currentUser.name} label="Name"
-                                   name="name" onChange={this.onValueChanged}/>
-                        <TextField fullWidth margin="normal" value={this.state.currentUser.lastName} label="Last Name"
-                                   name="lastName" onChange={this.onValueChanged}/>
-                        <TextField fullWidth margin="normal" value={this.state.currentUser.username} label="User Name"
-                                   name="username" onChange={this.onValueChanged}/>
-                        <TextField fullWidth margin="normal" select value={this.state.currentUser.type}
-                                   label="Select Type" name="type" onChange={this.onValueChanged}>
+                        <TextField fullWidth margin="normal" value={this.state.currentUser.name} label="Name" name="name" onChange={this.onValueChanged}/>
+                        <TextField fullWidth margin="normal" value={this.state.currentUser.lastName} label="Last Name" name="lastName" onChange={this.onValueChanged}/>
+                        <TextField fullWidth margin="normal" value={this.state.currentUser.username} label="User Name" name="username" onChange={this.onValueChanged}/>
+                        <TextField fullWidth margin="normal" select value={this.state.currentUser.type} label="Select Type" name="type" onChange={this.onValueChanged}>
                             <ListItem value="Admin">Admin</ListItem>
                             <ListItem value="Normal">Normal</ListItem>
                         </TextField>
-                        <TextField fullWidth margin="normal" type="number" value={this.state.currentUser.age}
-                                   label="Age" name="age" onChange={this.onValueChanged}/>
+                        <TextField fullWidth margin="normal" type="number" value={this.state.currentUser.age} label="Age" name="age" onChange={this.onValueChanged}/>
                         <RadioGroup name="gender" value={this.state.currentUser.gender} onChange={this.onValueChanged}>
                             <FormControlLabel value="M" control={<Radio/>} label="Male"/>
                             <FormControlLabel value="F" control={<Radio/>} label="Female"/>

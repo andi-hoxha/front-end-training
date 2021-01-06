@@ -315,7 +315,6 @@ class Assignments extends React.Component {
     if(first > last){
       return -1;
     }
-    // -1 means I cannot find it. Todo return the index
     return -1;
   }
 
