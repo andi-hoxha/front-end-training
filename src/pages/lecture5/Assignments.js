@@ -31,7 +31,8 @@ import {
     FormControlLabel
 } from "@material-ui/core";
 import Chart from "presentations/Chart";
-import {number} from "prop-types";
+import uuid from 'uuid'
+
 
 
 const styles = ({typography, size}) => ({
@@ -102,7 +103,7 @@ class Assignments extends React.Component {
 
     state = {
         isOpen: false,
-        currentUser: {name: '', lastName: '', username: '', type: '', age: 0, gender: ''},
+        currentUser: {id:'' ,name: '', lastName: '', username: '', type: '', age: 0, gender: ''},
         item: [],
         search:''
     }
@@ -127,12 +128,15 @@ class Assignments extends React.Component {
     }
 
     onValueChanged = (event) => {
-        let name = event.target.name
-        let value = event.target.value
-        let user = this.state.currentUser
+        const {name,value} = event.target
+        let user = {...this.state.currentUser}
         let text = ''
         name === "age" ? user[name] = parseInt(value || 0) : user[name] = value;
         name === "search" ? text = value : text = ''
+        let found = this.state.item.find(next => next.id === this.state.currentUser.id)
+        if(!found){
+            user.id = uuid.v1()
+        }
         this.setState({
             currentUser:user,
             search:text
@@ -142,15 +146,19 @@ class Assignments extends React.Component {
     onSaveClicked = (event) => {
         event.preventDefault();
 
-        let {item, currentUser} = this.state
-        let index = item.indexOf(currentUser)
-        let found = item.includes(currentUser)
+        const {item =[], currentUser ={}} = this.state
+        let found = item.find(next => next.id === currentUser.id)
+        let indexOf = item.indexOf(found)
+
         if (found) {
-            this.setState(prevState => ({
-                item: [...prevState.item],
+            let updatedUser = {...currentUser}
+            let users = [...item]
+            users[indexOf] = updatedUser
+            this.setState({
+                item:users,
                 isOpen: !this.state.isOpen,
                 currentUser: {name: '', lastName: '', username: '', type: '', age: 0, gender: ''}
-            }));
+            });
         } else {
             this.setState(prevState => ({
                 item: [...prevState.item, currentUser],
@@ -163,7 +171,6 @@ class Assignments extends React.Component {
     openModal = () => {
         this.setState({
             isOpen: !this.state.isOpen,
-            currentUser: {name: '', lastName: '', username: '', type: '', age: 0, gender: ''}
         })
     }
 
