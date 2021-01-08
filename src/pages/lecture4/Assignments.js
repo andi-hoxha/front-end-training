@@ -71,13 +71,6 @@ const styles = {
     search: {
         width: '100%',
     },
-    chips: {
-        display: 'flex',
-        flexWrap: 'wrap'
-    },
-    chip: {
-        margin: 2
-    },
     formControl: {
         margin: '10px 10px',
         minWidth: 120,
@@ -123,11 +116,6 @@ const cv = `{
 
 const country = ['Albania', 'Kosovo', 'Macedonia', 'Serbia', 'Montenegro']
 const city = ['Prishtina', 'Gjakova', 'Mitrovica', 'Ferizaj', 'Peja', 'Istog', 'Gjilan', 'Podujeva', 'Prizreni']
-const uni = ['University of Prishtina UP', 'University of Prizren - Ukshin Hoti', 'University of Peja - Haxhi Zeka', 'University of Gjakova - Fehmi Agani', 'University of Gjilan - Kadri Zeka', 'University of Mitrovica - Isa Boletini', 'University of Applied Sciences in Ferizaj', 'University of Islamic studies']
-const major = ['Faculty of Philosophy', 'Faculty of Mathematics', 'Faculty of Philology', 'Faculty of Law', 'Faculty of Economics', 'Faculty of Civil Engineering and Architecture',
-    ' Faculty of Electrical and Computer Engineering', 'Faculty of Mechanical Engineering', 'Faculty of Medicine', 'Faculty of Arts', 'Faculty of Agriculture', 'Faculty of Sports Sciences',
-    'Faculty of Education']
-const academicDegree = ['Bachelor', 'Master', 'PhD']
 const softSkills = ['Communication', 'Teamwork', 'Adaptability', 'Problem-Solving', 'Creativity', 'Work Ethic', 'Interpersonal Skills', 'Time Management', 'Leadership', 'Attention to Detail'];
 const hardSkills = ['Technical Skills', 'Computer Skills', 'Analytical Skills', 'Marketing Skills', 'Presentation Skills', 'Management Skills', 'Writing Skills', 'Language Skills', 'Design Skills']
 
@@ -174,6 +162,7 @@ class Assignments extends React.Component {
         this.setState(prevState => ({
             education: [...prevState.education]
         }));
+        console.log("STATE IS: ",this.state.education)
     }
 
     handleDateChange = (date, name) => {
@@ -195,6 +184,7 @@ class Assignments extends React.Component {
         this.setState({
             education: edu
         });
+        console.log(index)
     }
 
     handleUploadClick = (event) => {
@@ -371,7 +361,7 @@ class Assignments extends React.Component {
                                 <Education education={this.state.education}
                                            index={index}
                                            testChange={this.test}
-                                           deleteClick={this.deleteEducation}
+                                           deleteClick={() => this.deleteEducation(index)}
                                 />
                             )
                         })}
@@ -455,8 +445,7 @@ class Assignments extends React.Component {
                     </Grid>
                 </div>
                 <Grid container direction={"row"} justify={"flex-end"} alignItems={"flex-end"} style={{marginTop: 30}}>
-                    <Button variant="outlined" color="primary" size={"large"} onClick={this.buildCvClicked}>Build
-                        CV</Button>
+                    <Button variant="outlined" color="primary" size={"large"} onClick={this.buildCvClicked}>Build CV</Button>
                 </Grid>
                 {this.state.cvPreview ? <CvPreview state={this.state} /> : null}
             </Fragment>
