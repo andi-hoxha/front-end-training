@@ -147,7 +147,7 @@ class Assignments extends React.Component {
             [name]: value
         });
     }
-    test = (event, index, datePickerName) => {
+    onChangedValue = (event, index, datePickerName) => {
         let name;
         let value;
         if (datePickerName === 'startDate' || datePickerName === 'endDate') {
@@ -203,6 +203,7 @@ class Assignments extends React.Component {
         this.setState({
             cvPreview: !this.state.cvPreview
         })
+        console.log("State",this.state)
     }
 
     render() {
@@ -360,7 +361,7 @@ class Assignments extends React.Component {
                             return (
                                 <Education education={this.state.education}
                                            index={index}
-                                           testChange={this.test}
+                                           testChange={this.onChangedValue}
                                            deleteClick={() => this.deleteEducation(index)}
                                 />
                             )

@@ -34,7 +34,6 @@ import Chart from "presentations/Chart";
 import uuid from 'uuid'
 
 
-
 const styles = ({typography, size}) => ({
     graphs: {
         display: 'flex',
@@ -103,9 +102,10 @@ class Assignments extends React.Component {
 
     state = {
         isOpen: false,
-        currentUser: {id:'' ,name: '', lastName: '', username: '', type: '', age: 0, gender: ''},
+        currentUser: {id: '', name: '', lastName: '', username: '', type: '', age: 0, gender: ''},
         item: [],
-        search:''
+        items: [],
+        search: ''
     }
 
     /**
@@ -128,56 +128,63 @@ class Assignments extends React.Component {
     }
 
     onValueChanged = (event) => {
-        const {name,value} = event.target
-        let user = {...this.state.currentUser}
-        let text = ''
-        name === "age" ? user[name] = parseInt(value || 0) : user[name] = value;
-        name === "search" ? text = value : text = ''
-        let found = this.state.item.find(next => next.id === this.state.currentUser.id)
-        if(!found){
-            user.id = uuid.v1()
+        const {name, value} = event.target
+
+        if (name === 'search') {
+            this.setState({
+                search: value
+            })
+            return
         }
+
+        let result = {
+            ...this.state.currentUser,
+            [name]: name === 'age' ? parseInt(value) : value
+        }
+
         this.setState({
-            currentUser:user,
-            search:text
+            currentUser: result
         });
     }
 
     onSaveClicked = (event) => {
         event.preventDefault();
+        const {item = [], currentUser = {}} = this.state
+        let itemResults = [...item]
 
-        const {item =[], currentUser ={}} = this.state
-        let found = item.find(next => next.id === currentUser.id)
-        let indexOf = item.indexOf(found)
-
+        const found = itemResults.find(next => next.id === currentUser.id)
         if (found) {
-            let updatedUser = {...currentUser}
-            let users = [...item]
-            users[indexOf] = updatedUser
-            this.setState({
-                item:users,
-                isOpen: !this.state.isOpen,
-                currentUser: {name: '', lastName: '', username: '', type: '', age: 0, gender: ''}
-            });
+            itemResults = itemResults.map(next => {
+                if (next.id === found.id) {
+                    return currentUser
+                } else {
+                    return next
+                }
+            })
         } else {
-            this.setState(prevState => ({
-                item: [...prevState.item, currentUser],
-                isOpen: !this.state.isOpen,
-                currentUser: {name: '', lastName: '', username: '', type: '', age: 0, gender: ''}
-            }));
+            itemResults = [...itemResults, currentUser]
         }
+
+        this.setState({
+            item: itemResults,
+            isOpen: false,
+            currentUser: {id: '', name: '', lastName: '', username: '', type: '', age: 0, gender: ''}
+        })
     }
 
     openModal = () => {
         this.setState({
             isOpen: !this.state.isOpen,
+            currentUser: {
+                id: uuid.v1()
+            }
         })
     }
 
     onEdit = (item) => {
         this.setState({
             isOpen: !this.state.isOpen,
-            currentUser:item
+            currentUser: item
         });
     }
 
@@ -246,17 +253,17 @@ class Assignments extends React.Component {
         const {classes, section} = this.props
         const searchValue = 10
         const value = this.binarySearchTree(tree, searchValue)
-        const {item = [],search = ''} = this.state
+        const {item = [], search = ''} = this.state
 
         const filteredItems = item.filter(next => {
             const search = this.state.search.toLowerCase()
-            const name = next.name.toLowerCase()
-            const lastName = next.lastName.toLowerCase()
-            const username = next.username.toLowerCase()
-            const type = next.type.toLowerCase()
+            const name = next.name ? next.name.toLowerCase() : ''
+            const lastName = next.lastName ? next.lastName.toLowerCase(): ''
+            const username = next.lastName ? next.username.toLowerCase(): ''
+            const type = next.type ? next.type.toLowerCase() : ''
             return name.includes(search) || lastName.includes(search) || username.includes(search) || type.includes(search)
         })
-
+        console.log('items', this.state.items)
         const cardProps = {
             titleClass: classes.title,
             className: classes.card,
@@ -308,7 +315,8 @@ class Assignments extends React.Component {
                         <li>Based on user types show a graf of the average age of the user</li>
                     </ol>
                 </Typography>
-                <TextField fullWidth margin="normal" name="search" value={this.state.search} onChange={this.onValueChanged} label="Search"/>
+                <TextField fullWidth margin="normal" name="search" value={this.state.search}
+                           onChange={this.onValueChanged} label="Search"/>
                 <Button color="primary" onClick={this.openModal}>Add New Item</Button>
                 <Table>
                     <TableHead>
@@ -333,7 +341,7 @@ class Assignments extends React.Component {
                                     <TableCell>{next.age}</TableCell>
                                     <TableCell>{next.gender}</TableCell>
                                     <TableCell>
-                                        <IconButton  onClick={() => this.onEdit(next)}>
+                                        <IconButton onClick={() => this.onEdit(next)}>
                                             <EditIcon/>
                                         </IconButton>
                                         <IconButton onClick={() => this.onRemove(index)}>
@@ -350,14 +358,19 @@ class Assignments extends React.Component {
                         My Awesome Dialog
                     </DialogTitle>
                     <DialogContent>
-                        <TextField fullWidth margin="normal" value={this.state.currentUser.name} label="Name" name="name" onChange={this.onValueChanged}/>
-                        <TextField fullWidth margin="normal" value={this.state.currentUser.lastName} label="Last Name" name="lastName" onChange={this.onValueChanged}/>
-                        <TextField fullWidth margin="normal" value={this.state.currentUser.username} label="User Name" name="username" onChange={this.onValueChanged}/>
-                        <TextField fullWidth margin="normal" select value={this.state.currentUser.type} label="Select Type" name="type" onChange={this.onValueChanged}>
+                        <TextField fullWidth margin="normal" value={this.state.currentUser.name} label="Name"
+                                   name="name" onChange={this.onValueChanged}/>
+                        <TextField fullWidth margin="normal" value={this.state.currentUser.lastName} label="Last Name"
+                                   name="lastName" onChange={this.onValueChanged}/>
+                        <TextField fullWidth margin="normal" value={this.state.currentUser.username} label="User Name"
+                                   name="username" onChange={this.onValueChanged}/>
+                        <TextField fullWidth margin="normal" select value={this.state.currentUser.type}
+                                   label="Select Type" name="type" onChange={this.onValueChanged}>
                             <ListItem value="Admin">Admin</ListItem>
                             <ListItem value="Normal">Normal</ListItem>
                         </TextField>
-                        <TextField fullWidth margin="normal" type="number" value={this.state.currentUser.age} label="Age" name="age" onChange={this.onValueChanged}/>
+                        <TextField fullWidth margin="normal" type="number" value={this.state.currentUser.age}
+                                   label="Age" name="age" onChange={this.onValueChanged}/>
                         <RadioGroup name="gender" value={this.state.currentUser.gender} onChange={this.onValueChanged}>
                             <FormControlLabel value="M" control={<Radio/>} label="Male"/>
                             <FormControlLabel value="F" control={<Radio/>} label="Female"/>

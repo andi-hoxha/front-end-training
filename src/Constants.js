@@ -53,7 +53,8 @@ module.exports = {
       VANILLA_CSS: 'vanillaCss',
       CSS_PREPROCESSORS: 'cssPreprocessors',
       CSS_IN_JS: 'CSSinJS',
-      ASSIGNMENT: 'assignments_7'
+      ASSIGNMENT: 'assignments_7',
+      JCODERS:'jCoders'
     },
     LECTURE_8: {
       ID: 'lecture8',

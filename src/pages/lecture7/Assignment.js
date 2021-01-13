@@ -8,6 +8,7 @@ import Typography from "presentations/Typography";
 import React, {Fragment} from "react";
 import CvFormBuilder from "pages/lecture7/components/CvFormBuilder";
 import {Button, Grid} from "@material-ui/core";
+import CvPreview from "pages/lecture7/components/CvPreview";
 
 const styles = ({typography}) => ({
     root: {},
@@ -91,6 +92,12 @@ class Assignment extends React.Component {
             });
         }.bind(this);
     };
+    buildCvClicked = () => {
+        this.setState({
+            cvPreview: !this.state.cvPreview
+        })
+        console.log("State",this.state)
+    }
 
     render() {
         const {classes, section} = this.props
@@ -121,6 +128,7 @@ class Assignment extends React.Component {
                 <Grid container direction={"row"} justify={"flex-end"} alignItems={"flex-end"} style={{marginTop: 30}}>
                     <Button variant="outlined" color="primary" size={"large"} onClick={this.buildCvClicked}>Build CV</Button>
                 </Grid>
+                {this.state.cvPreview ? <CvPreview state={this.state} /> : null}
             </Fragment>
         )
     }

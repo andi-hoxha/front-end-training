@@ -471,6 +471,11 @@ const routes = [
         id: PAGES.LECTURE_7.ASSIGNMENT,
         display: 'Assigment',
         children: []
+      },
+      {
+        id: PAGES.LECTURE_7.JCODERS,
+        display: 'Jcoders',
+        children: []
       }
     ]
   },

@@ -12,6 +12,7 @@ import CssPreprocessors from "pages/lecture7/CssPreprocessors";
 import CssInJS from "pages/lecture7/CssInJS";
 import Assignment from "pages/lecture7/Assignment";
 import { PAGES } from 'Constants';
+import JCoders from "pages/lecture7/JCoders";
 
 const styles = ({ typography }) => ({
   root: {},
@@ -46,6 +47,8 @@ class Lecture5 extends React.Component {
         return <CssInJS {...props} />
         case PAGES.LECTURE_7.ASSIGNMENT:
           return <Assignment {...props} />
+      case PAGES.LECTURE_7.JCODERS:
+        return <JCoders {...props} />
     }
     return <Intro {...props}/>
   }
