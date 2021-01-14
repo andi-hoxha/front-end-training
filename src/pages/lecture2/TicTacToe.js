@@ -105,7 +105,7 @@ class Board extends React.Component {
     return (
         <div>
           {elements.map((next, row) =>
-              <div key={`row-${row}`}>
+              <div key={row}>
                 {elements.map((next, index) => {
                   return this.renderSquare( (row * 3) + index )
                 })}
@@ -116,7 +116,7 @@ class Board extends React.Component {
   }
 }
 
-export default class Game extends React.Component {
+class Game extends React.Component {
   constructor (props) {
     super(props)
 
@@ -210,3 +210,5 @@ export default class Game extends React.Component {
     );
   }
 }
+
+export default Game;

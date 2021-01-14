@@ -14,6 +14,7 @@ import {disConnect} from "echarts/src/echarts";
 import Grid from "pages/lecture7/assignmentsComp/Grid";
 import Position from "pages/lecture7/assignmentsComp/Position";
 import CollapseDrag from "pages/lecture7/assignmentsComp/CollapseDrag";
+import Resizable from "pages/lecture7/assignmentsComp/Resizable";
 
 const styles = ({typography}) => ({
     root: {},
@@ -212,7 +213,7 @@ class Assignment extends React.Component {
           Using a HOC wrap the current component such that its resizable
         </Typography> */}
 
-                {/*<Resizable/>*/}
+                <Resizable/>
 
                 <Typography variant='title'>2. React Children API assignments</Typography>
                 <Typography variant='p'>

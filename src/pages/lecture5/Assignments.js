@@ -164,12 +164,14 @@ class Assignments extends React.Component {
         } else {
             itemResults = [...itemResults, currentUser]
         }
-
+        console.log('Current User is : ', currentUser)
         this.setState({
             item: itemResults,
             isOpen: false,
             currentUser: {id: '', name: '', lastName: '', username: '', type: '', age: 0, gender: ''}
         })
+        console.log('Current User ',currentUser)
+        console.log("State after save: ===> ", this.state.item)
     }
 
     openModal = () => {
@@ -255,40 +257,19 @@ class Assignments extends React.Component {
         const value = this.binarySearchTree(tree, searchValue)
         const {item = [], search = ''} = this.state
 
-        const filteredItems = item.filter(next => {
+        const filteredItems = [...item].filter(next => {
             const search = this.state.search.toLowerCase()
             const name = next.name ? next.name.toLowerCase() : ''
             const lastName = next.lastName ? next.lastName.toLowerCase(): ''
-            const username = next.lastName ? next.username.toLowerCase(): ''
+            const username = next.username ? next.username.toLowerCase(): ''
             const type = next.type ? next.type.toLowerCase() : ''
             return name.includes(search) || lastName.includes(search) || username.includes(search) || type.includes(search)
         })
-        console.log('items', this.state.items)
+        console.log('items', this.state.item)
         const cardProps = {
             titleClass: classes.title,
             className: classes.card,
             graphClass: classes.graph
-        }
-
-        // TODO: bind this to the model, calculate it based on the list of items
-        const averageAge = {
-            series: [
-                {
-                    name: 'Average age between types',
-                    type: 'pie',
-                    data: this.state.item
-                }
-            ]
-        }
-        // TODO: bind this to the model, calculate it based on the list of items
-        const genderEquality = {
-            series: [
-                {
-                    name: 'Average age between types',
-                    type: 'pie',
-                    data: this.state.item
-                }
-            ]
         }
 
         return (

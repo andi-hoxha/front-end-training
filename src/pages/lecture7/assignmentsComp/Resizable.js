@@ -5,16 +5,25 @@ import Divider from "presentations/Divider";
 import SimpleLink from "presentations/rows/SimpleLink";
 import Typography from "presentations/Typography";
 import { Button } from "@material-ui/core";
-import Position from "pages/lecture7/assignments/Position";
 
 const Card = (props) => {
   const { title, titleClass, content, ...other } = props
+  const resizableBox = {
+    width:10,
+    height:10,
+    backgroundColor: 'red',
+    position: 'absolute',
+    right:0,
+    bottom:0,
+    cursor:'se-resize',
+  }
   return (
-    <div {...other}>
+    <div {...other} id={'mainDiv'}>
       <Typography variant={'title'} className={titleClass}>{title}</Typography>
       <Typography variant={'p'} className={content} >
         I want to be draggable!
 			</Typography>
+      <div style={resizableBox} onMouseDown={props.test}/>
     </div>
   )
 }
@@ -50,6 +59,9 @@ const draggable = (WrappedComponent) => {
           y: pageY - y
         }
       })
+      const divElement = document.getElementById('mainDiv')
+      console.log('Div element',divElement.offsetWidth + x)
+      console.log('page X reset',event.pageX = 0 + x)
     }
 
     onMouseMove = (event) => {
@@ -63,6 +75,7 @@ const draggable = (WrappedComponent) => {
         x: pageX - location.x,
         y: pageY - location.y
       })
+      console.log('page X new ',this.state.x)
     }
 
     onMouseUp = (event) => {
@@ -102,7 +115,7 @@ const resizable = (WrappedComponent) => {
         width: 320,
         height: 180,
         x: 0,
-        y: 0
+        y: 0,
       }
     }
 
@@ -115,14 +128,50 @@ const resizable = (WrappedComponent) => {
       document.removeEventListener('mouseup', this.onMouseUp)
     }
 
+    //onMouseDown mark current pageX and pageY setState
+    onMouseDown  = (event) => {
+      this.setState({
+        prevX: event.pageX,
+        prevY: event.pageY
+      })
+      console.log(event.pageX)
+    }
+
+    //onMouseMove calculate difference frrom event.pageX and event.pageY (which will increase from state pageX and pageY )
+
+    onMouseMove = (event) => {
+      if(!this.state.prevX || !this.state.prevY){
+        return
+      }
+      const {prevX, prevY} = this.state
+      this.setState({
+        x:event.pageX - prevX,
+        y:event.pageY - prevY
+      })
+    }
+
+    //onMouseUp reset prev.X and prev.Y
+    onMouseUp = () => {
+      this.setState({
+        prevX: undefined,
+        prevY: undefined
+      })
+    }
+
     render() {
-      const { x, y } = this.state
+      const { x , y } = this.state
       const { style: styleFromProps, ...other } = this.props
+
+      const style = {
+        ...styleFromProps,
+        width:x === 0 ? 280+x : x,
+        height:y === 0 ? 180+y : y
+      }
       // { height: 50 }
       // const styleFromProps = this.props.style
       return (
         <div>
-          <WrappedComponent {...other} />
+          <WrappedComponent {...other} test={this.onMouseDown} style={style}/>
           <div />
         </div>
       )
@@ -130,7 +179,7 @@ const resizable = (WrappedComponent) => {
   }
 }
 
-const DraggableCard = draggable(Card, false)
+const DraggableCard = resizable(Card, false)
 
 const styles = ({ size }) => ({
   root: {
@@ -148,7 +197,7 @@ const styles = ({ size }) => ({
     display: 'flex',
     position: 'absolute',
     flexFlow: 'column wrap',
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
   },
 })
 

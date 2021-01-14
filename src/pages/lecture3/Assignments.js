@@ -131,7 +131,7 @@ class Assignments extends React.Component {
         {
           data:values.map(nr => {
             const func = Math.pow(3,2) - Math.pow(nr,2)
-            return (func > 0) ? Math.sqrt(Math.pow(3,2) - Math.pow(nr,2)) : -1 * (Math.sqrt(Math.abs(Math.pow(3,2) - Math.pow(nr,2))));
+            return (func > 0) ? Math.sqrt(Math.pow(3,2) - Math.pow(nr,2)) : -(Math.sqrt(Math.abs(Math.pow(3,2) - Math.pow(nr,2))));
           }),
           type: GRAPH_TYPES.SCATTER
         }
@@ -251,11 +251,6 @@ class Assignments extends React.Component {
    */
   function9 = (props) => {
     const data = this.randomCategoryData(8)
-    // const data = [
-    //   {name:'Andi',value:10,group:'A'},
-    //   {name:'Hello',value:100,group: 'B'},
-    //   {name:'Faton',value:-7,group: 'F'}
-    // ]
     const cumulative = data.reduce((accumulator, next) => {
       if(accumulator.length === 0){
         accumulator.push(next)
@@ -265,11 +260,6 @@ class Assignments extends React.Component {
       }
       return accumulator;
     }, [])
-    // const cumulative = data.reduce((accumulator, next) => {
-    //   const { sum, data } = accumulator
-    //   const cumulatedValue = sum + next.value
-    //   return { sum: cumulatedValue, data: [...data, {...next, value: cumulatedValue}]}
-    // }, { sum: 0, data: [] })
     const options = {
       xAxis: {
         type: 'category',
