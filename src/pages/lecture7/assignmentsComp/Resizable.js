@@ -18,7 +18,7 @@ const Card = (props) => {
         cursor: 'se-resize',
     }
     return (
-        <div {...other} id={'mainDiv'}>
+        <div {...other} id={'mainDiv'} onDoubleClick={props.onDoubleClicked}>
             <Typography variant={'title'} className={titleClass}>{title}</Typography>
             <Typography variant={'p'} className={content}>
                 I want to be draggable!
@@ -118,7 +118,8 @@ const resizable = (WrappedComponent) => {
                 mouseX: 0,
                 mouseY: 0,
                 updatedWidth:0,
-                updatedHeight:0
+                updatedHeight:0,
+                fullScreen:false
             }
         }
         onMouseDown = (event) => {
@@ -153,22 +154,38 @@ const resizable = (WrappedComponent) => {
             window.removeEventListener('mousemove', this.onMouseMove)
         }
 
+        onDoubleClicked = () => {
+          this.setState({
+            fullScreen:!this.state.fullScreen
+          })
+          console.log("fullScreen:", this.state.fullScreen)
+        }
         render() {
-            const {updatedWidth,updatedHeight} = this.state
+            const {updatedWidth,updatedHeight,fullScreen} = this.state
             const {style: styleFromProps, ...other} = this.props
 
             const style = {
                 ...styleFromProps,
                 minWidth:280,
                 minHeight:180,
+                maxWidth:'99%',
+                maxHeight:712,
                 width:updatedWidth,
                 height:updatedHeight
             }
+            const fullscreen = {
+              ...styleFromProps,
+              width:'99%',
+              height:705
+            }
+
+            const cardStyle = fullScreen ? fullscreen : style
+
             // { height: 50 }
             // const styleFromProps = this.props.style
             return (
                 <div>
-                    <WrappedComponent {...other} test={this.onMouseDown} style={style}/>
+                    <WrappedComponent {...other} onDoubleClicked={this.onDoubleClicked} test={this.onMouseDown} style={cardStyle} />
                     <div/>
                 </div>
             )
