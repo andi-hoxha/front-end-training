@@ -80,24 +80,28 @@ class Square extends React.Component{
   render() {
     const { value, highlight, onClick } = this.props
     return (
-        <Button style={{...styles.square, ...stylesFromHighlight(highlight)}} onClick={onClick}>
-          {value}
-        </Button>
-    );
+      <Button style={{...styles.square, ...stylesFromHighlight(highlight)}} onClick={onClick}>
+        {value}
+      </Button>
+    )
   }
 }
 
 class Board extends React.Component {
 
   renderSquare (i) {
-    const { highlight, squares, onSquareClicked } = this.props
-    let active = false
-    if (highlight) {
-      active = highlight.includes(i)
-    }
-    return <Square highlight={active} key={`row-${i}`} value={squares[i]} onClick={() => {
-      onSquareClicked(i)
-    }} />
+    const { highlight = [], squares, onSquareClicked } = this.props
+    let active = highlight.includes(i)
+    return (
+      <Square
+        key={`row-${i}`} // must be unique, react finds the component within a list and triggers updates when key is present
+        highlight={active}
+        value={squares[i]}
+        onClick={() => {
+          onSquareClicked(i)
+        }}
+      />
+    )
   }
 
   render() {
@@ -146,14 +150,16 @@ class Game extends React.Component {
       return
     }
     this.setState({
-      history: [...history.filter((history, index) => index <= stepIndex), {
-        board: board.map((next, boardIndex) => {
-          if (index === boardIndex) {
-            return value
-          }
-          return next
+      history: history
+        .filter((history, index) => index <= stepIndex) // remove all steps looking forwad
+        .concat({ // add the new step
+          board: board.map((next, boardIndex) => {
+            if (index === boardIndex) {
+              return value
+            }
+            return next
+          }),
         }),
-      }],
       stepIndex: stepIndex + 1
     })
   }
@@ -172,11 +178,13 @@ class Game extends React.Component {
     const label = index === 0 ? 'Start of the Game' : 'Move # ' + index
     const highlight = stepIndex === index
     const style = stylesFromHighlight(highlight)
-    return <li
+    return (
+      <li
         style={style}
         key={`history-${index}`}>
-      <Button style={style} onClick={handler}>{label}</Button>
-    </li>
+        <Button style={style} onClick={handler}>{label}</Button>
+      </li>
+    )
   }
 
   render() {

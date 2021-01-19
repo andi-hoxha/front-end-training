@@ -141,8 +141,8 @@ const resizable = (WrappedComponent) => {
             const updatedWidth = width + (event.pageX - mouseX)
             const updatedHeight = height + (event.pageY - mouseY)
             this.setState({
-              updatedHeight:updatedHeight,
-              updatedWidth:updatedWidth
+              updatedHeight: Math.max(updatedHeight, 180),
+              updatedWidth: Math.max(updatedWidth, 230)
             })
         }
 
@@ -166,8 +166,6 @@ const resizable = (WrappedComponent) => {
 
             const style = {
                 ...styleFromProps,
-                minWidth:280,
-                minHeight:180,
                 maxWidth:'99%',
                 maxHeight:712,
                 width:updatedWidth,

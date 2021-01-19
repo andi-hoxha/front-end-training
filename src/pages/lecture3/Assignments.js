@@ -10,7 +10,7 @@ import Chart from "presentations/Chart";
 import SimpleLink from "presentations/rows/SimpleLink";
 import { Normal } from "presentations/Label";
 
-import { 
+import {
   randomValuesOfLength,
   randomPositiveValues,
   randomWordsOfLength,
@@ -208,7 +208,7 @@ class Assignments extends React.Component {
       name: 'Tree',
       series: [
         {
-          data: data.sort((a, b) => b.value - a.value).filter((which, index) => index < 4),
+          data: data.sort((a, b) => b.value - a.value).slice(0, 4),
           type: GRAPH_TYPES.TREEMAP
         }
       ]
@@ -275,19 +275,17 @@ class Assignments extends React.Component {
         }
       ]
     }
-
-    console.log(data)
     const title = 'Calculate the values such that they are cumulative, each subsequent is summed with the total so far!'
     return <Card options={options} {...props} title={title} />
   }
 
   /**
    * TODO: Implement Binary Search Method
-   * @param {Array} values 
-   * @param {int} search 
+   * @param {Array} values
+   * @param {int} search
    */
   binarySearch (values, search) {
-    // implement 
+    // implement
     const sorted = values.sort();
     let first = 0;
     let last = sorted.length - 1;
@@ -360,7 +358,7 @@ class Assignments extends React.Component {
           Title: "Implement the Binary Search Function"<br/>
           Description: "Using Binary Search I will search for the given value at the given sorted array"<br/>
           To understand how binary search works visit: <SimpleLink href="https://www.tutorialspoint.com/data_structures_algorithms/binary_search_algorithm.htm">Binary Search Explanation</SimpleLink><br/>
-          
+
         </Typography>
         <Typography variant='p'>
           For the given values: {values.join(', ')}, return the index of the value {search} which is {values.indexOf(search)} using Binary Search!<br/>

@@ -9,12 +9,12 @@ class CvPreview extends Component{
     }
 
     render() {
-        const {state} = this.props || {};
+        const { state = {} } = this.props;
 
         return (
             <div className="root">
-                <LeftSide state={state || {}}/>
-                <RightSide state={state || {}}/>
+                <LeftSide state={state}/>
+                <RightSide state={state}/>
             </div>
         )
     }

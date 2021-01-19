@@ -57,9 +57,9 @@ const CollapsableWithStyles = withStyles(collapasibleStyles)(Collapsable)
 
 const collapseContainerStyles = (theme) => ({
   content: {
-    width: '100%',
+    flex: 1,
     display: 'flex',
-    flexFlow: 'row nowrap',
+    flexFlow: 'row wrap',
   },
   card: {
     background: 'white',
@@ -69,11 +69,6 @@ const collapseContainerStyles = (theme) => ({
   },
   leftSide: {
     minWidth: 320
-  },
-  content: {
-    flex: 1,
-    display: 'flex',
-    flexFlow: 'row wrap',
   },
   dragOver:{
     border: '2px dashed red'
