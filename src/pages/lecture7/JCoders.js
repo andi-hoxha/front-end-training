@@ -242,8 +242,8 @@ class Assignment extends React.Component {
                 <Typography variant='p'>
                     Place the current cards in a grid view with specific columns, and specific margin
                 </Typography>
-                <GridContainer cols={5}>
-                    <CardWithStyles title={"I'm placed within a grid"} style={{backgroundColor: 'red'}}/>
+                <GridContainer cols={4}>
+                    <CardWithStyles title={"I'm placed within a grid"}/>
                     <CardWithStyles title={"I'm placed within a grid"}>
                     </CardWithStyles>
                     <CardWithStyles title={"I'm placed within a grid"}/>

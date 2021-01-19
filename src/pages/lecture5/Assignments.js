@@ -164,14 +164,11 @@ class Assignments extends React.Component {
         } else {
             itemResults = [...itemResults, currentUser]
         }
-        console.log('Current User is : ', currentUser)
         this.setState({
             item: itemResults,
             isOpen: false,
             currentUser: {id: '', name: '', lastName: '', username: '', type: '', age: 0, gender: ''}
         })
-        console.log('Current User ',currentUser)
-        console.log("State after save: ===> ", this.state.item)
     }
 
     openModal = () => {
@@ -265,7 +262,6 @@ class Assignments extends React.Component {
             const type = next.type ? next.type.toLowerCase() : ''
             return name.includes(search) || lastName.includes(search) || username.includes(search) || type.includes(search)
         })
-        console.log('items', this.state.item)
         const cardProps = {
             titleClass: classes.title,
             className: classes.card,

@@ -7,7 +7,7 @@ import Typography from "presentations/Typography";
 import {Button} from "@material-ui/core";
 
 const Card = (props) => {
-    const {title, titleClass, content, ...other} = props
+    const {title, titleClass, content,onDoubleClicked,mouseDown, ...other} = props
     const resizableBox = {
         width: 10,
         height: 10,
@@ -18,12 +18,12 @@ const Card = (props) => {
         cursor: 'se-resize',
     }
     return (
-        <div {...other} id={'mainDiv'} onDoubleClick={props.onDoubleClicked}>
+        <div {...other} id={'mainDiv'} onDoubleClick={onDoubleClicked}>
             <Typography variant={'title'} className={titleClass}>{title}</Typography>
             <Typography variant={'p'} className={content}>
                 I want to be draggable!
             </Typography>
-            <div style={resizableBox} onMouseDown={props.test}/>
+            <div style={resizableBox} onMouseDown={mouseDown}/>
         </div>
     )
 }
@@ -167,7 +167,7 @@ const resizable = (WrappedComponent) => {
             const style = {
                 ...styleFromProps,
                 minWidth:280,
-                minHeight:180,
+                minHeight:140,
                 maxWidth:'99%',
                 maxHeight:712,
                 width:updatedWidth,
@@ -185,7 +185,7 @@ const resizable = (WrappedComponent) => {
             // const styleFromProps = this.props.style
             return (
                 <div>
-                    <WrappedComponent {...other} onDoubleClicked={this.onDoubleClicked} test={this.onMouseDown} style={cardStyle} />
+                    <WrappedComponent {...other} onDoubleClicked={this.onDoubleClicked} mouseDown={this.onMouseDown} style={cardStyle} />
                     <div/>
                 </div>
             )

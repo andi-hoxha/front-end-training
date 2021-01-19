@@ -172,7 +172,6 @@ class CollapseDrag extends React.Component {
   render() {
     const { className, classes, ...other } = this.props
     const { items } = this.state
-    console.log('items', items)
     return (
       <CollapsableContainerWithStyles onDrop={this.onDrop}>
         {items.map(next => <CollapsableWithStyles key={next.id} item={next} />)}
