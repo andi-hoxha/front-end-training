@@ -13,6 +13,7 @@ const styles = ({ typography }) => ({
 class Intro extends React.Component {
   render() {
     const { classes, section } = this.props
+      console.log(section)
     return (
       <Fragment>
         <Typography variant={'heading'}>

@@ -314,7 +314,7 @@ class AssignmentsRecap extends React.Component {
           <Divider />
         </Typography>
         <Typography variant='p'>
-          Title: "Implement add/update/delete on a User List"<br />
+          Title: "Implement add/update/delete on a UsersExample List"<br />
           We've created the following skeleton and we want to make it functional. Fill in the missing pieces of the code! The requirements are:
           <ol>
             <li>Hold a array of users at the state of this component</li>
@@ -366,7 +366,7 @@ class AssignmentsRecap extends React.Component {
           <DialogContent>
             <TextField fullWidth margin="normal" name="name" onChange={this.onValueChanged} value={editing.name} label="Name"/>
             <TextField fullWidth margin="normal" name="lastName" onChange={this.onValueChanged} value={editing.lastName} label="Last Name"/>
-            <TextField fullWidth margin="normal" name="username" onChange={this.onValueChanged} value={editing.username} label="User Name"/>
+            <TextField fullWidth margin="normal" name="username" onChange={this.onValueChanged} value={editing.username} label="UsersExample Name"/>
             <TextField fullWidth margin="normal" name="type" onChange={this.onValueChanged} select value={editing.type} label="Select Type">
               <ListItem value="Admin">Admin</ListItem>
               <ListItem value="Normal">Normal</ListItem>

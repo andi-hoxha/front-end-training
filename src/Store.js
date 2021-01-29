@@ -6,7 +6,10 @@ import middlewares from 'MiddleWares'
 import users from 'reducers/users/Users'
 import todo from 'reducers/todo/Todo'
 import posts from 'reducers/posts/Posts'
-
+import counter from "reducers/example/counter";
+import usersEx from 'reducers/usersExample/usersReducer'
+import shop from 'reducers/shop/shopReducer'
+import userTransactions from 'reducers/assignment/UserTransactions'
 
 // its running under a process, then create browser history
 const history = createBrowserHistory({
@@ -19,7 +22,11 @@ const reducers = combineReducers({
   routing: routerReducer,
   users,
   todo,
-  posts
+  posts,
+  counter,
+  usersEx,
+  shop,
+  userTransactions
 })
 
 const store = createStore(reducers, applyMiddleware(...middlewares))

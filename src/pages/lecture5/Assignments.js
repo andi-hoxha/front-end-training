@@ -161,12 +161,12 @@ class Assignments extends React.Component {
     } else {
       itemResults = itemResults.concat(editing)
     }
-    console.log('Current User is : ', editing)
+    console.log('Current UsersExample is : ', editing)
     this.setState({
       item: itemResults,
       editing: undefined
     })
-    console.log('Current User ', editing)
+    console.log('Current UsersExample ', editing)
     console.log("State after save: ===> ", this.state.item)
   }
 
@@ -252,6 +252,7 @@ class Assignments extends React.Component {
 
   renderDialog = () => {
     const {editing} = this.state
+    console.log('editting',editing)
     if (!editing) {
       return
     }
@@ -281,7 +282,7 @@ class Assignments extends React.Component {
             fullWidth
             margin="normal"
             value={editing.username}
-            label="User Name"
+            label="UsersExample Name"
             name="username"
             onChange={this.onValueChanged}
           />
@@ -342,7 +343,7 @@ class Assignments extends React.Component {
           <Divider/>
         </Typography>
         <Typography variant='p'>
-          Title: "Implement add/update/delete on a User List"<br/>
+          Title: "Implement add/update/delete on a UsersExample List"<br/>
           We've created the following skeleton and we want to make it functional. Fill in the missing pieces
           of the code! The requirements are:
           <ol>

@@ -192,7 +192,7 @@ class Assignment extends React.Component {
   render () {
     const {classes, section} = this.props
     return (
-      <Fragment>
+      <div>
         <Typography variant={'heading'}>
           {section.display}
           <Divider/>
@@ -246,8 +246,7 @@ class Assignment extends React.Component {
         </Typography>
         <GridContainer cols={2}>
           <CardWithStyles title={"I'm placed within a grid"} style={{backgroundColor: 'red'}}/>
-          <CardWithStyles title={"I'm placed within a grid"}>
-          </CardWithStyles>
+          <CardWithStyles title={"I'm placed within a grid"}/>
           <CardWithStyles title={"I'm placed within a grid"}/>
           <CardWithStyles title={"I'm placed within a grid"}/>
           <CardWithStyles title={"I'm placed within a grid"}/>
@@ -262,7 +261,7 @@ class Assignment extends React.Component {
           <CardWithStyles title={"I'm placed within a grid"}/>
           <CardWithStyles title={"I'm placed within a grid"}/>
         </GridContainer>
-      </Fragment>
+      </div>
     )
   }
 }

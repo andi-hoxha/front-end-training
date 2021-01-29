@@ -8,6 +8,7 @@ import React from "react";
 import ReduxMiddleware from "pages/lecture10/ReduxMiddleware";
 import ApiServices from "pages/lecture10/ApiServices";
 import Assignments from "pages/lecture10/Assignments";
+import Users from "pages/lecture10/components/Users";
 
 const styles = ({ typography }) => ({
   root: {},
@@ -34,6 +35,8 @@ class Lecture10 extends React.Component {
         return <ApiServices {...props} />
       case PAGES.LECTURE_10.ASSIGNMENTS:
         return <Assignments {...props} />
+      case PAGES.LECTURE_10.USERS:
+        return <Users {...props}/>
     }
     return <Intro {...props}/>
   }

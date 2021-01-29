@@ -44,7 +44,8 @@ export const addPost = (post) => {
                     body: JSON.stringify(post),
                 }
             }
-        }).then((item) => {
+        }).then((response,item) => {
+            console.log("RESPONSE",response)
             dispatch(updatePost(item))
             return item
         }, (error) => {

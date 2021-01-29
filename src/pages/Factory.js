@@ -21,6 +21,7 @@ import Lecture10 from "pages/lecture10/Lecture10";
 import Lecture11 from "pages/lecture11/Lecture11";
 import Lecture12 from "pages/lecture12/Lecture12";
 import Lecture13 from "pages/lecture13/Lecture13";
+import EShop from 'pages/ePrime/Home'
 
 const styles = ({typography}) => ({
   root: {}
@@ -74,8 +75,10 @@ class Factory extends React.Component {
 
   renderSections = (breadcrumbs) => {
     const {match, match: {params: {id = ''} = {}} = {}, location} = this.props
+    console.log('Breadcrumb',breadcrumbs)
 
     let page = breadcrumbs[0]
+    console.log('page',page)
     switch (page.id) {
       case PAGES.LECTURE_1.ID:
         return <Lecture1 breadcrumbs={breadcrumbs} />
@@ -105,6 +108,8 @@ class Factory extends React.Component {
         return <Support breadcrumbs={breadcrumbs} />
       case PAGES.PLAYGROUND:
         return <Playground page={page} />
+        case PAGES.E_PRIME:
+        return <EShop page={page} />
       default:
         return <Home/>
     }

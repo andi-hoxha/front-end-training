@@ -49,8 +49,9 @@ export const addPost = (post) => {
             redirect: 'follow', // manual, *follow, error
             referrer: 'no-referrer', // no-referrer, *client
             body: JSON.stringify(post),
-        }).then((response) => {
+        }).then((response,item) => {
             console.log('request ended with result', response)
+            console.log('request ended with result', item)
             // check the HTTP status code if it was sucessfull
             if (response.status === 200 || response.status === 201) {
                 return response.json()
