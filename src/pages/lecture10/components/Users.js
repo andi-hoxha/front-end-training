@@ -1,17 +1,13 @@
-import React, {Fragment} from "react";
+import React from "react";
 import {
     Button,
-    Dialog, DialogActions,
-    DialogContent,
-    DialogTitle, Fab,
     TextField,
     withStyles
 } from "@material-ui/core";
 import UserCard from "pages/lecture10/components/UserCard";
 import uuid from "uuid";
-import AddPhotoIcon from "@material-ui/icons/AddPhotoAlternate";
 import {connect} from "react-redux";
-import {getAllUsers, addNewUser, updateSingleUser, deleteSingleUser} from "reducers/assignment/UserTransactionActions";
+import {getAllUsers, addNewUser, updateSingleUser, deleteSingleUser} from "reducers/assignment/UserActions";
 import UserDialog from "pages/lecture10/components/UserDialog";
 import * as moment from "moment";
 import TransactionDialog from "pages/lecture10/components/TransactionDialog";
@@ -35,6 +31,19 @@ const styles = () => ({
     uploadButton: {
         color: '#3f51b5',
         margin: 10
+    },
+    loadingDialog: {
+        width: '100%',
+        height: '100%',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        backgroundColor: `rgba(255, 255, 255, 0.2)`,
+        zIndex: 1400,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: 48
     }
 })
 
@@ -45,7 +54,7 @@ const GridContainer = (props) => {
         return null
     }
 
-    const manipulateChildren = (child, index) => {
+    const manipulateChildren = (child) => {
         const width = (100 / cols)
         const {props = {}, props: {style = {}} = {}} = child
 
@@ -75,13 +84,13 @@ const GridContainer = (props) => {
 
 class Users extends React.Component {
     state = {
-        _search: ''
+        _search: '',
+        isLoading: false
     }
 
     componentDidMount() {
-        const {users, getAllUsers} = this.props
+        const {getAllUsers} = this.props
         getAllUsers()
-        console.log("ALL USERS", users)
     }
 
     onValueChanged = (event) => {
@@ -103,7 +112,8 @@ class Users extends React.Component {
     onCancelClicked = () => {
         this.setState({
             newUser: undefined,
-            userId:undefined
+            userId: undefined,
+            transaction: undefined
         })
     }
 
@@ -114,16 +124,31 @@ class Users extends React.Component {
         });
     }
 
-    onTransactionClick = (userId) => {
+    onTransactionClick = () => {
         this.setState({
-            userId: userId
+            transaction: true
         })
     }
 
+    createUsersCard = (user, index) => {
+        const {deleteSingleUser} = this.props
+        return (
+            <div key={index}>
+                <UserCard
+                    user={user}
+                    onEditClick={() => this.onEdit(user)}
+                    onDeleteClick={() => deleteSingleUser(user.id)}
+                    onTransactionClicked={() => this.onTransactionClick(user.id)}
+                />
+            </div>
+        )
+    }
 
     render() {
-        const {classes, users, deleteSingleUser} = this.props
-        const {newUser, edit, _search,userId} = this.state
+        const {classes, users} = this.props
+        const {newUser, edit, _search, transaction} = this.state
+
+        const openDialog = newUser !== undefined
 
         const filteredUsers = users.filter(next => {
             const search = _search.toLowerCase()
@@ -136,66 +161,30 @@ class Users extends React.Component {
 
         const columns = screen.width > 1536 ? 4 : 3
 
-        const dialog = () => {
-            if (!newUser) {
-                return
-            }
-            return (
-                <UserDialog state={newUser} editing={edit} onClose={this.onCancelClicked}/>
-            )
-        }
-
-        const transactionDialog = () => {
-            if(!userId) {
-                return
-            }
-            return (
-                <TransactionDialog onClose={this.onCancelClicked}/>
-            )
-        }
-
         return (
             <div className={classes.root}>
                 <Button color="primary" onClick={this.onAddClicked} className={classes.button}>Add New User</Button>
                 <TextField fullWidth margin="normal" name="_search" value={_search} onChange={this.onValueChanged}
                            label="Search"/>
                 <GridContainer cols={columns}>
-                    {filteredUsers.map((user, index) => {
-                        return (
-                            <div key={index}>
-                                <UserCard
-                                    name={user.name}
-                                    lastName={user.lastName}
-                                    email={user.email}
-                                    img={user.avatar}
-                                    about={user.about}
-                                    createdAt={user.createdAt}
-                                    age={user.age}
-                                    onEditClick={() => this.onEdit(user)}
-                                    onDeleteClick={() => deleteSingleUser(user.id)}
-                                    onTransactionClicked={() => this.onTransactionClick(user.id)}
-                                />
-                            </div>
-                        )
-                    })}
+                    {filteredUsers.map(this.createUsersCard)}
                 </GridContainer>
-                {dialog()}
-                {transactionDialog()}
+                <UserDialog state={newUser} editing={edit} onClose={this.onCancelClicked} open={openDialog}/>
+                <TransactionDialog onClose={this.onCancelClicked} open={transaction}/>
             </div>
         )
     }
 }
 
 const mapToStateProps = (state) => ({
-    users: state.userTransactions.users
+    users: state.userTransactions.users,
 })
 
-const mapDispatchToProps =
-    {
-        getAllUsers,
-        addNewUser,
-        updateSingleUser,
-        deleteSingleUser
-    }
+const mapDispatchToProps = {
+    getAllUsers,
+    addNewUser,
+    updateSingleUser,
+    deleteSingleUser
+}
 
 export default withStyles(styles)(connect(mapToStateProps, mapDispatchToProps)(Users))

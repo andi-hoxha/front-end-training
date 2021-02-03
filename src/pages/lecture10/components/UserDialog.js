@@ -1,7 +1,7 @@
 import React from "react";
 import {Button, Dialog, DialogActions, DialogContent, DialogTitle, Fab, TextField, withStyles} from "@material-ui/core";
 import AddPhotoIcon from "@material-ui/icons/AddPhotoAlternate";
-import {addNewUser, deleteSingleUser, getAllUsers, updateSingleUser} from "reducers/assignment/UserTransactionActions";
+import {addNewUser, deleteSingleUser, getAllUsers, updateSingleUser} from "reducers/assignment/UserActions";
 import {connect} from "react-redux";
 import * as moment from "moment";
 
@@ -67,10 +67,10 @@ class UserDialog extends React.Component {
 
 
     render() {
-        const {classes} = this.props
+        const {classes,open = false} = this.props
         const {newUser = {}} = this.state
         return (
-            <Dialog open={true}>
+            <Dialog open={open}>
                 <DialogTitle>
                     Create/Update User
                 </DialogTitle>
@@ -122,7 +122,6 @@ class UserDialog extends React.Component {
                         id="contained-button-file"
                         multiple
                         type="file"
-                        // style={styles.input}
                         className={classes.input}
                         onChange={this.uploadClick}
                     />

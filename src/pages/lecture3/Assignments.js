@@ -235,6 +235,7 @@ class Assignments extends React.Component {
         value: average.toFixed(2)
       }
     })
+    console.log("FUNCTION NUMBER 8 ===> ", grouped)
     const options = {
       series: [
         {

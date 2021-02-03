@@ -17,7 +17,9 @@ import * as moment from "moment";
 import {DEFAULT_IMG} from 'Constants';
 import clsx from "clsx";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import ReceiptIcon from '@material-ui/icons/Receipt';
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
+import {connect} from "react-redux";
+import {getAllTransactions} from "reducers/assignment/TransactionActions";
 
 const styles = ({size}) => ({
     main: {},
@@ -43,6 +45,18 @@ const styles = ({size}) => ({
             '& > *:first-child': {
                 fontWeight: 'bold'
             }
+        }
+    },
+    subheader: {
+        display: 'flex',
+        '& > *:first-child': {
+            display: 'flex',
+            alignItems: 'center',
+            marginRight: 5
+        },
+        '& > *:second-child': {
+            display: 'flex',
+            alignItems: 'center'
         }
     },
     icons: {
@@ -83,35 +97,47 @@ const styles = ({size}) => ({
 
 
 const UserCard = (props) => {
-    const {classes, name, lastName, email, createdAt, age, about, img, onEditClick, onDeleteClick,onTransactionClicked} = props
-    const fullName = name.concat(" ", lastName)
-    const image = img.startsWith('https://s3.amazonaws.com/') ? DEFAULT_IMG : img
+    const {classes, user, onEditClick, onDeleteClick, onTransactionClicked} = props
+    const fullName = user.name.concat(" ", user.lastName)
+    const image = user.avatar.startsWith('https://s3.amazonaws.com/') ? DEFAULT_IMG : user.avatar
     const [expanded, setExpanded] = React.useState(false);
-
     const handleExpandClick = () => {
         setExpanded(!expanded);
     }
+
+    const transactionClicked = () => {
+        const {getAllTransactions} = props
+        getAllTransactions(user.id)
+        onTransactionClicked()
+    }
+
     return (
         <div className={classes.main}>
             <Card className={classes.root}>
-                <CardHeader className={classes.header}
-                            avatar={
-                                <Avatar alt="Remy Sharp"
-                                        src={image}
-                                        className={classes.large}/>
-                            }
-                            title={fullName}
-                            subheader={moment(createdAt).fromNow()}
-                            action={
-                                <div className={classes.icons}>
-                                    <IconButton aria-label="delete" onClick={onDeleteClick}>
-                                        <DeleteIcon/>
-                                    </IconButton>
-                                    <IconButton aria-label="edit" onClick={onEditClick}>
-                                        <EditIcon/>
-                                    </IconButton>
-                                </div>
-                            }
+                <CardHeader
+                    className={classes.header}
+                    avatar={
+                        <Avatar alt="Remy Sharp"
+                                src={image}
+                                className={classes.large}/>
+                    }
+                    title={fullName}
+                    subheader={
+                        <div className={classes.subheader}>
+                            <span><AccessTimeIcon fontSize={'small'}/></span>
+                            <span>{moment(user.createdAt).fromNow()}</span>
+                        </div>
+                    }
+                    action={
+                        <div className={classes.icons}>
+                            <IconButton aria-label="delete" onClick={onDeleteClick}>
+                                <DeleteIcon/>
+                            </IconButton>
+                            <IconButton aria-label="edit" onClick={onEditClick}>
+                                <EditIcon/>
+                            </IconButton>
+                        </div>
+                    }
                 />
                 <CardActions disableSpacing className={classes.cardActions}>
                     <p>User Info</p>
@@ -135,18 +161,19 @@ const UserCard = (props) => {
                             </div>
                             <div className={classes.info}>
                                 <ChevronRightIcon/>
-                                <Typography paragraph>{age} years old</Typography>
+                                <Typography paragraph>{user.age} years old</Typography>
                             </div>
                             <div className={classes.info}>
                                 <ChevronRightIcon/>
-                                <Typography paragraph>{email}</Typography>
+                                <Typography paragraph>{user.email}</Typography>
                             </div>
                             <div className={classes.info}>
                                 <ChevronRightIcon/>
-                                <Typography>{about}</Typography>
+                                <Typography>{user.about}</Typography>
                             </div>
                             <div className={classes.info}>
-                                <Button variant="contained" color="primary" onClick={onTransactionClicked}>Transactions</Button>
+                                <Button variant="contained" color="primary"
+                                        onClick={transactionClicked}>Transactions</Button>
                             </div>
                         </div>
                     </CardContent>
@@ -156,4 +183,8 @@ const UserCard = (props) => {
     )
 }
 
-export default withStyles(styles)(UserCard)
+const DispatchToProps = {
+    getAllTransactions
+}
+
+export default withStyles(styles)(connect(null, DispatchToProps)(UserCard))

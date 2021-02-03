@@ -1,19 +1,11 @@
 import ACTIONS from '../assignment/ActionTypes';
 import {CALL_API} from 'middleware/Api';
 import ACTION_TYPES from "reducers/posts/PostsActionTypes";
-import {requestData, updatePost} from "reducers/posts/PostsActionsUsingMiddleware";
 
 export const fetchUsers = (users) => {
     return {
         type: ACTIONS.GET_USERS,
         users
-    }
-}
-
-export const fetchTransactions = (data) => {
-    return {
-        type: ACTIONS.GET_TRANSACTIONS,
-        data
     }
 }
 
@@ -37,21 +29,21 @@ export const deleteUser = (user) => {
     }
 }
 
-export const displayMessage = (response) => {
+export const requestData = () => {
     return {
-        type: ACTION_TYPES.DISPLAY_MESSAGE,
-        response
+        type: ACTION_TYPES.REQUEST_DATA
     }
 }
 
 export const getAllUsers = () => {
     return (dispatch) => {
+        dispatch(requestData())
         return dispatch({
             [CALL_API]: {
                 endpoint: '/users'
             }
         }).then((items) => {
-            console.log("USER FROM MOCK",items)
+            console.log("USER FROM MOCK", items)
             dispatch(fetchUsers(items))
             return items
         }, (error) => {
@@ -61,31 +53,31 @@ export const getAllUsers = () => {
     }
 }
 
-export const addNewUser = (item) => {
-    return (dispatch) => {
-        return dispatch({
-            [CALL_API]: {
-                endpoint: `/users`,
-                options: {
-                    method: 'POST',
-                    body: JSON.stringify(item),
-                }
-            }
-        }).then((item) => {
-            console.log('Item', item)
-            dispatch(addUser(item))
-            return item
-        }, (error) => {
-            dispatch(displayMessage(error))
-            return error
-        })
-    }
+export const addNewUser = (user) => {
+     return (dispatch) => {
+         return dispatch({
+             [CALL_API]: {
+                 endpoint: `/users`,
+                 options: {
+                     method: 'POST',
+                     body: JSON.stringify(user),
+                 }
+             }
+         }).then((item) => {
+             console.log('Item', item)
+             dispatch(addUser(item))
+             return item
+         }, (error) => {
+             console.log('Error',error)
+             return error
+         })
+     }
 }
-
 
 
 export const updateSingleUser = (user, id) => {
     return (dispatch) => {
+        dispatch(requestData())
         return dispatch({
             [CALL_API]: {
                 endpoint: `/users/${id}`,
@@ -95,10 +87,10 @@ export const updateSingleUser = (user, id) => {
                 }
             }
         }).then((item) => {
-            dispatch(updateUser(item,id))
+            dispatch(updateUser(item, id))
             return item
         }, (error) => {
-            dispatch(displayMessage(error))
+            console.log('Error', error)
             return error
         })
     }
@@ -117,7 +109,7 @@ export const deleteSingleUser = (id) => {
             dispatch(deleteUser(item))
             return item
         }, (error) => {
-            dispatch(displayMessage(error))
+            console.log('Error', error)
             return error
         })
     }
