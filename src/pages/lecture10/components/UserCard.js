@@ -21,11 +21,9 @@ import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import {connect} from "react-redux";
 import {getAllTransactions} from "reducers/assignment/TransactionActions";
 
-const styles = ({size}) => ({
-    main: {},
+const styles = ({palette,size}) => ({
     root: {
         backgroundColor: 'white',
-        // maxWidth:350,
         width: 330,
         margin: size.spacing,
         padding: 8,
@@ -92,7 +90,7 @@ const styles = ({size}) => ({
             fontSize: 15,
             fontWeight: 400
         }
-    }
+    },
 })
 
 

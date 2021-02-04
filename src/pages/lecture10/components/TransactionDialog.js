@@ -13,7 +13,7 @@ import TransactionsDashboard from "pages/lecture10/components/TransactionsDashbo
 import {connect} from "react-redux";
 
 
-const styles = () => ({
+const styles = ({palette}) => ({
     root: {
         display: 'flex',
         flexDirection: 'column',
@@ -25,13 +25,26 @@ const styles = () => ({
         overflow: 'auto',
         maxHeight: 250,
         border: '1px solid #b0b4b5'
+    },
+    dialogTitle:{
+        display:'flex',
+        width:'100%',
+        '& > *:first-child':{
+            color:palette.leadColor,
+            fontWeight:'bold',
+            marginRight:10
+        },
+        '& > *':{
+            fontSize:20
+        }
     }
 })
 
 
 const TransactionDialog = (props) => {
-    const {classes, onClose, transactions = [], open = false} = props
+    const {classes, onClose, transactions = [], open = false, user = {}} = props
     const columns = ['Product', 'Category', 'SubCategory', 'Quantity', 'Price', 'Total']
+    const fullName = user.name.concat(" ", user.lastName)
 
     return (
         <Dialog
@@ -42,7 +55,12 @@ const TransactionDialog = (props) => {
             scroll="paper"
             aria-labelledby="max-width-dialog-title"
         >
-            <DialogTitle id="max-width-dialog-title">Transactions</DialogTitle>
+            <DialogTitle id="max-width-dialog-title">{
+                <div className={classes.dialogTitle}>
+                    <h5>{fullName}</h5>
+                    <h5> / Transactions</h5>
+                </div>
+            }</DialogTitle>
             <DialogContent>
                 <div className={classes.root}>
                     <div className={classes.table}>
@@ -76,7 +94,7 @@ const TransactionDialog = (props) => {
                             </TableBody>
                         </Table>
                     </div>
-                    {/*Dashboard below*/}
+                    {/*Transactions Dashboard below*/}
                     <TransactionsDashboard/>
                 </div>
             </DialogContent>

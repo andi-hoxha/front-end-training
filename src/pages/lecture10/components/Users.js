@@ -12,7 +12,7 @@ import UserDialog from "pages/lecture10/components/UserDialog";
 import * as moment from "moment";
 import TransactionDialog from "pages/lecture10/components/TransactionDialog";
 
-const styles = () => ({
+const styles = ({palette}) => ({
     root: {
         display: 'flex',
         flexDirection: 'column',
@@ -20,7 +20,8 @@ const styles = () => ({
     },
     button: {
         display: 'flex',
-        width: 'fit-content'
+        width: 'fit-content',
+        color:palette.leadColor
     },
     input: {
         display: 'none'
@@ -85,7 +86,7 @@ const GridContainer = (props) => {
 class Users extends React.Component {
     state = {
         _search: '',
-        isLoading: false
+        isLoading: false,
     }
 
     componentDidMount() {
@@ -112,43 +113,28 @@ class Users extends React.Component {
     onCancelClicked = () => {
         this.setState({
             newUser: undefined,
-            userId: undefined,
             transaction: undefined
         })
     }
 
-    onEdit = (item) => {
+    onEdit = (user) => {
         this.setState({
-            newUser: item,
-            edit: 'Edit'
-        });
-    }
-
-    onTransactionClick = () => {
-        this.setState({
-            transaction: true
+            newUser:user,
+            edit:'Edit',
         })
     }
 
-    createUsersCard = (user, index) => {
-        const {deleteSingleUser} = this.props
-        return (
-            <div key={index}>
-                <UserCard
-                    user={user}
-                    onEditClick={() => this.onEdit(user)}
-                    onDeleteClick={() => deleteSingleUser(user.id)}
-                    onTransactionClicked={() => this.onTransactionClick(user.id)}
-                />
-            </div>
-        )
+    onTransactionClick = (user) => {
+        this.setState({
+            transaction: true,
+            user:user
+        })
     }
 
-    render() {
-        const {classes, users} = this.props
-        const {newUser, edit, _search, transaction} = this.state
 
-        const openDialog = newUser !== undefined
+    render() {
+        const {classes, users,deleteSingleUser} = this.props
+        const {newUser, edit, _search, transaction,user} = this.state
 
         const filteredUsers = users.filter(next => {
             const search = _search.toLowerCase()
@@ -167,10 +153,21 @@ class Users extends React.Component {
                 <TextField fullWidth margin="normal" name="_search" value={_search} onChange={this.onValueChanged}
                            label="Search"/>
                 <GridContainer cols={columns}>
-                    {filteredUsers.map(this.createUsersCard)}
+                    {filteredUsers.map((user,index) => {
+                        return (
+                            <div key={index}>
+                                <UserCard
+                                    user={user}
+                                    onEditClick={() => this.onEdit(user)}
+                                    onDeleteClick={() => deleteSingleUser(user.id)}
+                                    onTransactionClicked={() => this.onTransactionClick(user)}
+                                />
+                            </div>
+                        )
+                    })}
                 </GridContainer>
-                <UserDialog state={newUser} editing={edit} onClose={this.onCancelClicked} open={openDialog}/>
-                <TransactionDialog onClose={this.onCancelClicked} open={transaction}/>
+                {!newUser ? null : <UserDialog state={newUser} editing={edit} onClose={this.onCancelClicked} open={true}/>}
+                {!user ? null : <TransactionDialog onClose={this.onCancelClicked} open={transaction} user={user}/>}
             </div>
         )
     }

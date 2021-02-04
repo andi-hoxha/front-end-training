@@ -21,7 +21,7 @@ const styles = () => ({
 class UserDialog extends React.Component {
 
     state = {
-        newUser:this.props.state
+        newUser: {...this.props.state}
     }
 
     onValueChanged = (event) => {
@@ -69,6 +69,7 @@ class UserDialog extends React.Component {
     render() {
         const {classes,open = false} = this.props
         const {newUser = {}} = this.state
+        console.log('USER',this.state.newUser)
         return (
             <Dialog open={open}>
                 <DialogTitle>
@@ -133,7 +134,7 @@ class UserDialog extends React.Component {
 
                 </DialogContent>
                 <DialogActions>
-                    <Button color="secondary" onClick={this.onCancelClicked}>
+                    <Button color={"secondary"} onClick={this.onCancelClicked}>
                         Cancel
                     </Button>
                     <Button color="primary" onClick={this.onSaveClicked}>
