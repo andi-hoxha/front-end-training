@@ -3,6 +3,8 @@ import {IconButton, withStyles} from "@material-ui/core";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import RemoveCircleIcon from "@material-ui/icons/RemoveCircle";
+import ACTIONS from "reducers/shop/ShopActionTypes";
+import {connect} from "react-redux";
 
 const styles = () => ({
     item: {
@@ -67,7 +69,7 @@ const styles = () => ({
 })
 
 const ItemPreview = (props) => {
-    const {classes,productName,desc,qty,price,img} = props
+    const {classes,productName,desc,qty,price,img,id,onAddQty,onDecrementQty,onRemoveFromCart,stock} = props
     return (
         <div className={classes.item}>
             <div className={classes.product}>
@@ -78,7 +80,7 @@ const ItemPreview = (props) => {
                 </div>
             </div>
             <div className={classes.remove}>
-                <IconButton>
+                <IconButton onClick={() => onRemoveFromCart(id)}>
                     <HighlightOffIcon fontSize={'large'}/>
                 </IconButton>
             </div>
@@ -86,15 +88,36 @@ const ItemPreview = (props) => {
                 <h4>${price}</h4>
             </div>
             <div className={classes.qty}>
-                <IconButton><AddCircleIcon/></IconButton>
+                <IconButton
+                    disabled={qty >= stock}
+                    onClick={() => onAddQty(id)}>
+                    <AddCircleIcon/></IconButton>
                 <h4>{qty}</h4>
-                <IconButton><RemoveCircleIcon/></IconButton>
+                <IconButton
+                    disabled={qty <= 0}
+                    onClick={() => onDecrementQty(id)}>
+                    <RemoveCircleIcon/></IconButton>
             </div>
             <div className={classes.total}>
-                <h3>${price * qty}</h3>
+                <h3>${(price * qty).toFixed(2)}</h3>
             </div>
         </div>
     )
 }
 
-export default withStyles(styles)(ItemPreview)
+const mapStateToProps = state => {
+    return {
+        cart: state.shop.shop.cart,
+        products:state.shop.shop.primeProducts
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onAddQty: (id) => dispatch({type: ACTIONS.INCREMENT_QTY, id: id}),
+        onDecrementQty: (id) => dispatch({type: ACTIONS.DECREMENT_QTY, id: id}),
+        onRemoveFromCart: (id) => dispatch({type:ACTIONS.REMOVE_FROM_CART,id:id}),
+    }
+}
+
+export default withStyles(styles)(connect(mapStateToProps,mapDispatchToProps)(ItemPreview))

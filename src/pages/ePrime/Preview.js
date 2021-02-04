@@ -1,5 +1,5 @@
 import React from "react";
-import {IconButton, Typography, withStyles} from "@material-ui/core";
+import {Button, IconButton, Typography, withStyles} from "@material-ui/core";
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
@@ -30,20 +30,23 @@ const styles = () => ({
         alignItems: 'center',
         marginRight: 5,
         '& > *:nth-child(1)': {
-            marginRight: 60
+            marginRight: 100
         },
         '& > *:nth-child(2)': {
-            marginRight: 50
+            marginRight: 100
         },
         '& > *:nth-child(3)': {
-            marginRight: 20
+            marginRight: 25
         }
     }
 })
 
 
+
 const Preview = (props) => {
-    const {classes,cart,products} = props
+    const {classes,cart,products,onCheckout} = props
+
+
 
     return (
         <div className={classes.root}>
@@ -63,9 +66,14 @@ const Preview = (props) => {
                                  price={item.price}
                                  qty={item.qty}
                                  img={item.img}
+                                 id={item.id}
+                                 stock={item.stock}
                     />
                 )
             })}
+            <div>
+                <Button variant="contained" onClick={() => onCheckout()}>Checkout</Button>
+            </div>
         </div>
     )
 }
@@ -79,9 +87,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAddQty: (id) => dispatch({type: ACTIONS.INCREMENT_QTY, id: id}),
-        onDecrementQty: (id) => dispatch({type: ACTIONS.DECREMENT_QTY, id: id}),
-        onRemoveFromCart: (id) => dispatch({type:ACTIONS.REMOVE_FROM_CART,id:id})
+        onCheckout:() => dispatch({type:ACTIONS.CHECKOUT})
     }
 }
 
