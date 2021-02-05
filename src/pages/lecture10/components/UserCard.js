@@ -20,6 +20,9 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import {connect} from "react-redux";
 import {getAllTransactions} from "reducers/assignment/TransactionActions";
+import TodayIcon from '@material-ui/icons/Today';
+import WorkIcon from '@material-ui/icons/Work';
+import EmailIcon from '@material-ui/icons/Email';
 
 const styles = ({palette,size}) => ({
     root: {
@@ -81,6 +84,10 @@ const styles = ({palette,size}) => ({
     },
     info: {
         display: 'flex',
+        '& > *:first-child':{
+            marginRight: 5,
+            color:'#757575'
+        }
     },
     cardActions: {
         display: 'flex',
@@ -91,6 +98,15 @@ const styles = ({palette,size}) => ({
             fontWeight: 400
         }
     },
+    btn:{
+        borderColor: palette.leadAccent1,
+        color:'white',
+        backgroundColor: palette.leadAccent1,
+        '&:hover':{
+            color:palette.leadAccent1,
+            borderColor: palette.leadAccent1,
+        }
+    }
 })
 
 
@@ -154,23 +170,20 @@ const UserCard = (props) => {
                     <CardContent>
                         <div className={classes.userInfo}>
                             <div className={classes.info}>
-                                <ChevronRightIcon/>
-                                <Typography paragraph>{fullName}</Typography>
-                            </div>
-                            <div className={classes.info}>
-                                <ChevronRightIcon/>
+                                <TodayIcon/>
                                 <Typography paragraph>{user.age} years old</Typography>
                             </div>
                             <div className={classes.info}>
-                                <ChevronRightIcon/>
+                                <EmailIcon/>
                                 <Typography paragraph>{user.email}</Typography>
                             </div>
                             <div className={classes.info}>
-                                <ChevronRightIcon/>
+                                <WorkIcon/>
                                 <Typography>{user.about}</Typography>
                             </div>
                             <div className={classes.info}>
-                                <Button variant="contained" color="primary"
+                                <div/>
+                                <Button variant="contained" className={classes.btn}
                                         onClick={transactionClicked}>Transactions</Button>
                             </div>
                         </div>

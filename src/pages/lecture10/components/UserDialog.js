@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Button, Dialog, DialogActions, DialogContent, DialogTitle, Fab, TextField, withStyles} from "@material-ui/core";
 import AddPhotoIcon from "@material-ui/icons/AddPhotoAlternate";
 import {addNewUser, deleteSingleUser, getAllUsers, updateSingleUser} from "reducers/assignment/UserActions";
@@ -18,44 +18,38 @@ const styles = () => ({
     }
 })
 
-class UserDialog extends React.Component {
+const UserDialog = (props) => {
 
-    state = {
-        newUser: {...this.props.state}
-    }
+    const {state} = props
+    const [newUser,setNewUser] = useState(state)
 
-    onValueChanged = (event) => {
-        event.preventDefault()
+    const onValueChanged = (event) => {
         const {name, value} = event.target
         let user = {
-            ...(this.state.newUser),
+            ...(newUser),
             [name]:name === 'age' ? parseInt(value) : value
         }
-        this.setState({
-            newUser:user
-        })
+     setNewUser(user)
     }
 
-    uploadClick = (event) => {
+    const uploadClick = (event) => {
         let file = event.target.files[0];
         const reader = new FileReader();
         let url = reader.readAsDataURL(file);
 
         reader.onloadend = function (e) {
-            this.setState(prevState => ({
-                newUser: {...prevState.newUser, avatar: reader.result}
-            }));
+            setNewUser({...newUser,avatar:reader.result})
         }.bind(this);
     };
 
-    onCancelClicked = () => {
-       const {onClose} = this.props
+    const onCancelClicked = () => {
+       const {onClose} = props
         onClose()
     }
 
-    onSaveClicked = () => {
-        const {addNewUser,onClose,editing,updateSingleUser} = this.props
-        const user = {...this.state.newUser}
+    const onSaveClicked = () => {
+        const {addNewUser,onClose,editing,updateSingleUser} = props
+        const user = {...newUser}
         user.createdAt = moment(Date.now()).format()
         if(!editing){
             addNewUser(user)
@@ -66,10 +60,8 @@ class UserDialog extends React.Component {
     }
 
 
-    render() {
-        const {classes,open = false} = this.props
-        const {newUser = {}} = this.state
-        console.log('USER',this.state.newUser)
+        const {classes,open = false} = props
+        console.log('USER',newUser)
         return (
             <Dialog open={open}>
                 <DialogTitle>
@@ -82,7 +74,7 @@ class UserDialog extends React.Component {
                         value={newUser.name || ''}
                         label="Name"
                         name="name"
-                        onChange={this.onValueChanged}
+                        onChange={onValueChanged}
                     />
                     <TextField
                         fullWidth
@@ -90,7 +82,7 @@ class UserDialog extends React.Component {
                         value={newUser.lastName || ''}
                         label="Last Name"
                         name="lastName"
-                        onChange={this.onValueChanged}
+                        onChange={onValueChanged}
                     />
                     <TextField
                         fullWidth
@@ -98,16 +90,16 @@ class UserDialog extends React.Component {
                         value={newUser.email || ''}
                         label="Email"
                         name="email"
-                        onChange={this.onValueChanged}
+                        onChange={onValueChanged}
                     />
-                    <TextField fullWidth margin="normal" type="number" value={newUser.age || ''} label="Age" name="age" onChange={this.onValueChanged}/>
+                    <TextField fullWidth margin="normal" type="number" value={newUser.age || ''} label="Age" name="age" onChange={onValueChanged}/>
                     <TextField
                         fullWidth
                         margin="normal"
                         value={newUser.about || ''}
                         label="About"
                         name="about"
-                        onChange={this.onValueChanged}
+                        onChange={onValueChanged}
                     />
                     <TextField
                         fullWidth
@@ -115,7 +107,7 @@ class UserDialog extends React.Component {
                         value={newUser.avatar || ''}
                         label="Avatar"
                         name="avatar"
-                        onChange={this.onValueChanged}
+                        onChange={onValueChanged}
                     />
 
                     <input
@@ -124,7 +116,7 @@ class UserDialog extends React.Component {
                         multiple
                         type="file"
                         className={classes.input}
-                        onChange={this.uploadClick}
+                        onChange={uploadClick}
                     />
                     <label htmlFor="contained-button-file" className={classes.uploadImg}>
                         <Fab component="span" className={classes.uploadButton}>
@@ -134,17 +126,16 @@ class UserDialog extends React.Component {
 
                 </DialogContent>
                 <DialogActions>
-                    <Button color={"secondary"} onClick={this.onCancelClicked}>
+                    <Button color={"secondary"} onClick={onCancelClicked}>
                         Cancel
                     </Button>
-                    <Button color="primary" onClick={this.onSaveClicked}>
+                    <Button color="primary" onClick={onSaveClicked}>
                         Save
                     </Button>
                 </DialogActions>
             </Dialog>
 
         )
-    }
 }
 
 const mapDispatchToProps = {

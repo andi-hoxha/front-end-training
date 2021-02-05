@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {
     Button,
     TextField,
@@ -21,7 +21,8 @@ const styles = ({palette}) => ({
     button: {
         display: 'flex',
         width: 'fit-content',
-        color:palette.leadColor
+        color:palette.leadAccent1,
+        borderColor:palette.leadAccent1
     },
     input: {
         display: 'none'
@@ -83,61 +84,47 @@ const GridContainer = (props) => {
 }
 
 
-class Users extends React.Component {
-    state = {
-        _search: '',
-        isLoading: false,
-    }
+const Users = (props) =>  {
 
-    componentDidMount() {
-        const {getAllUsers} = this.props
+    const [searchText,setSearchText] = useState('')
+    const [newUser,setNewUser] = useState()
+    const [transaction,setTransaction] = useState('false')
+    const [edit,setEdit] = useState()
+    const [user,setUser] = useState()
+
+    useEffect(() => {
+        const {getAllUsers} = props
         getAllUsers()
+    },[])
+
+    const onValueChanged = (event) => {
+        const {value} = event.target
+        setSearchText(value)
     }
 
-    onValueChanged = (event) => {
-        event.preventDefault()
-        const {name, value} = event.target
-        this.setState({
-            [name]: value
-        })
+    const onAddClicked = () => {
+        setNewUser({id:uuid.v1()})
     }
 
-    onAddClicked = () => {
-        this.setState({
-            newUser: {
-                id: uuid.v1()
-            }
-        })
+    const onCancelClicked = () => {
+        setNewUser(undefined)
+        setTransaction(false)
     }
 
-    onCancelClicked = () => {
-        this.setState({
-            newUser: undefined,
-            transaction: undefined
-        })
+    const onEdit = (user) => {
+        setNewUser(user)
+        setEdit('Edit')
     }
 
-    onEdit = (user) => {
-        this.setState({
-            newUser:user,
-            edit:'Edit',
-        })
+    const onTransactionClick = (user) => {
+        setTransaction(true)
+        setUser(user)
     }
 
-    onTransactionClick = (user) => {
-        this.setState({
-            transaction: true,
-            user:user
-        })
-    }
-
-
-    render() {
-        const {classes, users,deleteSingleUser} = this.props
-        const {newUser, edit, _search, transaction,user} = this.state
+        const {classes, users,deleteSingleUser} = props
 
         const filteredUsers = users.filter(next => {
-            const search = _search.toLowerCase()
+            const search = searchText.toLowerCase()
             const name = next.name ? next.name.toLowerCase() : ''
             const lastName = next.lastName ? next.lastName.toLowerCase() : ''
             const fullName = name.concat(" ", lastName).toLowerCase()
@@ -149,8 +136,8 @@ class Users extends React.Component {
 
         return (
             <div className={classes.root}>
-                <Button color="primary" onClick={this.onAddClicked} className={classes.button}>Add New User</Button>
-                <TextField fullWidth margin="normal" name="_search" value={_search} onChange={this.onValueChanged}
+                <Button variant="outlined" onClick={onAddClicked} className={classes.button}>Add New User</Button>
+                <TextField fullWidth margin="normal" name="search" value={searchText} onChange={onValueChanged}
                            label="Search"/>
                 <GridContainer cols={columns}>
                     {filteredUsers.map((user,index) => {
@@ -158,19 +145,18 @@ class Users extends React.Component {
                             <div key={index}>
                                 <UserCard
                                     user={user}
-                                    onEditClick={() => this.onEdit(user)}
+                                    onEditClick={() => onEdit(user)}
                                     onDeleteClick={() => deleteSingleUser(user.id)}
-                                    onTransactionClicked={() => this.onTransactionClick(user)}
+                                    onTransactionClicked={() => onTransactionClick(user)}
                                 />
                             </div>
                         )
                     })}
                 </GridContainer>
-                {!newUser ? null : <UserDialog state={newUser} editing={edit} onClose={this.onCancelClicked} open={true}/>}
-                {!user ? null : <TransactionDialog onClose={this.onCancelClicked} open={transaction} user={user}/>}
+                {!newUser ? null : <UserDialog state={newUser} editing={edit} onClose={onCancelClicked} open={true}/>}
+                {!user ? null : <TransactionDialog onClose={onCancelClicked} open={transaction} user={user}/>}
             </div>
         )
-    }
 }
 
 const mapToStateProps = (state) => ({

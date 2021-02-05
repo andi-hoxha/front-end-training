@@ -11,6 +11,7 @@ import {
 } from "@material-ui/core";
 import TransactionsDashboard from "pages/lecture10/components/TransactionsDashboard";
 import {connect} from "react-redux";
+import noTransactions from "../../../assets/images/lecture10/No-transaction.png";
 
 
 const styles = ({palette}) => ({
@@ -26,17 +27,36 @@ const styles = ({palette}) => ({
         maxHeight: 250,
         border: '1px solid #b0b4b5'
     },
-    dialogTitle:{
+    dialogTitle: {
+        display: 'flex',
+        width: '100%',
+        '& > *:first-child': {
+            color: palette.leadColor,
+            fontWeight: 'bold',
+            marginRight: 10
+        },
+        '& > *': {
+            fontSize: 20
+        }
+    },
+    dashboard: {
+        display: 'flex',
+        width: '100%',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems:'center',
+        '& > *:first-child': {
+            width: 700,
+            height: 400,
+            objectFit: 'object-fit',
+            boxShadow: 'none'
+        }
+    },
+    main:{
         display:'flex',
         width:'100%',
-        '& > *:first-child':{
-            color:palette.leadColor,
-            fontWeight:'bold',
-            marginRight:10
-        },
-        '& > *':{
-            fontSize:20
-        }
+        justifyContent: 'center',
+        flexDirection:'column'
     }
 })
 
@@ -62,41 +82,47 @@ const TransactionDialog = (props) => {
                 </div>
             }</DialogTitle>
             <DialogContent>
-                <div className={classes.root}>
-                    <div className={classes.table}>
-                        <Table>
-                            <TableHead>
-                                <TableRow>
-                                    {columns.map((column, index) => (
-                                        <TableCell
-                                            key={index}
-                                            align="center"
-                                            style={{fontWeight: 'bold', color: 'black'}}
-                                        >
-                                            {column}
-                                        </TableCell>
-                                    ))}
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                {transactions.map((item, index) => {
-                                    return (
-                                        <TableRow key={`item-${index}`} hover={true}>
-                                            <TableCell align="center">{item.product}</TableCell>
-                                            <TableCell align="center">{item.category}</TableCell>
-                                            <TableCell align="center">{item.subCategory}</TableCell>
-                                            <TableCell align="center">{item.quantity}</TableCell>
-                                            <TableCell align="center">${item.price}</TableCell>
-                                            <TableCell align="center">${(item.quantity * item.price)}</TableCell>
-                                        </TableRow>
-                                    );
-                                })}
-                            </TableBody>
-                        </Table>
+                {transactions.length === 0 ?
+
+                        <div className={classes.dashboard}>
+                            <img src={noTransactions} alt=""/>
+                            <h3>This user does not have any transaction yet!</h3>
+                    </div> :
+                    <div className={classes.root}>
+                        <div className={classes.table}>
+                            <Table>
+                                <TableHead>
+                                    <TableRow>
+                                        {columns.map((column, index) => (
+                                            <TableCell
+                                                key={index}
+                                                align="center"
+                                                style={{fontWeight: 'bold', color: 'black'}}
+                                            >
+                                                {column}
+                                            </TableCell>
+                                        ))}
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {transactions.map((item, index) => {
+                                        return (
+                                            <TableRow key={`item-${index}`} hover={true}>
+                                                <TableCell align="center">{item.product}</TableCell>
+                                                <TableCell align="center">{item.category}</TableCell>
+                                                <TableCell align="center">{item.subCategory}</TableCell>
+                                                <TableCell align="center">{item.quantity}</TableCell>
+                                                <TableCell align="center">${item.price}</TableCell>
+                                                <TableCell align="center">${(item.quantity * item.price)}</TableCell>
+                                            </TableRow>
+                                        );
+                                    })}
+                                </TableBody>
+                            </Table>
+                        </div>
+                        <TransactionsDashboard/>
                     </div>
-                    {/*Transactions Dashboard below*/}
-                    <TransactionsDashboard/>
-                </div>
+                }
             </DialogContent>
             <DialogActions>
                 <Button onClick={onClose} color="primary">Close</Button>
