@@ -1,10 +1,11 @@
 import ACTIONS from '../assignment/ActionTypes';
 import {CALL_API} from 'middleware/Api';
+import UserTransactionService from "pages/lecture10/components/services/UserTransactionService";
 
 
 export const requestData = () => {
     return {
-        type: ACTIONS.REQUEST_DATA
+        type: ACTIONS.REQUEST_TRANSACTIONS
     }
 }
 
@@ -18,17 +19,8 @@ export const fetchTransactions = (data) => {
  export const getAllTransactions = (id) => {
     return (dispatch) => {
         dispatch(requestData())
-        return dispatch({
-            [CALL_API]: {
-                endpoint: `/users/${id}/transactions`
-            }
-        }).then((items) => {
-            dispatch(fetchTransactions(items))
-            return items
-        }, (error) => {
-            console.log(error)
-            return error
-        })
+        const service = new UserTransactionService(dispatch)
+        service.getAllTransactions(id)
     }
 }
 

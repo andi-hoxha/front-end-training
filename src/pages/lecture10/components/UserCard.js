@@ -5,13 +5,12 @@ import {
     CardActions,
     CardContent,
     CardHeader,
-    CardMedia, Collapse,
+    Collapse,
     IconButton,
     Typography,
     withStyles
 } from "@material-ui/core";
 import EditIcon from '@material-ui/icons/Edit';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import DeleteIcon from '@material-ui/icons/Delete';
 import * as moment from "moment";
 import {DEFAULT_IMG} from 'Constants';
@@ -111,16 +110,16 @@ const styles = ({palette,size}) => ({
 
 
 const UserCard = (props) => {
-    const {classes, user, onEditClick, onDeleteClick, onTransactionClicked} = props
+    const {classes, user, onEditClick, onDeleteClick, onTransactionClicked,getAllTransactions} = props
     const fullName = user.name.concat(" ", user.lastName)
     const image = user.avatar.startsWith('https://s3.amazonaws.com/') ? DEFAULT_IMG : user.avatar
     const [expanded, setExpanded] = React.useState(false);
+
     const handleExpandClick = () => {
         setExpanded(!expanded);
     }
 
     const transactionClicked = () => {
-        const {getAllTransactions} = props
         getAllTransactions(user.id)
         onTransactionClicked()
     }

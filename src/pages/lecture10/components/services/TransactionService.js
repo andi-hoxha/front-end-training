@@ -6,19 +6,15 @@ const GRAPH_TYPES = {
     TREEMAP: 'treemap'
 }
 
-class TransactionService {
+const TransactionService = transactions => {
 
-    constructor(transactions) {
-        this.transactions = transactions
-    }
-
-    totalSalesOverCategory() {
-        const groups = this.transactions.reduce((accumulator, next) => {
+    const totalSalesOverCategory = () => {
+        const groups = transactions.reduce((accumulator, next) => {
             const group = next.category
             return accumulator.includes(group) ? accumulator : [...accumulator, group]
         }, [])
         const grouped = groups.map(group => {
-            const items = this.transactions.filter(next => next.category === group)
+            const items = transactions.filter(next => next.category === group)
             const sum = items.reduce((sum, next) => sum + (next.price * next.quantity), 0)
             return {
                 name: group,
@@ -40,13 +36,14 @@ class TransactionService {
         }
     }
 
-    totalSalesOverSubCategories() {
-        const groups = this.transactions.reduce((accumulator, next) => {
+
+    const totalSalesOverSubCategories = () => {
+        const groups = transactions.reduce((accumulator, next) => {
             const group = next.subCategory
             return accumulator.includes(group) ? accumulator : [...accumulator, group]
         }, [])
         const grouped = groups.map(group => {
-            const items = this.transactions.filter(next => next.subCategory === group)
+            const items = transactions.filter(next => next.subCategory === group)
             const sum = items.reduce((sum, next) => sum + (next.price * next.quantity), 0)
             return {
                 name: group,
@@ -90,13 +87,13 @@ class TransactionService {
         };
     }
 
-    totalSalesOverProducts() {
-        const groups = this.transactions.reduce((accumulator, next) => {
+    const totalSalesOverProducts = () => {
+        const groups = transactions.reduce((accumulator, next) => {
             const group = next.product
             return accumulator.includes(group) ? accumulator : [...accumulator, group]
         }, [])
         const grouped = groups.map(group => {
-            const items = this.transactions.filter(next => next.product === group)
+            const items = transactions.filter(next => next.product === group)
             const sum = items.reduce((sum, next) => sum + (next.price * next.quantity), 0)
             return {
                 name: group,
@@ -113,13 +110,13 @@ class TransactionService {
         }
     }
 
-    topFiveSoldProducts() {
-        const groups = this.transactions.reduce((accumulator, next) => {
+    const topFiveSoldProducts = () => {
+        const groups = transactions.reduce((accumulator, next) => {
             const group = next.product
             return accumulator.includes(group) ? accumulator : [...accumulator, group]
         }, [])
         const grouped = groups.map(group => {
-            const items = this.transactions.filter(next => next.product === group)
+            const items = transactions.filter(next => next.product === group)
             const sum = items.reduce((sum, next) => sum + next.quantity, 0)
             return {
                 name: group,
@@ -137,13 +134,13 @@ class TransactionService {
         }
     }
 
-    topFiveSoldOverCategories() {
-        const groups = this.transactions.reduce((accumulator, next) => {
+    const topFiveSoldOverCategories = () => {
+        const groups = transactions.reduce((accumulator, next) => {
             const group = next.category
             return accumulator.includes(group) ? accumulator : [...accumulator, group]
         }, [])
         const grouped = groups.map(group => {
-            const items = this.transactions.filter(next => next.category === group)
+            const items = transactions.filter(next => next.category === group)
             const sum = items.reduce((sum, next) => sum + (next.quantity * next.price), 0)
             return {
                 name: group,
@@ -161,13 +158,13 @@ class TransactionService {
         }
     }
 
-    averageQuantityBetweenCategories() {
-        const groups = this.transactions.reduce((accumulator, next) => {
+    const averageQuantityBetweenCategories = () => {
+        const groups = transactions.reduce((accumulator, next) => {
             const group = next.category
             return accumulator.includes(group) ? accumulator : [...accumulator, group]
         }, [])
         const grouped = groups.map(group => {
-            const items = this.transactions.filter(next => next.category === group)
+            const items = transactions.filter(next => next.category === group)
             const length = items.length || Infinity
             const average = items.reduce((sum, next) => sum + next.quantity, 0) / length
             return {
@@ -185,6 +182,14 @@ class TransactionService {
         }
     }
 
+    return {
+        totalSalesOverCategory,
+        totalSalesOverSubCategories,
+        totalSalesOverProducts,
+        topFiveSoldOverCategories,
+        topFiveSoldProducts,
+        averageQuantityBetweenCategories
+    }
 }
 
 export default TransactionService

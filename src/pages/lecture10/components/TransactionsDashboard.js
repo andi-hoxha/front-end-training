@@ -56,7 +56,7 @@ const TransactionsDashboard = (props) => {
         graphClass: classes.graph
     }
 
-    const service = new TransactionService(transactions)
+    const service = TransactionService(transactions)
 
     return (
         <div className={classes.root}>
@@ -66,7 +66,7 @@ const TransactionsDashboard = (props) => {
                 <Card options={service.totalSalesOverProducts()} {...cardProps} title={'The Total Sales Over Products'}/>
             </div>
             <div className={classes.charts}>
-                <Card options={service.topFiveSoldProducts()} {...cardProps} title={'Top 5 Most Sold Products Based On Quantity'}/>
+               <Card options={service.topFiveSoldProducts()} {...cardProps} title={'Top 5 Most Sold Products Based On Quantity'}/>
                 <Card options={service.topFiveSoldOverCategories()} {...cardProps} title={'Top 5 Most Sold Categories'}/>
                 <Card options={service.averageQuantityBetweenCategories()} {...cardProps} title={'The Average Quantity Within Categories'}/>
             </div>
@@ -75,7 +75,7 @@ const TransactionsDashboard = (props) => {
 }
 
 const mapToStateProps = (state) => ({
-    transactions: state.userTransactions.transactions
+    transactions: state.userTransactions.transactions.items
 })
 
 export default withStyles(styles)(connect(mapToStateProps)(TransactionsDashboard))

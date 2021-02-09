@@ -44,7 +44,7 @@ const styles = ({palette}) => ({
         width: '100%',
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems:'center',
+        alignItems: 'center',
         '& > *:first-child': {
             width: 700,
             height: 400,
@@ -52,19 +52,20 @@ const styles = ({palette}) => ({
             boxShadow: 'none'
         }
     },
-    main:{
-        display:'flex',
-        width:'100%',
+    main: {
+        display: 'flex',
+        width: '100%',
         justifyContent: 'center',
-        flexDirection:'column'
+        flexDirection: 'column'
     }
 })
 
 
 const TransactionDialog = (props) => {
-    const {classes, onClose, transactions = [], open = false, user = {}} = props
+    const {classes, onClose, transactions = {}, open = false, user = {}} = props
     const columns = ['Product', 'Category', 'SubCategory', 'Quantity', 'Price', 'Total']
     const fullName = user.name.concat(" ", user.lastName)
+
 
     return (
         <Dialog
@@ -82,11 +83,10 @@ const TransactionDialog = (props) => {
                 </div>
             }</DialogTitle>
             <DialogContent>
-                {transactions.length === 0 ?
-
-                        <div className={classes.dashboard}>
-                            <img src={noTransactions} alt=""/>
-                            <h3>This user does not have any transaction yet!</h3>
+                {(!transactions.isLoading && transactions.items.length === 0) ?
+                    <div className={classes.dashboard}>
+                        <img src={noTransactions} alt=""/>
+                        <h3>This user does not have any transaction yet!</h3>
                     </div> :
                     <div className={classes.root}>
                         <div className={classes.table}>
@@ -105,7 +105,7 @@ const TransactionDialog = (props) => {
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {transactions.map((item, index) => {
+                                    {transactions.items.map((item, index) => {
                                         return (
                                             <TableRow key={`item-${index}`} hover={true}>
                                                 <TableCell align="center">{item.product}</TableCell>

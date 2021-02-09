@@ -1,6 +1,6 @@
 import ACTIONS from '../assignment/ActionTypes';
-import {CALL_API} from 'middleware/Api';
-import ACTION_TYPES from "reducers/posts/PostsActionTypes";
+import UserTransactionService from "pages/lecture10/components/services/UserTransactionService";
+
 
 export const fetchUsers = (users) => {
     return {
@@ -31,87 +31,41 @@ export const deleteUser = (user) => {
 
 export const requestData = () => {
     return {
-        type: ACTION_TYPES.REQUEST_DATA
+        type: ACTIONS.REQUEST_DATA
     }
 }
 
+
 export const getAllUsers = () => {
     return (dispatch) => {
+        const service = new UserTransactionService(dispatch)
         dispatch(requestData())
-        return dispatch({
-            [CALL_API]: {
-                endpoint: '/users'
-            }
-        }).then((items) => {
-            console.log("USER FROM MOCK", items)
-            dispatch(fetchUsers(items))
-            return items
-        }, (error) => {
-            console.log(error)
-            return error
-        })
+        service.getAllUsers()
     }
 }
 
 export const addNewUser = (user) => {
      return (dispatch) => {
-         return dispatch({
-             [CALL_API]: {
-                 endpoint: `/users`,
-                 options: {
-                     method: 'POST',
-                     body: JSON.stringify(user),
-                 }
-             }
-         }).then((item) => {
-             console.log('Item', item)
-             dispatch(addUser(item))
-             return item
-         }, (error) => {
-             console.log('Error',error)
-             return error
-         })
+         const service = new UserTransactionService(dispatch)
+         dispatch(requestData())
+         service.addNewUser(user)
      }
 }
 
 
 export const updateSingleUser = (user, id) => {
     return (dispatch) => {
+        const service = new UserTransactionService(dispatch)
         dispatch(requestData())
-        return dispatch({
-            [CALL_API]: {
-                endpoint: `/users/${id}`,
-                options: {
-                    method: 'PUT',
-                    body: JSON.stringify(user),
-                }
-            }
-        }).then((item) => {
-            dispatch(updateUser(item, id))
-            return item
-        }, (error) => {
-            console.log('Error', error)
-            return error
-        })
+        service.updateUser(user,id)
     }
 }
 
 export const deleteSingleUser = (id) => {
     return (dispatch) => {
-        return dispatch({
-            [CALL_API]: {
-                endpoint: `/users/${id}`,
-                options: {
-                    method: 'DELETE'
-                }
-            }
-        }).then((item) => {
-            dispatch(deleteUser(item))
-            return item
-        }, (error) => {
-            console.log('Error', error)
-            return error
-        })
+        const service = new UserTransactionService(dispatch)
+        dispatch(requestData())
+        service.deleteUser(id)
     }
 }
 

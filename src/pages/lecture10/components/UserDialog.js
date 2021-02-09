@@ -20,8 +20,9 @@ const styles = () => ({
 
 const UserDialog = (props) => {
 
-    const {state} = props
+    const {classes,state,open = false} = props
     const [newUser,setNewUser] = useState(state)
+
 
     const onValueChanged = (event) => {
         const {name, value} = event.target
@@ -60,8 +61,6 @@ const UserDialog = (props) => {
     }
 
 
-        const {classes,open = false} = props
-        console.log('USER',newUser)
         return (
             <Dialog open={open}>
                 <DialogTitle>

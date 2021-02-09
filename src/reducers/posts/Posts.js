@@ -1,5 +1,5 @@
-import uuid from 'uuid'
 import ACTION_TYPES from 'reducers/posts/PostsActionTypes'
+
 const posts = (state = [], action) => {
     switch (action.type) {
         case ACTION_TYPES.RECEIVE_DATA:
