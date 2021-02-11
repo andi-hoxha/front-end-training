@@ -8,6 +8,11 @@ const users = (state = {isLoading:false,items:[]}, action) => {
         case ACTIONS.ADD_USER:
             const user = action.item
             return {items:[...state.items,user]}
+        case ACTIONS.INVALIDATE_DATA:
+            return {
+                isLoading: false,
+                items: []
+            }
         case ACTIONS.UPDATE_USER:
             const userToBeUpdated = action.user
             const userFound = state.items.find(next => next.id === action.id)

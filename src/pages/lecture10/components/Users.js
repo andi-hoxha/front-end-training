@@ -7,7 +7,7 @@ import {
 import UserCard from "pages/lecture10/components/UserCard";
 import uuid from "uuid";
 import {connect} from "react-redux";
-import {getAllUsers, addNewUser, updateSingleUser, deleteSingleUser} from "reducers/assignment/UserActions";
+import {getAllUsers,invalidateData, addNewUser, updateSingleUser, deleteSingleUser} from "reducers/assignment/UserActions";
 import UserDialog from "pages/lecture10/components/UserDialog";
 import * as moment from "moment";
 import TransactionDialog from "pages/lecture10/components/TransactionDialog";
@@ -80,10 +80,11 @@ const Users = (props) => {
     const [edit, setEdit] = useState()
     const [user, setUser] = useState()
 
-    const {classes, users = [], deleteSingleUser, getAllUsers, isLoading} = props
+    const {classes, users = [], deleteSingleUser, getAllUsers,invalidateData, isLoading} = props
 
     useEffect(() => {
         getAllUsers()
+        return () => invalidateData()
     }, [])
 
     const onValueChanged = ({target: {value}}) => setSearchText(value)
@@ -156,7 +157,8 @@ const mapDispatchToProps = {
     getAllUsers,
     addNewUser,
     updateSingleUser,
-    deleteSingleUser
+    deleteSingleUser,
+    invalidateData
 }
 
 export default withStyles(styles)(connect(mapToStateProps, mapDispatchToProps)(Users))

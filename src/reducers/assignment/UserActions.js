@@ -14,6 +14,10 @@ export const addUser = (item) => ({
     item
 })
 
+export const invalidateData = () => ({
+    type: ACTIONS.INVALIDATE_DATA,
+})
+
 export const updateUser = (user, id) => {
     return {
         type: ACTIONS.UPDATE_USER,
