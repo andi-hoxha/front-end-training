@@ -11,6 +11,7 @@ import {getAllUsers, addNewUser, updateSingleUser, deleteSingleUser} from "reduc
 import UserDialog from "pages/lecture10/components/UserDialog";
 import * as moment from "moment";
 import TransactionDialog from "pages/lecture10/components/TransactionDialog";
+import LoadingDialog from "pages/lecture10/components/LoadingDialog";
 
 const styles = ({palette}) => ({
     root: {
@@ -33,19 +34,6 @@ const styles = ({palette}) => ({
     uploadButton: {
         color: '#3f51b5',
         margin: 10
-    },
-    loadingDialog: {
-        width: '100%',
-        height: '100%',
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        backgroundColor: `rgba(255, 255, 255, 0.2)`,
-        zIndex: 1400,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: 48
     }
 })
 
@@ -92,7 +80,7 @@ const Users = (props) => {
     const [edit, setEdit] = useState()
     const [user, setUser] = useState()
 
-    const {classes, users = [], deleteSingleUser,getAllUsers} = props
+    const {classes, users = [], deleteSingleUser, getAllUsers, isLoading} = props
 
     useEffect(() => {
         getAllUsers()
@@ -135,7 +123,8 @@ const Users = (props) => {
     return (
         <div className={classes.root}>
             <Button variant="outlined" onClick={onAddClicked} className={classes.button}>Add New User</Button>
-            <TextField fullWidth margin="normal" name="search" value={searchText} onChange={onValueChanged}
+            <TextField fullWidth margin="normal" name="search" value={searchText}
+                       onChange={onValueChanged}
                        label="Search"/>
             <GridContainer cols={columns}>
                 {filteredUsers.map((user, index) => {
@@ -153,12 +142,14 @@ const Users = (props) => {
             </GridContainer>
             {newUser && <UserDialog state={newUser} editing={edit} onClose={onCancelClicked} open={true}/>}
             {user && <TransactionDialog onClose={onCancelClicked} open={transaction} user={user}/>}
+            {isLoading && <LoadingDialog/>}
         </div>
     )
 }
 
 const mapToStateProps = (state) => ({
     users: state.userTransactions.users.items,
+    isLoading: state.userTransactions.users.isLoading
 })
 
 const mapDispatchToProps = {
