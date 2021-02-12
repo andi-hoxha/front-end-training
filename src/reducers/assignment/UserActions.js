@@ -44,7 +44,11 @@ export const getAllUsers = () => {
     return (dispatch) => {
         const service = new UserTransactionService(dispatch)
         dispatch(requestData())
-        service.getAllUsers()
+        service.getAllUsers().then((success) => {
+
+        }, (error) => {
+
+        })
     }
 }
 

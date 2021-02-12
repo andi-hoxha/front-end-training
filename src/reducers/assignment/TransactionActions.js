@@ -20,7 +20,7 @@ export const fetchTransactions = (data) => {
     return (dispatch) => {
         dispatch(requestData())
         const service = new UserTransactionService(dispatch)
-        service.getAllTransactions(id)
+        return service.getAllTransactions(id)
     }
 }
 

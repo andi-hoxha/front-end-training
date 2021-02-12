@@ -42,6 +42,7 @@ class UserTransactionService {
     }
 
     updateUser(user, id) {
+        // TODO: put this into redux actions handle error and response there
         return this.dispatch({
             [CALL_API]: {
                 endpoint: `/users/${id}`,

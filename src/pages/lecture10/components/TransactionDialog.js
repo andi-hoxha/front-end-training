@@ -85,61 +85,59 @@ const TransactionDialog = (props) => {
             scroll="paper"
             aria-labelledby="max-width-dialog-title"
         >
-            <DialogTitle id="max-width-dialog-title">{
+            <DialogTitle id="max-width-dialog-title">
                 <div className={classes.dialogTitle}>
                     <h5>{fullName}</h5>
                     <h5> / Transactions</h5>
                 </div>
-            }</DialogTitle>
+            </DialogTitle>
             <DialogContent>
-                {transactions.isLoading ?
+                {transactions.isLoading && (
                     <div className={classes.loading}>
                         <CircularProgress/>
                     </div>
-                    :
-                    <div>
-                        {(!transactions.isLoading && transactions.items.length === 0) ?
-                            <div className={classes.dashboard}>
-                                <img src={noTransactions} alt=""/>
-                                <h3>This user does not have any transaction yet!</h3>
-                            </div> :
-                            <div className={classes.root}>
-                                <div className={classes.table}>
-                                    <Table>
-                                        <TableHead>
-                                            <TableRow>
-                                                {columns.map((column, index) => (
-                                                    <TableCell
-                                                        key={index}
-                                                        align="center"
-                                                        style={{fontWeight: 'bold', color: 'black'}}
-                                                    >
-                                                        {column}
-                                                    </TableCell>
-                                                ))}
+                )}
+                {(!transactions.isLoading && transactions.items.length === 0) ?
+                    <div className={classes.dashboard}>
+                        <img src={noTransactions} alt=""/>
+                        <h3>This user does not have any transaction yet!</h3>
+                    </div> :
+                    <div className={classes.root}>
+                        <div className={classes.table}>
+                            <Table>
+                                <TableHead>
+                                    <TableRow>
+                                        {columns.map((column, index) => (
+                                            <TableCell
+                                                key={index}
+                                                align="center"
+                                                style={{fontWeight: 'bold', color: 'black'}}
+                                            >
+                                                {column}
+                                            </TableCell>
+                                        ))}
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {transactions.items.map((item, index) => {
+                                        return (
+                                            <TableRow key={`item-${index}`} hover={true}>
+                                                <TableCell align="center">{item.product}</TableCell>
+                                                <TableCell align="center">{item.category}</TableCell>
+                                                <TableCell align="center">{item.subCategory}</TableCell>
+                                                <TableCell align="center">{item.quantity}</TableCell>
+                                                <TableCell align="center">${item.price}</TableCell>
+                                                <TableCell
+                                                    align="center">${(item.quantity * item.price)}</TableCell>
                                             </TableRow>
-                                        </TableHead>
-                                        <TableBody>
-                                            {transactions.items.map((item, index) => {
-                                                return (
-                                                    <TableRow key={`item-${index}`} hover={true}>
-                                                        <TableCell align="center">{item.product}</TableCell>
-                                                        <TableCell align="center">{item.category}</TableCell>
-                                                        <TableCell align="center">{item.subCategory}</TableCell>
-                                                        <TableCell align="center">{item.quantity}</TableCell>
-                                                        <TableCell align="center">${item.price}</TableCell>
-                                                        <TableCell
-                                                            align="center">${(item.quantity * item.price)}</TableCell>
-                                                    </TableRow>
-                                                );
-                                            })}
-                                        </TableBody>
-                                    </Table>
-                                </div>
-                                <TransactionsDashboard/>
-                            </div>
-                        }
+                                        );
+                                    })}
+                                </TableBody>
+                            </Table>
+                        </div>
+                        <TransactionsDashboard/>
                     </div>
+                }
                 }
             </DialogContent>
             <DialogActions>
